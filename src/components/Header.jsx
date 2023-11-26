@@ -78,26 +78,35 @@ const Header = () => {
           </nav>
           <div className="flex justify-end space-x-5 ">
             <div
-              className="border px-3 flex justify-between rounded-lg border-white relative"
+              className={`border px-3 flex justify-between rounded-lg border-white relative ${
+                openInput
+                  ? "bg-white open-animation"
+                  : "py-2 px-2 bg-transparent close-animation cursor-pointer"
+              }`}
             >
               <input
                 type="text"
                 className={`rounded-lg outline-none text-sm ${
                   openInput
-                    ? "block"
-                    : "hidden"
+                    ? "px-3 py-2.5 open-animation"
+                    : "close-animation w-0 px-0 py-0"
                 }`}
                 placeholder="Qidirish..."
               />
               <button
+                className={`${
+                  openInput ? "absolute bottom-2 right-3 block" : "inline"
+                }`}
                 onClick={openSearchInput}
               >
                 <Search
-                  className="cursor-pointer text-sm"
+                  className={`cursor-pointer text-sm ${
+                    openInput ? "text-black" : "text-white"
+                  }`}
                 />
               </button>
             </div>
-            <IconButton variant="outlined" color="white" >
+            <IconButton variant="outlined" color="white">
               <ShoppingBasketOutlined />
             </IconButton>
           </div>

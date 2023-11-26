@@ -1,0 +1,27 @@
+.open-animation {
+  animation: openInputAnimation 100ms linear alternate;
+}
+@keyframes openInputAnimation {
+  from {
+    width: 0px;
+    background-color: transparent;
+  }
+  to {
+    width: 100%;
+    background-color: white;
+  }
+}
+
+.close-animation {
+  animation: closeInputAnimation 100ms linear alternate;
+}
+@keyframes closeInputAnimation {
+  from {
+    width: 100%;
+    background-color: white;
+  }
+  to {
+    width: 0px;
+    background-color: transparent;
+  }
+}
