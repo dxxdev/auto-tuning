@@ -12,7 +12,7 @@ const Header = () => {
     setOpenInput(oldVal => !oldVal);
   };
   return (
-    <header className="bg-[#f5f5f5] py-4">
+    <header className="bg-[#f5f5f5] py-4 z-[999]">
       <div
         className={`${styles.container} relative top-0 left-0 flex justify-between items-center`}
       >
