@@ -58,21 +58,21 @@ const Header = () => {
           className={`${styles.container} flex justify-between items-center absolute top-full translate-y-1/4 py-4`}
         >
           <nav className="w-full">
-            <ul className="flex gap-x-10">
+            <ul className="flex gap-x-10 text-white">
               <li>
-                <Link>Sotuv ofislarimiz</Link>
+                <Link className="text-shadow">Sotuv ofislarimiz</Link>
               </li>
               <li>
-                <Link>Salon jihozlari</Link>
+                <Link className="text-shadow">Salon jihozlari</Link>
               </li>
               <li>
-                <Link>Suvenirlar</Link>
+                <Link className="text-shadow">Suvenirlar</Link>
               </li>
               <li>
-                <Link>Antiradarlar</Link>
+                <Link className="text-shadow">Antiradarlar</Link>
               </li>
               <li>
-                <Link>Tuning jihozlari</Link>
+                <Link className="text-shadow">Tuning jihozlari</Link>
               </li>
             </ul>
           </nav>
