@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { styles } from "../styles";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets/images";
 import { Button, IconButton } from "@material-tailwind/react";
 import { Search, ShoppingBasketOutlined } from "@mui/icons-material";
@@ -30,16 +30,16 @@ const Header = () => {
         <nav>
           <ul className="flex gap-x-6">
             <li>
-              <Link>Kompaniya haqida</Link>
+              <NavLink>Kompaniya haqida</NavLink>
             </li>
             <li>
-              <Link>Yetkazib berish manzillari</Link>
+              <NavLink>Yetkazib berish manzillari</NavLink>
             </li>
             <li>
-              <Link>Yetkazib berish va to'lash</Link>
+              <NavLink>Yetkazib berish va to'lash</NavLink>
             </li>
             <li>
-              <Link>Aksiya</Link>
+              <NavLink>Aksiya</NavLink>
             </li>
           </ul>
         </nav>
@@ -60,28 +60,28 @@ const Header = () => {
           <nav className="w-full">
             <ul className="flex gap-x-10 text-white">
               <li>
-                <Link className="text-shadow">Sotuv ofislarimiz</Link>
+                <NavLink className="text-shadow">Sotuv ofislarimiz</NavLink>
               </li>
               <li>
-                <Link className="text-shadow">Salon jihozlari</Link>
+                <NavLink className="text-shadow">Salon jihozlari</NavLink>
               </li>
               <li>
-                <Link className="text-shadow">Suvenirlar</Link>
+                <NavLink className="text-shadow">Suvenirlar</NavLink>
               </li>
               <li>
-                <Link className="text-shadow">Antiradarlar</Link>
+                <NavLink className="text-shadow">Antiradarlar</NavLink>
               </li>
               <li>
-                <Link className="text-shadow">Tuning jihozlari</Link>
+                <NavLink className="text-shadow">Tuning jihozlari</NavLink>
               </li>
             </ul>
           </nav>
           <div className="flex justify-end space-x-5 ">
             <div
-              className={`border px-3 flex justify-between rounded-lg border-white relative ${
+              className={`border max-w-xs w-full flex justify-between rounded-lg border-white relative ${
                 openInput
-                  ? "bg-white open-animation"
-                  : "py-2 px-2 bg-transparent close-animation cursor-pointer"
+                  ? "bg-white open-animation pl-3"
+                  : "bg-transparent close-animation cursor-pointer"
               }`}
             >
               <input
@@ -93,20 +93,19 @@ const Header = () => {
                 }`}
                 placeholder="Qidirish..."
               />
-              <button
-                className={`${
-                  openInput ? "absolute bottom-2 right-3 block" : "inline"
-                }`}
-                onClick={openSearchInput}
-              >
+              <IconButton variant="text" onClick={openSearchInput}>
                 <Search
                   className={`cursor-pointer text-sm ${
                     openInput ? "text-black" : "text-white"
                   }`}
                 />
-              </button>
+              </IconButton>
             </div>
-            <IconButton variant="outlined" color="white">
+            <IconButton
+              variant="outlined"
+              color="white"
+              className="!w-11 !aspect-square"
+            >
               <ShoppingBasketOutlined />
             </IconButton>
           </div>
