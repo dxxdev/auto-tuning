@@ -51,7 +51,9 @@ const Header = () => {
             </p>
           </div>
           <a href="tel:+998992701032">
-            <Button variant="filled">Qo'ng'iroq qilish</Button>
+            <Button color="red" variant="filled">
+              Qo'ng'iroq qilish
+            </Button>
           </a>
         </div>
         <div
