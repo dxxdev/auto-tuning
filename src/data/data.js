@@ -100,6 +100,11 @@ import {
   rulQoplamasi38,
   rulQoplamasi39,
   rulQoplamasi310,
+  antiradar21,
+  antiradar22,
+  antiradar23,
+  antiradar24,
+  antiradar25,
 } from "../assets/images";
 
 export const products = [
@@ -170,7 +175,7 @@ export const products = [
       antiradar6,
       antiradar7,
     ],
-    price: 92000,
+    price: 920000,
   },
   {
     id: randomId(),
@@ -470,5 +475,28 @@ export const products = [
       `"Batafsil" tugmasini bosib salondagi ko'rinishini ko'ring`,
     ],
     price: 65000,
+  },
+  {
+    id: randomId(),
+    productName:
+      "Radar detektori Neoline X-COP 8800 Wi-Fi, sovg'a sifatida Avtomobil zaryadlovchi",
+    description: `O'ZBEKISTONNING NOYOB GPS RADAR VA KAMERALAR BAZASI<br/>
+    An'anaga ko'ra, NEOLINE qurilmalarida Rossiya federatsiyasi+MDH va xalqaro kameralar va radarlar bazalari mavjud. Hammasi bo'lib 120 mingdan ortiq nuqta. Ammo biz bir qadam oldinga bordik va x-COP 8800 Wi-Fi-da biz O'zbekistonning noyob, eng to'liq GPS bazasini taklif etamiz, bu raqobatchilar orasida o'xshash emas.<br/>
+    Saytda haftada bir marta GPS bazasini yangilashni unutmang www.neoline.ru va siz O'zbekiston yo'llarida biron bir yangi kamerani Sog'inmaysiz.`,
+    category: "Antiradarlar",
+    images: [antiradar21, antiradar22, antiradar23, antiradar24, antiradar25],
+    shortly: [
+      "Kafolat-2 yil",
+      "Aniqlash masofasi-2.5 km gacha",
+      "GPS moduli mavjud",
+      "Ish rejimlari - imzo, trek, Turbo, X-COP",
+      "Wi-Fi moduli mavjud",
+      "Displey-OLED",
+      "Shovqinlardan himoya qilish-bor",
+      "O'zbekiston kameralari bazasi",
+      "O'rnatish usuli-old oynada, quyosh niqobi ostida",
+      "Ishlab chiqarilgan mamlakat-Janubiy Koreya",
+    ],
+    price: 2805000,
   },
 ];

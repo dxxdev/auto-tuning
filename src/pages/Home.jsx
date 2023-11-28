@@ -43,12 +43,15 @@ const Home = () => {
           disableOnInteraction: false,
         }}
         modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper relative navigation-styled"
+        className="mySwiper relative navigation-styled w-full"
       >
         {swiperImages.map(item => {
           return (
-            <SwiperSlide key={item.id} className="max-h-[700px] h-full">
-              <img src={item.image} className="h-full" alt="" />
+            <SwiperSlide
+              key={item.id}
+              className="max-h-[700px] h-full flex justify-center items-center"
+            >
+              <img src={item.image} className="h-screen w-full" alt="" />
             </SwiperSlide>
           );
         })}

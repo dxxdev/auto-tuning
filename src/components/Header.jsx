@@ -49,7 +49,7 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex items-center space-x-6">
-          <div>
+          <div className="hidden sm:block">
             <h3 className="font-semibold">Tel: +998 (99) 270-10-32</h3>
             <p className="text-xs text-gray-700">
               Ish vaqti: 9:00 dan 18:00 gacha
