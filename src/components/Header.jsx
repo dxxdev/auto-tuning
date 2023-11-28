@@ -3,7 +3,12 @@ import { styles } from "../styles";
 import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets/images";
 import { Button, IconButton } from "@material-tailwind/react";
-import { Search, ShoppingBasketOutlined } from "@mui/icons-material";
+import {
+  Menu,
+  Phone,
+  Search,
+  ShoppingBasketOutlined,
+} from "@mui/icons-material";
 
 const Header = () => {
   const [openInput, setOpenInput] = useState(false);
@@ -12,7 +17,7 @@ const Header = () => {
     setOpenInput(oldVal => !oldVal);
   };
   return (
-    <header className="bg-[#f5f5f5] py-4 z-[999]">
+    <header className="bg-[#f5f5f5] py-4 z-[999] sticky top-0">
       <div
         className={`${styles.container} relative top-0 left-0 flex justify-between items-center`}
       >
@@ -27,7 +32,7 @@ const Header = () => {
             </span>
           </Link>
         </h1>
-        <nav>
+        <nav className="hidden xl:block">
           <ul className="flex gap-x-6">
             <li>
               <NavLink>Kompaniya haqida</NavLink>
@@ -51,15 +56,21 @@ const Header = () => {
             </p>
           </div>
           <a href="tel:+998992701032">
-            <Button color="red" variant="filled">
-              Qo'ng'iroq qilish
+            <Button color="gray" variant="filled" className="flex">
+              <div className="block xl:hidden">
+                <Phone />
+              </div>
+              <span className="hidden xl:block">Qo'ng'iroq qilish</span>
             </Button>
           </a>
         </div>
         <div
-          className={`${styles.container} flex justify-between items-center absolute top-full translate-y-1/4 py-4`}
+          className={`${styles.container} px-10 rounded-b-full flex justify-between absolute top-full translate-y-1/4 items-center py-4 bg-black bg-opacity-50`}
         >
-          <nav className="w-full">
+          <IconButton className="block lg:hidden">
+            <Menu />
+          </IconButton>
+          <nav className="w-full hidden lg:block">
             <ul className="flex gap-x-10 text-white">
               <li>
                 <NavLink className="text-shadow">Sotuv ofislarimiz</NavLink>
@@ -103,13 +114,9 @@ const Header = () => {
                 />
               </IconButton>
             </div>
-            <IconButton
-              variant="outlined"
-              color="white"
-              className="!w-11 !aspect-square"
-            >
+            <button className="!w-11 px-2 text-white border border-white rounded-lg flex justify-center items-center !aspect-square">
               <ShoppingBasketOutlined />
-            </IconButton>
+            </button>
           </div>
         </div>
       </div>

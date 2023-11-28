@@ -13,6 +13,7 @@ import { Button, Typography } from "@material-tailwind/react";
 import Typed from "typed.js";
 import { styles } from "../styles";
 import { Link } from "react-router-dom";
+import Products from "../components/Products";
 
 const Home = () => {
   const typedElement = useRef(null);
@@ -42,12 +43,12 @@ const Home = () => {
           disableOnInteraction: false,
         }}
         modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper"
+        className="mySwiper relative navigation-styled"
       >
         {swiperImages.map(item => {
           return (
             <SwiperSlide key={item.id} className="max-h-[700px] h-full">
-              <img src={item.image} alt="" />
+              <img src={item.image} className="h-full" alt="" />
             </SwiperSlide>
           );
         })}
@@ -71,6 +72,14 @@ const Home = () => {
           </div>
         </div>
       </Swiper>
+      <Typography
+        variant="h2"
+        color="black"
+        className={`${styles.container} pt-5`}
+      >
+        Mahsulotlar
+      </Typography>
+      <Products />
     </div>
   );
 };
