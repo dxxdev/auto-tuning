@@ -130,6 +130,7 @@ export const products = [
       "Universal.",
     ],
     price: 110000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -146,6 +147,7 @@ export const products = [
       phoneStend6,
     ],
     price: 77000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -160,6 +162,7 @@ export const products = [
     ],
     shortly: ["xit beradi salonni,havosini tozalaydi,hushboʻylantiradi"],
     price: 180000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -176,6 +179,7 @@ export const products = [
       antiradar7,
     ],
     price: 920000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -197,6 +201,7 @@ export const products = [
       "Havoni xushbo'ylashtiradi",
     ],
     price: 180000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -211,6 +216,7 @@ export const products = [
       "mashina uchun ajoyib parfyum",
     ],
     price: 220000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -228,6 +234,7 @@ export const products = [
       phoneStend26,
     ],
     price: 65000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -257,6 +264,7 @@ export const products = [
       "Ko'p rangli yorug'lik",
     ],
     price: 150000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -287,6 +295,7 @@ export const products = [
       "Avtomobil, uy, ofis uchun",
     ],
     price: 120000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -316,6 +325,7 @@ export const products = [
       "O'lchami: 69 * 69 * 152 mm",
     ],
     price: 110000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -325,6 +335,7 @@ export const products = [
     category: "Suvenirlar",
     images: [globusliAtir21, globusliAtir22, globusliAtir23],
     price: 127000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -341,6 +352,7 @@ export const products = [
       samolyotliAtir6,
     ],
     price: 110000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -365,6 +377,7 @@ export const products = [
       "Koptokning boshi kerakli burchak ostida 360 daraja erkin aylanish imkonini beradi. Kengaytiriladigan kronshteyn sizga eng qulay burchakni ta'minlab, avtomobil telefoningiz moslamasini ideal balandlikka moslashtirishga yordam beradi.",
     ],
     price: 90000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -381,6 +394,7 @@ export const products = [
       phoneStend46,
     ],
     price: 65000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -398,6 +412,7 @@ export const products = [
       "Havoni xushbo'ylashtiradigan aromatizator",
     ],
     price: 110000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -428,6 +443,7 @@ export const products = [
       "Hajmi: 300 ml",
     ],
     price: 95000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -449,6 +465,7 @@ export const products = [
       "Qo'lni issiq tutadi",
     ],
     price: 120000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -475,6 +492,7 @@ export const products = [
       `"Batafsil" tugmasini bosib salondagi ko'rinishini ko'ring`,
     ],
     price: 65000,
+    rating: 5,
   },
   {
     id: randomId(),
@@ -498,5 +516,6 @@ export const products = [
       "Ishlab chiqarilgan mamlakat-Janubiy Koreya",
     ],
     price: 2805000,
+    rating: 5,
   },
 ];

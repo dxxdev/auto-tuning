@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -14,9 +14,12 @@ import Typed from "typed.js";
 import { styles } from "../styles";
 import { Link } from "react-router-dom";
 import Products from "../components/Products";
+import { products } from "../data/data";
 
 const Home = () => {
   const typedElement = useRef(null);
+
+  const [productsCategory, setProductsCategory] = useState([]);
 
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
@@ -49,9 +52,9 @@ const Home = () => {
           return (
             <SwiperSlide
               key={item.id}
-              className="max-h-[700px] h-full flex justify-center items-center"
+              className="max-h-[700px] h-min min-h-min flex justify-center items-center"
             >
-              <img src={item.image} className="h-screen w-full" alt="" />
+              <img src={item.image} className="h-full w-full" alt="" />
             </SwiperSlide>
           );
         })}
@@ -63,7 +66,7 @@ const Home = () => {
                 color="white"
                 className="h-full space-x-0 lg:space-x-3 flex flex-col lg:flex-row text-white"
               >
-                <div>Mashinalar uchun</div>
+                <span>Mashinalar uchun</span>
                 <div ref={typedElement}> </div>
               </Typography>
               <Link>
@@ -82,6 +85,7 @@ const Home = () => {
       >
         Mahsulotlar
       </Typography>
+      <div className="flex justify-center items-center">{}</div>
       <Products />
     </div>
   );
