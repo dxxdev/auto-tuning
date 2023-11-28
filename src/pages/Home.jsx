@@ -21,6 +21,20 @@ const Home = () => {
 
   const [productsCategory, setProductsCategory] = useState([]);
 
+  function setCategoryToArray(arr) {
+    let categoryes = new Set();
+    arr.forEach(function (item) {
+      let category = item.category;
+      categoryes.add(category);
+    });
+    let categoryArr = Array.from(categoryes);
+    return categoryArr;
+  }
+
+  useEffect(() => {
+    setProductsCategory(setCategoryToArray(products));
+  }, []);
+
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
       strings: ["salon jihozlari", "antiradarlar", "tuning jihozlari"],
@@ -85,7 +99,15 @@ const Home = () => {
       >
         Mahsulotlar
       </Typography>
-      <div className="flex justify-center items-center">{}</div>
+      <div className="flex justify-center items-center gap-5">
+        {productsCategory.map((category, index) => {
+          return (
+            <Button key={index} variant="outlined">
+              {category}
+            </Button>
+          );
+        })}
+      </div>
       <Products />
     </div>
   );

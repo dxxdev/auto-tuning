@@ -65,12 +65,12 @@ const Header = () => {
           </a>
         </div>
         <div
-          className={`${styles.container} px-10 rounded-b-full flex justify-between absolute top-full translate-y-1/4 items-center py-4 bg-black bg-opacity-50`}
+          className={`${styles.container} px-5 xl:px-6 rounded-b-xl xl:rounded-b-3xl flex justify-between absolute top-full left-0 translate-y-1/4 items-center py-4 bg-black bg-opacity-50`}
         >
-          <IconButton className="block lg:hidden">
+          <IconButton className="block xl:hidden">
             <Menu />
           </IconButton>
-          <nav className="w-full hidden lg:block">
+          <nav className="w-full hidden xl:block">
             <ul className="flex gap-x-10 text-white">
               <li>
                 <NavLink className="text-shadow">Sotuv ofislarimiz</NavLink>
