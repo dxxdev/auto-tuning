@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { styles } from "../styles";
 import { products } from "../data/data";
 import { Link } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { IconButton, Typography } from "@material-tailwind/react";
-import { AddShoppingCartOutlined, Star } from "@mui/icons-material";
+import {
+  AddShoppingCartOutlined,
+  RemoveShoppingCartOutlined,
+  Star,
+} from "@mui/icons-material";
 
 let options = {
   style: "decimal",
@@ -14,11 +18,22 @@ let options = {
   maximumFractionDigits: 2,
 };
 const Products = () => {
+  const [render, setRender] = useState(false);
+
+  const addToCart = id => {
+    setRender(prev => !prev);
+    products.map((product, index) => {
+      index === id
+        ? (product.inTheCart = !product.inTheCart)
+        : (product.inTheCart = product.inTheCart);
+    });
+  };
+
   return (
     <ul
       className={`${styles.container} py-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-8`}
     >
-      {products.map(product => {
+      {products.map((product, index) => {
         return (
           <li
             key={product.id}
@@ -67,8 +82,16 @@ const Products = () => {
                       .replaceAll(",", " ")}{" "}
                     so'm
                   </Typography>
-                  <IconButton variant="outlined" color="gray">
-                    <AddShoppingCartOutlined />
+                  <IconButton
+                    onClick={() => addToCart(index)}
+                    variant={`${product.inTheCart ? "filled" : "outlined"}`}
+                    color="gray"
+                  >
+                    {product.inTheCart ? (
+                      <RemoveShoppingCartOutlined />
+                    ) : (
+                      <AddShoppingCartOutlined />
+                    )}
                   </IconButton>
                 </div>
               </div>

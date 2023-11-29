@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styles } from "../styles";
 import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets/images";
@@ -15,10 +15,12 @@ import {
   ShoppingBasketOutlined,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
+import { products } from "../data/data";
 
 const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [cartProducts, setCartProducts] = useState([]);
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
@@ -26,6 +28,11 @@ const Header = () => {
   const openSearchInput = () => {
     setOpenInput(oldVal => !oldVal);
   };
+
+  useEffect(() => {
+    setCartProducts(products);
+  }, [products]);
+
   return (
     <>
       <header className="bg-[#f5f5f5] py-4 z-[999] sticky top-0">
@@ -139,10 +146,14 @@ const Header = () => {
         open={open}
         onClose={closeDrawer}
         placement="right"
-        className="p-4"
+        className="p-4 overflow-auto"
       >
         <div className="mb-6 flex items-center justify-between">
-          <Typography variant="h5" color="blue-gray" className="space-x-2 flex items-center">
+          <Typography
+            variant="h5"
+            color="blue-gray"
+            className="space-x-2 flex items-center"
+          >
             <ShoppingCartOutlined />
             <span>Savatcha</span>
           </Typography>
@@ -162,6 +173,17 @@ const Header = () => {
               />
             </svg>
           </IconButton>
+        </div>
+        <div>
+          {products.map(product => {
+            if (product.inTheCart) {
+              return (
+                <div key={product.id}>
+                  <img src={product.images[0]} alt="" />
+                </div>
+              );
+            }
+          })}
         </div>
       </Drawer>
     </>
