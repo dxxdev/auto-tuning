@@ -131,6 +131,7 @@ export const products = [
     ],
     price: 110000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -148,6 +149,7 @@ export const products = [
     ],
     price: 77000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -163,6 +165,7 @@ export const products = [
     shortly: ["xit beradi salonni,havosini tozalaydi,hushboʻylantiradi"],
     price: 180000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -180,6 +183,7 @@ export const products = [
     ],
     price: 920000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -202,6 +206,7 @@ export const products = [
     ],
     price: 180000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -217,6 +222,7 @@ export const products = [
     ],
     price: 220000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -235,6 +241,7 @@ export const products = [
     ],
     price: 65000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -265,6 +272,7 @@ export const products = [
     ],
     price: 150000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -296,6 +304,7 @@ export const products = [
     ],
     price: 120000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -326,6 +335,7 @@ export const products = [
     ],
     price: 110000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -336,6 +346,7 @@ export const products = [
     images: [globusliAtir21, globusliAtir22, globusliAtir23],
     price: 127000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -353,6 +364,7 @@ export const products = [
     ],
     price: 110000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -378,6 +390,7 @@ export const products = [
     ],
     price: 90000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -395,6 +408,7 @@ export const products = [
     ],
     price: 65000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -413,6 +427,7 @@ export const products = [
     ],
     price: 110000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -444,6 +459,7 @@ export const products = [
     ],
     price: 95000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -466,6 +482,7 @@ export const products = [
     ],
     price: 120000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -493,6 +510,7 @@ export const products = [
     ],
     price: 65000,
     rating: 5,
+    inTheCart: false,
   },
   {
     id: randomId(),
@@ -517,5 +535,6 @@ export const products = [
     ],
     price: 2805000,
     rating: 5,
+    inTheCart: false,
   },
 ];
