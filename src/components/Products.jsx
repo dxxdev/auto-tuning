@@ -11,6 +11,10 @@ import {
   Star,
 } from "@mui/icons-material";
 
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 let options = {
   style: "decimal",
   useGrouping: true,
@@ -23,9 +27,34 @@ const Products = () => {
   const addToCart = id => {
     setRender(prev => !prev);
     products.map((product, index) => {
-      index === id
-        ? (product.inTheCart = !product.inTheCart)
-        : (product.inTheCart = product.inTheCart);
+      if (index === id) {
+        product.inTheCart = !product.inTheCart;
+        if (product.inTheCart) {
+          toast.success("Savatga qo'shildi", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          toast.error("Savatdan o'chirildi", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      } else {
+        product.inTheCart = product.inTheCart;
+      }
     });
   };
 
@@ -99,6 +128,7 @@ const Products = () => {
           </li>
         );
       })}
+      <ToastContainer />
     </ul>
   );
 };
