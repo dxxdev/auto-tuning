@@ -38,6 +38,22 @@ const Header = () => {
     }
   });
 
+  const [productsCategory, setProductsCategory] = useState([]);
+
+  function setCategoryToArray(arr) {
+    let categoryes = new Set();
+    arr.forEach(function (item) {
+      let category = item.category;
+      categoryes.add(category);
+    });
+    let categoryArr = Array.from(categoryes);
+    return categoryArr;
+  }
+
+  useEffect(() => {
+    setProductsCategory(setCategoryToArray(products));
+  }, []);
+
   const filteredAmout = totalAmoutArr.filter(amout => {
     return amout !== undefined;
   });
@@ -83,16 +99,16 @@ const Header = () => {
           <nav className="hidden xl:block">
             <ul className="flex gap-x-6">
               <li>
-                <NavLink>Kompaniya haqida</NavLink>
+                <NavLink to={`/faq`}>Kompaniya haqida</NavLink>
               </li>
               <li>
-                <NavLink>Yetkazib berish manzillari</NavLink>
+                <NavLink to={`/delivery`}>Yetkazib berish manzillari</NavLink>
               </li>
               <li>
-                <NavLink>Yetkazib berish va to'lash</NavLink>
+                <NavLink to={`/payment`}>Yetkazib berish va to'lash</NavLink>
               </li>
               <li>
-                <NavLink>Aksiya</NavLink>
+                <NavLink to={`/action`}>Aksiya</NavLink>
               </li>
             </ul>
           </nav>
@@ -120,21 +136,18 @@ const Header = () => {
             </IconButton>
             <nav className="w-full hidden xl:block">
               <ul className="flex gap-x-10 text-white">
-                <li>
-                  <NavLink className="text-shadow">Sotuv ofislarimiz</NavLink>
-                </li>
-                <li>
-                  <NavLink className="text-shadow">Salon jihozlari</NavLink>
-                </li>
-                <li>
-                  <NavLink className="text-shadow">Suvenirlar</NavLink>
-                </li>
-                <li>
-                  <NavLink className="text-shadow">Antiradarlar</NavLink>
-                </li>
-                <li>
-                  <NavLink className="text-shadow">Tuning jihozlari</NavLink>
-                </li>
+                {productsCategory.map((category, index) => {
+                  return (
+                    <li key={index}>
+                      <NavLink
+                        to={`/${category.toLowerCase()}`}
+                        className="text-shadow"
+                      >
+                        {category}
+                      </NavLink>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
             <div className="flex justify-end space-x-5 ">

@@ -37,7 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
-      strings: ["salon jihozlari", "antiradarlar", "tuning jihozlari"],
+      strings: productsCategory,
       typeSpeed: 50,
       backSpeed: 20,
       loop: true,
@@ -100,6 +100,7 @@ const Home = () => {
         Mahsulotlar
       </Typography>
       <div className="flex justify-center items-center gap-5">
+        <Button variant="filled">Hammasi</Button>
         {productsCategory.map((category, index) => {
           return (
             <Button key={index} variant="outlined">
