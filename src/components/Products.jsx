@@ -100,7 +100,7 @@ const Products = () => {
                 </Typography>
                 <Typography variant="small" color="black">
                   <span className="flex items-end justify-start space-x-1">
-                    <Star className="text-yellow-500" />
+                    <Star className="text-yellow-700" />
                     <span className="text-gray-700">{product.rating}</span>
                   </span>
                 </Typography>

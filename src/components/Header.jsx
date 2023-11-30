@@ -9,18 +9,48 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import {
+  Add,
   Menu,
   Phone,
+  Remove,
   Search,
   ShoppingBasketOutlined,
   ShoppingCartOutlined,
+  Star,
 } from "@mui/icons-material";
 import { products } from "../data/data";
+let options = {
+  style: "decimal",
+  useGrouping: true,
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 2,
+};
 
 const Header = () => {
   const [openInput, setOpenInput] = useState(false);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
+  const [render, setRender] = useState(false);
+
+  const totalAmoutArr = products.map(product => {
+    if (product.inTheCart) {
+      return product.price * product.countProduct;
+    }
+  });
+
+  const filteredAmout = totalAmoutArr.filter(amout => {
+    return amout !== undefined;
+  });
+
+  const totalAmout = arr => {
+    let result = 0;
+    arr.forEach(number => {
+      return (result += Number(number));
+    });
+    return result;
+  };
+
+  const total = totalAmout(filteredAmout);
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
@@ -146,7 +176,7 @@ const Header = () => {
         open={open}
         onClose={closeDrawer}
         placement="right"
-        className="p-4 overflow-auto"
+        className="p-4 flex flex-col justify-between"
       >
         <div className="mb-6 flex items-center justify-between">
           <Typography
@@ -174,16 +204,76 @@ const Header = () => {
             </svg>
           </IconButton>
         </div>
-        <div>
+        <div className="flex flex-col gap-4 grow overflow-auto">
           {products.map(product => {
             if (product.inTheCart) {
               return (
-                <div key={product.id}>
-                  <img src={product.images[0]} alt="" />
+                <div key={product.id} className="flex gap-x-5">
+                  <Link to={`/${product.id}`}>
+                    <img
+                      src={product.images[0]}
+                      className="w-32 rounded-lg"
+                      alt=""
+                    />
+                  </Link>
+                  <div>
+                    <Typography
+                      variant="lead"
+                      className="truncate w-40"
+                      color="black"
+                    >
+                      {product.productName}
+                    </Typography>
+                    <div className="flex items-center space-x-1 text-xs mb-3">
+                      <Star fontSize="12px" className="text-yellow-700" />
+                      <span className="text-gray-700">{product.rating}</span>
+                    </div>
+                    <Typography className="mb-2" variant="small" color="black">
+                      {product.price
+                        .toLocaleString("uz-UZ", options)
+                        .replaceAll(",", " ")}{" "}
+                      so'm/<sub>dona</sub>
+                    </Typography>
+                    <div className="flex items-center space-x-2">
+                      <IconButton
+                        onClick={() => {
+                          if (product.countProduct > 1) {
+                            product.countProduct--;
+                          }
+                          setRender(prev => !prev);
+                        }}
+                        size="sm"
+                        variant="outlined"
+                        color="gray"
+                      >
+                        <Remove />
+                      </IconButton>
+                      <Typography variant="h5">
+                        {product.countProduct}
+                      </Typography>
+                      <IconButton
+                        onClick={() => {
+                          product.countProduct++;
+                          setRender(prev => !prev);
+                        }}
+                        size="sm"
+                        variant="outlined"
+                        color="gray"
+                      >
+                        <Add />
+                      </IconButton>
+                    </div>
+                  </div>
                 </div>
               );
             }
           })}
+        </div>
+        <div className="flex pt-4 space-x-2">
+          <div>Jami:</div>
+          <div>
+            {total.toLocaleString("uz-UZ", options).replaceAll(",", " ")} so'm
+          </div>
         </div>
       </Drawer>
     </>

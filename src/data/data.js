@@ -132,6 +132,7 @@ export const products = [
     price: 110000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -150,6 +151,7 @@ export const products = [
     price: 77000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -166,6 +168,7 @@ export const products = [
     price: 180000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -184,6 +187,7 @@ export const products = [
     price: 920000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -207,6 +211,7 @@ export const products = [
     price: 180000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -223,6 +228,7 @@ export const products = [
     price: 220000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -242,6 +248,7 @@ export const products = [
     price: 65000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -273,6 +280,7 @@ export const products = [
     price: 150000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -305,6 +313,7 @@ export const products = [
     price: 120000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -336,6 +345,7 @@ export const products = [
     price: 110000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -347,6 +357,7 @@ export const products = [
     price: 127000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -365,6 +376,7 @@ export const products = [
     price: 110000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -391,6 +403,7 @@ export const products = [
     price: 90000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -409,6 +422,7 @@ export const products = [
     price: 65000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -428,6 +442,7 @@ export const products = [
     price: 110000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -460,6 +475,7 @@ export const products = [
     price: 95000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -483,6 +499,7 @@ export const products = [
     price: 120000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -511,6 +528,7 @@ export const products = [
     price: 65000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
   {
     id: randomId(),
@@ -536,5 +554,6 @@ export const products = [
     price: 2805000,
     rating: 5,
     inTheCart: false,
+    countProduct: 1,
   },
 ];
