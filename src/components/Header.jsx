@@ -10,6 +10,7 @@ import {
 } from "@material-tailwind/react";
 import {
   Add,
+  Delete,
   Menu,
   Phone,
   Remove,
@@ -73,6 +74,11 @@ const Header = () => {
 
   const openSearchInput = () => {
     setOpenInput(oldVal => !oldVal);
+  };
+
+  const removeToCart = index => {
+    products[index].inTheCart = false;
+    setRender(prev => !prev);
   };
 
   useEffect(() => {
@@ -218,7 +224,7 @@ const Header = () => {
           </IconButton>
         </div>
         <div className="flex flex-col gap-4 grow overflow-auto">
-          {products.map(product => {
+          {products.map((product, index) => {
             if (product.inTheCart) {
               return (
                 <div key={product.id} className="flex gap-x-5">
@@ -274,6 +280,16 @@ const Header = () => {
                         color="gray"
                       >
                         <Add />
+                      </IconButton>
+                      <IconButton
+                        onClick={() => {
+                          removeToCart(index);
+                        }}
+                        variant="filled"
+                        color="red"
+                        size="sm"
+                      >
+                        <Delete />
                       </IconButton>
                     </div>
                   </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styles } from "../styles";
 import { products } from "../data/data";
 import { Link } from "react-router-dom";
@@ -57,6 +57,10 @@ const Products = () => {
       }
     });
   };
+
+  useEffect(() => {
+    setRender(prev => !prev);
+  }, [products.map(product => product)]);
 
   return (
     <>

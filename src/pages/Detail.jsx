@@ -4,29 +4,73 @@ import { products } from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
-import { EffectCreative } from "swiper/modules";
+import { Autoplay, EffectCreative } from "swiper/modules";
 import { styles } from "../styles";
-import { Typography, typography } from "@material-tailwind/react";
+import { IconButton, Typography } from "@material-tailwind/react";
+import {
+  AddShoppingCartOutlined,
+  RemoveShoppingCartOutlined,
+  Star,
+} from "@mui/icons-material";
+import { ToastContainer, toast } from "react-toastify";
 
 const Detail = () => {
   const [info, setInfo] = useState();
+  const [render, setRender] = useState(true);
   let locationProductArr;
   let location = useLocation();
   locationProductArr = location.pathname.slice(1);
+  let infoProductArr = products.filter(product => {
+    return product.id == locationProductArr;
+  });
   useEffect(() => {
-    let infoProductArr = products.filter(product => {
-      return product.id == locationProductArr;
-    });
     setInfo(infoProductArr[0]);
   }, []);
+
+  useEffect(() => {
+    setRender(prev => !prev);
+  }, [products.map(product => product.inTheCart)]);
+
+  const addToCart = () => {
+    setRender(prev => !prev);
+    info.inTheCart = !info.inTheCart;
+    if (info.inTheCart) {
+      toast.success("Savatga qo'shildi", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      toast.error("Savatdan o'chirildi", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
+
   console.log(info);
   return (
-    <div className={`py-20 flex ${styles.container}`}>
+    <div className={`py-20 flex ${styles.container} gap-x-10`}>
       {info && (
         <div className="flex flex-row-reverse space-x-5 w-96 p-5">
           <Swiper
             grabCursor={true}
             effect={"creative"}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
             creativeEffect={{
               prev: {
                 shadow: true,
@@ -40,7 +84,7 @@ const Detail = () => {
                 rotate: [0, -100, 0],
               },
             }}
-            modules={[EffectCreative]}
+            modules={[EffectCreative, Autoplay]}
             className="mySwiper6"
           >
             {info &&
@@ -55,10 +99,42 @@ const Detail = () => {
         </div>
       )}
       {info && (
-        <div className="w-full p-5">
+        <div className="w-full relative p-5">
+          <div className="absolute right-5 top-5">
+            <IconButton
+              onClick={addToCart}
+              variant={`${info.inTheCart ? "filled" : "outlined"}`}
+              color="gray"
+            >
+              {info.inTheCart ? (
+                <RemoveShoppingCartOutlined />
+              ) : (
+                <AddShoppingCartOutlined />
+              )}
+            </IconButton>
+          </div>
+          <div className="flex justify-start items-center space-x-2 text-xs">
+            <Star fontSize="small" className="text-yellow-700" />
+            <Star fontSize="small" className="text-yellow-700" />
+            <Star fontSize="small" className="text-yellow-700" />
+            <Star
+              fontSize="small"
+              className={`${
+                info.rating > 3 ? "text-yellow-700" : "text-gray-700"
+              }`}
+            />
+            <Star
+              fontSize="small"
+              className={`${
+                info.rating > 4 ? "text-yellow-700" : "text-gray-700"
+              }`}
+            />
+            <Typography variant="small">{info.rating}</Typography>
+          </div>
           <Typography variant="h2">{info.productName}</Typography>
         </div>
       )}
+      <ToastContainer />
     </div>
   );
 };

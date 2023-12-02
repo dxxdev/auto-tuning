@@ -130,7 +130,7 @@ export const products = [
       "Universal.",
     ],
     price: 110000,
-    rating: 5,
+    rating: 4.8,
     inTheCart: false,
     countProduct: 1,
   },
