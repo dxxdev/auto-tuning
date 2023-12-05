@@ -22,10 +22,8 @@ let options = {
   maximumFractionDigits: 2,
 };
 const Products = () => {
-  const [render, setRender] = useState(false);
 
   const addToCart = id => {
-    setRender(prev => !prev);
     products.map((product, index) => {
       if (index === id) {
         product.inTheCart = !product.inTheCart;
@@ -57,10 +55,6 @@ const Products = () => {
       }
     });
   };
-
-  useEffect(() => {
-    setRender(prev => !prev);
-  }, [products.map(product => product)]);
 
   return (
     <>

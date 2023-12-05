@@ -31,7 +31,6 @@ const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [open, setOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
-  const [render, setRender] = useState(false);
 
   const totalAmoutArr = products.map(product => {
     if (product.inTheCart) {
@@ -78,7 +77,6 @@ const Header = () => {
 
   const removeToCart = index => {
     products[index].inTheCart = false;
-    setRender(prev => !prev);
   };
 
   useEffect(() => {
@@ -259,7 +257,6 @@ const Header = () => {
                           if (product.countProduct > 1) {
                             product.countProduct--;
                           }
-                          setRender(prev => !prev);
                         }}
                         size="sm"
                         variant="outlined"
@@ -273,7 +270,6 @@ const Header = () => {
                       <IconButton
                         onClick={() => {
                           product.countProduct++;
-                          setRender(prev => !prev);
                         }}
                         size="sm"
                         variant="outlined"

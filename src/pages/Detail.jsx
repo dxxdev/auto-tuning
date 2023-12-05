@@ -8,15 +8,16 @@ import { Autoplay, EffectCreative } from "swiper/modules";
 import { styles } from "../styles";
 import { IconButton, Typography } from "@material-tailwind/react";
 import {
+  Add,
   AddShoppingCartOutlined,
+  Remove,
   RemoveShoppingCartOutlined,
   Star,
 } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 
 const Detail = () => {
-  const [info, setInfo] = useState();
-  const [render, setRender] = useState(true);
+  const [info, setInfo] = useState([]);
   let locationProductArr;
   let location = useLocation();
   locationProductArr = location.pathname.slice(1);
@@ -27,12 +28,7 @@ const Detail = () => {
     setInfo(infoProductArr[0]);
   }, []);
 
-  useEffect(() => {
-    setRender(prev => !prev);
-  }, [products.map(product => product.inTheCart)]);
-
   const addToCart = () => {
-    setRender(prev => !prev);
     info.inTheCart = !info.inTheCart;
     if (info.inTheCart) {
       toast.success("Savatga qo'shildi", {
@@ -132,6 +128,31 @@ const Detail = () => {
             <Typography variant="small">{info.rating}</Typography>
           </div>
           <Typography variant="h2">{info.productName}</Typography>
+          <div className="flex items-center space-x-2">
+            <IconButton
+              onClick={() => {
+                if (info.countProduct > 1) {
+                  info.countProduct--;
+                }
+              }}
+              size="sm"
+              variant="outlined"
+              color="gray"
+            >
+              <Remove />
+            </IconButton>
+            <Typography variant="h5">{info.countProduct}</Typography>
+            <IconButton
+              onClick={() => {
+                info.countProduct++;
+              }}
+              size="sm"
+              variant="outlined"
+              color="gray"
+            >
+              <Add />
+            </IconButton>
+          </div>
         </div>
       )}
       <ToastContainer />
