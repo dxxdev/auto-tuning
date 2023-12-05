@@ -31,6 +31,7 @@ const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [open, setOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
+  const [render, setRender] = useState(false);
 
   const totalAmoutArr = products.map(product => {
     if (product.inTheCart) {
@@ -70,6 +71,10 @@ const Header = () => {
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
+  const [open2, setOpen2] = useState(false);
+
+  const openDrawer2 = () => setOpen2(true);
+  const closeDrawer2 = () => setOpen2(false);
 
   const openSearchInput = () => {
     setOpenInput(oldVal => !oldVal);
@@ -77,6 +82,7 @@ const Header = () => {
 
   const removeToCart = index => {
     products[index].inTheCart = false;
+    setRender(prev => !prev);
   };
 
   useEffect(() => {
@@ -85,7 +91,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-[#f5f5f5] py-4 z-[999] sticky top-0">
+      <header className="bg-[#f5f5f5] py-4 z-[999]">
         <div
           className={`${styles.container} relative top-0 left-0 flex justify-between items-center`}
         >
@@ -100,7 +106,7 @@ const Header = () => {
               </span>
             </Link>
           </h1>
-          <nav className="hidden xl:block">
+          <nav className="hidden lg:block">
             <ul className="flex gap-x-6">
               <li>
                 <NavLink to={`/faq`}>Kompaniya haqida</NavLink>
@@ -117,7 +123,7 @@ const Header = () => {
             </ul>
           </nav>
           <div className="flex items-center space-x-6">
-            <div className="hidden sm:block">
+            <div className="hidden xl:block">
               <h3 className="font-semibold">Tel: +998 (99) 270-10-32</h3>
               <p className="text-xs text-gray-700">
                 Ish vaqti: 9:00 dan 18:00 gacha
@@ -125,19 +131,28 @@ const Header = () => {
             </div>
             <a href="tel:+998992701032">
               <Button color="gray" variant="filled" className="flex">
-                <div className="block xl:hidden">
+                <div className="block max-[1280px]:hidden">
                   <Phone />
                 </div>
-                <span className="hidden xl:block">Qo'ng'iroq qilish</span>
+                <span className="hidden max-[1280px]:block">
+                  Qo'ng'iroq qilish
+                </span>
               </Button>
             </a>
           </div>
           <div
             className={`${styles.container} px-5 xl:px-6 rounded-b-xl xl:rounded-b-3xl flex justify-between absolute top-full left-0 translate-y-1/4 items-center py-4 bg-black bg-opacity-50`}
           >
-            <IconButton className="block xl:hidden">
+            <Button
+              variant=""
+              color="red"
+              size="sm"
+              onClick={openDrawer2}
+              className="flex mr-3 space-x-2 items-center justify-center px-6"
+            >
               <Menu />
-            </IconButton>
+              <Typography variant="paragraph">Sahifalar</Typography>
+            </Button>
             <nav className="w-full hidden xl:block">
               <ul className="flex gap-x-10 text-white">
                 {productsCategory.map((category, index) => {
@@ -257,6 +272,7 @@ const Header = () => {
                           if (product.countProduct > 1) {
                             product.countProduct--;
                           }
+                          setRender(prev => !prev);
                         }}
                         size="sm"
                         variant="outlined"
@@ -270,6 +286,7 @@ const Header = () => {
                       <IconButton
                         onClick={() => {
                           product.countProduct++;
+                          setRender(prev => !prev);
                         }}
                         size="sm"
                         variant="outlined"
@@ -299,6 +316,39 @@ const Header = () => {
           <div>
             {total.toLocaleString("uz-UZ", options).replaceAll(",", " ")} so'm
           </div>
+        </div>
+      </Drawer>
+      <Drawer open={open2} onClose={closeDrawer2} className="p-4">
+        <div className="mb-6 flex items-center justify-between">
+          <Typography variant="h5" color="blue-gray">
+            Material Tailwind
+          </Typography>
+          <IconButton variant="text" color="blue-gray" onClick={closeDrawer2}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </IconButton>
+        </div>
+        <Typography color="gray" className="mb-8 pr-4 font-normal">
+          Material Tailwind features multiple React and HTML components, all
+          written with Tailwind CSS classes and Material Design guidelines.
+        </Typography>
+        <div className="flex gap-2">
+          <Button size="sm" variant="outlined">
+            Documentation
+          </Button>
+          <Button size="sm">Get Started</Button>
         </div>
       </Drawer>
     </>

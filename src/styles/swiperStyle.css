@@ -103,6 +103,6 @@
   transition: all 200ms ease-in-out;
 }
 
-.card-swiper:hover .swiper-slide img {
+.card-swiper .swiper-slide img:hover {
   transform: scale(1.2);
 }

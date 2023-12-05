@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { products } from "../data/data";
+import { useLocation, useParams } from "react-router-dom";
+import { filteredProductForId, products } from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
@@ -17,18 +17,18 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 
 const Detail = () => {
-  const [info, setInfo] = useState([]);
-  let locationProductArr;
-  let location = useLocation();
-  locationProductArr = location.pathname.slice(1);
-  let infoProductArr = products.filter(product => {
-    return product.id == locationProductArr;
-  });
+  const { productName } = useParams();
+  const [info, setInfo] = useState();
+  const [render, setRender] = useState(true);
+
   useEffect(() => {
-    setInfo(infoProductArr[0]);
+    if (!info) {
+      setInfo(filteredProductForId(productName));
+    }
   }, []);
 
   const addToCart = () => {
+    setRender(prev => !prev);
     info.inTheCart = !info.inTheCart;
     if (info.inTheCart) {
       toast.success("Savatga qo'shildi", {
@@ -55,7 +55,6 @@ const Detail = () => {
     }
   };
 
-  console.log(info);
   return (
     <div className={`py-20 flex ${styles.container} gap-x-10`}>
       {info && (
@@ -87,7 +86,7 @@ const Detail = () => {
               info.images.map((image, index) => {
                 return (
                   <SwiperSlide key={index}>
-                    <img src={image} alt="" />
+                    <img src={image} alt={image} />
                   </SwiperSlide>
                 );
               })}
@@ -110,22 +109,32 @@ const Detail = () => {
             </IconButton>
           </div>
           <div className="flex justify-start items-center space-x-2 text-xs">
-            <Star fontSize="small" className="text-yellow-700" />
-            <Star fontSize="small" className="text-yellow-700" />
-            <Star fontSize="small" className="text-yellow-700" />
+            <Star fontSize="medium" className="text-yellow-700" />
             <Star
-              fontSize="small"
+              fontSize="medium"
+              className={`${
+                info.rating > 1 ? "text-yellow-700" : "text-gray-700"
+              }`}
+            />
+            <Star
+              fontSize="medium"
+              className={`${
+                info.rating > 2 ? "text-yellow-700" : "text-gray-700"
+              }`}
+            />
+            <Star
+              fontSize="medium"
               className={`${
                 info.rating > 3 ? "text-yellow-700" : "text-gray-700"
               }`}
             />
             <Star
-              fontSize="small"
+              fontSize="medium"
               className={`${
                 info.rating > 4 ? "text-yellow-700" : "text-gray-700"
               }`}
             />
-            <Typography variant="small">{info.rating}</Typography>
+            <Typography variant="lead">{info.rating}</Typography>
           </div>
           <Typography variant="h2">{info.productName}</Typography>
           <div className="flex items-center space-x-2">
@@ -134,6 +143,7 @@ const Detail = () => {
                 if (info.countProduct > 1) {
                   info.countProduct--;
                 }
+                setRender(prev => !prev);
               }}
               size="sm"
               variant="outlined"
@@ -145,6 +155,7 @@ const Detail = () => {
             <IconButton
               onClick={() => {
                 info.countProduct++;
+                setRender(prev => !prev);
               }}
               size="sm"
               variant="outlined"

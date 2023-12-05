@@ -73,7 +73,7 @@ const Products = () => {
               key={product.id}
               className="rounded-lg bg-white flex flex-col shadow-md space-y-4"
             >
-              <Link to={`/${product.id}`}>
+              <Link to={`/${product.productName}`}>
                 <Swiper
                   navigation={true}
                   pagination={{

@@ -130,7 +130,7 @@ export const products = [
       "Universal.",
     ],
     price: 110000,
-    rating: 4.8,
+    rating: 2,
     inTheCart: false,
     countProduct: 1,
   },
@@ -557,3 +557,10 @@ export const products = [
     countProduct: 1,
   },
 ];
+
+export const filteredProductForId = id => {
+  let infoProductArr = products.filter(product => {
+    return product.productName == id;
+  });
+  return infoProductArr[0];
+};
