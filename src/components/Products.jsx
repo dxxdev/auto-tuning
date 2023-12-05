@@ -3,7 +3,7 @@ import { styles } from "../styles";
 import { products } from "../data/data";
 import { Link } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { IconButton, Typography } from "@material-tailwind/react";
 import {
   AddShoppingCartOutlined,
@@ -22,8 +22,10 @@ let options = {
   maximumFractionDigits: 2,
 };
 const Products = () => {
+  const [render, setRender] = useState(false);
 
   const addToCart = id => {
+    setRender(prev => !prev);
     products.map((product, index) => {
       if (index === id) {
         product.inTheCart = !product.inTheCart;
@@ -56,6 +58,10 @@ const Products = () => {
     });
   };
 
+  useEffect(() => {
+    setRender(prev => !prev);
+  }, [products.map(product => product)]);
+
   return (
     <>
       <ul
@@ -69,6 +75,7 @@ const Products = () => {
             >
               <Link to={`/${product.id}`}>
                 <Swiper
+                  navigation={true}
                   pagination={{
                     clickable: true,
                   }}
@@ -77,8 +84,8 @@ const Products = () => {
                     delay: 2500,
                     disableOnInteraction: false,
                   }}
-                  modules={[Pagination, Autoplay]}
-                  className="mySwiper relative rounded-lg"
+                  modules={[Pagination, Autoplay, Navigation]}
+                  className="mySwiper relative rounded-lg card-swiper"
                 >
                   {product.images.map((item, index) => {
                     return (
