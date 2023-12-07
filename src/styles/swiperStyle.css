@@ -54,9 +54,13 @@
   opacity: 1;
 }
 .card-swiper .swiper-button-prev::after {
-  content: "prev" !important;
-  font-size: 9px !important;
-  color: white;
+  position: absolute;
+  content: "" !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+  border-right-color: white !important;
+  border: 5px solid;
+  border-right: 12px solid;
+  border-left: none;
 }
 .card-swiper .swiper-button-next {
   width: 25px;
@@ -71,9 +75,13 @@
   opacity: 1;
 }
 .card-swiper .swiper-button-next::after {
-  content: "next" !important;
-  font-size: 9px !important;
-  color: white;
+  position: absolute;
+  content: "" !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+  border-left-color: white !important;
+  border: 5px solid;
+  border-left: 12px solid;
+  border-right: none;
 }
 .card-swiper .swiper-pagination {
   text-align: left;
@@ -103,6 +111,6 @@
   transition: all 200ms ease-in-out;
 }
 
-.card-swiper .swiper-slide img:hover {
-  transform: scale(1.2);
+.card-swiper:hover .swiper-slide img {
+  transform: scale(1.1);
 }

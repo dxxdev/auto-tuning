@@ -10,11 +10,11 @@ import "../styles/typedStyle.css";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { swiperImages } from "../data/hero-swiper";
 import { Button, Typography } from "@material-tailwind/react";
-import Typed from "typed.js";
 import { styles } from "../styles";
 import { Link } from "react-router-dom";
 import Products from "../components/Products";
 import { products } from "../data/data";
+import Typed from "typed.js";
 
 const Home = () => {
   const typedElement = useRef(null);
@@ -37,10 +37,9 @@ const Home = () => {
 
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
-      strings: productsCategory,
+      strings: productsCategory.map(str => str.toLowerCase()),
       typeSpeed: 50,
-      backSpeed: 20,
-      loop: true,
+      backSpeed: 50,
     });
     return () => {
       typed.destroy();
@@ -81,11 +80,11 @@ const Home = () => {
                 className="h-full space-x-0 lg:space-x-3 flex flex-col lg:flex-row text-white"
               >
                 <span>Mashinalar uchun</span>
-                <div ref={typedElement}> </div>
+                <div ref={typedElement}></div>
               </Typography>
               <Link>
                 <Button variant="filled" color="red" className="text-white">
-                  Mahsulotga buyurtma bering
+                  Tuning jihozlariga buyurtma berish
                 </Button>
               </Link>
             </div>

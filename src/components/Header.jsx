@@ -3,41 +3,26 @@ import { styles } from "../styles";
 import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets/images";
 import {
+  Badge,
   Button,
   Drawer,
   IconButton,
   Typography,
 } from "@material-tailwind/react";
 import {
-  Add,
-  Delete,
   Menu,
   Phone,
-  Remove,
   Search,
   ShoppingBasketOutlined,
-  ShoppingCartOutlined,
-  Star,
 } from "@mui/icons-material";
 import { products } from "../data/data";
-let options = {
-  style: "decimal",
-  useGrouping: true,
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 2,
-};
 
 const Header = () => {
   const [openInput, setOpenInput] = useState(false);
-  const [open, setOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [howMuch, setHowMuch] = useState(0);
   const [render, setRender] = useState(false);
-
-  const totalAmoutArr = products.map(product => {
-    if (product.inTheCart) {
-      return product.price * product.countProduct;
-    }
-  });
 
   const [productsCategory, setProductsCategory] = useState([]);
 
@@ -51,26 +36,17 @@ const Header = () => {
     return categoryArr;
   }
 
+  const filteredProductOnCart = arr => {
+    const filteredProduct = arr.filter(product => {
+      return product.inTheCart == true;
+    });
+    setHowMuch(filteredProduct.length);
+  };
+
   useEffect(() => {
     setProductsCategory(setCategoryToArray(products));
   }, []);
 
-  const filteredAmout = totalAmoutArr.filter(amout => {
-    return amout !== undefined;
-  });
-
-  const totalAmout = arr => {
-    let result = 0;
-    arr.forEach(number => {
-      return (result += Number(number));
-    });
-    return result;
-  };
-
-  const total = totalAmout(filteredAmout);
-
-  const openDrawer = () => setOpen(true);
-  const closeDrawer = () => setOpen(false);
   const [open2, setOpen2] = useState(false);
 
   const openDrawer2 = () => setOpen2(true);
@@ -80,15 +56,14 @@ const Header = () => {
     setOpenInput(oldVal => !oldVal);
   };
 
-  const removeToCart = index => {
-    products[index].inTheCart = false;
-    setRender(prev => !prev);
-  };
+  useEffect(() => {
+    filteredProductOnCart(products);
+    setCartProducts(products);
+  }, [products.map(product => product.inTheCart)]);
 
   useEffect(() => {
-    setCartProducts(products);
-  }, [products]);
-
+    setRender(prev => !prev);
+  }, [products.map(product => product.inTheCart)]);
   return (
     <>
       <header className="bg-[#f5f5f5] py-4 z-[999]">
@@ -131,12 +106,10 @@ const Header = () => {
             </div>
             <a href="tel:+998992701032">
               <Button color="gray" variant="filled" className="flex">
-                <div className="block max-[1280px]:hidden">
+                <div className="block xl:hidden">
                   <Phone />
                 </div>
-                <span className="hidden max-[1280px]:block">
-                  Qo'ng'iroq qilish
-                </span>
+                <div className="hidden xl:block">Qo'ng'iroq qilish</div>
               </Button>
             </a>
           </div>
@@ -194,130 +167,21 @@ const Header = () => {
                   />
                 </IconButton>
               </div>
-              <button
-                onClick={openDrawer}
-                className="!w-11 px-2 text-white border border-white rounded-lg flex justify-center items-center !aspect-square"
+              <Badge
+                content={howMuch}
+                invisible={howMuch > 0 ? false : true}
               >
-                <ShoppingBasketOutlined />
-              </button>
+                <Link
+                  to={`/basket`}
+                  className="!w-11 px-2 text-white border border-white rounded-lg flex justify-center items-center !aspect-square"
+                >
+                  <ShoppingBasketOutlined />
+                </Link>
+              </Badge>
             </div>
           </div>
         </div>
       </header>
-      <Drawer
-        open={open}
-        onClose={closeDrawer}
-        placement="right"
-        className="p-4 flex flex-col justify-between"
-      >
-        <div className="mb-6 flex items-center justify-between">
-          <Typography
-            variant="h5"
-            color="blue-gray"
-            className="space-x-2 flex items-center"
-          >
-            <ShoppingCartOutlined />
-            <span>Savatcha</span>
-          </Typography>
-          <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </IconButton>
-        </div>
-        <div className="flex flex-col gap-4 grow overflow-auto">
-          {products.map((product, index) => {
-            if (product.inTheCart) {
-              return (
-                <div key={product.id} className="flex gap-x-5">
-                  <Link to={`/${product.id}`}>
-                    <img
-                      src={product.images[0]}
-                      className="w-32 rounded-lg"
-                      alt=""
-                    />
-                  </Link>
-                  <div>
-                    <Typography
-                      variant="lead"
-                      className="truncate w-40"
-                      color="black"
-                    >
-                      {product.productName}
-                    </Typography>
-                    <div className="flex items-center space-x-1 text-xs mb-3">
-                      <Star fontSize="12px" className="text-yellow-700" />
-                      <span className="text-gray-700">{product.rating}</span>
-                    </div>
-                    <Typography className="mb-2" variant="small" color="black">
-                      {product.price
-                        .toLocaleString("uz-UZ", options)
-                        .replaceAll(",", " ")}{" "}
-                      so'm/<sub>dona</sub>
-                    </Typography>
-                    <div className="flex items-center space-x-2">
-                      <IconButton
-                        onClick={() => {
-                          if (product.countProduct > 1) {
-                            product.countProduct--;
-                          }
-                          setRender(prev => !prev);
-                        }}
-                        size="sm"
-                        variant="outlined"
-                        color="gray"
-                      >
-                        <Remove />
-                      </IconButton>
-                      <Typography variant="h5">
-                        {product.countProduct}
-                      </Typography>
-                      <IconButton
-                        onClick={() => {
-                          product.countProduct++;
-                          setRender(prev => !prev);
-                        }}
-                        size="sm"
-                        variant="outlined"
-                        color="gray"
-                      >
-                        <Add />
-                      </IconButton>
-                      <IconButton
-                        onClick={() => {
-                          removeToCart(index);
-                        }}
-                        variant="filled"
-                        color="red"
-                        size="sm"
-                      >
-                        <Delete />
-                      </IconButton>
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-          })}
-        </div>
-        <div className="flex pt-4 space-x-2">
-          <div>Jami:</div>
-          <div>
-            {total.toLocaleString("uz-UZ", options).replaceAll(",", " ")} so'm
-          </div>
-        </div>
-      </Drawer>
       <Drawer open={open2} onClose={closeDrawer2} className="p-4">
         <div className="mb-6 flex items-center justify-between">
           <Typography variant="h5" color="blue-gray">

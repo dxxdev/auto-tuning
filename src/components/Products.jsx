@@ -3,7 +3,7 @@ import { styles } from "../styles";
 import { products } from "../data/data";
 import { Link } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, EffectFade } from "swiper/modules";
 import { IconButton, Typography } from "@material-tailwind/react";
 import {
   AddShoppingCartOutlined,
@@ -11,6 +11,7 @@ import {
   Star,
 } from "@mui/icons-material";
 
+import "swiper/css/effect-fade";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -71,21 +72,18 @@ const Products = () => {
           return (
             <li
               key={product.id}
-              className="rounded-lg bg-white flex flex-col shadow-md space-y-4"
+              className="rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper"
             >
               <Link to={`/${product.productName}`}>
                 <Swiper
                   navigation={true}
+                  effect="fade"
                   pagination={{
                     clickable: true,
                   }}
                   loop={true}
-                  autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                  }}
-                  modules={[Pagination, Autoplay, Navigation]}
-                  className="mySwiper relative rounded-lg card-swiper"
+                  modules={[Pagination, Navigation, EffectFade]}
+                  className="mySwiper relative rounded-lg"
                 >
                   {product.images.map((item, index) => {
                     return (
