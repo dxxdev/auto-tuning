@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/effect-creative";
 import { Autoplay, EffectCreative } from "swiper/modules";
 import { styles } from "../styles";
-import { IconButton, Typography } from "@material-tailwind/react";
+import { Button, IconButton, Typography } from "@material-tailwind/react";
 import {
   Add,
   AddShoppingCartOutlined,
@@ -56,9 +56,11 @@ const Detail = () => {
   };
 
   return (
-    <div className={`py-20 flex ${styles.container} gap-x-10`}>
+    <div
+      className={`py-2 flex ${styles.container} gap-x-10 flex-col md:flex-row`}
+    >
       {info && (
-        <div className="flex flex-row-reverse space-x-5 w-96 p-5">
+        <div className="flex flex-row-reverse space-x-5 w-full md:max-w-sm p-5">
           <Swiper
             grabCursor={true}
             effect={"creative"}
@@ -95,18 +97,20 @@ const Detail = () => {
       )}
       {info && (
         <div className="w-full relative p-5">
-          <div className="absolute right-5 top-5">
-            <IconButton
+          <div className="absolute right-5 bottom-0">
+            <Button
               onClick={addToCart}
               variant={`${info.inTheCart ? "filled" : "outlined"}`}
               color="gray"
+              className="flex justify-center items-center space-x-2"
             >
               {info.inTheCart ? (
                 <RemoveShoppingCartOutlined />
               ) : (
                 <AddShoppingCartOutlined />
               )}
-            </IconButton>
+              <span className="hidden sm:block">sotib olish</span>
+            </Button>
           </div>
           <div className="flex justify-start items-center space-x-2 text-xs">
             <Star fontSize="medium" className="text-yellow-700" />
@@ -136,7 +140,9 @@ const Detail = () => {
             />
             <Typography variant="lead">{info.rating}</Typography>
           </div>
-          <Typography variant="h2">{info.productName}</Typography>
+          <Typography className="text-2xl py-5 sm:text-3xl lg:text-4xl">
+            {info.productName}
+          </Typography>
           <div className="flex items-center space-x-2">
             <IconButton
               onClick={() => {
@@ -146,8 +152,8 @@ const Detail = () => {
                 setRender(prev => !prev);
               }}
               size="sm"
-              variant="outlined"
-              color="gray"
+              variant="filled"
+              color="red"
             >
               <Remove />
             </IconButton>
@@ -158,8 +164,8 @@ const Detail = () => {
                 setRender(prev => !prev);
               }}
               size="sm"
-              variant="outlined"
-              color="gray"
+              variant="filled"
+              color="red"
             >
               <Add />
             </IconButton>

@@ -40,11 +40,12 @@ const Home = () => {
       strings: productsCategory.map(str => str.toLowerCase()),
       typeSpeed: 50,
       backSpeed: 50,
+      loop: true,
     });
     return () => {
       typed.destroy();
     };
-  }, []);
+  });
 
   return (
     <div className={`${styles.container} !px-0 max-w-[1920px]`}>
@@ -77,7 +78,7 @@ const Home = () => {
               <Typography
                 variant="h1"
                 color="white"
-                className="h-full space-x-0 lg:space-x-3 flex flex-col lg:flex-row text-white"
+                className="h-full space-x-0 lg:space-x-3 flex flex-col lg:flex-row text-xl md:text-2xl lg:text-4xl xl:text-5xl text-white"
               >
                 <span>Mashinalar uchun</span>
                 <div ref={typedElement}></div>
@@ -94,19 +95,27 @@ const Home = () => {
       <Typography
         variant="h2"
         color="black"
-        className={`${styles.container} pt-5`}
+        className={`${styles.container} pt-20 pb-5 text-center`}
       >
-        Mahsulotlar
+        Eng yaxshi mahsulotlar
       </Typography>
-      <div className="flex justify-center items-center gap-5">
-        <Button variant="filled">Hammasi</Button>
-        {productsCategory.map((category, index) => {
-          return (
-            <Button key={index} variant="outlined">
-              {category}
+      <div className="flex justify-center items-center py-5">
+        <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+          <li>
+            <Button className="w-full" variant="filled">
+              Hammasi
             </Button>
-          );
-        })}
+          </li>
+          {productsCategory.map((category, index) => {
+            return (
+              <li key={index}>
+                <Button className="w-full" variant="outlined">
+                  {category}
+                </Button>
+              </li>
+            );
+          })}
+        </ul>
       </div>
       <Products />
     </div>

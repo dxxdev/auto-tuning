@@ -114,3 +114,7 @@
 .card-swiper:hover .swiper-slide img {
   transform: scale(1.1);
 }
+
+.products-swiper::-webkit-scrollbar {
+  height: 4px;
+}

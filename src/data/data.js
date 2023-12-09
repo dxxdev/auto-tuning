@@ -133,6 +133,8 @@ export const products = [
     rating: 2,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -152,6 +154,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -169,6 +173,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: true,
+    saved: true,
   },
   {
     id: randomId(),
@@ -188,6 +194,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: true,
+    saved: true,
   },
   {
     id: randomId(),
@@ -212,6 +220,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -229,6 +239,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: true,
+    saved: true,
   },
   {
     id: randomId(),
@@ -249,6 +261,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: true,
+    saved: true,
   },
   {
     id: randomId(),
@@ -281,6 +295,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: true,
+    saved: true,
   },
   {
     id: randomId(),
@@ -314,6 +330,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -346,6 +364,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -358,6 +378,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -377,6 +399,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -404,6 +428,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -423,6 +449,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -443,6 +471,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -476,6 +506,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -500,6 +532,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -529,6 +563,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
   {
     id: randomId(),
@@ -555,6 +591,8 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
+    top: false,
+    saved: true,
   },
 ];
 
