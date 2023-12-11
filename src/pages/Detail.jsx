@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
-import { filteredProductForId, products } from "../data/data";
+import { useParams } from "react-router-dom";
+import { filteredProductForId } from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-creative";
-import { Autoplay, EffectCreative } from "swiper/modules";
 import { styles } from "../styles";
 import { Button, IconButton, Typography } from "@material-tailwind/react";
 import {
@@ -15,11 +12,17 @@ import {
   Star,
 } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+import { FreeMode, Autoplay, Thumbs } from "swiper/modules";
 
 const Detail = () => {
   const { productName } = useParams();
   const [info, setInfo] = useState();
   const [render, setRender] = useState(true);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   useEffect(() => {
     if (!info) {
@@ -60,29 +63,42 @@ const Detail = () => {
       className={`py-2 flex ${styles.container} gap-x-10 flex-col md:flex-row`}
     >
       {info && (
-        <div className="flex flex-row-reverse space-x-5 w-full md:max-w-sm p-5">
+        <div className="w-full space-y-3 md:max-w-sm p-5">
           <Swiper
-            grabCursor={true}
-            effect={"creative"}
+            style={{
+              "--swiper-navigation-color": "#fff",
+              "--swiper-pagination-color": "#fff",
+            }}
+            spaceBetween={10}
             autoplay={{
               delay: 2000,
-              disableOnInteraction: false,
             }}
-            creativeEffect={{
-              prev: {
-                shadow: true,
-                origin: "left center",
-                translate: ["-5%", 0, -200],
-                rotate: [0, 100, 0],
-              },
-              next: {
-                origin: "right center",
-                translate: ["5%", 0, -200],
-                rotate: [0, -100, 0],
-              },
-            }}
-            modules={[EffectCreative, Autoplay]}
-            className="mySwiper6"
+            loop={true}
+            thumbs={{ swiper: thumbsSwiper }}
+            modules={[FreeMode, Thumbs, Autoplay]}
+            className="mySwiper2"
+          >
+            {info &&
+              info.images.map((image, index) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <img
+                      src={image}
+                      className="hover:scale-110 transition-all"
+                      alt={image}
+                    />
+                  </SwiperSlide>
+                );
+              })}
+          </Swiper>
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            spaceBetween={10}
+            slidesPerView={4}
+            freeMode={true}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Thumbs]}
+            className="mySwiper"
           >
             {info &&
               info.images.map((image, index) => {

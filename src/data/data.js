@@ -134,7 +134,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -155,7 +155,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -174,7 +174,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: true,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -195,7 +195,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: true,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -221,7 +221,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -240,7 +240,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: true,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -262,7 +262,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: true,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -296,7 +296,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: true,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -331,7 +331,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -365,7 +365,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -379,7 +379,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -400,7 +400,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -429,7 +429,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -450,7 +450,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -472,7 +472,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -507,7 +507,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -533,7 +533,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -564,7 +564,7 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
   {
     id: randomId(),
@@ -592,9 +592,16 @@ export const products = [
     inTheCart: false,
     countProduct: 1,
     top: false,
-    saved: true,
+    saved: false,
   },
 ];
+
+export let options = {
+  style: "decimal",
+  useGrouping: true,
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 2,
+};
 
 export const filteredProductForId = id => {
   let infoProductArr = products.filter(product => {

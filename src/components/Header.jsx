@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import {
+  ArrowForwardIos,
   Menu,
   Phone,
   Search,
@@ -20,12 +21,13 @@ import { products } from "../data/data";
 const Header = () => {
   const [openInput, setOpenInput] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
-  const [open, setOpen] = useState(false);
   const [howMuch, setHowMuch] = useState(0);
   const [render, setRender] = useState(false);
+  const [catalogOpen, setCatalogOpen] = useState(false);
 
   const [productsCategory, setProductsCategory] = useState([]);
 
+  const openCatalog = () => setCatalogOpen(prev => !prev);
   function setCategoryToArray(arr) {
     let categoryes = new Set();
     arr.forEach(function (item) {
@@ -131,10 +133,7 @@ const Header = () => {
                 {productsCategory.map((category, index) => {
                   return (
                     <li key={index}>
-                      <NavLink
-                        to={`/${category.toLowerCase()}`}
-                        className="text-shadow"
-                      >
+                      <NavLink to={`/${category}`} className="text-shadow">
                         {category}
                       </NavLink>
                     </li>
@@ -167,10 +166,7 @@ const Header = () => {
                   />
                 </IconButton>
               </div>
-              <Badge
-                content={howMuch}
-                invisible={howMuch > 0 ? false : true}
-              >
+              <Badge content={howMuch} invisible={howMuch > 0 ? false : true}>
                 <Link
                   to={`/basket`}
                   className="!w-11 px-2 text-white border border-white rounded-lg flex justify-center items-center !aspect-square"
@@ -185,7 +181,7 @@ const Header = () => {
       <Drawer open={open2} onClose={closeDrawer2} className="p-4">
         <div className="mb-6 flex items-center justify-between">
           <Typography variant="h5" color="blue-gray">
-            Material Tailwind
+            Sahifalar
           </Typography>
           <IconButton variant="text" color="blue-gray" onClick={closeDrawer2}>
             <svg
@@ -204,16 +200,35 @@ const Header = () => {
             </svg>
           </IconButton>
         </div>
-        <Typography color="gray" className="mb-8 pr-4 font-normal">
-          Material Tailwind features multiple React and HTML components, all
-          written with Tailwind CSS classes and Material Design guidelines.
-        </Typography>
-        <div className="flex gap-2">
-          <Button size="sm" variant="outlined">
-            Documentation
-          </Button>
-          <Button size="sm">Get Started</Button>
-        </div>
+        <ul>
+          <li>
+            <button
+              onClick={openCatalog}
+              className="flex items-center py-2 space-x-3"
+            >
+              <ArrowForwardIos
+                fontSize="12px"
+                className={`transition-transform ${
+                  catalogOpen ? "rotate-90" : "rotate-0"
+                }`}
+              />
+              <span className="text-xl">Mahsulot turkumlari</span>
+            </button>
+          </li>
+        </ul>
+        {catalogOpen && (
+          <ul className="gap-x-10 text-black text-xl">
+            {productsCategory.map((category, index) => {
+              return (
+                <li key={index}>
+                  <NavLink onClick={closeDrawer2} to={`/${category}`}>
+                    {category}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </Drawer>
     </>
   );

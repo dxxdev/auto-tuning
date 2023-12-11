@@ -47,6 +47,8 @@ const Home = () => {
     };
   });
 
+  const [onCategory, setOnCategory] = useState("");
+
   return (
     <div className={`${styles.container} !px-0 max-w-[1920px]`}>
       <Swiper
@@ -102,14 +104,24 @@ const Home = () => {
       <div className="flex justify-center items-center py-5">
         <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
           <li>
-            <Button className="w-full" variant="filled">
+            <Button
+              onClick={() =>
+                setOnCategory()
+              }
+              className="w-full"
+              variant="outlined"
+            >
               Hammasi
             </Button>
           </li>
           {productsCategory.map((category, index) => {
             return (
               <li key={index}>
-                <Button className="w-full" variant="outlined">
+                <Button
+                  onClick={() => setOnCategory(category)}
+                  className="w-full"
+                  variant="outlined"
+                >
                   {category}
                 </Button>
               </li>
@@ -117,7 +129,7 @@ const Home = () => {
           })}
         </ul>
       </div>
-      <Products />
+      <Products onCategory={onCategory} />
     </div>
   );
 };

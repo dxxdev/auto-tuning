@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { styles } from "../styles";
-import { products } from "../data/data";
+import { options, products } from "../data/data";
 import { Link } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Navigation, Pagination, EffectFade } from "swiper/modules";
@@ -8,7 +8,7 @@ import { IconButton, Typography } from "@material-tailwind/react";
 import {
   AddShoppingCartOutlined,
   Bookmark,
-  BookmarkOutlined,
+  BookmarkAdd,
   RemoveShoppingCartOutlined,
   Star,
 } from "@mui/icons-material";
@@ -18,13 +18,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
-let options = {
-  style: "decimal",
-  useGrouping: true,
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 2,
-};
-const Products = () => {
+const Products = ({ onCategory }) => {
   const [render, setRender] = useState(false);
 
   const addToCart = id => {
@@ -68,16 +62,16 @@ const Products = () => {
   return (
     <>
       <ul
-        className={`${styles.container} py-5 flex gap-8 overflow-auto products-swiper`}
+        className={`${styles.container} h-full min-h-[733px] py-5 flex gap-8 overflow-auto products-swiper`}
       >
         {products.map((product, index) => {
-          if (product.top) {
+          if (product.top || product.category == onCategory) {
             return (
               <li
                 key={product.id}
                 className="rounded-lg bg-white max-w-sm flex flex-col shadow-md space-y-4 card-swiper"
               >
-                <Link to={`/${product.productName}`}>
+                <Link to={`/${product.category}/${product.productName}`}>
                   <Swiper
                     navigation={true}
                     effect="fade"
@@ -98,8 +92,11 @@ const Products = () => {
                   </Swiper>
                 </Link>
                 <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-                  <button className="absolute top-0 right-4">
-                    {product.saved ? <Bookmark /> : <BookmarkOutlined />  }
+                  <button
+                    onClick={() => (product.saved = !product.saved)}
+                    className="absolute top-0 right-4 text-red-600"
+                  >
+                    {product.saved ? <Bookmark /> : <BookmarkAdd />}
                   </button>
                   <Typography variant="h5" className="font-medium">
                     {product.productName}

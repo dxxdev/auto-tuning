@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import { products } from "./data/data";
 import Basket from "./pages/Basket";
+import Category from "./pages/Category";
 
 const App = () => {
   const [render, setRender] = useState([]);
@@ -21,7 +22,8 @@ const App = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="/basket" element={<Basket />} />
-        <Route path="/:productName" element={<Detail />} />
+        <Route path="/:category" element={<Category />} />
+        <Route path="/:category/:productName" element={<Detail />} />
       </Route>
     )
   );
