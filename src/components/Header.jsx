@@ -116,17 +116,17 @@ const Header = () => {
             </a>
           </div>
           <div
-            className={`${styles.container} px-5 xl:px-6 rounded-b-xl xl:rounded-b-3xl flex justify-between absolute top-full left-0 translate-y-1/4 items-center py-4 bg-black bg-opacity-50`}
+            className={`${styles.container} px-5 xl:px-6 rounded-b-xl xl:rounded-b-3xl flex justify-between absolute top-full left-0 translate-y-1/4 items-center space-x-3 py-4 bg-black bg-opacity-50`}
           >
             <Button
-              variant=""
+              variant="filled"
               color="red"
               size="sm"
               onClick={openDrawer2}
-              className="flex mr-3 space-x-2 items-center justify-center px-6"
+              className="flex space-x-2 items-center justify-center !px-3"
             >
               <Menu />
-              <Typography variant="paragraph">Sahifalar</Typography>
+              <Typography >Sahifalar</Typography>
             </Button>
             <nav className="w-full hidden xl:block">
               <ul className="flex gap-x-10 text-white">

@@ -18,8 +18,19 @@ import Typed from "typed.js";
 
 const Home = () => {
   const typedElement = useRef(null);
+  const [render, setRender] = useState(true);
+  const [allBtnActive, setAllBtnActive] = useState(true);
 
   const [productsCategory, setProductsCategory] = useState([]);
+  const [category, setCategory] = useState(setCategoryToArray(products));
+
+  const categoryBtnActive = productsCategory.map(category => {
+    let obj = {
+      active: false,
+      category,
+    };
+    return obj;
+  });
 
   function setCategoryToArray(arr) {
     let categoryes = new Set();
@@ -46,8 +57,6 @@ const Home = () => {
       typed.destroy();
     };
   });
-
-  const [onCategory, setOnCategory] = useState("");
 
   return (
     <div className={`${styles.container} !px-0 max-w-[1920px]`}>
@@ -105,11 +114,13 @@ const Home = () => {
         <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
           <li>
             <Button
-              onClick={() =>
-                setOnCategory()
-              }
+              onClick={() => {
+                setRender(prev => !prev);
+                setCategory(setCategoryToArray(products));
+                setAllBtnActive(true);
+              }}
               className="w-full"
-              variant="outlined"
+              variant={allBtnActive ? "filled" : "outlined"}
             >
               Hammasi
             </Button>
@@ -118,9 +129,16 @@ const Home = () => {
             return (
               <li key={index}>
                 <Button
-                  onClick={() => setOnCategory(category)}
+                  onClick={() => {
+                    setRender(prev => !prev);
+                    setAllBtnActive(false);
+                    setCategory([category]);
+                    
+                  }}
                   className="w-full"
-                  variant="outlined"
+                  variant={
+                    categoryBtnActive[index].active ? "filled" : "outlined"
+                  }
                 >
                   {category}
                 </Button>
@@ -129,7 +147,7 @@ const Home = () => {
           })}
         </ul>
       </div>
-      <Products onCategory={onCategory} />
+      <Products productsCategory={category} />
     </div>
   );
 };

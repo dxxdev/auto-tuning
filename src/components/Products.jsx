@@ -18,8 +18,10 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
-const Products = ({ onCategory }) => {
+const Products = ({ productsCategory }) => {
   const [render, setRender] = useState(false);
+
+  const onCategory = productsCategory;
 
   const addToCart = id => {
     setRender(prev => !prev);
@@ -62,14 +64,14 @@ const Products = ({ onCategory }) => {
   return (
     <>
       <ul
-        className={`${styles.container} h-full min-h-[733px] py-5 flex gap-8 overflow-auto products-swiper`}
+        className={`${styles.container} h-full min-h-[633px] py-5 flex gap-8 overflow-auto products-swiper`}
       >
         {products.map((product, index) => {
-          if (product.top || product.category == onCategory) {
+          if (product.top && onCategory.includes(product.category)) {
             return (
               <li
                 key={product.id}
-                className="rounded-lg bg-white max-w-sm flex flex-col shadow-md space-y-4 card-swiper"
+                className="rounded-lg bg-white max-w-xs flex flex-col shadow-md space-y-4 card-swiper"
               >
                 <Link to={`/${product.category}/${product.productName}`}>
                   <Swiper
@@ -84,7 +86,7 @@ const Products = ({ onCategory }) => {
                   >
                     {product.images.map((item, index) => {
                       return (
-                        <SwiperSlide key={index} className="max-h-[470px]">
+                        <SwiperSlide key={index} className="max-h-[400px]">
                           <img src={item} className="w-full" alt="" />
                         </SwiperSlide>
                       );
