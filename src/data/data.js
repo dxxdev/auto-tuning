@@ -609,3 +609,18 @@ export const filteredProductForId = id => {
   });
   return infoProductArr[0];
 };
+
+
+function setCategoryToArray(arr) {
+  let categoryes = new Set();
+  arr.forEach(function (item) {
+    let category = item.category;
+    categoryes.add(category);
+  });
+  let categoryArr = Array.from(categoryes);
+  return categoryArr;
+}
+
+export const category = setCategoryToArray(products);
+
+export const topProducts = products.filter(product => product.top);

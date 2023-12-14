@@ -18,6 +18,8 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Autoplay, Thumbs } from "swiper/modules";
 
+import "react-toastify/dist/ReactToastify.css";
+
 const Detail = () => {
   const { productName } = useParams();
   const [info, setInfo] = useState();
@@ -28,6 +30,10 @@ const Detail = () => {
     if (!info) {
       setInfo(filteredProductForId(productName));
     }
+  }, []);
+
+  useEffect(() => {
+    document.title = productName;
   }, []);
 
   const addToCart = () => {

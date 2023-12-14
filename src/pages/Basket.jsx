@@ -50,7 +50,7 @@ const Basket = () => {
                 key={product.id}
                 className="rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper"
               >
-                <Link to={`/${product.productName}`}>
+                <Link to={`/${product.category}/${product.productName}`}>
                   <Swiper
                     navigation={true}
                     effect="fade"

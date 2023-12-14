@@ -13,3 +13,7 @@
   border-radius: 9999px;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.absolute.inset-0.z-10.h-full.bg-white.rounded-md.shadow{
+  background-color: rgb(255, 4, 0);
+}

@@ -79,7 +79,7 @@ const Header = () => {
             >
               <img src={logo} className="h-8" alt="" />
               <span>
-                AUTO <span className="text-red-500">CAR</span>
+                AUTO <span className="text-red-500">TUNING</span>
               </span>
             </Link>
           </h1>
@@ -118,16 +118,17 @@ const Header = () => {
           <div
             className={`${styles.container} px-5 xl:px-6 rounded-b-xl xl:rounded-b-3xl flex justify-between absolute top-full left-0 translate-y-1/4 items-center space-x-3 py-4 bg-black bg-opacity-50`}
           >
-            <Button
-              variant="filled"
-              color="red"
-              size="sm"
+            <button
               onClick={openDrawer2}
-              className="flex space-x-2 items-center justify-center !px-3"
+              className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-red-500 text-white shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex space-x-2 items-center justify-center"
             >
-              <Menu />
-              <Typography >Sahifalar</Typography>
-            </Button>
+              <span>
+                <Menu />
+              </span>
+              <span>
+                <Typography>Sahifalar</Typography>
+              </span>
+            </button>
             <nav className="w-full hidden xl:block">
               <ul className="flex gap-x-10 text-white">
                 {productsCategory.map((category, index) => {

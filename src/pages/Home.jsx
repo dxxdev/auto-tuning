@@ -7,44 +7,116 @@ import "swiper/css/navigation";
 import "../styles/swiperStyle.css";
 import "../styles/typedStyle.css";
 
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { Pagination, Navigation, Autoplay, EffectFade } from "swiper/modules";
 import { swiperImages } from "../data/hero-swiper";
-import { Button, Typography } from "@material-tailwind/react";
+import {
+  Button,
+  IconButton,
+  Tab,
+  TabPanel,
+  Tabs,
+  TabsBody,
+  TabsHeader,
+  Typography,
+} from "@material-tailwind/react";
 import { styles } from "../styles";
 import { Link } from "react-router-dom";
-import Products from "../components/Products";
-import { products } from "../data/data";
+import { options, products } from "../data/data";
 import Typed from "typed.js";
+import {
+  AddShoppingCartOutlined,
+  Bookmark,
+  BookmarkBorderOutlined,
+  BookmarkOutlined,
+  RemoveShoppingCartOutlined,
+  Star,
+} from "@mui/icons-material";
+import { ToastContainer, toast } from "react-toastify";
 
 const Home = () => {
   const typedElement = useRef(null);
   const [render, setRender] = useState(true);
   const [allBtnActive, setAllBtnActive] = useState(true);
-
+  const [categoryBtnActive, setCategoryBtnActive] = useState([]);
   const [productsCategory, setProductsCategory] = useState([]);
-  const [category, setCategory] = useState(setCategoryToArray(products));
-
-  const categoryBtnActive = productsCategory.map(category => {
-    let obj = {
-      active: false,
-      category,
-    };
-    return obj;
-  });
-
-  function setCategoryToArray(arr) {
-    let categoryes = new Set();
-    arr.forEach(function (item) {
-      let category = item.category;
-      categoryes.add(category);
-    });
-    let categoryArr = Array.from(categoryes);
-    return categoryArr;
-  }
+  let [groupedTopProducts, setGroupedTopProducts] = useState([]);
 
   useEffect(() => {
-    setProductsCategory(setCategoryToArray(products));
+    function getTopProductsFromLocalStorage() {
+      const storedTopProducts = localStorage.getItem("topProducts");
+      return storedTopProducts ? JSON.parse(storedTopProducts) : [];
+    }
+
+    function saveTopProductsToLocalStorage(topProducts) {
+      localStorage.setItem("topProducts", JSON.stringify(topProducts));
+    }
+
+    const groupTopProductsByCategory = products => {
+      const groupedProducts = {};
+
+      products.forEach(product => {
+        if (product.top) {
+          if (!groupedProducts[product.category]) {
+            groupedProducts[product.category] = {
+              category: product.category,
+              products: [],
+            };
+          }
+
+          groupedProducts[product.category].products.push(product);
+        }
+      });
+
+      return Object.values(groupedProducts);
+    };
+
+    setGroupedTopProducts(getTopProductsFromLocalStorage());
+
+    if (!groupedTopProducts.length) {
+      groupedTopProducts = groupTopProductsByCategory(products);
+      saveTopProductsToLocalStorage(groupedTopProducts);
+    }
   }, []);
+
+  const addCartProduct = product => {
+    product.inTheCart = !product.inTheCart;
+    if (product.inTheCart) {
+      toast.success("Savatga qo'shildi", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      toast.error("Savatdan o'chirildi", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
+
+  useEffect(() => {
+    document.title = "AUTO TUNING";
+  }, []);
+
+  useEffect(() => {
+    setCategoryBtnActive(
+      productsCategory.map((category, index) => ({
+        active: false,
+        category,
+      }))
+    );
+  }, [categoryBtnActive]);
 
   useEffect(() => {
     const typed = new Typed(typedElement.current, {
@@ -59,7 +131,7 @@ const Home = () => {
   });
 
   return (
-    <div className={`${styles.container} !px-0 max-w-[1920px]`}>
+    <div>
       <Swiper
         navigation={true}
         pagination={{
@@ -110,44 +182,219 @@ const Home = () => {
       >
         Eng yaxshi mahsulotlar
       </Typography>
-      <div className="flex justify-center items-center py-5">
-        <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
-          <li>
-            <Button
-              onClick={() => {
-                setRender(prev => !prev);
-                setCategory(setCategoryToArray(products));
-                setAllBtnActive(true);
-              }}
-              className="w-full"
-              variant={allBtnActive ? "filled" : "outlined"}
-            >
-              Hammasi
-            </Button>
-          </li>
-          {productsCategory.map((category, index) => {
-            return (
-              <li key={index}>
-                <Button
-                  onClick={() => {
-                    setRender(prev => !prev);
-                    setAllBtnActive(false);
-                    setCategory([category]);
-                    
-                  }}
-                  className="w-full"
-                  variant={
-                    categoryBtnActive[index].active ? "filled" : "outlined"
-                  }
+      <div className="flex w-full justify-center items-center py-5">
+        {groupedTopProducts && groupedTopProducts.length > 0 && (
+          <Tabs value="allCategories" className={`${styles.container}`}>
+            <div className="flex justify-center items-center">
+              <TabsHeader className="w-min bg-red-900">
+                <Tab
+                  key="allCategories"
+                  value="allCategories"
+                  className="w-min px-5 text-white"
                 >
-                  {category}
-                </Button>
-              </li>
-            );
-          })}
-        </ul>
+                  Hammasi
+                </Tab>
+                {groupedTopProducts.map(({ category }) => (
+                  <Tab
+                    key={category}
+                    value={category}
+                    className="w-max px-5 text-white"
+                  >
+                    {category}
+                  </Tab>
+                ))}
+              </TabsHeader>
+            </div>
+            <TabsBody>
+              <TabPanel
+                key="allCategories"
+                value="allCategories"
+                className="flex gap-x-5 overflow-auto products-swiper"
+              >
+                {products.map(product => {
+                  if (product.top) {
+                    return (
+                      <li
+                        key={product.id}
+                        className="rounded-lg bg-white max-w-xs flex flex-col shadow-md space-y-4 card-swiper relative"
+                      >
+                        <Link
+                          to={`/${product.category}/${product.productName}`}
+                        >
+                          <Swiper
+                            navigation={true}
+                            effect="fade"
+                            pagination={{
+                              clickable: true,
+                            }}
+                            loop={true}
+                            modules={[Pagination, Navigation, EffectFade]}
+                            className="mySwiper relative rounded-lg"
+                          >
+                            {product.images.map((item, index) => {
+                              return (
+                                <SwiperSlide
+                                  key={index}
+                                  className="max-h-[400px]"
+                                >
+                                  <img src={item} className="w-full" alt="" />
+                                </SwiperSlide>
+                              );
+                            })}
+                          </Swiper>
+                        </Link>
+                        <button
+                          onClick={() => (product.saved = !product.saved)}
+                          className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
+                        >
+                          {product.saved ? (
+                            <Bookmark fontSize="large" />
+                          ) : (
+                            <BookmarkBorderOutlined fontSize="large" />
+                          )}
+                        </button>
+                        <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
+                          <Typography variant="h5" className="font-medium">
+                            {product.productName}
+                          </Typography>
+                          <div>
+                            <Typography variant="small">
+                              Turkum: {product.category}
+                            </Typography>
+                            <Typography variant="small" color="black">
+                              <span className="flex items-end justify-start space-x-1">
+                                <Star className="text-yellow-700" />
+                                <span className="text-gray-700">
+                                  {product.rating}
+                                </span>
+                              </span>
+                            </Typography>
+                            <div className="w-full flex justify-between items-end">
+                              <Typography variant="h6">
+                                {product.price
+                                  .toLocaleString("uz-UZ", options)
+                                  .replaceAll(",", " ")}{" "}
+                                so'm
+                              </Typography>
+                              <IconButton
+                                onClick={() => addCartProduct(product)}
+                                variant={`${
+                                  product.inTheCart ? "filled" : "outlined"
+                                }`}
+                                color="gray"
+                              >
+                                {product.inTheCart ? (
+                                  <RemoveShoppingCartOutlined />
+                                ) : (
+                                  <AddShoppingCartOutlined />
+                                )}
+                              </IconButton>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  }
+                })}
+              </TabPanel>
+              {groupedTopProducts.map(({ category }) => (
+                <TabPanel
+                  key={category}
+                  value={category}
+                  className="flex gap-x-5 overflow-auto products-swiper"
+                >
+                  {products.map((product, index) => {
+                    if (product.category == category && product.top) {
+                      return (
+                        <li
+                          key={product.id}
+                          className="rounded-lg bg-white max-w-xs flex flex-col shadow-md space-y-4 card-swiper relative"
+                        >
+                          <Link
+                            to={`/${product.category}/${product.productName}`}
+                          >
+                            <Swiper
+                              navigation={true}
+                              effect="fade"
+                              pagination={{
+                                clickable: true,
+                              }}
+                              loop={true}
+                              modules={[Pagination, Navigation, EffectFade]}
+                              className="mySwiper relative rounded-lg"
+                            >
+                              {product.images.map((item, index) => {
+                                return (
+                                  <SwiperSlide
+                                    key={index}
+                                    className="max-h-[400px]"
+                                  >
+                                    <img src={item} className="w-full" alt="" />
+                                  </SwiperSlide>
+                                );
+                              })}
+                            </Swiper>
+                          </Link>
+                          <button
+                            onClick={() => (product.saved = !product.saved)}
+                            className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
+                          >
+                            {product.saved ? (
+                              <Bookmark fontSize="large" />
+                            ) : (
+                              <BookmarkBorderOutlined fontSize="large" />
+                            )}
+                          </button>
+                          <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
+                            <Typography variant="h5" className="font-medium">
+                              {product.productName}
+                            </Typography>
+                            <div>
+                              <Typography variant="small">
+                                Turkum: {product.category}
+                              </Typography>
+                              <Typography variant="small" color="black">
+                                <span className="flex items-end justify-start space-x-1">
+                                  <Star className="text-yellow-700" />
+                                  <span className="text-gray-700">
+                                    {product.rating}
+                                  </span>
+                                </span>
+                              </Typography>
+                              <div className="w-full flex justify-between items-end">
+                                <Typography variant="h6">
+                                  {product.price
+                                    .toLocaleString("uz-UZ", options)
+                                    .replaceAll(",", " ")}{" "}
+                                  so'm
+                                </Typography>
+                                <IconButton
+                                  onClick={() => addCartProduct(product)}
+                                  variant={`${
+                                    product.inTheCart ? "filled" : "outlined"
+                                  }`}
+                                  color="gray"
+                                >
+                                  {product.inTheCart ? (
+                                    <RemoveShoppingCartOutlined />
+                                  ) : (
+                                    <AddShoppingCartOutlined />
+                                  )}
+                                </IconButton>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      );
+                    }
+                  })}
+                </TabPanel>
+              ))}
+            </TabsBody>
+          </Tabs>
+        )}
       </div>
-      <Products productsCategory={category} />
+      <ToastContainer />
     </div>
   );
 };

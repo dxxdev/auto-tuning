@@ -21,6 +21,9 @@ const Category = () => {
     return product.category == category;
   });
   useEffect(() => {
+    document.title = category;
+  }, [category]);
+  useEffect(() => {
     setFilterCategory(filteredCategory);
   }, [category, products.map(product => product)]);
   return (
