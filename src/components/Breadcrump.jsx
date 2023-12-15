@@ -11,23 +11,18 @@ const Breadcrump = () => {
   return (
     <div className={`w-full relative max-w-[1440px] mx-auto`}>
       <Breadcrumbs className="bg-white">
-        <li>
-          <Link className="text-gray-800" to="/">
-            Bosh sahifa
-          </Link>
-        </li>
-
+        <Link className="text-gray-800" to="/">
+          Bosh sahifa
+        </Link>
         {tayyorArr.map((path, index) => {
-          return (
-            <li key={index}>
-              {index !== tayyorArr.length - 1 ? (
-                <Link className="text-gray-800" to={path}>
-                  {path}
-                </Link>
-              ) : (
-                <p className="text-gray-600 cursor-not-allowed">{path}</p>
-              )}
-            </li>
+          return index !== tayyorArr.length - 1 ? (
+            <Link key={index} className="text-gray-800" to={path}>
+              {path}
+            </Link>
+          ) : (
+            <p key={index} className="text-gray-600 cursor-not-allowed">
+              {path}
+            </p>
           );
         })}
       </Breadcrumbs>

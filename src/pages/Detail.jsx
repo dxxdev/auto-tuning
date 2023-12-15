@@ -7,6 +7,8 @@ import { Button, IconButton, Typography } from "@material-tailwind/react";
 import {
   Add,
   AddShoppingCartOutlined,
+  Bookmark,
+  BookmarkBorderOutlined,
   Remove,
   RemoveShoppingCartOutlined,
   Star,
@@ -82,7 +84,7 @@ const Detail = () => {
             loop={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Thumbs, Autoplay]}
-            className="mySwiper2"
+            className="mySwiper2 relative"
           >
             {info &&
               info.images.map((image, index) => {
@@ -96,6 +98,19 @@ const Detail = () => {
                   </SwiperSlide>
                 );
               })}
+            <button
+              onClick={() => {
+                setRender(prev => !prev);
+                info.saved = !info.saved;
+              }}
+              className="absolute top-0 right-0 z-[999] text-red-600"
+            >
+              {info.saved ? (
+                <Bookmark fontSize="large" />
+              ) : (
+                <BookmarkBorderOutlined fontSize="large" />
+              )}
+            </button>
           </Swiper>
           <Swiper
             onSwiper={setThumbsSwiper}
@@ -171,7 +186,7 @@ const Detail = () => {
                 if (info.countProduct > 1) {
                   info.countProduct--;
                 }
-                setRender(prev => !prev);
+                rendered();
               }}
               size="sm"
               variant="filled"
@@ -183,7 +198,7 @@ const Detail = () => {
             <IconButton
               onClick={() => {
                 info.countProduct++;
-                setRender(prev => !prev);
+                rendered();
               }}
               size="sm"
               variant="filled"

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { styles } from "../styles";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { logo } from "../assets/images";
 import {
   Badge,
@@ -11,6 +11,7 @@ import {
 } from "@material-tailwind/react";
 import {
   ArrowForwardIos,
+  BookmarkBorderOutlined,
   Menu,
   Phone,
   Search,
@@ -19,15 +20,18 @@ import {
 import { products } from "../data/data";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [openInput, setOpenInput] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [howMuch, setHowMuch] = useState(0);
+  const [howSaved, setHowSaved] = useState(0);
   const [render, setRender] = useState(false);
   const [catalogOpen, setCatalogOpen] = useState(false);
 
   const [productsCategory, setProductsCategory] = useState([]);
 
   const openCatalog = () => setCatalogOpen(prev => !prev);
+
   function setCategoryToArray(arr) {
     let categoryes = new Set();
     arr.forEach(function (item) {
@@ -40,9 +44,13 @@ const Header = () => {
 
   const filteredProductOnCart = arr => {
     const filteredProduct = arr.filter(product => {
-      return product.inTheCart == true;
+      return product.inTheCart;
+    });
+    const filteredProductOnSaved = arr.filter(product => {
+      return product.saved;
     });
     setHowMuch(filteredProduct.length);
+    setHowSaved(filteredProductOnSaved.length);
   };
 
   useEffect(() => {
@@ -61,11 +69,8 @@ const Header = () => {
   useEffect(() => {
     filteredProductOnCart(products);
     setCartProducts(products);
-  }, [products.map(product => product.inTheCart)]);
-
-  useEffect(() => {
     setRender(prev => !prev);
-  }, [products.map(product => product.inTheCart)]);
+  }, [render]);
   return (
     <>
       <header className="bg-[#f5f5f5] py-4 z-[999]">
@@ -167,13 +172,31 @@ const Header = () => {
                   />
                 </IconButton>
               </div>
-              <Badge content={howMuch} invisible={howMuch > 0 ? false : true}>
-                <Link
-                  to={`/basket`}
-                  className="!w-11 px-2 text-white border border-white rounded-lg flex justify-center items-center !aspect-square"
+              <Badge
+                color="red"
+                className="w-6 h-6 flex justify-center items-center"
+                content={howSaved}
+              >
+                <IconButton
+                  onClick={() => navigate("/saved")}
+                  variant="outlined"
+                  color="white"
+                >
+                  <BookmarkBorderOutlined />
+                </IconButton>
+              </Badge>
+              <Badge
+                color="red"
+                className="w-6 h-6 flex justify-center items-center"
+                content={howMuch}
+              >
+                <IconButton
+                  onClick={() => navigate("/basket")}
+                  variant="outlined"
+                  color="white"
                 >
                   <ShoppingBasketOutlined />
-                </Link>
+                </IconButton>
               </Badge>
             </div>
           </div>

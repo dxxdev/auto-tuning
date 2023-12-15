@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Route,
   RouterProvider,
@@ -8,22 +8,24 @@ import {
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
-import { products } from "./data/data";
 import Basket from "./pages/Basket";
 import Category from "./pages/Category";
+import Saved from "./pages/Saved";
 
 const App = () => {
-  const [render, setRender] = useState([]);
-  useEffect(() => {
-    setRender(prev => !prev);
-  }, [products]);
+  const [render, setRender] = useState(true);
+  const rendered = () => setRender(prev => !prev);
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<Home />} />
-        <Route path="/basket" element={<Basket />} />
-        <Route path="/:category" element={<Category />} />
-        <Route path="/:category/:productName" element={<Detail />} />
+      <Route path="/" element={<MainLayout rendered={rendered} />}>
+        <Route index element={<Home rendered={rendered} />} />
+        <Route path="/basket" element={<Basket rendered={rendered} />} />
+        <Route path="/saved" element={<Saved />} />
+        <Route path="/:category" element={<Category rendered={rendered} />} />
+        <Route
+          path="/:category/:productName"
+          element={<Detail rendered={rendered} />}
+        />
       </Route>
     )
   );

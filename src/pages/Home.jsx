@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -21,24 +21,17 @@ import {
 } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { Link } from "react-router-dom";
-import { options, products } from "../data/data";
-import Typed from "typed.js";
+import { addCartProduct, options, products } from "../data/data";
 import {
   AddShoppingCartOutlined,
   Bookmark,
   BookmarkBorderOutlined,
-  BookmarkOutlined,
   RemoveShoppingCartOutlined,
   Star,
 } from "@mui/icons-material";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
-const Home = () => {
-  const typedElement = useRef(null);
-  const [render, setRender] = useState(true);
-  const [allBtnActive, setAllBtnActive] = useState(true);
-  const [categoryBtnActive, setCategoryBtnActive] = useState([]);
-  const [productsCategory, setProductsCategory] = useState([]);
+const Home = ({ rendered }) => {
   let [groupedTopProducts, setGroupedTopProducts] = useState([]);
 
   useEffect(() => {
@@ -70,65 +63,20 @@ const Home = () => {
       return Object.values(groupedProducts);
     };
 
-    setGroupedTopProducts(getTopProductsFromLocalStorage());
+    setGroupedTopProducts(prevGroupedTopProducts => {
+      if (!prevGroupedTopProducts.length) {
+        const newGroupedTopProducts = groupTopProductsByCategory(products);
+        saveTopProductsToLocalStorage(newGroupedTopProducts);
+        return newGroupedTopProducts;
+      }
 
-    if (!groupedTopProducts.length) {
-      groupedTopProducts = groupTopProductsByCategory(products);
-      saveTopProductsToLocalStorage(groupedTopProducts);
-    }
+      return prevGroupedTopProducts;
+    });
   }, []);
-
-  const addCartProduct = product => {
-    product.inTheCart = !product.inTheCart;
-    if (product.inTheCart) {
-      toast.success("Savatga qo'shildi", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } else {
-      toast.error("Savatdan o'chirildi", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
-  };
 
   useEffect(() => {
     document.title = "AUTO TUNING";
   }, []);
-
-  useEffect(() => {
-    setCategoryBtnActive(
-      productsCategory.map((category, index) => ({
-        active: false,
-        category,
-      }))
-    );
-  }, [categoryBtnActive]);
-
-  useEffect(() => {
-    const typed = new Typed(typedElement.current, {
-      strings: productsCategory.map(str => str.toLowerCase()),
-      typeSpeed: 50,
-      backSpeed: 50,
-      loop: true,
-    });
-    return () => {
-      typed.destroy();
-    };
-  });
 
   return (
     <div>
@@ -151,7 +99,7 @@ const Home = () => {
               key={item.id}
               className="max-h-[700px] h-min min-h-min flex justify-center items-center"
             >
-              <img src={item.image} className="h-full w-full" alt="" />
+              <img src={item.image} className="h-full w-full" alt="Hero img" />
             </SwiperSlide>
           );
         })}
@@ -163,10 +111,9 @@ const Home = () => {
                 color="white"
                 className="h-full space-x-0 lg:space-x-3 flex flex-col lg:flex-row text-xl md:text-2xl lg:text-4xl xl:text-5xl text-white"
               >
-                <span>Mashinalar uchun</span>
-                <div ref={typedElement}></div>
+                <span>Servis xizmati Toshkentda</span>
               </Typography>
-              <Link>
+              <Link to="/">
                 <Button variant="filled" color="red" className="text-white">
                   Tuning jihozlariga buyurtma berish
                 </Button>
@@ -244,7 +191,10 @@ const Home = () => {
                           </Swiper>
                         </Link>
                         <button
-                          onClick={() => (product.saved = !product.saved)}
+                          onClick={() => {
+                            rendered();
+                            product.saved = !product.saved;
+                          }}
                           className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
                         >
                           {product.saved ? (
@@ -277,7 +227,10 @@ const Home = () => {
                                 so'm
                               </Typography>
                               <IconButton
-                                onClick={() => addCartProduct(product)}
+                                onClick={() => {
+                                  rendered();
+                                  addCartProduct(product);
+                                }}
                                 variant={`${
                                   product.inTheCart ? "filled" : "outlined"
                                 }`}
@@ -336,7 +289,10 @@ const Home = () => {
                             </Swiper>
                           </Link>
                           <button
-                            onClick={() => (product.saved = !product.saved)}
+                            onClick={() => {
+                              rendered();
+                              product.saved = !product.saved;
+                            }}
                             className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
                           >
                             {product.saved ? (
@@ -369,7 +325,10 @@ const Home = () => {
                                   so'm
                                 </Typography>
                                 <IconButton
-                                  onClick={() => addCartProduct(product)}
+                                  onClick={() => {
+                                    rendered();
+                                    addCartProduct(product);
+                                  }}
                                   variant={`${
                                     product.inTheCart ? "filled" : "outlined"
                                   }`}

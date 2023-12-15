@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { options, products } from "../data/data";
+import { addCartProduct, options, products } from "../data/data";
 import { styles } from "../styles";
 import { ToastContainer } from "react-toastify";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,6 +9,7 @@ import {
   AddShoppingCartOutlined,
   Bookmark,
   BookmarkAdd,
+  BookmarkBorderOutlined,
   RemoveShoppingCartOutlined,
   Star,
 } from "@mui/icons-material";
@@ -16,6 +17,7 @@ import { IconButton, Typography } from "@material-tailwind/react";
 
 const Category = () => {
   const { category } = useParams();
+  const [render, setRender] = useState(true);
   const [filterCategory, setFilterCategory] = useState([]);
   const filteredCategory = products.filter(product => {
     return product.category == category;
@@ -25,7 +27,7 @@ const Category = () => {
   }, [category]);
   useEffect(() => {
     setFilterCategory(filteredCategory);
-  }, [category, products.map(product => product)]);
+  }, [category]);
   return (
     <ul
       className={`${styles.container} py-5 grid grid-cols-4 gap-8 overflow-auto products-swiper`}
@@ -34,7 +36,7 @@ const Category = () => {
         return (
           <li
             key={product.id}
-            className="rounded-lg bg-white max-w-sm flex flex-col shadow-md space-y-4 card-swiper"
+            className="rounded-lg bg-white max-w-sm flex flex-col shadow-md space-y-4 card-swiper relative"
           >
             <Link to={`/${product.category}/${product.productName}`}>
               <Swiper
@@ -56,9 +58,25 @@ const Category = () => {
                 })}
               </Swiper>
             </Link>
+            <button
+              onClick={() => {
+                setRender(prev => !prev);
+                product.saved = !product.saved;
+              }}
+              className="absolute top-0 -translate-y-1/2 right-0 z-[999] text-red-600"
+            >
+              {product.saved ? (
+                <Bookmark fontSize="large" />
+              ) : (
+                <BookmarkBorderOutlined fontSize="large" />
+              )}
+            </button>
             <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
               <button
-                onClick={() => (product.saved = !product.saved)}
+                onClick={() => {
+                  setRender(prev => !prev);
+                  product.saved = !product.saved;
+                }}
                 className="absolute top-0 right-4 text-red-600"
               >
                 {product.saved ? <Bookmark /> : <BookmarkAdd />}
@@ -84,7 +102,10 @@ const Category = () => {
                     so'm
                   </Typography>
                   <IconButton
-                    onClick={() => addToCart(index)}
+                    onClick={() => {
+                      setRender(prev => !prev);
+                      addCartProduct(product);
+                    }}
                     variant={`${product.inTheCart ? "filled" : "outlined"}`}
                     color="gray"
                   >

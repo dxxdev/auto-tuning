@@ -106,6 +106,7 @@ import {
   antiradar24,
   antiradar25,
 } from "../assets/images";
+import { toast } from "react-toastify";
 
 export const products = [
   {
@@ -610,7 +611,6 @@ export const filteredProductForId = id => {
   return infoProductArr[0];
 };
 
-
 function setCategoryToArray(arr) {
   let categoryes = new Set();
   arr.forEach(function (item) {
@@ -624,3 +624,30 @@ function setCategoryToArray(arr) {
 export const category = setCategoryToArray(products);
 
 export const topProducts = products.filter(product => product.top);
+
+export const addCartProduct = product => {
+  product.inTheCart = !product.inTheCart;
+  if (product.inTheCart) {
+    toast.success("Savatga qo'shildi", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  } else {
+    toast.error("Savatdan o'chirildi", {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
+};
