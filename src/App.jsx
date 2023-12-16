@@ -19,8 +19,8 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<MainLayout rendered={rendered} />}>
         <Route index element={<Home rendered={rendered} />} />
-        <Route path="/basket" element={<Basket rendered={rendered} />} />
-        <Route path="/saved" element={<Saved />} />
+        <Route path="/Savatcha" element={<Basket rendered={rendered} />} />
+        <Route path="/Saqlanganlar" element={<Saved />} />
         <Route path="/:category" element={<Category rendered={rendered} />} />
         <Route
           path="/:category/:productName"

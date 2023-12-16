@@ -186,7 +186,7 @@ const Detail = () => {
                 if (info.countProduct > 1) {
                   info.countProduct--;
                 }
-                rendered();
+                setRender(prev => !prev);
               }}
               size="sm"
               variant="filled"
@@ -198,7 +198,7 @@ const Detail = () => {
             <IconButton
               onClick={() => {
                 info.countProduct++;
-                rendered();
+                setRender(prev => !prev);
               }}
               size="sm"
               variant="filled"

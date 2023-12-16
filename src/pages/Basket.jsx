@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { products } from "../data/data";
-import { IconButton, Typography } from "@material-tailwind/react";
+import { Button, IconButton, Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer, toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import {
   AddShoppingCartOutlined,
+  Bookmark,
+  BookmarkBorderOutlined,
   RemoveShoppingCartOutlined,
   Star,
 } from "@mui/icons-material";
 
 const Basket = () => {
   const [render, setRender] = useState(true);
+  const navigate = useNavigate();
   const [inTheCartProduct, setInTheCartProduct] = useState([]);
 
   const filteredProductOnCart = arr => {
@@ -48,7 +51,7 @@ const Basket = () => {
             return (
               <li
                 key={product.id}
-                className="rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper"
+                className="rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper relative"
               >
                 <Link to={`/${product.category}/${product.productName}`}>
                   <Swiper
@@ -74,6 +77,19 @@ const Basket = () => {
                     })}
                   </Swiper>
                 </Link>
+                <button
+                  onClick={() => {
+                    setRender(prev => !prev);
+                    product.saved = !product.saved;
+                  }}
+                  className="absolute top-0 -translate-y-1/2 right-0 z-[999] text-red-600"
+                >
+                  {product.saved ? (
+                    <Bookmark fontSize="large" />
+                  ) : (
+                    <BookmarkBorderOutlined fontSize="large" />
+                  )}
+                </button>
                 <div className="flex flex-col h-full px-3 pb-3 space-y-3 justify-between">
                   <Typography variant="h5" className="font-medium">
                     {product.productName}
@@ -110,7 +126,7 @@ const Basket = () => {
                           });
                           setRender(prev => !prev);
                         }}
-                        variant="outlined"
+                        variant={product.inTheCart ? "filled" : "outlined"}
                         color="gray"
                       >
                         {product.inTheCart ? (
@@ -128,10 +144,13 @@ const Basket = () => {
         </ul>
       )}
       {inTheCartProduct.length <= 0 && (
-        <Typography variant="lead" className="w-full max-w-sm">
-          Savatcha bo'sh. Mahsulotni savatga qo'shish uchun mahsulotning pastki
-          qismidagi savatcha tugmasini bosing
-        </Typography>
+        <div className="flex flex-col justify-between items-start space-y-10">
+          <Typography variant="lead" className="w-full max-w-sm">
+            Savatcha bo'sh. Mahsulotni savatga qo'shish uchun mahsulotning
+            pastki qismidagi savatcha tugmasini bosing
+          </Typography>
+          <Button onClick={() => navigate("/")}>Bosh saxifaga o'tish</Button>
+        </div>
       )}
       <ToastContainer />
     </div>

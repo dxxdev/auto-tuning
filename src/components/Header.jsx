@@ -178,7 +178,7 @@ const Header = () => {
                 content={howSaved}
               >
                 <IconButton
-                  onClick={() => navigate("/saved")}
+                  onClick={() => navigate("/Saqlanganlar")}
                   variant="outlined"
                   color="white"
                 >
@@ -191,7 +191,7 @@ const Header = () => {
                 content={howMuch}
               >
                 <IconButton
-                  onClick={() => navigate("/basket")}
+                  onClick={() => navigate("/Savatcha")}
                   variant="outlined"
                   color="white"
                 >
@@ -237,16 +237,27 @@ const Header = () => {
                 }`}
               />
               <span className="text-xl">Mahsulot turkumlari</span>
+              <span className="text-gray-600 text-sm">({products.length})</span>
             </button>
           </li>
         </ul>
         {catalogOpen && (
           <ul className="gap-x-10 text-black text-xl">
             {productsCategory.map((category, index) => {
+              let categoryHowMuchProduct = products.filter(
+                product => product.category === category
+              );
               return (
                 <li key={index}>
-                  <NavLink onClick={closeDrawer2} to={`/${category}`}>
-                    {category}
+                  <NavLink
+                    className="space-x-2 flex items-center"
+                    to={`/${category}`}
+                    onClick={closeDrawer2}
+                  >
+                    <span>{category}</span>
+                    <span className="text-gray-600 text-base">
+                      ({categoryHowMuchProduct.length})
+                    </span>
                   </NavLink>
                 </li>
               );

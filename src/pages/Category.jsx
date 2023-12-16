@@ -72,15 +72,6 @@ const Category = () => {
               )}
             </button>
             <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-              <button
-                onClick={() => {
-                  setRender(prev => !prev);
-                  product.saved = !product.saved;
-                }}
-                className="absolute top-0 right-4 text-red-600"
-              >
-                {product.saved ? <Bookmark /> : <BookmarkAdd />}
-              </button>
               <Typography variant="h5" className="font-medium">
                 {product.productName}
               </Typography>

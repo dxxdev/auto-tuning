@@ -6,7 +6,12 @@ const Breadcrump = () => {
   const location = useLocation();
   const pathArr = location.pathname.split("/");
   const filteredArr = pathArr.filter(path => path !== "");
-  const tayyorArr = filteredArr.map(path => path.replaceAll("%20", " "));
+  const tayyorArr = filteredArr.map(path => {
+    let lastProductName;
+    lastProductName = path.replaceAll("%20", " ");
+    lastProductName = lastProductName.replaceAll("%22", `"`);
+    return lastProductName;
+  });
 
   return (
     <div className={`w-full relative max-w-[1440px] mx-auto`}>

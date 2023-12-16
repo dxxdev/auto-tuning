@@ -115,7 +115,7 @@ const Saved = () => {
                           addCartProduct(product);
                           setRender(prev => !prev);
                         }}
-                        variant="outlined"
+                        variant={product.inTheCart ? "filled" : "outlined"}
                         color="gray"
                       >
                         {product.inTheCart ? (
