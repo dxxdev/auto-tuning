@@ -136,6 +136,7 @@ export const products = [
     countProduct: 1,
     top: true,
     saved: false,
+    isItNew: true,
   },
   {
     id: randomId(),
@@ -157,6 +158,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -176,6 +178,7 @@ export const products = [
     countProduct: 1,
     top: true,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -197,6 +200,7 @@ export const products = [
     countProduct: 1,
     top: true,
     saved: false,
+    isItNew: true,
   },
   {
     id: randomId(),
@@ -223,6 +227,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: true,
   },
   {
     id: randomId(),
@@ -242,6 +247,7 @@ export const products = [
     countProduct: 1,
     top: true,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -264,6 +270,7 @@ export const products = [
     countProduct: 1,
     top: true,
     saved: false,
+    isItNew: true,
   },
   {
     id: randomId(),
@@ -298,6 +305,7 @@ export const products = [
     countProduct: 1,
     top: true,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -333,6 +341,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: true,
   },
   {
     id: randomId(),
@@ -367,6 +376,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -381,6 +391,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -402,6 +413,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: true,
   },
   {
     id: randomId(),
@@ -431,6 +443,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: true,
   },
   {
     id: randomId(),
@@ -452,6 +465,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -474,6 +488,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -509,6 +524,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -535,6 +551,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -566,6 +583,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: false,
   },
   {
     id: randomId(),
@@ -594,6 +612,7 @@ export const products = [
     countProduct: 1,
     top: false,
     saved: false,
+    isItNew: false,
   },
 ];
 
