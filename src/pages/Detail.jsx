@@ -71,7 +71,7 @@ const Detail = () => {
       className={`py-2 flex ${styles.container} gap-x-10 flex-col md:flex-row`}
     >
       {info && (
-        <div className="w-full space-y-3 md:max-w-sm p-5">
+        <div className="w-full space-y-3 p-5">
           <Swiper
             style={{
               "--swiper-navigation-color": "#fff",
@@ -84,16 +84,16 @@ const Detail = () => {
             loop={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Thumbs, Autoplay]}
-            className="mySwiper2 relative"
+            className="mySwiper2 relative md:max-w-xl max-h-[600px]"
           >
             {info &&
               info.images.map((image, index) => {
                 return (
-                  <SwiperSlide key={index}>
+                  <SwiperSlide className="flex justify-center items-center" key={index}>
                     <img
                       src={image}
-                      className="hover:scale-110 transition-all"
-                      alt={image}
+                      className="hover:scale-110 transition-all w-full h-full object-cover"
+                      alt={info.productName}
                     />
                   </SwiperSlide>
                 );
@@ -119,13 +119,20 @@ const Detail = () => {
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Thumbs]}
-            className="mySwiper"
+            className="mySwiper max-w-xl max-h-[100px]"
           >
             {info &&
               info.images.map((image, index) => {
                 return (
-                  <SwiperSlide key={index}>
-                    <img src={image} alt={image} />
+                  <SwiperSlide
+                    className="relative flex justify-center items-center"
+                    key={index}
+                  >
+                    <img
+                      src={image}
+                      alt={info.productName}
+                      className="w-full h-full"
+                    />
                   </SwiperSlide>
                 );
               })}

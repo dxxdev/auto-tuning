@@ -20,10 +20,11 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { styles } from "../styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addCartProduct, options, products } from "../data/data";
 import {
   AddShoppingCartOutlined,
+  ArrowRightAltOutlined,
   Bookmark,
   BookmarkBorderOutlined,
   RemoveShoppingCartOutlined,
@@ -33,13 +34,17 @@ import { ToastContainer } from "react-toastify";
 
 const Home = ({ rendered }) => {
   let [groupedTopProducts, setGroupedTopProducts] = useState([]);
+  const navigate = useNavigate();
 
+  let lastNumbersArr = products.length
+    .toString()
+    .slice(1)
+    .split("")
+    .map(number => {
+      return 0 + "";
+    });
+  let lastNumber = lastNumbersArr.join("");
   useEffect(() => {
-    function getTopProductsFromLocalStorage() {
-      const storedTopProducts = localStorage.getItem("topProducts");
-      return storedTopProducts ? JSON.parse(storedTopProducts) : [];
-    }
-
     function saveTopProductsToLocalStorage(topProducts) {
       localStorage.setItem("topProducts", JSON.stringify(topProducts));
     }
@@ -369,13 +374,75 @@ const Home = ({ rendered }) => {
             )}
           </div>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center space-y-3 sm:space-y-0 flex-col sm:flex-row">
           <Typography className="" variant="h2">
-            {products.length.toString().slice(0, 1) +
-              0 * products.length.toString().length}{" "}
-            dan ortiq avto tovarlar bir joyda
+            {products.length.toString().slice(0, 1) + lastNumber} dan ortiq avto
+            tovarlar bir joyda
           </Typography>
-          <Button variant="outlined">Katalog</Button>
+          <Button
+            className="w-full sm:w-min"
+            onClick={() => navigate("/catalog")}
+            variant="outlined"
+          >
+            Katalog
+          </Button>
+        </div>
+        <div className="flex flex-col gap-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div
+              className={`bg-[url('/src/assets/img/antiradar.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl`}
+            >
+              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl">
+                <Typography variant="h3" color="white">
+                  Antiradarlar
+                </Typography>
+                <Typography color="white" variant="lead">
+                  Politsiya radarlariga qarshi yuqori masofaga va maksimal
+                  shovqin immuniteti
+                </Typography>
+                <Link to="/Antiradarlar" className="text-white group">
+                  <span>Antiradarlar</span>
+                  <ArrowRightAltOutlined className="translate-x-2 group-hover:translate-x-full" />
+                </Link>
+              </div>
+            </div>
+            <div
+              className={`bg-[url('/src/assets/img/atir+vizitka.jpg')] bg-cover bg-center h-96 flex rounded-2xl`}
+            >
+              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl">
+                <Typography variant="h3" color="white">
+                  Diffuzor
+                </Typography>
+                <Typography color="white" variant="lead">
+                  Mashina uchun aqlli hushbo'ylagich. Havoni namlaydi, o'zida
+                  hushbo'y hid taratadi va vizitka
+                </Typography>
+                <Link to="/Suvenirlar" className="text-white group">
+                  <span>Suvenirlar</span>
+                  <ArrowRightAltOutlined className="translate-x-2 group-hover:translate-x-full" />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              className={`bg-[url('/src/assets/img/interyer.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl`}
+            >
+              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl">
+                <Typography variant="h3" color="white">
+                  Interyer
+                </Typography>
+                <Typography color="white" variant="lead">
+                  Mashina salonini bezatish uchun avto tovarlarga buyurtma
+                  bering
+                </Typography>
+                <Link to="/catalog" className="text-white group">
+                  <span>Katalog</span>
+                  <ArrowRightAltOutlined className="translate-x-2 group-hover:translate-x-full" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <ToastContainer />

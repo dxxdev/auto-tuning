@@ -8,7 +8,6 @@ import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import {
   AddShoppingCartOutlined,
   Bookmark,
-  BookmarkAdd,
   BookmarkBorderOutlined,
   RemoveShoppingCartOutlined,
   Star,
