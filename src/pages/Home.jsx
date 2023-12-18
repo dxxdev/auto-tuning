@@ -222,6 +222,7 @@ const Home = ({ rendered }) => {
                                   className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                                   value="Yangi"
                                   size="sm"
+                                  color="green"
                                   variant="filled"
                                 />
                               )}
@@ -342,6 +343,7 @@ const Home = ({ rendered }) => {
                                   <Chip
                                     className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                                     value="Yangi"
+                                    color="green"
                                     size="sm"
                                     variant="filled"
                                   />
@@ -410,8 +412,16 @@ const Home = ({ rendered }) => {
                       {products.filter(
                         product => product.category === category && product.top
                       ).length === 0 && (
-                        <div key="noProductFound" className="flex w-full min-h-[200px] justify-center items-center">
-                          <Typography className="text-center w-full" variant="h5">Hech narsa topilmadi</Typography>
+                        <div
+                          key="noProductFound"
+                          className="flex w-full min-h-[200px] justify-center items-center"
+                        >
+                          <Typography
+                            className="text-center w-full"
+                            variant="h5"
+                          >
+                            Hech narsa topilmadi
+                          </Typography>
                         </div>
                       )}
                     </TabPanel>
@@ -582,6 +592,7 @@ const Home = ({ rendered }) => {
                                 <Chip
                                   className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                                   value="Yangi"
+                                  color="green"
                                   size="sm"
                                   variant="filled"
                                 />
@@ -703,8 +714,9 @@ const Home = ({ rendered }) => {
                                   <Chip
                                     className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                                     value="Yangi"
+                                    color="green"
                                     size="sm"
-                                    variant="filled"
+                                    variant=""
                                   />
                                 )}
                                 {product.inAction && (
@@ -772,8 +784,16 @@ const Home = ({ rendered }) => {
                         product =>
                           product.category === category && product.isItNew
                       ).length === 0 && (
-                        <div key="noProductFound" className="flex w-full min-h-[200px] justify-center items-center">
-                          <Typography className="text-center w-full" variant="h5">Hech narsa topilmadi</Typography>
+                        <div
+                          key="noProductFound"
+                          className="flex w-full min-h-[200px] justify-center items-center"
+                        >
+                          <Typography
+                            className="text-center w-full"
+                            variant="h5"
+                          >
+                            Hech narsa topilmadi
+                          </Typography>
                         </div>
                       )}
                     </TabPanel>
@@ -874,6 +894,7 @@ const Home = ({ rendered }) => {
                                 <Chip
                                   className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                                   value="Yangi"
+                                  color="green"
                                   size="sm"
                                   variant="filled"
                                 />
@@ -995,8 +1016,9 @@ const Home = ({ rendered }) => {
                                   <Chip
                                     className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                                     value="Yangi"
+                                    color="green"
                                     size="sm"
-                                    variant="filled"
+                                    variant=""
                                   />
                                 )}
                                 {product.inAction && (
@@ -1064,8 +1086,16 @@ const Home = ({ rendered }) => {
                         product =>
                           product.category === category && product.inAction
                       ).length === 0 && (
-                        <div key="noProductFound" className="flex w-full min-h-[200px] justify-center items-center">
-                          <Typography className="text-center w-full" variant="h5">Hech narsa topilmadi</Typography>
+                        <div
+                          key="noProductFound"
+                          className="flex w-full min-h-[200px] justify-center items-center"
+                        >
+                          <Typography
+                            className="text-center w-full"
+                            variant="h5"
+                          >
+                            Hech narsa topilmadi
+                          </Typography>
                         </div>
                       )}
                     </TabPanel>
