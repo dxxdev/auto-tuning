@@ -5,14 +5,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../styles/swiperStyle.css";
-import "../styles/typedStyle.css";
 
 import { Pagination, Navigation, Autoplay, EffectFade } from "swiper/modules";
 import { swiperImages } from "../data/hero-swiper";
 import {
   Button,
-  Chip,
-  IconButton,
   Tab,
   TabPanel,
   Tabs,
@@ -22,21 +19,19 @@ import {
 } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { Link, useNavigate } from "react-router-dom";
-import { addCartProduct, category, options, products } from "../data/data";
-import {
-  AddShoppingCartOutlined,
-  ArrowRightAltOutlined,
-  Bookmark,
-  BookmarkBorderOutlined,
-  RemoveShoppingCartOutlined,
-  Star,
-} from "@mui/icons-material";
+import { category, products } from "../data/data";
+import { ArrowRightAltOutlined } from "@mui/icons-material";
 import { ToastContainer } from "react-toastify";
+import Products from "../components/Products";
 
 const Home = ({ rendered }) => {
   let [groupedTopProducts, setGroupedTopProducts] = useState([]);
   const inActionInfo = products.filter(product => product.inAction);
   const navigate = useNavigate();
+
+  const productSaved = product => {
+    product.saved = !product.saved;
+  };
 
   let lastNumbersArr = products.length
     .toString()
@@ -170,115 +165,20 @@ const Home = ({ rendered }) => {
                     {products.map(product => {
                       if (product.top) {
                         return (
-                          <li
-                            key={product.id}
-                            className="rounded-lg bg-white max-w-xs flex flex-col shadow-md group space-y-4 card-swiper relative"
-                          >
-                            <Link
-                              to={`/${product.category}/${product.productName}`}
-                            >
-                              <Swiper
-                                navigation={true}
-                                effect="fade"
-                                pagination={{
-                                  clickable: true,
-                                }}
-                                loop={true}
-                                modules={[Pagination, Navigation, EffectFade]}
-                                className="mySwiper relative rounded-lg"
-                              >
-                                {product.images.map((item, index) => {
-                                  return (
-                                    <SwiperSlide
-                                      key={index}
-                                      className="max-h-[400px]"
-                                    >
-                                      <img
-                                        src={item}
-                                        className="w-full"
-                                        alt=""
-                                      />
-                                    </SwiperSlide>
-                                  );
-                                })}
-                              </Swiper>
-                            </Link>
-                            <button
-                              onClick={() => {
-                                rendered();
-                                product.saved = !product.saved;
-                              }}
-                              className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
-                            >
-                              {product.saved ? (
-                                <Bookmark fontSize="large" />
-                              ) : (
-                                <BookmarkBorderOutlined fontSize="large" />
-                              )}
-                            </button>
-                            <div className="flex space-x-3 absolute left-3 top-0 z-10">
-                              {product.isItNew && (
-                                <Chip
-                                  className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                  value="Yangi"
-                                  size="sm"
-                                  color="green"
-                                  variant="filled"
-                                />
-                              )}
-                              {product.inAction && (
-                                <Chip
-                                  className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                  value="Aksiya"
-                                  size="sm"
-                                  variant="filled"
-                                  color="red"
-                                />
-                              )}
-                            </div>
-                            <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-                              <Typography variant="h5" className="font-medium">
-                                {product.productName}
-                              </Typography>
-                              <div>
-                                <Typography variant="small">
-                                  Turkum: {product.category}
-                                </Typography>
-                                <Typography variant="small" color="black">
-                                  <span className="flex items-end justify-start space-x-1">
-                                    <Star className="text-yellow-700" />
-                                    <span className="text-gray-700">
-                                      {product.rating}
-                                    </span>
-                                  </span>
-                                </Typography>
-                                <div className="w-full flex justify-between items-end">
-                                  <Typography variant="h6">
-                                    {product.price
-                                      .toLocaleString("uz-UZ", options)
-                                      .replaceAll(",", " ")}{" "}
-                                    so'm
-                                  </Typography>
-                                  <IconButton
-                                    onClick={() => {
-                                      rendered();
-                                      addCartProduct(product);
-                                    }}
-                                    variant={`${
-                                      product.inTheCart ? "filled" : "outlined"
-                                    }`}
-                                    color="gray"
-                                  >
-                                    {product.inTheCart ? (
-                                      <RemoveShoppingCartOutlined />
-                                    ) : (
-                                      <AddShoppingCartOutlined />
-                                    )}
-                                  </IconButton>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
+                          <Products
+                            rendered={rendered}
+                            product={product}
+                            productId={product.id}
+                            productName={product.productName}
+                            productCategory={product.category}
+                            productImages={product.images}
+                            productSaved={productSaved}
+                            productIsItNew={product.isItNew}
+                            productInAction={product.inAction}
+                            productRating={product.rating}
+                            productPrice={product.price}
+                            productInTheCart={product.inTheCart}
+                          />
                         );
                       }
                     })}
@@ -292,120 +192,20 @@ const Home = ({ rendered }) => {
                       {products.map((product, index) => {
                         if (product.category == category && product.top) {
                           return (
-                            <li
-                              key={product.id}
-                              className="rounded-lg bg-white max-w-xs flex flex-col group shadow-md space-y-4 card-swiper relative"
-                            >
-                              <Link
-                                to={`/${product.category}/${product.productName}`}
-                              >
-                                <Swiper
-                                  navigation={true}
-                                  effect="fade"
-                                  pagination={{
-                                    clickable: true,
-                                  }}
-                                  loop={true}
-                                  modules={[Pagination, Navigation, EffectFade]}
-                                  className="mySwiper relative rounded-lg"
-                                >
-                                  {product.images.map((item, index) => {
-                                    return (
-                                      <SwiperSlide
-                                        key={index}
-                                        className="max-h-[400px]"
-                                      >
-                                        <img
-                                          src={item}
-                                          className="w-full"
-                                          alt=""
-                                        />
-                                      </SwiperSlide>
-                                    );
-                                  })}
-                                </Swiper>
-                              </Link>
-                              <button
-                                onClick={() => {
-                                  rendered();
-                                  product.saved = !product.saved;
-                                }}
-                                className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
-                              >
-                                {product.saved ? (
-                                  <Bookmark fontSize="large" />
-                                ) : (
-                                  <BookmarkBorderOutlined fontSize="large" />
-                                )}
-                              </button>
-                              <div className="flex space-x-3 absolute left-3 top-0 z-10">
-                                {product.isItNew && (
-                                  <Chip
-                                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                    value="Yangi"
-                                    color="green"
-                                    size="sm"
-                                    variant="filled"
-                                  />
-                                )}
-                                {product.inAction && (
-                                  <Chip
-                                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                    value="Aksiya"
-                                    size="sm"
-                                    variant="filled"
-                                    color="red"
-                                  />
-                                )}
-                              </div>
-                              <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-                                <Typography
-                                  variant="h5"
-                                  className="font-medium"
-                                >
-                                  {product.productName}
-                                </Typography>
-                                <div>
-                                  <Typography variant="small">
-                                    Turkum: {product.category}
-                                  </Typography>
-                                  <Typography variant="small" color="black">
-                                    <span className="flex items-end justify-start space-x-1">
-                                      <Star className="text-yellow-700" />
-                                      <span className="text-gray-700">
-                                        {product.rating}
-                                      </span>
-                                    </span>
-                                  </Typography>
-                                  <div className="w-full flex justify-between items-end">
-                                    <Typography variant="h6">
-                                      {product.price
-                                        .toLocaleString("uz-UZ", options)
-                                        .replaceAll(",", " ")}{" "}
-                                      so'm
-                                    </Typography>
-                                    <IconButton
-                                      onClick={() => {
-                                        rendered();
-                                        addCartProduct(product);
-                                      }}
-                                      variant={`${
-                                        product.inTheCart
-                                          ? "filled"
-                                          : "outlined"
-                                      }`}
-                                      color="gray"
-                                    >
-                                      {product.inTheCart ? (
-                                        <RemoveShoppingCartOutlined />
-                                      ) : (
-                                        <AddShoppingCartOutlined />
-                                      )}
-                                    </IconButton>
-                                  </div>
-                                </div>
-                              </div>
-                            </li>
+                            <Products
+                              rendered={rendered}
+                              product={product}
+                              productId={product.id}
+                              productName={product.productName}
+                              productCategory={product.category}
+                              productImages={product.images}
+                              productSaved={productSaved}
+                              productIsItNew={product.isItNew}
+                              productInAction={product.inAction}
+                              productRating={product.rating}
+                              productPrice={product.price}
+                              productInTheCart={product.inTheCart}
+                            />
                           );
                         }
                       })}
@@ -447,9 +247,9 @@ const Home = ({ rendered }) => {
         <div className="flex flex-col gap-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div
-              className={`bg-[url('/src/assets/img/antiradar.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl`}
+              className={`bg-[url('/src/assets/img/antiradar.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl group transition-opacity`}
             >
-              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl">
+              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl group-hover:bg-opacity-40">
                 <Typography variant="h3" color="white">
                   Antiradarlar
                 </Typography>
@@ -457,16 +257,19 @@ const Home = ({ rendered }) => {
                   Politsiya radarlariga qarshi yuqori masofaga va maksimal
                   shovqin immuniteti
                 </Typography>
-                <Link to="/Antiradarlar" className="text-white group">
+                <Link
+                  to="/Antiradarlar"
+                  className="text-white space-x-3 underline underline-offset-2"
+                >
                   <span>Antiradarlar</span>
-                  <ArrowRightAltOutlined className="translate-x-2 group-hover:translate-x-full" />
+                  <ArrowRightAltOutlined />
                 </Link>
               </div>
             </div>
             <div
-              className={`bg-[url('/src/assets/img/atir+vizitka.jpg')] bg-cover bg-center h-96 flex rounded-2xl`}
+              className={`bg-[url('/src/assets/img/atir+vizitka.jpg')] bg-cover bg-center h-96 flex rounded-2xl group transition-opacity`}
             >
-              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl">
+              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl group-hover:bg-opacity-40">
                 <Typography variant="h3" color="white">
                   Diffuzor
                 </Typography>
@@ -474,18 +277,21 @@ const Home = ({ rendered }) => {
                   Mashina uchun aqlli hushbo'ylagich. Havoni namlaydi, o'zida
                   hushbo'y hid taratadi va vizitka
                 </Typography>
-                <Link to="/Suvenirlar" className="text-white group">
+                <Link
+                  to="/Suvenirlar"
+                  className="text-white space-x-3 underline underline-offset-2"
+                >
                   <span>Suvenirlar</span>
-                  <ArrowRightAltOutlined className="translate-x-2 group-hover:translate-x-full" />
+                  <ArrowRightAltOutlined />
                 </Link>
               </div>
             </div>
           </div>
           <div>
             <div
-              className={`bg-[url('/src/assets/img/interyer.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl`}
+              className={`bg-[url('/src/assets/img/interyer.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl group transition-opacity`}
             >
-              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl">
+              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl group-hover:bg-opacity-40">
                 <Typography variant="h3" color="white">
                   Interyer
                 </Typography>
@@ -493,14 +299,18 @@ const Home = ({ rendered }) => {
                   Mashina salonini bezatish uchun avto tovarlarga buyurtma
                   bering
                 </Typography>
-                <Link to="/catalog" className="text-white group">
+                <Link
+                  to="/catalog"
+                  className="text-white space-x-3 underline underline-offset-2"
+                >
                   <span>Katalog</span>
-                  <ArrowRightAltOutlined className="translate-x-2 group-hover:translate-x-full" />
+                  <ArrowRightAltOutlined />
                 </Link>
               </div>
             </div>
           </div>
         </div>
+        {/* New products */}
         <div className="space-y-5">
           <Typography
             variant="h2"
@@ -533,6 +343,7 @@ const Home = ({ rendered }) => {
                   </TabsHeader>
                 </div>
                 <TabsBody>
+                  {/* All products tab */}
                   <TabPanel
                     key="allCategories"
                     value="allCategories"
@@ -541,119 +352,25 @@ const Home = ({ rendered }) => {
                     {products.map(product => {
                       if (product.isItNew) {
                         return (
-                          <li
-                            key={product.id}
-                            className="rounded-lg bg-white max-w-xs flex flex-col shadow-md space-y-4 card-swiper relative group"
-                          >
-                            <Link
-                              to={`/${product.category}/${product.productName}`}
-                            >
-                              <Swiper
-                                navigation={true}
-                                effect="fade"
-                                pagination={{
-                                  clickable: true,
-                                }}
-                                loop={true}
-                                modules={[Pagination, Navigation, EffectFade]}
-                                className="mySwiper relative rounded-lg"
-                              >
-                                {product.images.map((item, index) => {
-                                  return (
-                                    <SwiperSlide
-                                      key={index}
-                                      className="max-h-[400px]"
-                                    >
-                                      <img
-                                        src={item}
-                                        className="w-full"
-                                        alt=""
-                                      />
-                                    </SwiperSlide>
-                                  );
-                                })}
-                              </Swiper>
-                            </Link>
-                            <button
-                              onClick={() => {
-                                rendered();
-                                product.saved = !product.saved;
-                              }}
-                              className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
-                            >
-                              {product.saved ? (
-                                <Bookmark fontSize="large" />
-                              ) : (
-                                <BookmarkBorderOutlined fontSize="large" />
-                              )}
-                            </button>
-                            <div className="flex space-x-3 absolute left-3 top-0 z-10">
-                              {product.isItNew && (
-                                <Chip
-                                  className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                  value="Yangi"
-                                  color="green"
-                                  size="sm"
-                                  variant="filled"
-                                />
-                              )}
-                              {product.inAction && (
-                                <Chip
-                                  className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                  value="Aksiya"
-                                  size="sm"
-                                  variant="filled"
-                                  color="red"
-                                />
-                              )}
-                            </div>
-                            <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-                              <Typography variant="h5" className="font-medium">
-                                {product.productName}
-                              </Typography>
-                              <div>
-                                <Typography variant="small">
-                                  Turkum: {product.category}
-                                </Typography>
-                                <Typography variant="small" color="black">
-                                  <span className="flex items-end justify-start space-x-1">
-                                    <Star className="text-yellow-700" />
-                                    <span className="text-gray-700">
-                                      {product.rating}
-                                    </span>
-                                  </span>
-                                </Typography>
-                                <div className="w-full flex justify-between items-end">
-                                  <Typography variant="h6">
-                                    {product.price
-                                      .toLocaleString("uz-UZ", options)
-                                      .replaceAll(",", " ")}{" "}
-                                    so'm
-                                  </Typography>
-                                  <IconButton
-                                    onClick={() => {
-                                      rendered();
-                                      addCartProduct(product);
-                                    }}
-                                    variant={`${
-                                      product.inTheCart ? "filled" : "outlined"
-                                    }`}
-                                    color="gray"
-                                  >
-                                    {product.inTheCart ? (
-                                      <RemoveShoppingCartOutlined />
-                                    ) : (
-                                      <AddShoppingCartOutlined />
-                                    )}
-                                  </IconButton>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
+                          <Products
+                            rendered={rendered}
+                            product={product}
+                            productId={product.id}
+                            productName={product.productName}
+                            productCategory={product.category}
+                            productImages={product.images}
+                            productSaved={productSaved}
+                            productIsItNew={product.isItNew}
+                            productInAction={product.inAction}
+                            productRating={product.rating}
+                            productPrice={product.price}
+                            productInTheCart={product.inTheCart}
+                          />
                         );
                       }
                     })}
                   </TabPanel>
+                  {/* Tab by category */}
                   {category.map(category => (
                     <TabPanel
                       key={category}
@@ -663,120 +380,20 @@ const Home = ({ rendered }) => {
                       {products.map((product, index) => {
                         if (product.category == category && product.isItNew) {
                           return (
-                            <li
-                              key={product.id}
-                              className="rounded-lg bg-white max-w-xs flex flex-col shadow-md group space-y-4 card-swiper relative"
-                            >
-                              <Link
-                                to={`/${product.category}/${product.productName}`}
-                              >
-                                <Swiper
-                                  navigation={true}
-                                  effect="fade"
-                                  pagination={{
-                                    clickable: true,
-                                  }}
-                                  loop={true}
-                                  modules={[Pagination, Navigation, EffectFade]}
-                                  className="mySwiper relative rounded-lg"
-                                >
-                                  {product.images.map((item, index) => {
-                                    return (
-                                      <SwiperSlide
-                                        key={index}
-                                        className="max-h-[400px]"
-                                      >
-                                        <img
-                                          src={item}
-                                          className="w-full"
-                                          alt=""
-                                        />
-                                      </SwiperSlide>
-                                    );
-                                  })}
-                                </Swiper>
-                              </Link>
-                              <button
-                                onClick={() => {
-                                  rendered();
-                                  product.saved = !product.saved;
-                                }}
-                                className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
-                              >
-                                {product.saved ? (
-                                  <Bookmark fontSize="large" />
-                                ) : (
-                                  <BookmarkBorderOutlined fontSize="large" />
-                                )}
-                              </button>
-                              <div className="flex space-x-3 absolute left-3 top-0 z-10">
-                                {product.isItNew && (
-                                  <Chip
-                                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                    value="Yangi"
-                                    color="green"
-                                    size="sm"
-                                    variant=""
-                                  />
-                                )}
-                                {product.inAction && (
-                                  <Chip
-                                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                    value="Aksiya"
-                                    size="sm"
-                                    variant="filled"
-                                    color="red"
-                                  />
-                                )}
-                              </div>
-                              <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-                                <Typography
-                                  variant="h5"
-                                  className="font-medium"
-                                >
-                                  {product.productName}
-                                </Typography>
-                                <div>
-                                  <Typography variant="small">
-                                    Turkum: {product.category}
-                                  </Typography>
-                                  <Typography variant="small" color="black">
-                                    <span className="flex items-end justify-start space-x-1">
-                                      <Star className="text-yellow-700" />
-                                      <span className="text-gray-700">
-                                        {product.rating}
-                                      </span>
-                                    </span>
-                                  </Typography>
-                                  <div className="w-full flex justify-between items-end">
-                                    <Typography variant="h6">
-                                      {product.price
-                                        .toLocaleString("uz-UZ", options)
-                                        .replaceAll(",", " ")}{" "}
-                                      so'm
-                                    </Typography>
-                                    <IconButton
-                                      onClick={() => {
-                                        rendered();
-                                        addCartProduct(product);
-                                      }}
-                                      variant={`${
-                                        product.inTheCart
-                                          ? "filled"
-                                          : "outlined"
-                                      }`}
-                                      color="gray"
-                                    >
-                                      {product.inTheCart ? (
-                                        <RemoveShoppingCartOutlined />
-                                      ) : (
-                                        <AddShoppingCartOutlined />
-                                      )}
-                                    </IconButton>
-                                  </div>
-                                </div>
-                              </div>
-                            </li>
+                            <Products
+                              rendered={rendered}
+                              product={product}
+                              productId={product.id}
+                              productName={product.productName}
+                              productCategory={product.category}
+                              productImages={product.images}
+                              productSaved={productSaved}
+                              productIsItNew={product.isItNew}
+                              productInAction={product.inAction}
+                              productRating={product.rating}
+                              productPrice={product.price}
+                              productInTheCart={product.inTheCart}
+                            />
                           );
                         }
                       })}
@@ -803,6 +420,7 @@ const Home = ({ rendered }) => {
             )}
           </div>
         </div>
+        {/* Discounted products */}
         <div className="space-y-5">
           <Typography
             variant="h2"
@@ -835,6 +453,7 @@ const Home = ({ rendered }) => {
                   </TabsHeader>
                 </div>
                 <TabsBody>
+                  {/* All products tab */}
                   <TabPanel
                     key="allCategories"
                     value="allCategories"
@@ -843,119 +462,25 @@ const Home = ({ rendered }) => {
                     {products.map(product => {
                       if (product.inAction) {
                         return (
-                          <li
-                            key={product.id}
-                            className="rounded-lg bg-white max-w-xs flex flex-col shadow-md space-y-4 card-swiper relative group"
-                          >
-                            <Link
-                              to={`/${product.category}/${product.productName}`}
-                            >
-                              <Swiper
-                                navigation={true}
-                                effect="fade"
-                                pagination={{
-                                  clickable: true,
-                                }}
-                                loop={true}
-                                modules={[Pagination, Navigation, EffectFade]}
-                                className="mySwiper relative rounded-lg"
-                              >
-                                {product.images.map((item, index) => {
-                                  return (
-                                    <SwiperSlide
-                                      key={index}
-                                      className="max-h-[400px]"
-                                    >
-                                      <img
-                                        src={item}
-                                        className="w-full"
-                                        alt=""
-                                      />
-                                    </SwiperSlide>
-                                  );
-                                })}
-                              </Swiper>
-                            </Link>
-                            <button
-                              onClick={() => {
-                                rendered();
-                                product.saved = !product.saved;
-                              }}
-                              className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
-                            >
-                              {product.saved ? (
-                                <Bookmark fontSize="large" />
-                              ) : (
-                                <BookmarkBorderOutlined fontSize="large" />
-                              )}
-                            </button>
-                            <div className="flex space-x-3 absolute left-3 top-0 z-10">
-                              {product.isItNew && (
-                                <Chip
-                                  className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                  value="Yangi"
-                                  color="green"
-                                  size="sm"
-                                  variant="filled"
-                                />
-                              )}
-                              {product.inAction && (
-                                <Chip
-                                  className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                  value="Aksiya"
-                                  size="sm"
-                                  variant="filled"
-                                  color="red"
-                                />
-                              )}
-                            </div>
-                            <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-                              <Typography variant="h5" className="font-medium">
-                                {product.productName}
-                              </Typography>
-                              <div>
-                                <Typography variant="small">
-                                  Turkum: {product.category}
-                                </Typography>
-                                <Typography variant="small" color="black">
-                                  <span className="flex items-end justify-start space-x-1">
-                                    <Star className="text-yellow-700" />
-                                    <span className="text-gray-700">
-                                      {product.rating}
-                                    </span>
-                                  </span>
-                                </Typography>
-                                <div className="w-full flex justify-between items-end">
-                                  <Typography variant="h6">
-                                    {product.price
-                                      .toLocaleString("uz-UZ", options)
-                                      .replaceAll(",", " ")}{" "}
-                                    so'm
-                                  </Typography>
-                                  <IconButton
-                                    onClick={() => {
-                                      rendered();
-                                      addCartProduct(product);
-                                    }}
-                                    variant={`${
-                                      product.inTheCart ? "filled" : "outlined"
-                                    }`}
-                                    color="gray"
-                                  >
-                                    {product.inTheCart ? (
-                                      <RemoveShoppingCartOutlined />
-                                    ) : (
-                                      <AddShoppingCartOutlined />
-                                    )}
-                                  </IconButton>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
+                          <Products
+                            rendered={rendered}
+                            product={product}
+                            productId={product.id}
+                            productName={product.productName}
+                            productCategory={product.category}
+                            productImages={product.images}
+                            productSaved={productSaved}
+                            productIsItNew={product.isItNew}
+                            productInAction={product.inAction}
+                            productRating={product.rating}
+                            productPrice={product.price}
+                            productInTheCart={product.inTheCart}
+                          />
                         );
                       }
                     })}
                   </TabPanel>
+                  {/* Tab by category */}
                   {category.map(category => (
                     <TabPanel
                       key={category}
@@ -965,120 +490,20 @@ const Home = ({ rendered }) => {
                       {products.map((product, index) => {
                         if (product.category == category && product.inAction) {
                           return (
-                            <li
-                              key={product.id}
-                              className="rounded-lg bg-white max-w-xs flex flex-col shadow-md group space-y-4 card-swiper relative"
-                            >
-                              <Link
-                                to={`/${product.category}/${product.productName}`}
-                              >
-                                <Swiper
-                                  navigation={true}
-                                  effect="fade"
-                                  pagination={{
-                                    clickable: true,
-                                  }}
-                                  loop={true}
-                                  modules={[Pagination, Navigation, EffectFade]}
-                                  className="mySwiper relative rounded-lg"
-                                >
-                                  {product.images.map((item, index) => {
-                                    return (
-                                      <SwiperSlide
-                                        key={index}
-                                        className="max-h-[400px]"
-                                      >
-                                        <img
-                                          src={item}
-                                          className="w-full"
-                                          alt=""
-                                        />
-                                      </SwiperSlide>
-                                    );
-                                  })}
-                                </Swiper>
-                              </Link>
-                              <button
-                                onClick={() => {
-                                  rendered();
-                                  product.saved = !product.saved;
-                                }}
-                                className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
-                              >
-                                {product.saved ? (
-                                  <Bookmark fontSize="large" />
-                                ) : (
-                                  <BookmarkBorderOutlined fontSize="large" />
-                                )}
-                              </button>
-                              <div className="flex space-x-3 absolute left-3 top-0 z-10">
-                                {product.isItNew && (
-                                  <Chip
-                                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                    value="Yangi"
-                                    color="green"
-                                    size="sm"
-                                    variant=""
-                                  />
-                                )}
-                                {product.inAction && (
-                                  <Chip
-                                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                                    value="Aksiya"
-                                    size="sm"
-                                    variant="filled"
-                                    color="red"
-                                  />
-                                )}
-                              </div>
-                              <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-                                <Typography
-                                  variant="h5"
-                                  className="font-medium"
-                                >
-                                  {product.productName}
-                                </Typography>
-                                <div>
-                                  <Typography variant="small">
-                                    Turkum: {product.category}
-                                  </Typography>
-                                  <Typography variant="small" color="black">
-                                    <span className="flex items-end justify-start space-x-1">
-                                      <Star className="text-yellow-700" />
-                                      <span className="text-gray-700">
-                                        {product.rating}
-                                      </span>
-                                    </span>
-                                  </Typography>
-                                  <div className="w-full flex justify-between items-end">
-                                    <Typography variant="h6">
-                                      {product.price
-                                        .toLocaleString("uz-UZ", options)
-                                        .replaceAll(",", " ")}{" "}
-                                      so'm
-                                    </Typography>
-                                    <IconButton
-                                      onClick={() => {
-                                        rendered();
-                                        addCartProduct(product);
-                                      }}
-                                      variant={`${
-                                        product.inTheCart
-                                          ? "filled"
-                                          : "outlined"
-                                      }`}
-                                      color="gray"
-                                    >
-                                      {product.inTheCart ? (
-                                        <RemoveShoppingCartOutlined />
-                                      ) : (
-                                        <AddShoppingCartOutlined />
-                                      )}
-                                    </IconButton>
-                                  </div>
-                                </div>
-                              </div>
-                            </li>
+                            <Products
+                              rendered={rendered}
+                              product={product}
+                              productId={product.id}
+                              productName={product.productName}
+                              productCategory={product.category}
+                              productImages={product.images}
+                              productSaved={productSaved}
+                              productIsItNew={product.isItNew}
+                              productInAction={product.inAction}
+                              productRating={product.rating}
+                              productPrice={product.price}
+                              productInTheCart={product.inTheCart}
+                            />
                           );
                         }
                       })}

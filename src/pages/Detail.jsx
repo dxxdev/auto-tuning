@@ -89,10 +89,10 @@ const Detail = () => {
             {info &&
               info.images.map((image, index) => {
                 return (
-                  <SwiperSlide className="flex justify-center items-center" key={index}>
+                  <SwiperSlide className="flex justify-center items-center h-full w-full" key={index}>
                     <img
                       src={image}
-                      className="hover:scale-110 transition-all w-full h-full object-cover"
+                      className="hover:scale-110 transition-all w-full h-full"
                       alt={info.productName}
                     />
                   </SwiperSlide>
@@ -119,13 +119,13 @@ const Detail = () => {
             freeMode={true}
             watchSlidesProgress={true}
             modules={[FreeMode, Thumbs]}
-            className="mySwiper max-w-xl max-h-[100px]"
+            className="mySwiper relative max-w-xl max-h-[150px] flex items-center"
           >
             {info &&
               info.images.map((image, index) => {
                 return (
                   <SwiperSlide
-                    className="relative flex justify-center items-center"
+                    className="flex justify-center items-stretch relative h-full"
                     key={index}
                   >
                     <img
