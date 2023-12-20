@@ -19,8 +19,8 @@ import {
 } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { Link, useNavigate } from "react-router-dom";
-import { category, products } from "../data/data";
-import { ArrowRightAltOutlined } from "@mui/icons-material";
+import { category, commentaries, products } from "../data/data";
+import { ArrowRightAltOutlined, Star } from "@mui/icons-material";
 import { ToastContainer } from "react-toastify";
 import Products from "../components/Products";
 
@@ -530,6 +530,32 @@ const Home = ({ rendered }) => {
             )}
           </div>
         </div>
+        {/* Commentaries section */}
+        <section>
+          <div className="py-5">
+            <Typography variant="h4">Izohlar</Typography>
+          </div>
+          <ul className="py-8 flex justify-start items-center overflow-auto gap-5 products-swiper">
+            {commentaries.map(note => {
+              return (
+                <li
+                  key={note.id}
+                  className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
+                >
+                  <div className="space-y-5">
+                    <div>
+                      {note.rating.map(star => {
+                        return <Star key={star} />;
+                      })}
+                    </div>
+                    <p className="tracking-[0.5px]">{note.comment}</p>
+                  </div>
+                  <p className="tracking-[0.5px] text-sm">{note.from}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
       </div>
       <ToastContainer />
     </div>

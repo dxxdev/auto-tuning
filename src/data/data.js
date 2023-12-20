@@ -635,6 +635,44 @@ export const products = [
   },
 ];
 
+export const commentaries = [
+  {
+    id: randomId(),
+    from: "Boburbek Yo'ldoshev",
+    comment:
+      "Buyurtma qilingan mahsulotimni yetkazib berishdi, menga juda yoqdi, sotib olishga arziydi :) Mashinamga juda mos tushdi.",
+    rating: ["", "", "", "", ""],
+  },
+  {
+    id: randomId(),
+    from: "Umirzoq Ramazanov",
+    comment:
+      "Assalomu aleykum mahsulotni qabul qilib oldim juda antiqa Osvejitel ekan",
+    rating: ["", "", "", "", ""],
+  },
+  {
+    id: randomId(),
+    from: "Jasurbek Ahmedov",
+    comment:
+      "Ertalab buyurtma qilgandim, kechqurun olib kelishdi. Sifat va yetkazib berishdan mamnunman.Men hali quyoshda ishlashini tekshirmadim. Lekin baribir rahmat 👍",
+    rating: ["", "", "", "", ""],
+  },
+  {
+    id: randomId(),
+    from: "Zokir Murodov",
+    comment:
+      "Telefon ushlagich juda zaifdek tuyulgandi, lekin u o'z o'rnida mustahkam turibdi. Umuman olganda, men xariddan mamnunman. Sotuvchiga rahmat.",
+    rating: ["", "", "", "", ""],
+  },
+  {
+    id: randomId(),
+    from: "Farhod Azizov",
+    comment:
+      "Raxmat vaqtida yetib keldi, lekin imkoni boʻlsa tumanlargayam yetkazib berishingizni soʻrab qolardim",
+    rating: ["", "", "", ""],
+  },
+];
+
 export let options = {
   style: "decimal",
   useGrouping: true,
