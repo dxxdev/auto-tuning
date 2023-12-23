@@ -556,6 +556,36 @@ const Home = ({ rendered }) => {
             })}
           </ul>
         </section>
+        {/* Recommended products section */}
+        <section>
+          <div className="py-5">
+            <Typography variant="h4">Tavsiya qilinadi</Typography>
+          </div>
+          <ul
+            className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+          >
+            {products.map(product => {
+              if (product.recommend) {
+                return (
+                  <Products
+                    rendered={rendered}
+                    product={product}
+                    productId={product.id}
+                    productName={product.productName}
+                    productCategory={product.category}
+                    productImages={product.images}
+                    productSaved={productSaved}
+                    productIsItNew={product.isItNew}
+                    productInAction={product.inAction}
+                    productRating={product.rating}
+                    productPrice={product.price}
+                    productInTheCart={product.inTheCart}
+                  />
+                );
+              }
+            })}
+          </ul>
+        </section>
       </div>
       <ToastContainer />
     </div>

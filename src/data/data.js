@@ -138,6 +138,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: true,
   },
   {
     id: randomId(),
@@ -161,6 +162,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -182,6 +184,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: true,
   },
   {
     id: randomId(),
@@ -205,6 +208,7 @@ export const products = [
     saved: false,
     isItNew: true,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -233,6 +237,7 @@ export const products = [
     saved: false,
     isItNew: true,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -254,6 +259,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -278,6 +284,7 @@ export const products = [
     saved: false,
     isItNew: true,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -314,6 +321,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -351,6 +359,7 @@ export const products = [
     saved: false,
     isItNew: true,
     inAction: true,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -387,6 +396,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -403,6 +413,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -426,6 +437,7 @@ export const products = [
     saved: false,
     isItNew: true,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -457,6 +469,7 @@ export const products = [
     saved: false,
     isItNew: true,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -480,6 +493,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -504,6 +518,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -541,6 +556,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -569,6 +585,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -602,6 +619,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
   {
     id: randomId(),
@@ -632,6 +650,7 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
   },
 ];
 
