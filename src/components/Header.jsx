@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { logo } from "../assets/images";
@@ -28,6 +28,7 @@ const Header = () => {
   const [render, setRender] = useState(false);
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [searchedProduct, setSearchedProduct] = useState("");
+  const input = useRef(null);
 
   const [productsCategory, setProductsCategory] = useState([]);
 
@@ -86,6 +87,12 @@ const Header = () => {
     setSearchedProduct(e.target.value);
     console.log(searchFilteredProduct);
   };
+
+  useEffect(() => {
+    if (openInput) {
+      input.current.focus();
+    }
+  }, [openInput]);
 
   return (
     <>
@@ -165,7 +172,7 @@ const Header = () => {
             </nav>
             <div className="flex justify-end space-x-5 ">
               {/* Search box */}
-              <div>
+              <div className="flex justify-end">
                 <div
                   className={`border max-w-xs w-full flex justify-between rounded-lg border-white ${
                     openInput
@@ -175,6 +182,7 @@ const Header = () => {
                 >
                   <input
                     type="text"
+                    ref={input}
                     className={`rounded-lg outline-none text-sm ${
                       openInput
                         ? "px-3 py-2.5 w-64 open-animation"
@@ -202,6 +210,7 @@ const Header = () => {
                       return (
                         <li key={product.id} onClick={openSearchInput}>
                           <Link
+                            onClick={() => (input.target.value = "")}
                             to={`/${product.category}/${product.productName}`}
                             className="flex justify-start items-center gap-x-3"
                           >
