@@ -240,7 +240,7 @@ const Home = ({ rendered }) => {
           </Typography>
           <Button
             className="w-full sm:w-min"
-            onClick={() => navigate("/catalog")}
+            onClick={() => navigate("/Katalog")}
             variant="outlined"
           >
             Katalog
