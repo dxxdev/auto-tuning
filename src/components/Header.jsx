@@ -27,10 +27,11 @@ const Header = () => {
   const [howSaved, setHowSaved] = useState(0);
   const [render, setRender] = useState(false);
   const [catalogOpen, setCatalogOpen] = useState(false);
+  const [searchedProduct, setSearchedProduct] = useState("");
 
   const [productsCategory, setProductsCategory] = useState([]);
 
-  const openCatalog = () => setCatalogOpen(prev => !prev);
+  const openCatalog = () => setCatalogOpen((prev) => !prev);
 
   function setCategoryToArray(arr) {
     let categoryes = new Set();
@@ -42,11 +43,11 @@ const Header = () => {
     return categoryArr;
   }
 
-  const filteredProductOnCart = arr => {
-    const filteredProduct = arr.filter(product => {
+  const filteredProductOnCart = (arr) => {
+    const filteredProduct = arr.filter((product) => {
       return product.inTheCart;
     });
-    const filteredProductOnSaved = arr.filter(product => {
+    const filteredProductOnSaved = arr.filter((product) => {
       return product.saved;
     });
     setHowMuch(filteredProduct.length);
@@ -63,14 +64,29 @@ const Header = () => {
   const closeDrawer2 = () => setOpen2(false);
 
   const openSearchInput = () => {
-    setOpenInput(oldVal => !oldVal);
+    setOpenInput((oldVal) => !oldVal);
+    setSearchedProduct("");
   };
 
   useEffect(() => {
     filteredProductOnCart(products);
     setCartProducts(products);
-    setRender(prev => !prev);
+    setRender((prev) => !prev);
   }, [render]);
+
+  const searchFilteredProduct = products.filter((product) => {
+    if (searchedProduct === "") {
+      return undefined;
+    } else {
+      return product.productName.toLocaleLowerCase().includes(searchedProduct);
+    }
+  });
+
+  const searchProduct = (e) => {
+    setSearchedProduct(e.target.value);
+    console.log(searchFilteredProduct);
+  };
+
   return (
     <>
       <header className="bg-[#f5f5f5] py-4 z-[999]">
@@ -148,30 +164,60 @@ const Header = () => {
               </ul>
             </nav>
             <div className="flex justify-end space-x-5 ">
-              <div
-                className={`border max-w-xs w-full flex justify-between rounded-lg border-white ${
-                  openInput
-                    ? "bg-white open-animation pl-3"
-                    : "bg-transparent close-animation cursor-pointer"
-                }`}
-              >
-                <input
-                  type="text"
-                  className={`rounded-lg outline-none text-sm ${
+              {/* Search box */}
+              <div>
+                <div
+                  className={`border max-w-xs w-full flex justify-between rounded-lg border-white ${
                     openInput
-                      ? "px-3 py-2.5 w-64 open-animation"
-                      : "close-animation w-0 px-0 py-0"
+                      ? "bg-white open-animation pl-3"
+                      : "bg-transparent close-animation cursor-pointer"
                   }`}
-                  placeholder="Qidirish..."
-                />
-                <IconButton variant="text" onClick={openSearchInput}>
-                  <Search
-                    className={`cursor-pointer text-sm ${
-                      openInput ? "text-black" : "text-white"
+                >
+                  <input
+                    type="text"
+                    className={`rounded-lg outline-none text-sm ${
+                      openInput
+                        ? "px-3 py-2.5 w-64 open-animation"
+                        : "close-animation w-0 px-0 py-0"
                     }`}
+                    placeholder="Qidirish..."
+                    onInput={(e) => searchProduct(e)}
                   />
-                </IconButton>
+                  <IconButton variant="text" onClick={openSearchInput}>
+                    <Search
+                      className={`cursor-pointer text-sm ${
+                        openInput ? "text-black" : "text-white"
+                      }`}
+                    />
+                  </IconButton>
+                </div>
+                <ul
+                  className={`absolute box-border bg-white transition-all rounded-b-lg top-2/3 ${
+                    openInput ? "" : "hidden"
+                  } ${searchedProduct ? "p-1 px-3 w-[310px]" : "p-0"}`}
+                >
+                  {searchFilteredProduct &&
+                    searchFilteredProduct.length > 0 &&
+                    searchFilteredProduct.map((product) => {
+                      return (
+                        <li key={product.id} onClick={openSearchInput}>
+                          <Link
+                            to={`/${product.category}/${product.productName}`}
+                            className="flex justify-start items-center gap-x-3"
+                          >
+                            <img
+                              className="w-10 rounded"
+                              src={product.images[0]}
+                              alt={product.productName}
+                            />
+                            <p className="truncate">{product.productName}</p>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                </ul>
               </div>
+
               <Badge
                 color="red"
                 className="w-6 h-6 flex justify-center items-center"
@@ -245,7 +291,7 @@ const Header = () => {
           <ul className="gap-x-10 text-black text-xl">
             {productsCategory.map((category, index) => {
               let categoryHowMuchProduct = products.filter(
-                product => product.category === category
+                (product) => product.category === category
               );
               return (
                 <li key={index}>
