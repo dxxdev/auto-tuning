@@ -29,17 +29,15 @@ const Detail = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   useEffect(() => {
-    if (!info) {
-      setInfo(filteredProductForId(productName));
-    }
-  }, []);
+    document.title = productName;
+  }, [productName]);
 
   useEffect(() => {
-    document.title = productName;
-  }, []);
+    setInfo(filteredProductForId(productName));
+  }, [productName]);
 
   const addToCart = () => {
-    setRender(prev => !prev);
+    setRender((prev) => !prev);
     info.inTheCart = !info.inTheCart;
     if (info.inTheCart) {
       toast.success("Savatga qo'shildi", {
@@ -89,7 +87,10 @@ const Detail = () => {
             {info &&
               info.images.map((image, index) => {
                 return (
-                  <SwiperSlide className="flex justify-center items-center h-full w-full" key={index}>
+                  <SwiperSlide
+                    className="flex justify-center items-center h-full w-full"
+                    key={index}
+                  >
                     <img
                       src={image}
                       className="hover:scale-110 transition-all w-full h-full"
@@ -100,7 +101,7 @@ const Detail = () => {
               })}
             <button
               onClick={() => {
-                setRender(prev => !prev);
+                setRender((prev) => !prev);
                 info.saved = !info.saved;
               }}
               className="absolute top-0 right-0 z-[999] text-red-600"
@@ -193,7 +194,7 @@ const Detail = () => {
                 if (info.countProduct > 1) {
                   info.countProduct--;
                 }
-                setRender(prev => !prev);
+                setRender((prev) => !prev);
               }}
               size="sm"
               variant="filled"
@@ -205,7 +206,7 @@ const Detail = () => {
             <IconButton
               onClick={() => {
                 info.countProduct++;
-                setRender(prev => !prev);
+                setRender((prev) => !prev);
               }}
               size="sm"
               variant="filled"
