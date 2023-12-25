@@ -212,18 +212,18 @@ const Home = ({ rendered }) => {
                       {products.filter(
                         product => product.category === category && product.top
                       ).length === 0 && (
-                        <div
-                          key="noProductFound"
-                          className="flex w-full min-h-[200px] justify-center items-center"
-                        >
-                          <Typography
-                            className="text-center w-full"
-                            variant="h5"
+                          <div
+                            key="noProductFound"
+                            className="flex w-full min-h-[200px] justify-center items-center"
                           >
-                            Hech narsa topilmadi
-                          </Typography>
-                        </div>
-                      )}
+                            <Typography
+                              className="text-center w-full"
+                              variant="h5"
+                            >
+                              Hech narsa topilmadi
+                            </Typography>
+                          </div>
+                        )}
                     </TabPanel>
                   ))}
                 </TabsBody>
@@ -401,18 +401,18 @@ const Home = ({ rendered }) => {
                         product =>
                           product.category === category && product.isItNew
                       ).length === 0 && (
-                        <div
-                          key="noProductFound"
-                          className="flex w-full min-h-[200px] justify-center items-center"
-                        >
-                          <Typography
-                            className="text-center w-full"
-                            variant="h5"
+                          <div
+                            key="noProductFound"
+                            className="flex w-full min-h-[200px] justify-center items-center"
                           >
-                            Hech narsa topilmadi
-                          </Typography>
-                        </div>
-                      )}
+                            <Typography
+                              className="text-center w-full"
+                              variant="h5"
+                            >
+                              Hech narsa topilmadi
+                            </Typography>
+                          </div>
+                        )}
                     </TabPanel>
                   ))}
                 </TabsBody>
@@ -511,18 +511,18 @@ const Home = ({ rendered }) => {
                         product =>
                           product.category === category && product.inAction
                       ).length === 0 && (
-                        <div
-                          key="noProductFound"
-                          className="flex w-full min-h-[200px] justify-center items-center"
-                        >
-                          <Typography
-                            className="text-center w-full"
-                            variant="h5"
+                          <div
+                            key="noProductFound"
+                            className="flex w-full min-h-[200px] justify-center items-center"
                           >
-                            Hech narsa topilmadi
-                          </Typography>
-                        </div>
-                      )}
+                            <Typography
+                              className="text-center w-full"
+                              variant="h5"
+                            >
+                              Hech narsa topilmadi
+                            </Typography>
+                          </div>
+                        )}
                     </TabPanel>
                   ))}
                 </TabsBody>
@@ -585,6 +585,12 @@ const Home = ({ rendered }) => {
               }
             })}
           </ul>
+        </section>
+
+        <section>
+          <div>
+            <Typography variant="h3">Biz eng yirik kompaniyalar bilan hamkorlik qilamiz</Typography>
+          </div>
         </section>
       </div>
       <ToastContainer />
