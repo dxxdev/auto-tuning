@@ -23,13 +23,14 @@ import { category, commentaries, products } from "../data/data";
 import { ArrowRightAltOutlined, Star } from "@mui/icons-material";
 import { ToastContainer } from "react-toastify";
 import Products from "../components/Products";
+import { companies } from "../assets/images";
 
 const Home = ({ rendered }) => {
   let [groupedTopProducts, setGroupedTopProducts] = useState([]);
-  const inActionInfo = products.filter(product => product.inAction);
+  const inActionInfo = products.filter((product) => product.inAction);
   const navigate = useNavigate();
 
-  const productSaved = product => {
+  const productSaved = (product) => {
     product.saved = !product.saved;
   };
 
@@ -37,7 +38,7 @@ const Home = ({ rendered }) => {
     .toString()
     .slice(1)
     .split("")
-    .map(i => {
+    .map((i) => {
       return 0 + "";
     });
   let lastNumber = lastNumbersArr.join("");
@@ -46,10 +47,10 @@ const Home = ({ rendered }) => {
       localStorage.setItem("topProducts", JSON.stringify(topProducts));
     }
 
-    const groupTopProductsByCategory = products => {
+    const groupTopProductsByCategory = (products) => {
       const groupedProducts = {};
 
-      products.forEach(product => {
+      products.forEach((product) => {
         if (product.top) {
           if (!groupedProducts[product.category]) {
             groupedProducts[product.category] = {
@@ -65,7 +66,7 @@ const Home = ({ rendered }) => {
       return Object.values(groupedProducts);
     };
 
-    setGroupedTopProducts(prevGroupedTopProducts => {
+    setGroupedTopProducts((prevGroupedTopProducts) => {
       if (!prevGroupedTopProducts.length) {
         const newGroupedTopProducts = groupTopProductsByCategory(products);
         saveTopProductsToLocalStorage(newGroupedTopProducts);
@@ -95,7 +96,7 @@ const Home = ({ rendered }) => {
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper relative navigation-styled w-full"
       >
-        {swiperImages.map(item => {
+        {swiperImages.map((item) => {
           return (
             <SwiperSlide
               key={item.id}
@@ -145,7 +146,7 @@ const Home = ({ rendered }) => {
                     >
                       Hammasi
                     </Tab>
-                    {category.map(category => (
+                    {category.map((category) => (
                       <Tab
                         key={category}
                         value={category}
@@ -162,7 +163,7 @@ const Home = ({ rendered }) => {
                     value="allCategories"
                     className="flex gap-x-5 overflow-auto products-swiper"
                   >
-                    {products.map(product => {
+                    {products.map((product) => {
                       if (product.top) {
                         return (
                           <Products
@@ -183,7 +184,7 @@ const Home = ({ rendered }) => {
                       }
                     })}
                   </TabPanel>
-                  {category.map(category => (
+                  {category.map((category) => (
                     <TabPanel
                       key={category}
                       value={category}
@@ -210,20 +211,21 @@ const Home = ({ rendered }) => {
                         }
                       })}
                       {products.filter(
-                        product => product.category === category && product.top
+                        (product) =>
+                          product.category === category && product.top
                       ).length === 0 && (
-                          <div
-                            key="noProductFound"
-                            className="flex w-full min-h-[200px] justify-center items-center"
+                        <div
+                          key="noProductFound"
+                          className="flex w-full min-h-[200px] justify-center items-center"
+                        >
+                          <Typography
+                            className="text-center w-full"
+                            variant="h5"
                           >
-                            <Typography
-                              className="text-center w-full"
-                              variant="h5"
-                            >
-                              Hech narsa topilmadi
-                            </Typography>
-                          </div>
-                        )}
+                            Hech narsa topilmadi
+                          </Typography>
+                        </div>
+                      )}
                     </TabPanel>
                   ))}
                 </TabsBody>
@@ -331,7 +333,7 @@ const Home = ({ rendered }) => {
                     >
                       Hammasi
                     </Tab>
-                    {category.map(category => (
+                    {category.map((category) => (
                       <Tab
                         key={category}
                         value={category}
@@ -349,7 +351,7 @@ const Home = ({ rendered }) => {
                     value="allCategories"
                     className="flex gap-x-5 overflow-auto products-swiper"
                   >
-                    {products.map(product => {
+                    {products.map((product) => {
                       if (product.isItNew) {
                         return (
                           <Products
@@ -371,7 +373,7 @@ const Home = ({ rendered }) => {
                     })}
                   </TabPanel>
                   {/* Tab by category */}
-                  {category.map(category => (
+                  {category.map((category) => (
                     <TabPanel
                       key={category}
                       value={category}
@@ -398,21 +400,21 @@ const Home = ({ rendered }) => {
                         }
                       })}
                       {products.filter(
-                        product =>
+                        (product) =>
                           product.category === category && product.isItNew
                       ).length === 0 && (
-                          <div
-                            key="noProductFound"
-                            className="flex w-full min-h-[200px] justify-center items-center"
+                        <div
+                          key="noProductFound"
+                          className="flex w-full min-h-[200px] justify-center items-center"
+                        >
+                          <Typography
+                            className="text-center w-full"
+                            variant="h5"
                           >
-                            <Typography
-                              className="text-center w-full"
-                              variant="h5"
-                            >
-                              Hech narsa topilmadi
-                            </Typography>
-                          </div>
-                        )}
+                            Hech narsa topilmadi
+                          </Typography>
+                        </div>
+                      )}
                     </TabPanel>
                   ))}
                 </TabsBody>
@@ -441,7 +443,7 @@ const Home = ({ rendered }) => {
                     >
                       Hammasi
                     </Tab>
-                    {category.map(category => (
+                    {category.map((category) => (
                       <Tab
                         key={category}
                         value={category}
@@ -459,7 +461,7 @@ const Home = ({ rendered }) => {
                     value="allCategories"
                     className="flex gap-x-5 overflow-auto products-swiper"
                   >
-                    {products.map(product => {
+                    {products.map((product) => {
                       if (product.inAction) {
                         return (
                           <Products
@@ -481,7 +483,7 @@ const Home = ({ rendered }) => {
                     })}
                   </TabPanel>
                   {/* Tab by category */}
-                  {category.map(category => (
+                  {category.map((category) => (
                     <TabPanel
                       key={category}
                       value={category}
@@ -508,21 +510,21 @@ const Home = ({ rendered }) => {
                         }
                       })}
                       {products.filter(
-                        product =>
+                        (product) =>
                           product.category === category && product.inAction
                       ).length === 0 && (
-                          <div
-                            key="noProductFound"
-                            className="flex w-full min-h-[200px] justify-center items-center"
+                        <div
+                          key="noProductFound"
+                          className="flex w-full min-h-[200px] justify-center items-center"
+                        >
+                          <Typography
+                            className="text-center w-full"
+                            variant="h5"
                           >
-                            <Typography
-                              className="text-center w-full"
-                              variant="h5"
-                            >
-                              Hech narsa topilmadi
-                            </Typography>
-                          </div>
-                        )}
+                            Hech narsa topilmadi
+                          </Typography>
+                        </div>
+                      )}
                     </TabPanel>
                   ))}
                 </TabsBody>
@@ -536,7 +538,7 @@ const Home = ({ rendered }) => {
             <Typography variant="h4">Izohlar</Typography>
           </div>
           <ul className="py-8 flex justify-start items-center overflow-auto gap-5 products-swiper">
-            {commentaries.map(note => {
+            {commentaries.map((note) => {
               return (
                 <li
                   key={note.id}
@@ -544,7 +546,7 @@ const Home = ({ rendered }) => {
                 >
                   <div className="space-y-5">
                     <div>
-                      {note.rating.map(star => {
+                      {note.rating.map((star) => {
                         return <Star key={star} />;
                       })}
                     </div>
@@ -564,7 +566,7 @@ const Home = ({ rendered }) => {
           <ul
             className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
           >
-            {products.map(product => {
+            {products.map((product) => {
               if (product.recommend) {
                 return (
                   <Products
@@ -589,7 +591,18 @@ const Home = ({ rendered }) => {
 
         <section>
           <div>
-            <Typography variant="h3">Biz eng yirik kompaniyalar bilan hamkorlik qilamiz</Typography>
+            <Typography variant="h3">
+              Biz eng yirik kompaniyalar bilan hamkorlik qilamiz
+            </Typography>
+          </div>
+          <div className="flex justify-between items-center gap-x-8 py-14">
+            {companies.map((company, index) => {
+              return (
+                <div className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
+                  <img src={company} alt="Company" />
+                </div>
+              );
+            })}
           </div>
         </section>
       </div>

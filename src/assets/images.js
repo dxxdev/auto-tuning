@@ -1,5 +1,5 @@
 // Images import
-import logo from './logo/logo-header.jpg'
+import logo from "./logo/logo-header.jpg";
 import bmwSalon1 from "./img/bmw-salon-1.jpg";
 import bmwSalon2 from "./img/bmw-salon-2.jpg";
 import bmwSalon3 from "./img/bmw-salon-3.jpg";
@@ -106,6 +106,26 @@ import vertolyotliAtir25 from "./img/vertolyotli-atir-2-5.jpg";
 import vertolyotliAtir31 from "./img/vertolyotli-atir-3-1.jpg";
 import vertolyotliAtir32 from "./img/vertolyotli-atir-3-2.jpg";
 import vertolyotliAtir33 from "./img/vertolyotli-atir-3-3.jpg";
+
+// company images import
+import cberBank from "./company/cber-bank.png";
+import kcg from "./company/kcg.png";
+import phsvFarmservis from "./company/phsv-farmservis.png";
+import rivera from "./company/rivera.png";
+import rosvodokanal from "./company/rosvodokanal.png";
+import unnamedCompany from "./company/unnamed-company.png";
+import uzAutoMotors from "./company/uz-auto-motors.jpg";
+
+// export company images array
+export const companies = [
+  cberBank,
+  kcg,
+  rosvodokanal,
+  unnamedCompany,
+  rivera,
+  phsvFarmservis,
+  uzAutoMotors,
+];
 
 // images export
 export {
