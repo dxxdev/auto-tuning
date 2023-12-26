@@ -24,7 +24,7 @@ import {
   ShoppingBasketOutlined,
 } from "@mui/icons-material";
 import { products } from "../data/data";
-import axios from 'axios';
+import axios from "axios";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -117,6 +117,7 @@ const Header = () => {
 
   const [phoneNumber, setphoneNumber] = useState("");
   const [message, setMessage] = useState("");
+  const [userName, setUserName] = useState("unnamed");
 
   const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
   const chatId = 1825061365;
@@ -124,21 +125,24 @@ const Header = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const text = `Telefon raqami: +${phoneNumber}\n\n Izoh: ${message}`;
+    const text = `Telegram: ${
+      userName !== "unnamed" ? "@" : ""
+    }${userName}\n\n Telefon raqami: +${phoneNumber}\n\n Izoh: ${message}`;
 
     try {
       await axios.post(
         `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
         {
           chat_id: chatId,
-          text: text,
+          text,
         }
       );
 
       // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
       setphoneNumber("");
+      setUserName("unnamed");
       setMessage("");
-      alert("Habar yuborildi!");
+      handleOpen();
     } catch (error) {
       alert("Habar yuborishda xatolik:", error.message);
     }
@@ -554,6 +558,17 @@ const Header = () => {
                 type="number"
                 onChange={(e) => setphoneNumber(e.target.value)}
               />
+              <Input
+                placeholder="Telegram username"
+                type="text"
+                onChange={(e) => {
+                  if (e.target.value.trim !== "") {
+                    setUserName(e.target.value.trim);
+                  } else {
+                    setUserName("unnamed");
+                  }
+                }}
+              />
               <Textarea
                 label="Message"
                 onChange={(e) => setMessage(e.target.value)}
@@ -571,7 +586,6 @@ const Header = () => {
             type="submit"
             onClick={(e) => {
               handleSubmit(e);
-              handleOpen();
             }}
           >
             Yuborish

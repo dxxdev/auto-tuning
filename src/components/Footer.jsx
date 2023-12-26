@@ -128,7 +128,7 @@ const Footer = () => {
           <div className="flex justify-between flex-col space-y-5 md:space-y-0 md:flex-row items-center text-gray-400">
             <p className="text-xs">&copy; "AUTO TUNING", 2024</p>
             <Link to="/policy">Maxfiylik siyosati</Link>
-            <a href="https://t.me/diyorbek_dev_2006">Mas'ul shaxs Diyorbek</a>
+            <a href="https://t.me/dxxdev">Mas'ul shaxs Diyorbek</a>
           </div>
         </div>
       </div>
