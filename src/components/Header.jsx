@@ -28,6 +28,7 @@ const Header = () => {
   const [render, setRender] = useState(false);
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [searchedProduct, setSearchedProduct] = useState("");
+  const [searched, setSearched] = useState(false);
   const input = useRef(null);
 
   const [productsCategory, setProductsCategory] = useState([]);
@@ -424,7 +425,14 @@ const Header = () => {
             ref={input}
             className={`rounded-lg outline-none px-3 w-full max-w-sm py-1 text-base border border-gray-500`}
             placeholder="Qidirish..."
-            onInput={(e) => searchProduct(e)}
+            onInput={(e) => {
+              searchProduct(e);
+              if (searchFilteredProduct.length >= products.length) {
+                setSearched(false);
+              } else {
+                setSearched(true);
+              }
+            }}
           />
         </div>
         <ul
@@ -459,7 +467,7 @@ const Header = () => {
               );
             })}
         </ul>
-        {searchFilteredProduct.length == 0 && (
+        {searched && searchFilteredProduct.length == 0 && (
           <div className="py-10 flex space-y-4 flex-col justify-center items-center">
             <img className="w-40" src={productNotFound} alt="" />
             <Typography variant="h5" color="gray">
