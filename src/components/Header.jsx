@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { logo } from "../assets/images";
+import { logo, productNotFound } from "../assets/images";
 import {
   Badge,
   Button,
@@ -428,7 +428,7 @@ const Header = () => {
           />
         </div>
         <ul
-          className={`box-border w-full flex flex-col gap-y-2 bg-white transition-all max-h-[calc(100vh-20vh)] overflow-auto rounded-b-lg ${
+          className={`box-border w-full flex flex-col gap-y-2 bg-white transition-all h-full max-h-[calc(100vh-30vh)] overflow-auto rounded-b-lg ${
             searchedProduct ? "p-1 px-3 w-[310px]" : "p-0"
           } ${
             searchFilteredProduct && searchFilteredProduct.length == 0
@@ -459,6 +459,14 @@ const Header = () => {
               );
             })}
         </ul>
+        {searchFilteredProduct.length == 0 && (
+          <div className="py-10 flex space-y-4 flex-col justify-center items-center">
+            <img className="w-40" src={productNotFound} alt="" />
+            <Typography variant="h5" color="gray">
+              Qidiruv natijasi mavjud emas
+            </Typography>
+          </div>
+        )}
       </Drawer>
     </>
   );

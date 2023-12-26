@@ -116,6 +116,9 @@ import rosvodokanal from "./company/rosvodokanal.png";
 import unnamedCompany from "./company/unnamed-company.png";
 import uzAutoMotors from "./company/uz-auto-motors.jpg";
 
+// import error images
+import productNotFound from "./error-images/product-not-found.png";
+
 // export company images array
 export const companies = [
   cberBank,
@@ -126,6 +129,9 @@ export const companies = [
   phsvFarmservis,
   uzAutoMotors,
 ];
+
+// export error images
+export { productNotFound };
 
 // images export
 export {

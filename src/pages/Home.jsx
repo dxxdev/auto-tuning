@@ -106,7 +106,7 @@ const Home = ({ rendered }) => {
             </SwiperSlide>
           );
         })}
-        <div className="z-[999] px-20 absolute left-0 bottom-0 pb-[52px] lg:pb-[152px]">
+        <div className="z-[999] px-20 absolute left-0 bottom-0 hidden sm:block pb-[52px] lg:pb-[152px]">
           <div className={`flex justify-between items-end ${styles.container}`}>
             <div className="flex flex-col space-y-5 items-start h-24">
               <Typography
@@ -137,8 +137,8 @@ const Home = ({ rendered }) => {
           <div className="flex w-full justify-center items-center py-5">
             {groupedTopProducts && groupedTopProducts.length > 0 && (
               <Tabs value="allCategories" className={`${styles.container}`}>
-                <div className="flex justify-center items-center">
-                  <TabsHeader className="w-min bg-red-900">
+                <div className="flex justify-start items-center sm:justify-center">
+                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center flex-col sm:flex-row">
                     <Tab
                       key="allCategories"
                       value="allCategories"
@@ -324,8 +324,8 @@ const Home = ({ rendered }) => {
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
               <Tabs value="allCategories" className={`${styles.container}`}>
-                <div className="flex justify-center items-center">
-                  <TabsHeader className="w-min bg-red-900">
+                <div className="flex justify-start items-center sm:justify-center">
+                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center flex-col sm:flex-row">
                     <Tab
                       key="allCategories"
                       value="allCategories"
@@ -434,8 +434,8 @@ const Home = ({ rendered }) => {
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
               <Tabs value="allCategories" className={`${styles.container}`}>
-                <div className="flex justify-center items-center">
-                  <TabsHeader className="w-min bg-red-900">
+                <div className="flex justify-start items-center sm:justify-center">
+                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center flex-col sm:flex-row">
                     <Tab
                       key="allCategories"
                       value="allCategories"
@@ -595,7 +595,7 @@ const Home = ({ rendered }) => {
               Biz eng yirik kompaniyalar bilan hamkorlik qilamiz
             </Typography>
           </div>
-          <div className="flex justify-between items-center gap-x-8 py-14">
+          <div className="flex justify-center items-center flex-wrap gap-8 py-14">
             {companies.map((company, index) => {
               return (
                 <div className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
