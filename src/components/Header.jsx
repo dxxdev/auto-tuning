@@ -115,7 +115,7 @@ const Header = () => {
               className="flex items-center text-xl md:text-2xl space-x-2 font-bold"
             >
               <img src={logo} className="h-7 md:h-8" alt="" />
-              <span>
+              <span className="hidden sm:block">
                 AUTO <span className="text-red-500">TUNING</span>
               </span>
             </Link>

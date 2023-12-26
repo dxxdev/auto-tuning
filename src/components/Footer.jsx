@@ -2,16 +2,17 @@ import React from "react";
 import { styles } from "../styles";
 import { Link, useNavigate } from "react-router-dom";
 import { category } from "../data/data";
-import { Button, IconButton } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 import { Phone, WhatsApp } from "@mui/icons-material";
+import "../styles/footerStyle.css";
 
 const Footer = () => {
   const navigate = useNavigate();
   return (
     <footer className={`bg-gray-900 pt-20 pb-8`}>
       <div className={`${styles.container} flex flex-col gap-y-10`}>
-        <div className="flex justify-between items-start gap-x-8">
-          <div className="pr-20 flex flex-col gap-y-8 items-start w-full max-w-[416px]">
+        <div className="footer gap-8 px-5">
+          <div className="pr-20 hidden md:flex flex-col gap-y-8 items-start w-full max-w-[416px]">
             <h1 className="inline-block text-3xl">
               <Link
                 to="/"
@@ -50,7 +51,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-400" to={`/Yetkazib berish va to'lash`}>
+                <Link
+                  className="text-gray-400"
+                  to={`/Yetkazib berish va to'lash`}
+                >
                   Yetkazib berish va to'lash
                 </Link>
               </li>
@@ -76,7 +80,7 @@ const Footer = () => {
                 >
                   <Phone fontSize="small" />
                 </a>
-                <h2 className="font-normal text-2xl text-white">
+                <h2 className="font-normal text-xl md:text-2xl text-white">
                   Tel: +998 (99) 270-10-32
                 </h2>
               </div>
@@ -121,7 +125,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-y-10">
           <hr className="opacity-40" />
-          <div className="flex justify-between items-center text-gray-400">
+          <div className="flex justify-between flex-col space-y-5 md:space-y-0 md:flex-row items-center text-gray-400">
             <p className="text-xs">&copy; "AUTO TUNING", 2024</p>
             <Link to="/policy">Maxfiylik siyosati</Link>
             <a href="https://t.me/diyorbek_dev_2006">Mas'ul shaxs Diyorbek</a>
