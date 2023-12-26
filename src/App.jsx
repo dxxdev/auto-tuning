@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Route,
   RouterProvider,
@@ -11,10 +11,14 @@ import Detail from "./pages/Detail";
 import Basket from "./pages/Basket";
 import Category from "./pages/Category";
 import Saved from "./pages/Saved";
+import { products } from "./data/data";
 
 const App = () => {
   const [render, setRender] = useState(true);
   const rendered = () => setRender(prev => !prev);
+  useEffect(()=>{
+    rendered();
+  }, [products])
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout rendered={rendered} />}>

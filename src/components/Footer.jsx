@@ -45,22 +45,22 @@ const Footer = () => {
             <h2 className="text-white text-2xl">Kompaniya</h2>
             <ul className="flex flex-col items-start gap-y-2">
               <li>
-                <Link className="text-gray-400" to={`/faq`}>
+                <Link className="text-gray-400" to={`/Kompaniya haqida`}>
                   Kompaniya haqida
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-400" to={`/delivery`}>
-                  Yetkazib berish manzillari
-                </Link>
-              </li>
-              <li>
-                <Link className="text-gray-400" to={`/payment`}>
+                <Link className="text-gray-400" to={`/Yetkazib berish va to'lash`}>
                   Yetkazib berish va to'lash
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-400" to={`/action`}>
+                <Link className="text-gray-400" to={`/Sharhlar`}>
+                  Sharhlar
+                </Link>
+              </li>
+              <li>
+                <Link className="text-gray-400" to={`/Aksiya`}>
                   Aksiya
                 </Link>
               </li>

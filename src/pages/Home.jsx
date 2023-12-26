@@ -100,7 +100,7 @@ const Home = ({ rendered }) => {
           return (
             <SwiperSlide
               key={item.id}
-              className="max-h-[700px] h-min min-h-min flex justify-center items-center"
+              className="max-h-[400px] max-[800px]:max-h-[500px] lg:max-h-[700px] min-h-max h-full w-full"
             >
               <img src={item.image} className="h-full w-full" alt="Hero img" />
             </SwiperSlide>
@@ -108,11 +108,11 @@ const Home = ({ rendered }) => {
         })}
         <div className="z-[999] px-20 absolute left-0 bottom-0 pb-[52px] lg:pb-[152px]">
           <div className={`flex justify-between items-end ${styles.container}`}>
-            <div className="flex flex-col space-y-5 lg:space-y-12 items-start h-48 lg:h-24">
+            <div className="flex flex-col space-y-5 items-start h-24">
               <Typography
                 variant="h1"
                 color="white"
-                className="h-full space-x-0 lg:space-x-3 flex flex-col lg:flex-row text-xl md:text-2xl lg:text-4xl xl:text-5xl text-white"
+                className="h-full flex flex-col text-xl md:text-2xl lg:text-4xl xl:text-5xl text-white"
               >
                 <span>Servis xizmati Toshkentda</span>
               </Typography>

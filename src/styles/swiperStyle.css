@@ -17,6 +17,15 @@
   border-radius: 10px;
   display: flex;
 }
+
+@media only screen and (max-width: 768px){
+  .navigation-styled .swiper-button-next{
+    display: none;
+  }
+  .navigation-styled .swiper-button-prev{
+    display: none;
+  }
+}
 .navigation-styled .swiper-button-next::after {
   content: "next" !important;
   font-size: 16px !important;
