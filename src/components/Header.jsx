@@ -5,8 +5,14 @@ import { logo, productNotFound } from "../assets/images";
 import {
   Badge,
   Button,
+  Dialog,
+  DialogBody,
+  DialogFooter,
+  DialogHeader,
   Drawer,
   IconButton,
+  Input,
+  Textarea,
   Typography,
 } from "@material-tailwind/react";
 import {
@@ -18,6 +24,7 @@ import {
   ShoppingBasketOutlined,
 } from "@mui/icons-material";
 import { products } from "../data/data";
+import axios from 'axios';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -30,6 +37,10 @@ const Header = () => {
   const [searchedProduct, setSearchedProduct] = useState("");
   const [searched, setSearched] = useState(false);
   const input = useRef(null);
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(!open);
 
   const [productsCategory, setProductsCategory] = useState([]);
 
@@ -104,6 +115,35 @@ const Header = () => {
     }
   }, [openInput]);
 
+  const [phoneNumber, setphoneNumber] = useState("");
+  const [message, setMessage] = useState("");
+
+  const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
+  const chatId = 1825061365;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const text = `Telefon raqami: +${phoneNumber}\n\n Izoh: ${message}`;
+
+    try {
+      await axios.post(
+        `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
+        {
+          chat_id: chatId,
+          text: text,
+        }
+      );
+
+      // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
+      setphoneNumber("");
+      setMessage("");
+      alert("Habar yuborildi!");
+    } catch (error) {
+      alert("Habar yuborishda xatolik:", error.message);
+    }
+  };
+
   return (
     <>
       <header className="bg-[#f5f5f5] py-3 md:py-4 z-[999] sticky top-0 md:static">
@@ -174,17 +214,18 @@ const Header = () => {
                 Ish vaqti: 9:00 dan 18:00 gacha
               </p>
             </div>
-            <a href="tel:+998992701032">
-              <span className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs md:py-3 md:px-6 border border-red-600 md:border-none rounded-lg md:bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring focus:ring-red-200 flex justify-center items-center">
-                <div className="block xl:hidden">
-                  <Phone className="text-red-600 md:text-white" />
-                </div>
-                <div className="hidden xl:block space-x-0 xl:space-x-2">
-                  <span>Qo'ng'iroq</span>
-                  <span>qilish</span>
-                </div>
-              </span>
-            </a>
+            <button
+              onClick={handleOpen}
+              className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs md:py-3 md:px-6 border border-red-600 md:border-none rounded-lg md:bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring focus:ring-red-200 flex justify-center items-center"
+            >
+              <div className="block xl:hidden">
+                <Phone className="text-red-600 md:text-white" />
+              </div>
+              <div className="hidden xl:block space-x-0 xl:space-x-2">
+                <span>Qo'ng'iroq</span>
+                <span>qilish</span>
+              </div>
+            </button>
             <IconButton
               className="block md:hidden"
               variant="outlined"
@@ -476,6 +517,67 @@ const Header = () => {
           </div>
         )}
       </Drawer>
+      <Dialog open={open} size="xs" className="p-2 py-0" handler={handleOpen}>
+        <div className="flex items-center justify-between">
+          <DialogHeader className="flex flex-col items-start">
+            <Typography className="mb-1" variant="h4">
+              Biz bilan bog'lanish
+            </Typography>
+          </DialogHeader>
+          <IconButton>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-5 w-5"
+              onClick={handleOpen}
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </IconButton>
+        </div>
+        <DialogBody>
+          <Typography className="mb-10 -mt-7 " color="gray" variant="lead">
+            Bizga yuboring va biz siz bilan bog'lanamiz
+          </Typography>
+          <form action="" onSubmit={handleSubmit}>
+            <div className="grid gap-6">
+              <Typography className="-mb-1" color="blue-gray" variant="h6">
+                *Telefon raqamingiz
+              </Typography>
+              <Input
+                placeholder="+998992701032"
+                type="number"
+                onChange={(e) => setphoneNumber(e.target.value)}
+              />
+              <Textarea
+                label="Message"
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </div>
+          </form>
+        </DialogBody>
+        <DialogFooter className="space-x-2">
+          <Button variant="text" color="gray" onClick={handleOpen}>
+            Bekor qilish
+          </Button>
+          <Button
+            variant="gradient"
+            color="gray"
+            type="submit"
+            onClick={(e) => {
+              handleSubmit(e);
+              handleOpen();
+            }}
+          >
+            Yuborish
+          </Button>
+        </DialogFooter>
+      </Dialog>
     </>
   );
 };

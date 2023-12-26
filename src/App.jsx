@@ -13,12 +13,39 @@ import Category from "./pages/Category";
 import Saved from "./pages/Saved";
 import { products } from "./data/data";
 
+const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
+
 const App = () => {
   const [render, setRender] = useState(true);
-  const rendered = () => setRender(prev => !prev);
-  useEffect(()=>{
+  const rendered = () => setRender((prev) => !prev);
+  useEffect(() => {
     rendered();
-  }, [products])
+  }, [products]);
+
+  useEffect(() => {
+    const sendUpdateToTelegram = async () => {
+      try {
+        // Yangilik matni
+        const text = "Bu yerda yangilik yoziladi";
+
+        // Telegram Bot API ga yangilik yuborish
+        await axios.post(
+          `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
+          {
+            chat_id: chatId,
+            text: text,
+          }
+        );
+
+        console.log("Yangilik yuborildi!");
+      } catch (error) {
+        console.error("Yangilik yuborishda xatolik:", error.message);
+      }
+    };
+
+    // Yangilik yuborishni chaqirish
+    sendUpdateToTelegram();
+  }, []); // useEffect faqat bir marta ishga tushiriladi
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout rendered={rendered} />}>
