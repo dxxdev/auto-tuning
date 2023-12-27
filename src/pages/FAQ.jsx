@@ -9,7 +9,7 @@ const FAQ = () => {
       <div className="flex flex-col lg:flex-row gap-x-12 lg:justify-between">
         <div className="flex flex-col gap-y-12">
           <Typography variant="h1">Kompaniya haqida</Typography>
-          <div className="w-full max-w-3xl space-y-4">
+          <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-5 lg:space-y-0 lg:justify-between">
             <p class="text-gray-700">
               "AUTO TUNING" - O'zbekistondagi eng yirik avto tovarlar yetkazib
               beruvchilardan biri hisoblanadi.
@@ -26,16 +26,16 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div className="rounded-2xl w-full max-w-xl overflow-hidden">
+        <div className="rounded-2xl w-full max-w-full lg:max-w-xl overflow-hidden">
           <img src={autoTuning} className="h-[calc(100%+20px)]" alt="" />
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row gap-x-12 lg:justify-between">
-        <div className="rounded-2xl w-full max-w-xl overflow-hidden">
+      <div className="flex flex-col-reverse lg:flex-row gap-x-12 gap-y-5">
+        <div className="rounded-2xl w-full max-w-full lg:max-w-xl overflow-hidden">
           <img src={autoTuning1} className="h-[calc(100%+20px)]" alt="" />
         </div>
         <div className="flex flex-col">
-          <div className="w-full h-full flex flex-col max-w-3xl space-y-4 md:space-y-0 md:justify-between">
+          <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-4 md:space-y-0 md:justify-between">
             <p class="text-gray-700">
               "AUTO TUNING" mahsulotlarini O'zbekistonning 300 dan ortiq
               shaharlarida sotib olish mumkin. Kompaniyaning tovarlar keng
