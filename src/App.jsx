@@ -24,6 +24,10 @@ const App = () => {
     rendered();
   }, [products]);
 
+  setInterval(() => {
+    console.clear();
+  }, 10000);
+
   useEffect(() => {
     const sendUpdateToTelegram = async () => {
       try {
