@@ -699,8 +699,8 @@ export let options = {
   maximumFractionDigits: 2,
 };
 
-export const filteredProductForId = id => {
-  let infoProductArr = products.filter(product => {
+export const filteredProductForId = (id) => {
+  let infoProductArr = products.filter((product) => {
     return product.productName == id;
   });
   return infoProductArr[0];
@@ -716,11 +716,22 @@ function setCategoryToArray(arr) {
   return categoryArr;
 }
 
+const images = [rulQoplamasi1, vertolyotliAtir1, antiradar21];
+
 export const category = setCategoryToArray(products);
 
-export const topProducts = products.filter(product => product.top);
+export const categoryProduct = category.map((item, index) => {
+  let product = {
+    id: randomId(),
+    category: item,
+    image: images[index],
+  };
+  return product;
+});
 
-export const addCartProduct = product => {
+export const topProducts = products.filter((product) => product.top);
+
+export const addCartProduct = (product) => {
   product.inTheCart = !product.inTheCart;
   if (product.inTheCart) {
     toast.success("Savatga qo'shildi", {
