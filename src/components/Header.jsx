@@ -272,6 +272,11 @@ const Header = () => {
                     </li>
                   );
                 })}
+                <li>
+                  <NavLink to={`/Katalog`} className="text-shadow">
+                    Katalog
+                  </NavLink>
+                </li>
               </ul>
             </nav>
             <div className="flex justify-end space-x-5 ">

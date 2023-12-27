@@ -106,6 +106,8 @@ import vertolyotliAtir25 from "./img/vertolyotli-atir-2-5.jpg";
 import vertolyotliAtir31 from "./img/vertolyotli-atir-3-1.jpg";
 import vertolyotliAtir32 from "./img/vertolyotli-atir-3-2.jpg";
 import vertolyotliAtir33 from "./img/vertolyotli-atir-3-3.jpg";
+import autoTuning from "./img/auto-tuning.jpg";
+import autoTuning1 from "./img/auto-tuning-1.jpg";
 
 // company images import
 import cberBank from "./company/cber-bank.png";
@@ -211,6 +213,8 @@ export {
   globusliAtir23,
   samolyotliAtir1,
   samolyotliAtir2,
+  autoTuning,
+  autoTuning1,
   samolyotliAtir3,
   samolyotliAtir4,
   samolyotliAtir5,

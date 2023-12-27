@@ -13,6 +13,7 @@ import Category from "./pages/Category";
 import Saved from "./pages/Saved";
 import { products } from "./data/data";
 import Katalog from "./pages/Katalog";
+import FAQ from "./pages/FAQ";
 
 const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
 
@@ -55,6 +56,7 @@ const App = () => {
         <Route path="/Saqlanganlar" element={<Saved />} />
         <Route path="/:category" element={<Category rendered={rendered} />} />
         <Route path="/Katalog" element={<Katalog />} />
+        <Route path="/Kompaniya haqida" element={<FAQ />} />
         <Route
           path="/:category/:productName"
           element={<Detail rendered={rendered} />}
