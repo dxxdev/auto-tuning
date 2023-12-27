@@ -1,9 +1,14 @@
 import React from "react";
 import { styles } from "../styles";
-import { Typography } from "@material-tailwind/react";
-import { autoTuning, autoTuning1 } from "../assets/images";
+import { Button, Typography } from "@material-tailwind/react";
+import { autoTuning, autoTuning1, companies } from "../assets/images";
+import { commentaries } from "../data/data";
+import { Star } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const FAQ = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={`${styles.container} py-5 space-y-14`}>
       <div className="flex flex-col lg:flex-row gap-x-12 lg:justify-between">
@@ -62,6 +67,50 @@ const FAQ = () => {
           </div>
         </div>
       </div>
+      <section>
+        <div>
+          <Typography variant="h3">
+            Biz eng yirik kompaniyalar bilan hamkorlik qilamiz
+          </Typography>
+        </div>
+        <div className="flex justify-center items-center flex-wrap gap-8 py-14">
+          {companies.map((company, index) => {
+            return (
+              <div className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
+                <img src={company} alt="Company" />
+              </div>
+            );
+          })}
+        </div>
+      </section>
+      <section>
+        <div className="py-5 flex flex-col sm:flex-row justify-between">
+          <Typography variant="h4">Izohlar</Typography>
+          <Button onClick={() => navigate("/Sharhlar")} variant="outlined">
+            Barcha sharhlar
+          </Button>
+        </div>
+        <ul className="py-8 flex justify-start items-center overflow-auto gap-5 products-swiper">
+          {commentaries.map((note) => {
+            return (
+              <li
+                key={note.id}
+                className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
+              >
+                <div className="space-y-5">
+                  <div>
+                    {note.rating.map((star) => {
+                      return <Star key={star} />;
+                    })}
+                  </div>
+                  <p className="tracking-[0.5px]">{note.comment}</p>
+                </div>
+                <p className="tracking-[0.5px] text-sm">{note.from}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     </div>
   );
 };
