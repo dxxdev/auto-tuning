@@ -150,7 +150,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-[#f5f5f5] py-3 md:py-4 z-[999] sticky top-0 md:static">
+      <header className="md:bg-[#f5f5f5] bg-white bg-opacity-80 backdrop-blur-[8px] header py-3 md:py-4 z-[999] sticky top-0 md:static">
         <div
           className={`${styles.container} relative top-0 left-0 flex justify-between items-center`}
         >
@@ -441,10 +441,12 @@ const Header = () => {
           </ul>
         )}
       </Drawer>
+
+      {/* Search drawer */}
       <Drawer
         open={open1}
         onClose={closeDrawer1}
-        className={`p-4 transition-all ease-linear duration-75 !max-w-full md:!max-w-xs ${
+        className={`p-4 transition-all ease-linear block md:hidden duration-75 !max-w-full md:!max-w-xs ${
           open1 ? "" : "!-translate-x-full"
         }`}
       >

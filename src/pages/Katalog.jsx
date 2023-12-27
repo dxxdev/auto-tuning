@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styles } from "../styles";
 import { Typography } from "@material-tailwind/react";
 import { categoryProduct } from "../data/data";
 import { Link } from "react-router-dom";
 
 const Katalog = () => {
+  useEffect(() => {
+    document.title = "Katalog";
+  }, []);
+
   return (
     <div className={`py-2 ${styles.container}`}>
       <div>
@@ -19,8 +23,15 @@ const Katalog = () => {
         {categoryProduct.map((product) => {
           return (
             <Link to={`/${product.category}`}>
-              <li className="rounded-3xl relative group overflow-hidden" key={product.id}>
-                <img className="rounded-3xl transition-all group-hover:scale-110" src={product.image} alt="" />
+              <li
+                className="rounded-3xl relative group overflow-hidden"
+                key={product.id}
+              >
+                <img
+                  className="rounded-3xl transition-all group-hover:scale-110"
+                  src={product.image}
+                  alt=""
+                />
                 <div className="absolute top-0 w-full h-full rounded-3xl flex justify-center items-end bg-black bg-opacity-40 text-xs left-0 px-8 py-5 transition-all opacity-0 group-hover:opacity-100 group-hover:text-2xl group-hover:font-semibold group-hover:text-white">
                   <p>{product.category}</p>
                 </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styles } from "../styles";
 import { Button, Typography } from "@material-tailwind/react";
 import { autoTuning, autoTuning1, companies } from "../assets/images";
@@ -9,9 +9,13 @@ import { useNavigate } from "react-router-dom";
 const FAQ = () => {
   const navigate = useNavigate();
 
+  useEffect(()=>{
+    document.title = "Kompaniya haqida"
+  }, [])
+
   return (
     <div className={`${styles.container} py-5 space-y-14`}>
-      <div className="flex flex-col lg:flex-row gap-x-12 lg:justify-between">
+      <div className="flex flex-col lg:flex-row gap-x-12 gap-y-12 lg:justify-between">
         <div className="flex flex-col gap-y-12">
           <Typography variant="h1">Kompaniya haqida</Typography>
           <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-5 lg:space-y-0 lg:justify-between">
@@ -20,7 +24,7 @@ const FAQ = () => {
               beruvchilardan biri hisoblanadi.
             </p>
             <p class="text-gray-700">
-              "AUTO TUNING" tovar va xizmatlarning eng yaxshi tanlovini,
+              "AUTO TUNING" tovarlar va xizmatlarning eng yaxshi tanlovini,
               mijozlarning barcha talablariga javob beradigan tez yetkazib
               berish xizmatini taklif etadi.
             </p>
@@ -35,7 +39,7 @@ const FAQ = () => {
           <img src={autoTuning} className="h-[calc(100%+20px)]" alt="" />
         </div>
       </div>
-      <div className="flex flex-col-reverse lg:flex-row gap-x-12 gap-y-5">
+      <div className="flex flex-col-reverse lg:flex-row gap-x-12 gap-y-12">
         <div className="rounded-2xl w-full max-w-full lg:max-w-xl overflow-hidden">
           <img src={autoTuning1} className="h-[calc(100%+20px)]" alt="" />
         </div>
