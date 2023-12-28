@@ -37,12 +37,12 @@
 
 @keyframes sceleton {
   0% {
-    background: #888;
+    background: #bbb;
   }
   50% {
-    background: #555;
+    background: #aaa;
   }
   100% {
-    background: #888;
+    background: #bbb;
   }
 }

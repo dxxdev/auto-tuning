@@ -29,6 +29,22 @@ const Detail = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   useEffect(() => {
+    // localStorage dan productName olish
+    const savedProductName = localStorage.getItem("savedProductName");
+
+    if (productName) {
+      // Agar useParams dan productName olinmasa, localStorage dan olinadi
+      setRender((prev) => !prev);
+      setInfo(filteredProductForId(productName));
+      localStorage.setItem("savedProductName", productName);
+    } else if (savedProductName) {
+      // Agar useParams dan productName olinmagan bo'lsa, localStorage dan olinadi
+      setRender((prev) => !prev);
+      setInfo(filteredProductForId(savedProductName));
+    }
+  }, [productName]);
+
+  useEffect(() => {
     document.title = productName;
   }, [productName]);
 
