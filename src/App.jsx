@@ -14,6 +14,7 @@ import Saved from "./pages/Saved";
 import { products } from "./data/data";
 import Katalog from "./pages/Katalog";
 import FAQ from "./pages/FAQ";
+import Payment from "./pages/Payment";
 
 const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
 
@@ -28,30 +29,6 @@ const App = () => {
     console.clear();
   }, 10000);
 
-  useEffect(() => {
-    const sendUpdateToTelegram = async () => {
-      try {
-        // Yangilik matni
-        const text = "Bu yerda yangilik yoziladi";
-
-        // Telegram Bot API ga yangilik yuborish
-        await axios.post(
-          `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
-          {
-            chat_id: chatId,
-            text: text,
-          }
-        );
-
-        console.log("Yangilik yuborildi!");
-      } catch (error) {
-        console.error("Yangilik yuborishda xatolik:", error.message);
-      }
-    };
-
-    // Yangilik yuborishni chaqirish
-    sendUpdateToTelegram();
-  }, []); // useEffect faqat bir marta ishga tushiriladi
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout rendered={rendered} />}>
@@ -61,6 +38,7 @@ const App = () => {
         <Route path="/:category" element={<Category rendered={rendered} />} />
         <Route path="/Katalog" element={<Katalog />} />
         <Route path="/Kompaniya haqida" element={<FAQ />} />
+        <Route path="Yetkazib berish va to'lash" element={<Payment />} />
         <Route
           path="/:category/:productName"
           element={<Detail rendered={rendered} />}
