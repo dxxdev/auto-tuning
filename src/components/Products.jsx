@@ -39,7 +39,7 @@ const Products = ({
       key={productId}
       className="rounded-lg bg-white max-w-xs flex flex-col shadow-md space-y-4 card-swiper relative group"
     >
-      <Link to={`/${productCategory}/${productName}`}>
+      <Link className="max-h-[400px]" to={`/${productCategory}/${productName}`}>
         <Swiper
           navigation={true}
           effect="fade"
@@ -48,7 +48,7 @@ const Products = ({
           }}
           loop={true}
           modules={[Pagination, Navigation, EffectFade]}
-          className="mySwiper relative rounded-lg"
+          className="mySwiper relative rounded-lg max-h-[400px]"
         >
           {productImages.map((item, index) => {
             return (
@@ -62,7 +62,7 @@ const Products = ({
       <button
         onClick={() => {
           rendered();
-          setRender(prev => !prev);
+          setRender((prev) => !prev);
           productSaved(product);
         }}
         className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
@@ -115,7 +115,7 @@ const Products = ({
             <IconButton
               onClick={() => {
                 rendered();
-                setRender(prev => !prev);
+                setRender((prev) => !prev);
                 addCartProduct(product);
               }}
               variant={`${productInTheCart ? "filled" : "outlined"}`}

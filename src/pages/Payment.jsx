@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styles } from "../styles";
 import { Button, Typography } from "@material-tailwind/react";
 import { WhatsApp } from "@mui/icons-material";
@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Yetkazib berish va to'lash";
+  });
 
   return (
     <div className={`pb-10 ${styles.container}`}>

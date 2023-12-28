@@ -9,9 +9,9 @@ import { useNavigate } from "react-router-dom";
 const FAQ = () => {
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    document.title = "Kompaniya haqida"
-  }, [])
+  useEffect(() => {
+    document.title = "Kompaniya haqida";
+  }, []);
 
   return (
     <div className={`${styles.container} py-5 space-y-14`}>
@@ -96,22 +96,24 @@ const FAQ = () => {
         </div>
         <ul className="py-8 flex justify-start items-center overflow-auto gap-5 products-swiper">
           {commentaries.map((note) => {
-            return (
-              <li
-                key={note.id}
-                className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
-              >
-                <div className="space-y-5">
-                  <div>
-                    {note.rating.map((star) => {
-                      return <Star key={star} />;
-                    })}
+            if (note.rating.length == 5) {
+              return (
+                <li
+                  key={note.id}
+                  className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
+                >
+                  <div className="space-y-5">
+                    <div>
+                      {note.rating.map((star) => {
+                        return <Star key={star} />;
+                      })}
+                    </div>
+                    <p className="tracking-[0.5px]">{note.comment}</p>
                   </div>
-                  <p className="tracking-[0.5px]">{note.comment}</p>
-                </div>
-                <p className="tracking-[0.5px] text-sm">{note.from}</p>
-              </li>
-            );
+                  <p className="tracking-[0.5px] text-sm">{note.from}</p>
+                </li>
+              );
+            }
           })}
         </ul>
       </section>

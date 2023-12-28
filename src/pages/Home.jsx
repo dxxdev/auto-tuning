@@ -534,27 +534,32 @@ const Home = ({ rendered }) => {
         </div>
         {/* Commentaries section */}
         <section>
-          <div className="py-5">
+          <div className="py-5 flex flex-col sm:flex-row justify-between">
             <Typography variant="h4">Izohlar</Typography>
+            <Button onClick={() => navigate("/Sharhlar")} variant="outlined">
+              Barcha sharhlar
+            </Button>
           </div>
           <ul className="py-8 flex justify-start items-center overflow-auto gap-5 products-swiper">
             {commentaries.map((note) => {
-              return (
-                <li
-                  key={note.id}
-                  className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
-                >
-                  <div className="space-y-5">
-                    <div>
-                      {note.rating.map((star) => {
-                        return <Star key={star} />;
-                      })}
+              if (note.rating.length == 5) {
+                return (
+                  <li
+                    key={note.id}
+                    className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
+                  >
+                    <div className="space-y-5">
+                      <div>
+                        {note.rating.map((star) => {
+                          return <Star key={star} />;
+                        })}
+                      </div>
+                      <p className="tracking-[0.5px]">{note.comment}</p>
                     </div>
-                    <p className="tracking-[0.5px]">{note.comment}</p>
-                  </div>
-                  <p className="tracking-[0.5px] text-sm">{note.from}</p>
-                </li>
-              );
+                    <p className="tracking-[0.5px] text-sm">{note.from}</p>
+                  </li>
+                );
+              }
             })}
           </ul>
         </section>

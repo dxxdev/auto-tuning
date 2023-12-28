@@ -15,6 +15,7 @@ import { products } from "./data/data";
 import Katalog from "./pages/Katalog";
 import FAQ from "./pages/FAQ";
 import Payment from "./pages/Payment";
+import Commentaries from "./pages/Commentaries";
 
 const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
 
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/Katalog" element={<Katalog />} />
         <Route path="/Kompaniya haqida" element={<FAQ />} />
         <Route path="Yetkazib berish va to'lash" element={<Payment />} />
+        <Route path="/Sharhlar" element={<Commentaries />} />
         <Route
           path="/:category/:productName"
           element={<Detail rendered={rendered} />}
