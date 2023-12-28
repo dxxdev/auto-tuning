@@ -24,9 +24,25 @@
   }
 }
 
-
-@media only screen and (max-width: 720px){
-  .header{
+@media only screen and (max-width: 720px) {
+  .header {
     backdrop-filter: 4px;
+  }
+}
+
+.sceleton-animation {
+  background: #888;
+  animation: sceleton 500ms infinite linear;
+}
+
+@keyframes sceleton {
+  0% {
+    background: #888;
+  }
+  50% {
+    background: #555;
+  }
+  100% {
+    background: #888;
   }
 }

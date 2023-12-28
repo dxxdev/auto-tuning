@@ -8,7 +8,7 @@ const Payment = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={`py-2 ${styles.container}`}>
+    <div className={`pb-10 ${styles.container}`}>
       <div className="space-y-8">
         <div>
           <Typography variant="h1" className="py-5 font-normal tracking-[3px]">
@@ -185,7 +185,7 @@ const Payment = () => {
             </Button>
           </div>
         </div>
-        <div className="h-full">
+        <div className="h-96 rounded-2xl sceleton-animation lg:h-full">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2998.2151898393695!2d69.19256677757666!3d41.282420887019306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b684b728b05%3A0x447c755a6628d746!2sAuto%20Tuning%20Centre%20service!5e0!3m2!1suz!2s!4v1703741135199!5m2!1suz!2s"
             width="100%"
