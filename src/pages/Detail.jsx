@@ -21,6 +21,7 @@ import "swiper/css/thumbs";
 import { FreeMode, Autoplay, Thumbs } from "swiper/modules";
 
 import "react-toastify/dist/ReactToastify.css";
+import Questions from "../components/Questions";
 
 const Detail = () => {
   const { productName } = useParams();
@@ -81,160 +82,163 @@ const Detail = () => {
   };
 
   return (
-    <div
-      className={`py-2 flex ${styles.container} gap-x-10 flex-col md:flex-row`}
-    >
-      {info && (
-        <div className="w-full space-y-3 p-5">
-          <Swiper
-            style={{
-              "--swiper-navigation-color": "#fff",
-              "--swiper-pagination-color": "#fff",
-            }}
-            spaceBetween={10}
-            autoplay={{
-              delay: 2000,
-            }}
-            loop={true}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Thumbs, Autoplay]}
-            className="mySwiper2 relative md:max-w-xl max-h-[600px]"
-          >
-            {info &&
-              info.images.map((image, index) => {
-                return (
-                  <SwiperSlide
-                    className="flex justify-center items-center h-full w-full"
-                    key={index}
-                  >
-                    <img
-                      src={image}
-                      className="hover:scale-110 transition-all w-full h-full"
-                      alt={info.productName}
-                    />
-                  </SwiperSlide>
-                );
-              })}
-            <button
-              onClick={() => {
-                setRender((prev) => !prev);
-                info.saved = !info.saved;
+    <>
+      <div
+        className={`py-2 flex ${styles.container} gap-x-10 flex-col md:flex-row`}
+      >
+        {info && (
+          <div className="w-full space-y-3 p-5">
+            <Swiper
+              style={{
+                "--swiper-navigation-color": "#fff",
+                "--swiper-pagination-color": "#fff",
               }}
-              className="absolute top-0 right-0 z-[999] text-red-600"
-            >
-              {info.saved ? (
-                <Bookmark fontSize="large" />
-              ) : (
-                <BookmarkBorderOutlined fontSize="large" />
-              )}
-            </button>
-          </Swiper>
-          <Swiper
-            onSwiper={setThumbsSwiper}
-            spaceBetween={10}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Thumbs]}
-            className="mySwiper relative max-w-xl max-h-[150px] flex items-center"
-          >
-            {info &&
-              info.images.map((image, index) => {
-                return (
-                  <SwiperSlide
-                    className="flex justify-center items-stretch relative h-full"
-                    key={index}
-                  >
-                    <img
-                      src={image}
-                      alt={info.productName}
-                      className="w-full h-full"
-                    />
-                  </SwiperSlide>
-                );
-              })}
-          </Swiper>
-        </div>
-      )}
-      {info && (
-        <div className="w-full relative p-5">
-          <div className="absolute right-5 bottom-0">
-            <Button
-              onClick={addToCart}
-              variant={`${info.inTheCart ? "filled" : "outlined"}`}
-              color="gray"
-              className="flex justify-center items-center space-x-2"
-            >
-              {info.inTheCart ? (
-                <RemoveShoppingCartOutlined />
-              ) : (
-                <AddShoppingCartOutlined />
-              )}
-              <span className="hidden sm:block">sotib olish</span>
-            </Button>
-          </div>
-          <div className="flex justify-start items-center space-x-2 text-xs">
-            <Star fontSize="medium" className="text-yellow-700" />
-            <Star
-              fontSize="medium"
-              className={`${
-                info.rating > 1 ? "text-yellow-700" : "text-gray-700"
-              }`}
-            />
-            <Star
-              fontSize="medium"
-              className={`${
-                info.rating > 2 ? "text-yellow-700" : "text-gray-700"
-              }`}
-            />
-            <Star
-              fontSize="medium"
-              className={`${
-                info.rating > 3 ? "text-yellow-700" : "text-gray-700"
-              }`}
-            />
-            <Star
-              fontSize="medium"
-              className={`${
-                info.rating > 4 ? "text-yellow-700" : "text-gray-700"
-              }`}
-            />
-            <Typography variant="lead">{info.rating}</Typography>
-          </div>
-          <Typography className="text-2xl py-5 sm:text-3xl lg:text-4xl">
-            {info.productName}
-          </Typography>
-          <div className="flex items-center space-x-2">
-            <IconButton
-              onClick={() => {
-                if (info.countProduct > 1) {
-                  info.countProduct--;
-                }
-                setRender((prev) => !prev);
+              spaceBetween={10}
+              autoplay={{
+                delay: 2000,
               }}
-              size="sm"
-              variant="filled"
-              color="red"
+              loop={true}
+              thumbs={{ swiper: thumbsSwiper }}
+              modules={[FreeMode, Thumbs, Autoplay]}
+              className="mySwiper2 relative md:max-w-xl max-h-[600px]"
             >
-              <Remove />
-            </IconButton>
-            <Typography variant="h5">{info.countProduct}</Typography>
-            <IconButton
-              onClick={() => {
-                info.countProduct++;
-                setRender((prev) => !prev);
-              }}
-              size="sm"
-              variant="filled"
-              color="red"
+              {info &&
+                info.images.map((image, index) => {
+                  return (
+                    <SwiperSlide
+                      className="flex justify-center items-center h-full w-full"
+                      key={index}
+                    >
+                      <img
+                        src={image}
+                        className="hover:scale-110 transition-all w-full h-full"
+                        alt={info.productName}
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+              <button
+                onClick={() => {
+                  setRender((prev) => !prev);
+                  info.saved = !info.saved;
+                }}
+                className="absolute top-0 right-0 z-[999] text-red-600"
+              >
+                {info.saved ? (
+                  <Bookmark fontSize="large" />
+                ) : (
+                  <BookmarkBorderOutlined fontSize="large" />
+                )}
+              </button>
+            </Swiper>
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              spaceBetween={10}
+              slidesPerView={4}
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Thumbs]}
+              className="mySwiper relative max-w-xl max-h-[150px] flex items-center"
             >
-              <Add />
-            </IconButton>
+              {info &&
+                info.images.map((image, index) => {
+                  return (
+                    <SwiperSlide
+                      className="flex justify-center items-stretch relative h-full"
+                      key={index}
+                    >
+                      <img
+                        src={image}
+                        alt={info.productName}
+                        className="w-full h-full"
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+            </Swiper>
           </div>
-        </div>
-      )}
+        )}
+        {info && (
+          <div className="w-full relative p-5">
+            <div className="absolute right-5 bottom-0">
+              <Button
+                onClick={addToCart}
+                variant={`${info.inTheCart ? "filled" : "outlined"}`}
+                color="gray"
+                className="flex justify-center items-center space-x-2"
+              >
+                {info.inTheCart ? (
+                  <RemoveShoppingCartOutlined />
+                ) : (
+                  <AddShoppingCartOutlined />
+                )}
+                <span className="hidden sm:block">sotib olish</span>
+              </Button>
+            </div>
+            <div className="flex justify-start items-center space-x-2 text-xs">
+              <Star fontSize="medium" className="text-yellow-700" />
+              <Star
+                fontSize="medium"
+                className={`${
+                  info.rating > 1 ? "text-yellow-700" : "text-gray-700"
+                }`}
+              />
+              <Star
+                fontSize="medium"
+                className={`${
+                  info.rating > 2 ? "text-yellow-700" : "text-gray-700"
+                }`}
+              />
+              <Star
+                fontSize="medium"
+                className={`${
+                  info.rating > 3 ? "text-yellow-700" : "text-gray-700"
+                }`}
+              />
+              <Star
+                fontSize="medium"
+                className={`${
+                  info.rating > 4 ? "text-yellow-700" : "text-gray-700"
+                }`}
+              />
+              <Typography variant="lead">{info.rating}</Typography>
+            </div>
+            <Typography className="text-2xl py-5 sm:text-3xl lg:text-4xl">
+              {info.productName}
+            </Typography>
+            <div className="flex items-center space-x-2">
+              <IconButton
+                onClick={() => {
+                  if (info.countProduct > 1) {
+                    info.countProduct--;
+                  }
+                  setRender((prev) => !prev);
+                }}
+                size="sm"
+                variant="filled"
+                color="red"
+              >
+                <Remove />
+              </IconButton>
+              <Typography variant="h5">{info.countProduct}</Typography>
+              <IconButton
+                onClick={() => {
+                  info.countProduct++;
+                  setRender((prev) => !prev);
+                }}
+                size="sm"
+                variant="filled"
+                color="red"
+              >
+                <Add />
+              </IconButton>
+            </div>
+          </div>
+        )}
+      </div>
+      <Questions />
       <ToastContainer />
-    </div>
+    </>
   );
 };
 

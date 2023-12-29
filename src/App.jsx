@@ -18,7 +18,9 @@ import Payment from "./pages/Payment";
 import Commentaries from "./pages/Commentaries";
 import Action from "./pages/Action";
 
-const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
+setInterval(() => {
+  console.clear();
+}, 10000);
 
 const App = () => {
   const [render, setRender] = useState(true);
@@ -26,10 +28,6 @@ const App = () => {
   useEffect(() => {
     rendered();
   }, [products]);
-
-  setInterval(() => {
-    console.clear();
-  }, 10000);
 
   const router = createBrowserRouter(
     createRoutesFromElements(

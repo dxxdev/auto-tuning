@@ -25,3 +25,29 @@
     background-color: transparent;
   }
 }
+
+.rotate-animation {
+  animation: rotate 200ms linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+.rotate-animation-2 {
+  transform: rotate(45deg);
+  animation: rotate2 200ms linear;
+}
+
+@keyframes rotate2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}

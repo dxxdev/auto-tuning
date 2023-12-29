@@ -692,6 +692,40 @@ export const commentaries = [
   },
 ];
 
+export const questions = [
+  {
+    id: randomId(),
+    question: "Kompaniyangiz qanday avto tuning xizmatlarini taklif qiladi?",
+    answer:
+      "Biz avto tuning sohasida keng xil xizmatlar taklif qilamiz, jumladan yoritish, yengillik qo'shish, va modifikatsiya qilish. Bizning professional jamoamiz yetkazib berishni ham amalga oshiradi.",
+  },
+  {
+    id: randomId(),
+    question: "Yetkazib berish narxlari va muddatlari qanday?",
+    answer:
+      "Narxlari va muddatlari buyurtma turlariga bog'liq. Biz mijozlarmizga qulay narxlar va tez yetkazib berishni ta'minlaymiz.",
+  },
+  {
+    id: randomId(),
+    question: "Qanday avto modifikatsiya mahsulotlari mavjud?",
+    answer:
+      "Bizning assortimentimizda ko'p turli avto modifikatsiya mahsulotlari mavjud. Sizning talablaringizni qondirib, eng muhim narsalarni taqdim etamiz.",
+  },
+  {
+    id: randomId(),
+    question:
+      "Kompaniya xizmati haqida ko'proq ma'lumot olish uchun qanday qadamni bosishim mumkin?",
+    answer:
+      "Bizning rasmiy veb-saytimizda va ijtimoiy tarmoqlarimizda biz haqimizda ko'proq ma'lumot topishingiz mumkin. Shuningdek, biz bilan bog'lanish uchun aloqa formasini to'ldiring va biz sizga tez orada javob beramiz.",
+  },
+  {
+    id: randomId(),
+    question: "Qanday usullarda buyurtma berishim mumkin?",
+    answer:
+      "Siz buyurtmangizni rasmiy veb-saytimiz orqali, telefon orqali yoki bizning ofisimizda murojaat qilgan holda bering. Biz mijozlarmizni qulay va tez xizmatlar bilan ta'minlashga intilamiz.",
+  },
+];
+
 export let options = {
   style: "decimal",
   useGrouping: true,
