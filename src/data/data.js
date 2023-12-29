@@ -139,6 +139,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: true,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -163,6 +164,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -185,6 +187,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: true,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -209,6 +212,7 @@ export const products = [
     isItNew: true,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -238,6 +242,7 @@ export const products = [
     isItNew: true,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -260,6 +265,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -285,6 +291,7 @@ export const products = [
     isItNew: true,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -322,6 +329,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -360,6 +368,7 @@ export const products = [
     isItNew: true,
     inAction: true,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -397,6 +406,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -414,6 +424,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -438,6 +449,7 @@ export const products = [
     isItNew: true,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -470,6 +482,7 @@ export const products = [
     isItNew: true,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -494,6 +507,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -519,6 +533,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -557,6 +572,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -586,6 +602,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -620,6 +637,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
   {
     id: randomId(),
@@ -651,6 +669,7 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
   },
 ];
 
@@ -790,4 +809,12 @@ export const addCartProduct = (product) => {
       theme: "light",
     });
   }
+};
+
+export const viewProduct = (product) => {
+  product.viewed = true;
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 };

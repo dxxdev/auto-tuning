@@ -36,7 +36,7 @@ const Questions = () => {
     const text = `Telefon raqami: +${phoneNumber}\n\n Izoh: ${message}`;
 
     try {
-      if (message.trim !== "" || phoneNumber.trim !== "") {
+      if (message.trim() !== "" || phoneNumber.trim() !== "") {
         await axios.post(
           `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
           {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { filteredProductForId } from "../data/data";
+import { filteredProductForId, products } from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { styles } from "../styles";
 import { Button, IconButton, Typography } from "@material-tailwind/react";
@@ -22,8 +22,9 @@ import { FreeMode, Autoplay, Thumbs } from "swiper/modules";
 
 import "react-toastify/dist/ReactToastify.css";
 import Questions from "../components/Questions";
+import Products from "../components/Products";
 
-const Detail = () => {
+const Detail = ({ rendered }) => {
   const { productName } = useParams();
   const [info, setInfo] = useState();
   const [render, setRender] = useState(true);
@@ -52,6 +53,10 @@ const Detail = () => {
   useEffect(() => {
     setInfo(filteredProductForId(productName));
   }, [productName]);
+
+  const productSaved = (product) => {
+    product.saved = !product.saved;
+  };
 
   const addToCart = () => {
     setRender((prev) => !prev);
@@ -236,6 +241,70 @@ const Detail = () => {
           </div>
         )}
       </div>
+      {products.find((product) => product.viewed == true) && (
+        <section className={`${styles.container}`}>
+          <div className="py-5">
+            <Typography variant="h4">Ko'rilganlar</Typography>
+          </div>
+          <ul
+            className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+          >
+            {products.map((product) => {
+              if (product.viewed) {
+                return (
+                  <Products
+                    rendered={rendered}
+                    product={product}
+                    productId={product.id}
+                    productName={product.productName}
+                    productCategory={product.category}
+                    productImages={product.images}
+                    productSaved={productSaved}
+                    productIsItNew={product.isItNew}
+                    productInAction={product.inAction}
+                    productRating={product.rating}
+                    productPrice={product.price}
+                    productInTheCart={product.inTheCart}
+                  />
+                );
+              }
+            })}
+          </ul>
+        </section>
+      )}
+
+      {products.find((product) => product.recommend == true) && (
+        <section className={`${styles.container}`}>
+          <div className="py-5">
+            <Typography variant="h4">Sizga yoqishi mumkin</Typography>
+          </div>
+          <ul
+            className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+          >
+            {products.map((product) => {
+              if (product.recommend) {
+                return (
+                  <Products
+                    rendered={rendered}
+                    product={product}
+                    productId={product.id}
+                    productName={product.productName}
+                    productCategory={product.category}
+                    productImages={product.images}
+                    productSaved={productSaved}
+                    productIsItNew={product.isItNew}
+                    productInAction={product.inAction}
+                    productRating={product.rating}
+                    productPrice={product.price}
+                    productInTheCart={product.inTheCart}
+                  />
+                );
+              }
+            })}
+          </ul>
+        </section>
+      )}
+
       <Questions />
       <ToastContainer />
     </>

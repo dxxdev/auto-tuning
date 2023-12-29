@@ -17,7 +17,7 @@ import {
   Star,
 } from "@mui/icons-material";
 import { Chip, IconButton, Typography } from "@material-tailwind/react";
-import { addCartProduct, options } from "../data/data";
+import { addCartProduct, options, viewProduct } from "../data/data";
 
 const Products = ({
   rendered,
@@ -34,12 +34,19 @@ const Products = ({
   productInTheCart,
 }) => {
   const [render, setRender] = useState(true);
+
   return (
     <li
       key={productId}
       className="rounded-lg bg-white max-w-xs flex flex-col shadow-md space-y-4 card-swiper relative group"
     >
-      <Link className="max-h-[400px]" to={`/${productCategory}/${productName}`}>
+      <Link
+        className="max-h-[400px]"
+        to={`/${productCategory}/${productName}`}
+        onClick={() => {
+          viewProduct(product);
+        }}
+      >
         <Swiper
           navigation={true}
           effect="fade"

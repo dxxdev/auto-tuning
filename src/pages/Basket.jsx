@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { products } from "../data/data";
+import { products, viewProduct } from "../data/data";
 import { Button, IconButton, Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer, toast } from "react-toastify";
@@ -19,8 +19,8 @@ const Basket = () => {
   const navigate = useNavigate();
   const [inTheCartProduct, setInTheCartProduct] = useState([]);
 
-  const filteredProductOnCart = arr => {
-    const filteredProduct = arr.filter(product => {
+  const filteredProductOnCart = (arr) => {
+    const filteredProduct = arr.filter((product) => {
       return product.inTheCart;
     });
     setInTheCartProduct(filteredProduct);
@@ -47,13 +47,16 @@ const Basket = () => {
         <ul
           className={`${styles.container} py-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-8`}
         >
-          {inTheCartProduct.map(product => {
+          {inTheCartProduct.map((product) => {
             return (
               <li
                 key={product.id}
                 className="rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper relative"
               >
-                <Link to={`/${product.category}/${product.productName}`}>
+                <Link
+                  onClick={() => viewProduct(product)}
+                  to={`/${product.category}/${product.productName}`}
+                >
                   <Swiper
                     navigation={true}
                     effect="fade"
@@ -79,7 +82,7 @@ const Basket = () => {
                 </Link>
                 <button
                   onClick={() => {
-                    setRender(prev => !prev);
+                    setRender((prev) => !prev);
                     product.saved = !product.saved;
                   }}
                   className="absolute top-0 -translate-y-1/2 right-0 z-[999] text-red-600"
@@ -124,7 +127,7 @@ const Basket = () => {
                             progress: undefined,
                             theme: "light",
                           });
-                          setRender(prev => !prev);
+                          setRender((prev) => !prev);
                         }}
                         variant={product.inTheCart ? "filled" : "outlined"}
                         color="gray"

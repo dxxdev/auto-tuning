@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { addCartProduct, options, products } from "../data/data";
+import { addCartProduct, options, products, viewProduct } from "../data/data";
 import { styles } from "../styles";
 import { ToastContainer } from "react-toastify";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,7 +18,7 @@ const Category = () => {
   const { category } = useParams();
   const [render, setRender] = useState(true);
   const [filterCategory, setFilterCategory] = useState([]);
-  const filteredCategory = products.filter(product => {
+  const filteredCategory = products.filter((product) => {
     return product.category == category;
   });
   useEffect(() => {
@@ -31,13 +31,16 @@ const Category = () => {
     <ul
       className={`${styles.container} py-5 grid grid-cols-4 gap-8 overflow-auto products-swiper`}
     >
-      {filterCategory.map(product => {
+      {filterCategory.map((product) => {
         return (
           <li
             key={product.id}
             className="rounded-lg bg-white max-w-sm flex flex-col shadow-md space-y-4 card-swiper relative"
           >
-            <Link to={`/${product.category}/${product.productName}`}>
+            <Link
+              onClick={() => viewProduct(product)}
+              to={`/${product.category}/${product.productName}`}
+            >
               <Swiper
                 navigation={true}
                 effect="fade"
@@ -59,7 +62,7 @@ const Category = () => {
             </Link>
             <button
               onClick={() => {
-                setRender(prev => !prev);
+                setRender((prev) => !prev);
                 product.saved = !product.saved;
               }}
               className="absolute top-0 -translate-y-1/2 right-0 z-[999] text-red-600"
@@ -93,7 +96,7 @@ const Category = () => {
                   </Typography>
                   <IconButton
                     onClick={() => {
-                      setRender(prev => !prev);
+                      setRender((prev) => !prev);
                       addCartProduct(product);
                     }}
                     variant={`${product.inTheCart ? "filled" : "outlined"}`}

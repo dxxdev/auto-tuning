@@ -4,6 +4,7 @@ import Products from "../components/Products";
 import { Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { productNotFound } from "../assets/images";
+import { NavLink } from "react-router-dom";
 
 const Action = ({ rendered }) => {
   const productSaved = (product) => {
