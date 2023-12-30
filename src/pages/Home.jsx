@@ -10,6 +10,7 @@ import { Pagination, Navigation, Autoplay, EffectFade } from "swiper/modules";
 import { swiperImages } from "../data/hero-swiper";
 import {
   Button,
+  Rating,
   Tab,
   TabPanel,
   Tabs,
@@ -19,7 +20,7 @@ import {
 } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { Link, useNavigate } from "react-router-dom";
-import { category, commentaries, products } from "../data/data";
+import { category, commentaries, products, scrollTop } from "../data/data";
 import { ArrowRightAltOutlined, Star } from "@mui/icons-material";
 import { ToastContainer } from "react-toastify";
 import Products from "../components/Products";
@@ -116,7 +117,7 @@ const Home = ({ rendered }) => {
               >
                 <span>Servis xizmati Toshkentda</span>
               </Typography>
-              <Link to="/">
+              <Link onClick={scrollTop} to="/">
                 <Button variant="filled" color="red" className="text-white">
                   Tuning jihozlariga buyurtma berish
                 </Button>
@@ -240,7 +241,10 @@ const Home = ({ rendered }) => {
           </Typography>
           <Button
             className="w-full sm:w-min"
-            onClick={() => navigate("/Katalog")}
+            onClick={() => {
+              navigate("/Katalog");
+              scrollTop();
+            }}
             variant="outlined"
           >
             Katalog
@@ -261,6 +265,7 @@ const Home = ({ rendered }) => {
                 </Typography>
                 <Link
                   to="/Antiradarlar"
+                  onClick={scrollTop}
                   className="text-white space-x-3 underline underline-offset-2"
                 >
                   <span>Antiradarlar</span>
@@ -281,6 +286,7 @@ const Home = ({ rendered }) => {
                 </Typography>
                 <Link
                   to="/Suvenirlar"
+                  onClick={scrollTop}
                   className="text-white space-x-3 underline underline-offset-2"
                 >
                   <span>Suvenirlar</span>
@@ -303,6 +309,7 @@ const Home = ({ rendered }) => {
                 </Typography>
                 <Link
                   to="/catalog"
+                  onClick={scrollTop}
                   className="text-white space-x-3 underline underline-offset-2"
                 >
                   <span>Katalog</span>
@@ -536,13 +543,16 @@ const Home = ({ rendered }) => {
         <section>
           <div className="py-5 flex flex-col sm:flex-row justify-between">
             <Typography variant="h4">Izohlar</Typography>
-            <Button onClick={() => navigate("/Sharhlar")} variant="outlined">
+            <Button onClick={() => {
+              navigate("/Sharhlar");
+              scrollTop();
+            }} variant="outlined">
               Barcha sharhlar
             </Button>
           </div>
           <ul className="py-8 flex justify-start items-center overflow-auto gap-5 products-swiper">
             {commentaries.map((note) => {
-              if (note.rating.length == 5) {
+              if (note.rating == 5) {
                 return (
                   <li
                     key={note.id}
@@ -550,9 +560,7 @@ const Home = ({ rendered }) => {
                   >
                     <div className="space-y-5">
                       <div>
-                        {note.rating.map((star) => {
-                          return <Star key={star} />;
-                        })}
+                        <Rating ratedColor="white" value={note.rating} readonly />
                       </div>
                       <p className="tracking-[0.5px]">{note.comment}</p>
                     </div>

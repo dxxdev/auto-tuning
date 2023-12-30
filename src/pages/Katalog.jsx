@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { styles } from "../styles";
 import { Typography } from "@material-tailwind/react";
-import { categoryProduct } from "../data/data";
+import { categoryProduct, scrollTop } from "../data/data";
 import { Link } from "react-router-dom";
 
 const Katalog = () => {
@@ -22,7 +22,7 @@ const Katalog = () => {
       <ul className="grid py-14 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
         {categoryProduct.map((product) => {
           return (
-            <Link to={`/${product.category}`}>
+            <Link onClick={scrollTop} to={`/${product.category}`}>
               <li
                 className="rounded-3xl relative group overflow-hidden"
                 key={product.id}

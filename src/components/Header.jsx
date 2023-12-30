@@ -23,7 +23,7 @@ import {
   Search,
   ShoppingBasketOutlined,
 } from "@mui/icons-material";
-import { products } from "../data/data";
+import { products, scrollTop } from "../data/data";
 import axios from "axios";
 
 const Header = () => {
@@ -168,18 +168,24 @@ const Header = () => {
           <nav className="hidden lg:block">
             <ul className="flex gap-x-6">
               <li>
-                <NavLink to={`/Kompaniya haqida`}>Kompaniya haqida</NavLink>
+                <NavLink onClick={scrollTop} to={`/Kompaniya haqida`}>
+                  Kompaniya haqida
+                </NavLink>
               </li>
               <li>
-                <NavLink to={`/Yetkazib berish va to'lash`}>
+                <NavLink onClick={scrollTop} to={`/Yetkazib berish va to'lash`}>
                   Yetkazib berish va to'lash
                 </NavLink>
               </li>
               <li>
-                <NavLink to={`/Sharhlar`}>Sharhlar</NavLink>
+                <NavLink onClick={scrollTop} to={`/Sharhlar`}>
+                  Sharhlar
+                </NavLink>
               </li>
               <li>
-                <NavLink to={`/Aksiya`}>Aksiya</NavLink>
+                <NavLink onClick={scrollTop} to={`/Aksiya`}>
+                  Aksiya
+                </NavLink>
               </li>
             </ul>
           </nav>
@@ -190,7 +196,10 @@ const Header = () => {
               content={howSaved}
             >
               <IconButton
-                onClick={() => navigate("/Saqlanganlar")}
+                onClick={() => {
+                  navigate("/Saqlanganlar");
+                  scrollTop();
+                }}
                 variant="outlined"
                 color="black"
               >
@@ -203,7 +212,10 @@ const Header = () => {
               content={howMuch}
             >
               <IconButton
-                onClick={() => navigate("/Savatcha")}
+                onClick={() => {
+                  navigate("/Savatcha");
+                  scrollTop();
+                }}
                 variant="outlined"
                 color="black"
               >
@@ -266,14 +278,22 @@ const Header = () => {
                 {productsCategory.map((category, index) => {
                   return (
                     <li key={index}>
-                      <NavLink to={`/${category}`} className="text-shadow">
+                      <NavLink
+                        onClick={scrollTop}
+                        to={`/${category}`}
+                        className="text-shadow"
+                      >
                         {category}
                       </NavLink>
                     </li>
                   );
                 })}
                 <li>
-                  <NavLink to={`/Katalog`} className="text-shadow">
+                  <NavLink
+                    onClick={scrollTop}
+                    to={`/Katalog`}
+                    className="text-shadow"
+                  >
                     Katalog
                   </NavLink>
                 </li>
@@ -325,7 +345,10 @@ const Header = () => {
                       return (
                         <li key={product.id} onClick={openSearchInput}>
                           <Link
-                            onClick={() => (input.target.value = "")}
+                            onClick={() => {
+                              input.target.value = "";
+                              scrollTop();
+                            }}
                             to={`/${product.category}/${product.productName}`}
                             className="flex justify-start items-center gap-x-3"
                           >
@@ -348,7 +371,10 @@ const Header = () => {
                 content={howSaved}
               >
                 <IconButton
-                  onClick={() => navigate("/Saqlanganlar")}
+                  onClick={() => {
+                    navigate("/Saqlanganlar");
+                    scrollTop();
+                  }}
                   variant="outlined"
                   color="white"
                 >
@@ -361,7 +387,10 @@ const Header = () => {
                 content={howMuch}
               >
                 <IconButton
-                  onClick={() => navigate("/Savatcha")}
+                  onClick={() => {
+                    navigate("/Savatcha");
+                    scrollTop();
+                  }}
                   variant="outlined"
                   color="white"
                 >
@@ -428,7 +457,10 @@ const Header = () => {
                   <NavLink
                     className="space-x-2 flex items-center"
                     to={`/${category}`}
-                    onClick={closeDrawer2}
+                    onClick={() => {
+                      closeDrawer2();
+                      scrollTop();
+                    }}
                   >
                     <span>{category}</span>
                     <span className="text-gray-600 text-base">
@@ -504,6 +536,7 @@ const Header = () => {
                   <Link
                     onClick={() => {
                       input.target.value = "";
+                      scrollTop();
                     }}
                     to={`/${product.category}/${product.productName}`}
                     className="flex justify-start items-center gap-x-3"

@@ -79,7 +79,7 @@ const Questions = () => {
                 open={open === quiz.id}
               >
                 <AccordionHeader
-                  className={`border px-4 border-gray-300 rounded-xl ${
+                  className={`border px-4 border-gray-300 rounded-xl items-start ${
                     open == quiz.id ? "rounded-b-none" : ""
                   }`}
                   onClick={() => handleOpen(quiz.id)}

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { styles } from "../styles";
-import { Button, Typography } from "@material-tailwind/react";
+import { Button, Rating, Typography } from "@material-tailwind/react";
 import { autoTuning, autoTuning1, companies } from "../assets/images";
 import { commentaries } from "../data/data";
 import { Star } from "@mui/icons-material";
@@ -96,7 +96,7 @@ const FAQ = () => {
         </div>
         <ul className="py-8 flex justify-start items-center overflow-auto gap-5 products-swiper">
           {commentaries.map((note) => {
-            if (note.rating.length == 5) {
+            if (note.rating == 5) {
               return (
                 <li
                   key={note.id}
@@ -104,9 +104,7 @@ const FAQ = () => {
                 >
                   <div className="space-y-5">
                     <div>
-                      {note.rating.map((star) => {
-                        return <Star key={star} />;
-                      })}
+                      <Rating ratedColor="white" value={note.rating} readonly />
                     </div>
                     <p className="tracking-[0.5px]">{note.comment}</p>
                   </div>

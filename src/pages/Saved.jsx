@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { addCartProduct, products, viewProduct } from "../data/data";
+import { addCartProduct, products, scrollTop, viewProduct } from "../data/data";
 import { Button, IconButton, Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer, toast } from "react-toastify";
@@ -140,7 +140,14 @@ const Saved = () => {
           <Typography variant="lead" className="w-full max-w-sm">
             Sizda keyinchalik xarid qilish uchun mahsulot mavjud emas
           </Typography>
-          <Button onClick={() => navigate("/")}>Bosh saxifaga o'tish</Button>
+          <Button
+            onClick={() => {
+              navigate("/");
+              scrollTop();
+            }}
+          >
+            Bosh saxifaga o'tish
+          </Button>
         </div>
       )}
       <ToastContainer />

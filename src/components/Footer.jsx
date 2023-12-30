@@ -1,7 +1,7 @@
 import React from "react";
 import { styles } from "../styles";
 import { Link, useNavigate } from "react-router-dom";
-import { category } from "../data/data";
+import { category, scrollTop } from "../data/data";
 import { Button } from "@material-tailwind/react";
 import { Phone, WhatsApp } from "@mui/icons-material";
 import "../styles/footerStyle.css";
@@ -16,6 +16,7 @@ const Footer = () => {
             <h1 className="inline-block text-3xl">
               <Link
                 to="/"
+                onClick={scrollTop}
                 className="flex items-center space-x-2 font-bold text-white"
               >
                 <span>
@@ -30,13 +31,17 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-y-8 w-full max-w-[416px]">
             <h2 className="text-white text-2xl">
-              <Link to={`/Katalog`}>Katalog</Link>
+              <Link onClick={scrollTop} to={`/Katalog`}>
+                Katalog
+              </Link>
             </h2>
             <ul className="flex flex-col items-start gap-y-2">
               {category.map((item, index) => {
                 return (
                   <li key={index} className="text-gray-400 text-base">
-                    <Link to={`/${item}`}>{item}</Link>
+                    <Link onClick={scrollTop} to={`/${item}`}>
+                      {item}
+                    </Link>
                   </li>
                 );
               })}
@@ -46,12 +51,17 @@ const Footer = () => {
             <h2 className="text-white text-2xl">Kompaniya</h2>
             <ul className="flex flex-col items-start gap-y-2">
               <li>
-                <Link className="text-gray-400" to={`/Kompaniya haqida`}>
+                <Link
+                  onClick={scrollTop}
+                  className="text-gray-400"
+                  to={`/Kompaniya haqida`}
+                >
                   Kompaniya haqida
                 </Link>
               </li>
               <li>
                 <Link
+                  onClick={scrollTop}
                   className="text-gray-400"
                   to={`/Yetkazib berish va to'lash`}
                 >
@@ -59,12 +69,20 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-400" to={`/Sharhlar`}>
+                <Link
+                  onClick={scrollTop}
+                  className="text-gray-400"
+                  to={`/Sharhlar`}
+                >
                   Sharhlar
                 </Link>
               </li>
               <li>
-                <Link className="text-gray-400" to={`/Aksiya`}>
+                <Link
+                  onClick={scrollTop}
+                  className="text-gray-400"
+                  to={`/Aksiya`}
+                >
                   Aksiya
                 </Link>
               </li>
@@ -113,7 +131,10 @@ const Footer = () => {
                   </svg>
                 </a>
                 <Button
-                  onClick={() => navigate("/Katalog")}
+                  onClick={() => {
+                    navigate("/Katalog");
+                    scrollTop();
+                  }}
                   variant="filled"
                   color="red"
                 >
@@ -127,7 +148,9 @@ const Footer = () => {
           <hr className="opacity-40" />
           <div className="flex justify-between flex-col space-y-5 md:space-y-0 md:flex-row items-center text-gray-400">
             <p className="text-xs">&copy; "AUTO TUNING", 2024</p>
-            <Link to="/policy">Maxfiylik siyosati</Link>
+            <Link onClick={scrollTop} to="/policy">
+              Maxfiylik siyosati
+            </Link>
             <a href="https://t.me/dxxdev">Mas'ul shaxs Diyorbek</a>
           </div>
         </div>

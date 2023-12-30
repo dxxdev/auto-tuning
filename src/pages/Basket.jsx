@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { products, viewProduct } from "../data/data";
+import { products, scrollTop, viewProduct } from "../data/data";
 import { Button, IconButton, Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer, toast } from "react-toastify";
@@ -152,7 +152,10 @@ const Basket = () => {
             Savatcha bo'sh. Mahsulotni savatga qo'shish uchun mahsulotning
             pastki qismidagi savatcha tugmasini bosing
           </Typography>
-          <Button onClick={() => navigate("/")}>Bosh saxifaga o'tish</Button>
+          <Button onClick={() => {
+            navigate("/");
+            scrollTop();
+          }}>Bosh saxifaga o'tish</Button>
         </div>
       )}
       <ToastContainer />

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { filteredProductForId, products } from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { styles } from "../styles";
-import { Button, IconButton, Typography } from "@material-tailwind/react";
+import { Button, IconButton, Rating, Typography } from "@material-tailwind/react";
 import {
   Add,
   AddShoppingCartOutlined,
@@ -181,31 +181,7 @@ const Detail = ({ rendered }) => {
               </Button>
             </div>
             <div className="flex justify-start items-center space-x-2 text-xs">
-              <Star fontSize="medium" className="text-yellow-700" />
-              <Star
-                fontSize="medium"
-                className={`${
-                  info.rating > 1 ? "text-yellow-700" : "text-gray-700"
-                }`}
-              />
-              <Star
-                fontSize="medium"
-                className={`${
-                  info.rating > 2 ? "text-yellow-700" : "text-gray-700"
-                }`}
-              />
-              <Star
-                fontSize="medium"
-                className={`${
-                  info.rating > 3 ? "text-yellow-700" : "text-gray-700"
-                }`}
-              />
-              <Star
-                fontSize="medium"
-                className={`${
-                  info.rating > 4 ? "text-yellow-700" : "text-gray-700"
-                }`}
-              />
+              <Rating value={info.rating} readonly />
               <Typography variant="lead">{info.rating}</Typography>
             </div>
             <Typography className="text-2xl py-5 sm:text-3xl lg:text-4xl">

@@ -679,35 +679,35 @@ export const commentaries = [
     from: "Boburbek Yo'ldoshev",
     comment:
       "Buyurtma qilingan mahsulotimni yetkazib berishdi, menga juda yoqdi, sotib olishga arziydi :) Mashinamga juda mos tushdi.",
-    rating: ["", "", "", "", ""],
+    rating: 5,
   },
   {
     id: randomId(),
     from: "Umirzoq Ramazanov",
     comment:
       "Assalomu aleykum mahsulotni qabul qilib oldim juda antiqa Osvejitel ekan",
-    rating: ["", "", "", "", ""],
+    rating: 5,
   },
   {
     id: randomId(),
     from: "Jasurbek Ahmedov",
     comment:
       "Ertalab buyurtma qilgandim, kechqurun olib kelishdi. Sifat va yetkazib berishdan mamnunman.Men hali quyoshda ishlashini tekshirmadim. Lekin baribir rahmat 👍",
-    rating: ["", "", "", "", ""],
+    rating: 5,
   },
   {
     id: randomId(),
     from: "Zokir Murodov",
     comment:
       "Telefon ushlagich juda zaifdek tuyulgandi, lekin u o'z o'rnida mustahkam turibdi. Umuman olganda, men xariddan mamnunman. Sotuvchiga rahmat.",
-    rating: ["", "", "", "", ""],
+    rating: 5,
   },
   {
     id: randomId(),
     from: "Farhod Azizov",
     comment:
       "Raxmat vaqtida yetib keldi, lekin imkoni boʻlsa tumanlargayam yetkazib berishingizni soʻrab qolardim",
-    rating: ["", "", "", ""],
+    rating: 4,
   },
 ];
 
@@ -813,6 +813,13 @@ export const addCartProduct = (product) => {
 
 export const viewProduct = (product) => {
   product.viewed = true;
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+export const scrollTop = () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
