@@ -17,6 +17,7 @@ import FAQ from "./pages/FAQ";
 import Payment from "./pages/Payment";
 import Commentaries from "./pages/Commentaries";
 import Action from "./pages/Action";
+import Policy from "./pages/Policy";
 
 setInterval(() => {
   console.clear();
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/Kompaniya haqida" element={<FAQ />} />
         <Route path="Yetkazib berish va to'lash" element={<Payment />} />
         <Route path="/Sharhlar" element={<Commentaries />} />
+        <Route path="/policy" element={<Policy />} />
         <Route path="/Aksiya" element={<Action />} rendered={rendered} />
         <Route
           path="/:category/:productName"
