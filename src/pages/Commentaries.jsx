@@ -33,7 +33,7 @@ const Commentaries = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const text = `Ismi: ${userName}\n\n E-pochta: ${email}\n\n Baholash: ${rating}\n\n Izoh: ${message}`;
+    const text = `Mijoz sharh qoldirdi❕ \n\nIsmi: ${userName}\n\n E-pochta: ${email}\n\n Baholash: ${rating}ta yulduzcha\n\n Izoh: ${message}`;
 
     try {
       await axios.post(
@@ -92,7 +92,7 @@ const Commentaries = () => {
             className="m-4 grid h-16 place-items-center"
           >
             <Typography variant="h4" color="white">
-              Savolongiz bormi?
+              Sharh qoldiring!
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
@@ -116,7 +116,14 @@ const Commentaries = () => {
               label="Fikringizni yozib qoldiring"
             ></Textarea>
             <Typography variant="small">Bizni baholang</Typography>
-            <Rating onChange={(e) => setRating(e.target.value)} />
+            <Rating
+              value={rating}
+              precision={1}
+              max={5}
+              onChange={(value) => {
+                setRating(value);
+              }}
+            />
           </CardBody>
           <CardFooter className="pt-0">
             <Button

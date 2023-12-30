@@ -33,7 +33,7 @@ const Questions = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const text = `Telefon raqami: +${phoneNumber}\n\n Izoh: ${message}`;
+    const text = `Mijozdan savol keldi❕ \n\nTelefon raqami: +${phoneNumber} \n\nSavol: ${message}`;
 
     try {
       if (message.trim() !== "" || phoneNumber.trim() !== "") {
@@ -99,7 +99,7 @@ const Questions = () => {
               className="m-4 grid h-16 place-items-center"
             >
               <Typography variant="h4" color="white">
-                Savolongiz bormi?
+                Savolingiz bormi?
               </Typography>
             </CardHeader>
             <CardBody className="flex flex-col gap-4">
