@@ -15,6 +15,7 @@ import {
 import { commentaries } from "../data/data";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const Commentaries = () => {
   useEffect(() => {
@@ -43,6 +44,16 @@ const Commentaries = () => {
           text,
         }
       );
+      toast.success("Yuborildi", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
 
       // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
       setUserName("");
@@ -50,7 +61,16 @@ const Commentaries = () => {
       setEmail("");
       setRating(0);
     } catch (error) {
-      alert("Habar yuborishda xatolik:", error.message);
+      toast.error("Yuborilmadi", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -146,6 +166,7 @@ const Commentaries = () => {
           </CardFooter>
         </Card>
       </div>
+      <ToastContainer />
     </div>
   );
 };

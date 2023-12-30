@@ -17,6 +17,7 @@ import { questions } from "../data/data";
 import { Close, Send } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const Questions = () => {
   const [open, setOpen] = useState();
@@ -44,6 +45,16 @@ const Questions = () => {
             text,
           }
         );
+        toast.success("Yuborildi", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
 
       // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
@@ -51,7 +62,16 @@ const Questions = () => {
       setMessage("");
       handleOpen();
     } catch (error) {
-      alert("Habar yuborishda xatolik:", error.message);
+      toast.error("Yuborishdagi xatolik", {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
 
@@ -138,6 +158,7 @@ const Questions = () => {
           </Card>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

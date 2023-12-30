@@ -21,7 +21,7 @@ import {
 import { styles } from "../styles";
 import { Link, useNavigate } from "react-router-dom";
 import { category, commentaries, products, scrollTop } from "../data/data";
-import { ArrowRightAltOutlined, Star } from "@mui/icons-material";
+import { ArrowRightAltOutlined } from "@mui/icons-material";
 import { ToastContainer } from "react-toastify";
 import Products from "../components/Products";
 import { companies } from "../assets/images";

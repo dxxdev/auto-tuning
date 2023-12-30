@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { addCartProduct, products, scrollTop, viewProduct } from "../data/data";
 import { Button, IconButton, Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper/modules";

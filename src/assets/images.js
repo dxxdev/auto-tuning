@@ -1,5 +1,5 @@
 // Images import
-import logo from "./logo/logo-header.jpg";
+import logo from "./logo/logo-header.png";
 import bmwSalon1 from "./img/bmw-salon-1.jpg";
 import bmwSalon2 from "./img/bmw-salon-2.jpg";
 import bmwSalon3 from "./img/bmw-salon-3.jpg";
