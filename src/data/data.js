@@ -144,6 +144,15 @@ import {
   monitor41,
   monitor42,
   monitor43,
+  antiradar31,
+  antiradar32,
+  antiradar33,
+  antiradar34,
+  antiradar41,
+  antiradar42,
+  antiradar43,
+  antiradar44,
+  antiradar45,
 } from "../assets/images";
 import { toast } from "react-toastify";
 
@@ -342,6 +351,34 @@ export const products = [
   },
   {
     id: randomId(),
+    productName:
+      "Radar detektor SilverStone F1 Hybrid S-Bot Pro+Videoregistrator",
+    description:
+      "-SilverStone F1 HYBRID S-bot PRO omni Vision 4689 matritsasi Tayvanning taniqli ishlab chiqaruvchisi ait 8339 protsessori bilan birgalikda kunduzi, kechasi, alacakaranlıkta, kam yorug'lik va har qanday ob-havo sharoitida aniq tasvirni taqdim etadi. Olti qavatli shisha linza va 145° ob'ektiv ko'rish burchagi dvrning mukammal kombinatsiyasini to'ldiradi. Superhd 1296p video o'lchamlari avtomobil oldida sodir bo'ladigan barcha voqealarni yozib olishni ta'minlaydi.",
+    category: "Antiradarlar",
+    shortly: [
+      "Yengilangan soxta signallarni filtrlash tizimi",
+      "Bir vaqtning o'zida bir nechta kameralarni aniqlash!",
+      "Radarlarning asosiy turlarini signatura bilan aniqlash",
+      "O'rnatilgan DRAM xotirasi tufayli yuqori ishonchlilik",
+      "Katta yorqin 3 dyuymli displey",
+      "Z-imzo filtri, ko'r nuqta sensorlaridan noto'g'ri pozitivlarni iloji boricha kamaytirishga imkon beradi",
+      "Politsiya radarlarining yangi GPS bazasi (haftalik yangilanish)",
+    ],
+    images: [antiradar41, antiradar42, antiradar43, antiradar44, antiradar45],
+    price: 2875000,
+    rating: 4.8,
+    inTheCart: false,
+    countProduct: 1,
+    top: false,
+    saved: false,
+    isItNew: true,
+    inAction: true,
+    recommend: true,
+    viewed: false,
+  },
+  {
+    id: randomId(),
     productName: `Hidli mashina va quyosh energiyasi bilan ishlaydigan Vertolyot`,
     description:
       "Avtomobil saloni uchun zamonaviy aksessuar - bu vertolyot shaklidagi havo spreyi. Helicopter avtomobil xushbo'yligi erkaklar va ayollar uchun sovg'a sifatida mos keladi! Avtomobil havo spreyi quyosh nurlari quyosh paneliga tushganda aylanadigan vint bilan jihozlangan. Vertolyot engil, yoqimli hidli aromatik moy va pipetka bilan birga keladi. Vertolyotning orqa qopqog'i olib tashlanadi, uning ichida yog'ni tomizish kerak bo'lgan dumaloq yog'och blok bor. Siz o'zingizning sevimli xushbo'y moyingizdan bir tomchi qo'shib, maxsus moy tugaganidan keyin ham avtomobil hididan foydalanishingiz mumkin. Havo spreyi uy, ofis, avtomobil uchun mos keladi.",
@@ -382,6 +419,7 @@ export const products = [
       "Signature radar detektori",
       "Multaradar, lochin, autocon, kordon, hikvision va boshqa mobil radarlarni qabul qilish",
     ],
+    images: [antiradar31, antiradar32, antiradar33, antiradar34],
     price: 1168000,
     rating: 3,
     inTheCart: false,

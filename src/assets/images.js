@@ -149,6 +149,11 @@ import antiradar31 from "./img/antiradar-3-1.jpg";
 import antiradar32 from "./img/antiradar-3-2.jpg";
 import antiradar33 from "./img/antiradar-3-3.jpg";
 import antiradar34 from "./img/antiradar-3-4.jpg";
+import antiradar41 from "./img/antiradar-4-1.jpg";
+import antiradar42 from "./img/antiradar-4-2.jpg";
+import antiradar43 from "./img/antiradar-4-3.jpg";
+import antiradar44 from "./img/antiradar-4-4.jpg";
+import antiradar45 from "./img/antiradar-4-5.jpg";
 
 import autoTuning from "./img/auto-tuning.jpg";
 import autoTuning1 from "./img/auto-tuning-1.jpg";
@@ -194,6 +199,11 @@ export {
   antiradar6,
   antiradar7,
   antiradar21,
+  antiradar41,
+  antiradar42,
+  antiradar43,
+  antiradar44,
+  antiradar45,
   antiradar22,
   antiradar23,
   antiradar24,
