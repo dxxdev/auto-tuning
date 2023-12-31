@@ -258,7 +258,7 @@ export const products = [
   {
     id: randomId(),
     productName:
-      "Avtomobil faralari uchun svetodiodli LED tasma, 60 sm, 1 dona",
+      "Avtomobil faralari uchun svetodiodli LED tasma, 60 sm",
     description:
       "Avtomobil farasi uchun svetodoidli tasma Ranglari: oq+sariq, qizil+sariq, muzli ko'k+sariq, pushti+sariq, ko'k+sariq rang. Suv o'tkazmaydi.",
     category: "Avto bezaklar",
@@ -1101,7 +1101,7 @@ export const products = [
   {
     id: randomId(),
     productName:
-      "Universal avtomobil eshigi Chevrolet logotipli LED lazer proyektori, 2 dona",
+      "Universal avtomobil eshigi Chevrolet logotipli LED lazer proyektori",
     description:
       "Yuqori samaradorlik, energiya tejash, ifloslanish, shovqin, elektron shovqin yo'q. Avtomobil yorug'lik manbai, yuqori o'tkazuvchanlik AC linzalari tendentsiyasida etakchi. Eshik ochilganda ko'r-ko'rona imo-ishora chiroqlari va signal chiroqlari, eshik yopilganda ko'r-ko'rona ishora chiroqlari va signal chiroqlari yopiladi. Haydashni yanada qiziqarli qiling. Yorqin belgilar va signal chiroqlari yerga ko'rsatiladi.",
     category: "Avto bezaklar",

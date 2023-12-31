@@ -152,12 +152,12 @@ const Header = () => {
 
   return (
     <>
-      <div className="bg-red-500 hidden sm:block">
+      <div className="bg-red-500 hidden lg:block flex justify-center items-center">
         <Alert
           color="red"
           open={openAlert}
           onClose={() => setOpenAlert(false)}
-          className={`rounded-none ${styles.container} relative flex justify-center items-center overflow-hidden`}
+          className={`rounded-none ${styles.container} relative flex justify-center items-center overflow-hidden py-2`}
         >
           <img src={aksiyaImg} className="absolute rotate-180 -top-full left-0" alt="" />
           <img src={aksiyaImg} className="absolute rotate-90 -top-28 right-32" alt="" />

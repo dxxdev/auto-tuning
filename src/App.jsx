@@ -28,7 +28,7 @@ const App = () => {
   const rendered = () => setRender((prev) => !prev);
   useEffect(() => {
     rendered();
-  }, [products]);
+  }, [products.map((product) => product)]);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
