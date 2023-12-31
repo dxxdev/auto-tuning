@@ -158,6 +158,8 @@ import antiradar45 from "./img/antiradar-4-5.jpg";
 import autoTuning from "./img/auto-tuning.jpg";
 import autoTuning1 from "./img/auto-tuning-1.jpg";
 
+import aksiyaImg from "./img/aksiya-img.png";
+
 // company images import
 import cberBank from "./company/cber-bank.png";
 import kcg from "./company/kcg.png";
@@ -187,6 +189,7 @@ export { productNotFound };
 // images export
 export {
   logo,
+  aksiyaImg,
   bmwSalon1,
   bmwSalon2,
   bmwSalon3,

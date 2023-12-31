@@ -37,12 +37,12 @@ const Detail = ({ rendered }) => {
     if (productName) {
       // Agar useParams dan productName olinmasa, localStorage dan olinadi
       setRender((prev) => !prev);
-      setInfo(filteredProductForId(productName));
+      setInfo(filteredProductForId(productName)[0]);
       localStorage.setItem("savedProductName", productName);
     } else if (savedProductName) {
       // Agar useParams dan productName olinmagan bo'lsa, localStorage dan olinadi
       setRender((prev) => !prev);
-      setInfo(filteredProductForId(savedProductName));
+      setInfo(filteredProductForId(savedProductName)[0]);
     }
   }, [productName]);
 

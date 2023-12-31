@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { logo, productNotFound } from "../assets/images";
+import { aksiyaImg, logo, productNotFound } from "../assets/images";
 import {
+  Alert,
   Badge,
   Button,
   Dialog,
@@ -39,6 +40,7 @@ const Header = () => {
   const input = useRef(null);
 
   const [open, setOpen] = useState(false);
+  const [openAlert, setOpenAlert] = useState(true);
 
   const handleOpen = () => setOpen(!open);
 
@@ -125,9 +127,9 @@ const Header = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const text = `Telegram: ${
+    const text = `Mijozdan murojaat❕\n\n Telegram: ${
       userName !== "unnamed" ? "@" : ""
-    }${userName}\n\n Telefon raqami: +${phoneNumber}\n\n Izoh: ${message}`;
+    }${userName}\n\n Telefon raqami: +${phoneNumber}\n\n Xabar: ${message}`;
 
     try {
       await axios.post(
@@ -150,6 +152,27 @@ const Header = () => {
 
   return (
     <>
+      <div className="bg-red-500 hidden sm:block">
+        <Alert
+          color="red"
+          open={openAlert}
+          onClose={() => setOpenAlert(false)}
+          className={`rounded-none ${styles.container} relative flex justify-center items-center overflow-hidden`}
+        >
+          <img src={aksiyaImg} className="absolute rotate-180 -top-full left-0" alt="" />
+          <img src={aksiyaImg} className="absolute rotate-90 -top-28 right-32" alt="" />
+          <img src={aksiyaImg} className="absolute rotate-45 " alt="" />
+          <img src={aksiyaImg} className="absolute -rotate-45 right-1/4" alt="" />
+          <div className="flex justify-center relative z-[999] items-center gap-10">
+            <Typography variant="h5" className="tracking-wider">
+              02.04.2024 gacha bazi tovarlarga chegirma!
+            </Typography>
+            <Button onClick={()=>navigate("/Aksiya")} variant="filled" color="white" size="sm">
+              Aksiyani ko'rish
+            </Button>
+          </div>
+        </Alert>
+      </div>
       <header className="md:bg-[#f5f5f5] bg-white bg-opacity-80 backdrop-blur-[8px] header py-3 md:py-4 z-[999] sticky top-0 md:static">
         <div
           className={`${styles.container} relative top-0 left-0 flex justify-between items-center`}
@@ -188,10 +211,7 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  onClick={scrollTop}
-                  to={`/Katalog`}
-                >
+                <NavLink onClick={scrollTop} to={`/Katalog`}>
                   Katalog
                 </NavLink>
               </li>
@@ -560,6 +580,7 @@ const Header = () => {
           </div>
         )}
       </Drawer>
+
       <Dialog open={open} size="xs" className="p-2 py-0" handler={handleOpen}>
         <div className="flex items-center justify-between">
           <DialogHeader className="flex flex-col items-start">

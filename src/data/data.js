@@ -217,7 +217,7 @@ export const products = [
   {
     id: randomId(),
     productName:
-      "Avtomobil monitori Lenovo 10.2 / 9, 4+64/ 2+32 Gentra Lasetti Cobalt Nexia3 Spark /+Ramka",
+      "Avtomobil monitori Lenovo 10.2 9, 4+64 2+32 Gentra Lasetti Cobalt Nexia3 Spark +Ramka",
     description: `Avtomobil monitori Lenovo 10.2 / 9, 4+64/ 2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan fotosurat2 Gb RAM va 32 Gb o'rnatilgan xotira va 1,3 GH 32 bit chastotali 4 yadroli protsessorga ega CC2L Plus bort kompyuteri, mukammal dasturiy ta'minot muvozanatli va muammosiz ishlaydi.
 
 
@@ -247,7 +247,7 @@ export const products = [
     shortly: undefined,
     images: [monitor31, monitor32, monitor33],
     price: 999000,
-    rating: 4.9,
+    rating: 5,
     inTheCart: false,
     countProduct: 1,
     top: true,
@@ -307,7 +307,7 @@ export const products = [
   },
   {
     id: randomId(),
-    productName: "Avtomobil radiosi DV-Pioneer.ok AH-777",
+    productName: "Avtomobil radiosi DV-Pioneer ok AH-777",
     description:
       "Avtomobil radiosi DV-Pioneer.ok AH-777 android - da, 2 + 32 Gb, 7 dyuym. Avtomobil radiosi har qanday avtomobil uchun mos keladi, mosligi 99%. Radio sizning haydash vaqtingizni juda yaxshi yoritadi.",
     category: "Monitorlar",
@@ -339,7 +339,7 @@ export const products = [
     ],
     images: [monitor41, monitor42, monitor43],
     price: 1299000,
-    rating: 4.2,
+    rating: 4,
     inTheCart: false,
     countProduct: 1,
     top: false,
@@ -367,7 +367,7 @@ export const products = [
     ],
     images: [antiradar41, antiradar42, antiradar43, antiradar44, antiradar45],
     price: 2875000,
-    rating: 4.8,
+    rating: 5,
     inTheCart: false,
     countProduct: 1,
     top: false,
@@ -661,7 +661,7 @@ export const products = [
   {
     id: randomId(),
     productName:
-      "Avtomobil monitorlari Teyes CC2L Plus 10.2/2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan",
+      "Avtomobil monitorlari Teyes CC2L Plus 10.2 2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan",
     description: `Avtomobil monitorlari Teyes CC2L Plus 10.2/2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan fotosurat2 Gb RAM va 32 Gb o'rnatilgan xotira va 1,3 GH 32 bit chastotali 4 yadroli protsessorga ega CC2L Plus bort kompyuteri, mukammal dasturiy ta'minot muvozanatli va muammosiz ishlaydi.
 
 
@@ -729,7 +729,7 @@ export const products = [
       "RDS qo'llab-quvvatlash: Ha",
     ],
     price: 1240000,
-    rating: 4.5,
+    rating: 5,
     inTheCart: false,
     countProduct: 1,
     top: true,
@@ -825,7 +825,7 @@ export const products = [
     images: [monitor21, monitor22, monitor23, monitor24],
     shortly: undefined,
     price: 750000,
-    rating: 4.7,
+    rating: 5,
     inTheCart: false,
     countProduct: 1,
     top: false,
@@ -888,7 +888,7 @@ export const products = [
       "Shok sensori G-sensor - bor",
     ],
     price: 269000,
-    rating: 4.4,
+    rating: 4,
     inTheCart: false,
     countProduct: 1,
     top: true,
@@ -986,9 +986,9 @@ export const products = [
     rating: 5,
     inTheCart: false,
     countProduct: 1,
-    top: false,
+    top: true,
     saved: false,
-    isItNew: false,
+    isItNew: true,
     inAction: false,
     recommend: false,
     viewed: false,
@@ -1090,7 +1090,7 @@ export const products = [
       videoRegistrator39,
     ],
     price: 199000,
-    rating: 4.3,
+    rating: 4,
     inTheCart: false,
     countProduct: 1,
     top: false,
@@ -1181,9 +1181,9 @@ export let options = {
   maximumFractionDigits: 2,
 };
 
-export const filteredProductForId = (id) => {
+export const filteredProductForId = (productName) => {
   let infoProductArr = products.filter((product) => {
-    return product.productName == id;
+    return product.productName == productName;
   });
   return infoProductArr[0];
 };
@@ -1198,7 +1198,7 @@ function setCategoryToArray(arr) {
   return categoryArr;
 }
 
-const images = [rulQoplamasi1, vertolyotliAtir1, antiradar21];
+const images = [rulQoplamasi1, vertolyotliAtir1, monitor41, antiradar21, videoRegistrator1];
 
 export const category = setCategoryToArray(products);
 
@@ -1210,8 +1210,6 @@ export const categoryProduct = category.map((item, index) => {
   };
   return product;
 });
-
-export const topProducts = products.filter((product) => product.top);
 
 export const addCartProduct = (product) => {
   product.inTheCart = !product.inTheCart;
