@@ -117,6 +117,33 @@ import {
   monitor5,
   monitor6,
   monitor7,
+  monitor21,
+  monitor22,
+  monitor23,
+  monitor24,
+  videoRegistrator21,
+  videoRegistrator22,
+  videoRegistrator23,
+  videoRegistrator24,
+  videoRegistrator25,
+  videoRegistrator26,
+  videoRegistrator27,
+  videoRegistrator28,
+  videoRegistrator31,
+  videoRegistrator32,
+  videoRegistrator33,
+  videoRegistrator34,
+  videoRegistrator35,
+  videoRegistrator36,
+  videoRegistrator37,
+  videoRegistrator38,
+  videoRegistrator39,
+  monitor31,
+  monitor32,
+  monitor33,
+  monitor41,
+  monitor42,
+  monitor43,
 } from "../assets/images";
 import { toast } from "react-toastify";
 
@@ -180,6 +207,49 @@ export const products = [
   },
   {
     id: randomId(),
+    productName:
+      "Avtomobil monitori Lenovo 10.2 / 9, 4+64/ 2+32 Gentra Lasetti Cobalt Nexia3 Spark /+Ramka",
+    description: `Avtomobil monitori Lenovo 10.2 / 9, 4+64/ 2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan fotosurat2 Gb RAM va 32 Gb o'rnatilgan xotira va 1,3 GH 32 bit chastotali 4 yadroli protsessorga ega CC2L Plus bort kompyuteri, mukammal dasturiy ta'minot muvozanatli va muammosiz ishlaydi.
+
+
+
+    Qurilmadagi o'rnatilgan WiFi antennalari tufayli Internetga kirish har doim mumkin.
+    
+    
+    
+    1280x720 o‘lchamli va IPS+2,5D 16:9 matritsasiga ega 9,0 dyuymli ekranda barcha ranglar va bo‘yoqlar har qanday burchakdan mukammal ko‘rinadi. Displey yorqin orqa yorug‘likka ega va hatto quyosh nurida ham barcha boshqaruv elementlari ko‘rinadi.
+    
+    
+    
+    Qurilmada ko'plab ilovalar allaqachon o'rnatilgan (Yandex + Google Play va boshqalar).
+    
+    
+    
+    Shuningdek, flesh-disklar, DVR va shinalar bosimi sensorlarini ulashingiz mumkin bo'lgan ikkita USB chiqishi mavjud.
+    
+    
+    
+    Qurilma NXP6856+RDS radio moduli, TDA7388 ovoz kuchaytirgichi bilan jihozlangan va 16 diapazonli ekvalayzerga ega. Kutish rejimida radio 10 mA quvvat sarflaydi. Bluetooth sinxronizatsiyasi yordamida siz qo'ng'iroqlarni qabul qilishingiz va qurilmaning o'zida musiqa tinglashingiz mumkin.
+    
+    
+    
+    Universal 2DIN (ramka o'lchami 178x102 mm), ko'plab modellarga mos keladi: Kia, Hyundai, Nissan, Honda, Volkswagen, Subaru, Toyota, Lexus, Mitsubishi, Ford, Chevrolet, Citroen, Datsun, Daewoo, Fiat, Opel, Audi, BMW , Mercedes, Peugeot, Mazda, Skoda, Suzuki, Renault, Lifan, SsangYong, Chery, Lada, Lada, VAZ, UAZ, Gazelle, Gaz va boshqalar.`,
+    category: "Monitorlar",
+    shortly: undefined,
+    images: [monitor31, monitor32, monitor33],
+    price: 999000,
+    rating: 4.9,
+    inTheCart: false,
+    countProduct: 1,
+    top: true,
+    saved: false,
+    isItNew: false,
+    inAction: true,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
     productName: `Avtomashinalar uchun vertalyotli atir avtomobil o'rindig'ining xushbo'y terapiyasi`,
     description: `Avtomashinalar uchun vertalyotli atir, avtomobil o'rindig'ining xushbo'y terapiyasi, salonga xit beruvchi atir, avtomashina uchun suvener`,
     category: "Suvenirlar",
@@ -228,6 +298,50 @@ export const products = [
   },
   {
     id: randomId(),
+    productName: "Avtomobil radiosi DV-Pioneer.ok AH-777",
+    description:
+      "Avtomobil radiosi DV-Pioneer.ok AH-777 android - da, 2 + 32 Gb, 7 dyuym. Avtomobil radiosi har qanday avtomobil uchun mos keladi, mosligi 99%. Radio sizning haydash vaqtingizni juda yaxshi yoritadi.",
+    category: "Monitorlar",
+    shortly: [
+      "Android Tizimi",
+      "2 Gb operativ xotira",
+      "32 Gb ichki xotira",
+      "Maksimal quvvat 4x60w",
+      "Bluetooth",
+      "7 dyuym",
+      "SIM-kartani qo'llab-quvvatlash mavjud",
+      "Kuchaytirgich mavjud",
+      "GPS mavjud",
+      "Ta'minot kuchlanishi 12V",
+      "Radio qabul qilgich mavjud",
+      "Raqamli tyuner mavjud",
+      "Stantsiyalarni avtomatik qidirish mavjud",
+      "RDS / EON / PTY mavjud",
+      "Stereo/mono almashtirish mavjud",
+      "Ekvalayzer mavjud",
+      "Hajmi 2 DIN",
+      "O'rnatilgan xotira mavjud",
+      "Ichki xotira turi qattiq disk",
+      "Ichki xotira hajmi 32 GB",
+      "Operativ xotira hajmi 2 GB",
+      "Wi-Fi / USB port mavjud",
+      "Displey turi ko'p rangli",
+      "Rulda joystik ulanishi mumkin",
+    ],
+    images: [monitor41, monitor42, monitor43],
+    price: 1299000,
+    rating: 4.2,
+    inTheCart: false,
+    countProduct: 1,
+    top: false,
+    saved: false,
+    isItNew: true,
+    inAction: false,
+    recommend: true,
+    viewed: false,
+  },
+  {
+    id: randomId(),
     productName: `Hidli mashina va quyosh energiyasi bilan ishlaydigan Vertolyot`,
     description:
       "Avtomobil saloni uchun zamonaviy aksessuar - bu vertolyot shaklidagi havo spreyi. Helicopter avtomobil xushbo'yligi erkaklar va ayollar uchun sovg'a sifatida mos keladi! Avtomobil havo spreyi quyosh nurlari quyosh paneliga tushganda aylanadigan vint bilan jihozlangan. Vertolyot engil, yoqimli hidli aromatik moy va pipetka bilan birga keladi. Vertolyotning orqa qopqog'i olib tashlanadi, uning ichida yog'ni tomizish kerak bo'lgan dumaloq yog'och blok bor. Siz o'zingizning sevimli xushbo'y moyingizdan bir tomchi qo'shib, maxsus moy tugaganidan keyin ham avtomobil hididan foydalanishingiz mumkin. Havo spreyi uy, ofis, avtomobil uchun mos keladi.",
@@ -254,6 +368,29 @@ export const products = [
     isItNew: true,
     inAction: false,
     recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
+    productName: "Radar-detektor SilverStone F1 MONACO S (UZ)",
+    description: `SilverStone F1 Monaco S radar detektori eng ilg'or texnologiyalar asosida ishlaydi, u radar qismi, GPS qabul qiluvchisi va maxsus imzo taxtasining funksionalligini birlashtiradi.`,
+    category: "Antiradarlar",
+    shortly: [
+      "O‘zbekistonda barcha turdagi radarlarni qabul qilishga moslashtirilgan",
+      "Rasmiy kafolat",
+      "O'zbek va rus tillari",
+      "Signature radar detektori",
+      "Multaradar, lochin, autocon, kordon, hikvision va boshqa mobil radarlarni qabul qilish",
+    ],
+    price: 1168000,
+    rating: 3,
+    inTheCart: false,
+    countProduct: 1,
+    top: false,
+    saved: false,
+    isItNew: true,
+    inAction: true,
+    recommend: true,
     viewed: false,
   },
   {
@@ -624,6 +761,44 @@ export const products = [
   },
   {
     id: randomId(),
+    productName: "Nakamichi avtomobil monitori",
+    description: `nakamichi sifatli manitor car play bor usb orqali car playni ishlatsa boladi Jentra, Lacetti,Nexia 3, Cobalt,Spark tushadi
+
+    sensor fleshka bor
+    
+     
+    
+    “Elite_tuning” do'koni jamoasi bizning do'konimizni tanlaganingiz uchun sizga minnatdorchilik bildiradi. Biz do'konni yanada qulayroq qilishga harakat qilamiz va har bir mijozni qadrlaymiz. Biz faqat sifatli mahsulotlarni arzon narxlarda olib kelamiz. Mijozlarimizdan fikr-mulohazalarni olish biz uchun juda muhim, agar siz mahsulotni olgan bo'lsangiz va sizga yoqqan bo'lsa, sharhlarda bu haqda bizga yozing.
+    
+    
+    
+    Agar biron sababga ko'ra mahsulot tavsifga mos kelmasa, salbiy sharhlar yozishga shoshilmang, ilova chatida biz bilan bog'laning, biz har qanday muammoga imkon qadar tezroq yechim topamiz.
+    
+    Sotib olish uchun uni savatga qo'shing
+    
+    
+    
+    Bizning do'konimizda siz Turli xil gadjetlarning keng assortimenti topishingiz mumkin!
+    
+    
+    
+    Haridingiz Xayrli va Barakalibulsin`,
+    category: "Monitorlar",
+    images: [monitor21, monitor22, monitor23, monitor24],
+    shortly: undefined,
+    price: 750000,
+    rating: 4.7,
+    inTheCart: false,
+    countProduct: 1,
+    top: false,
+    saved: false,
+    isItNew: false,
+    inAction: true,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
     productName: "Mobil telefon ushlagich holder 2-xil turdagi mahsulot",
     description:
       "Mobil avtomobil ushlagich, mobil aloqa vositalarini avtomobilda ishonchli o'rnatishni ta'minlaydi. Funksionalligi tufayli mobil avtomobil ushlagichi turli o'lchamdagi smartfonlar uchun mos keladi.",
@@ -645,6 +820,44 @@ export const products = [
     isItNew: false,
     inAction: false,
     recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
+    productName: "Orqa ko'rinish kamerasi bilan DVR oynasi 2 tasi 1 da",
+    description:
+      "Diktofonning dizayni orqa ko'zgu ko'rinishida yaratilgan, shuning uchun hech kim uni yozib olish moslamasi ekanligiga shubha qilmaydi. Displey o'chirilganda, magnitafon oyna sifatida ishlatilishi mumkin, video yozish esa avtomatik ravishda davom etadi. Rangli LCD displey oynaning o'ng tomonida joylashgan va diagonali 4,3 dyuymga teng.",
+    category: "Videoregistratorlar",
+    images: [
+      videoRegistrator21,
+      videoRegistrator22,
+      videoRegistrator23,
+      videoRegistrator24,
+      videoRegistrator25,
+      videoRegistrator26,
+      videoRegistrator27,
+      videoRegistrator28,
+    ],
+    shortly: [
+      "Kamerani ko'rish burchagi - 170 daraja",
+      `LCD displey diagonali: 4,3 "TFT/LCD`,
+      "Video yozish o'lchamlari: Full HD (1920 * 1080)",
+      "Hajmi: 310 x 80 x 0,8 mm",
+      "Xotira kartasini qo'llab-quvvatlash: 32 G gacha microSD",
+      "O'rnatilgan lityum batareya: 3,7V 200mAh",
+      "Orqa ko'rish kamerasi bor",
+      "Tungi rejim - bor",
+      "Shok sensori G-sensor - bor",
+    ],
+    price: 269000,
+    rating: 4.4,
+    inTheCart: false,
+    countProduct: 1,
+    top: true,
+    saved: false,
+    isItNew: true,
+    inAction: true,
+    recommend: true,
     viewed: false,
   },
   {
@@ -805,6 +1018,46 @@ export const products = [
     top: false,
     saved: false,
     isItNew: false,
+    inAction: false,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
+    productName:
+      "Avtomobil videoregistrator- oyna orqani korish kamerasi bilan Full HD 1080P",
+    description:
+      "Oynadagi ikki kamerali videoregistrator. Qurilma orqa ko'zgu ko'rinishida ishlab chiqarilgan, buning natijasida u begonalar uchun deyarli sezilmaydi va ko'rinishga xalaqit bermaydi. Universal o'rnatish moslamalari deyarli har qanday avtomobilning standart orqa ko'zgusiga shikast etkazmasdan o'rnatishga imkon beradi. Ko'rish burchagi 170 ° bo'lgan shisha linzalar qatnov qismining butun kengligi bo'ylab, shu jumladan piyodalar yo'laklari bo'ylab harakatlanish holatini videoga olish imkonini beradi. Ixtiyoriy kamera 90 ° burchakka ega va u avtomobil ichidagi yoki orqasidagi vaziyatni suratga olish uchun ishlatilishi mumkin.",
+    category: "Videoregistratorlar",
+    shortly: [
+      "Til: rus tili bor",
+      "Ko'rish burchagi: 170 daraja.",
+      "Ekran diagonali: 4,3 TFT.",
+      "Xotira kartasi formati talablari: microSD 10 tezlik klassi (32 GB gacha)",
+      "Video yozish formati: Full HD 1080P, 1920×1080, soniyada 30 kadr",
+      "Funktsiyalari: o'rnatilgan mikrofon, zarba sensori (G-sensor), kadrdagi harakat sensori",
+      "Videoyozuv: Loop (yozuvni 1 soniyalik davrlar orasida tugatish)",
+      "Dinamik to'xtash rejimi: ha",
+      "To'liq to'plam: videoregistrator 1 dona. orqa ko'rinish kamerasi 1 dona. quvvat kabeli. 1 ta, o'rnatgich 2 dona.",
+    ],
+    images: [
+      videoRegistrator31,
+      videoRegistrator32,
+      videoRegistrator33,
+      videoRegistrator34,
+      videoRegistrator35,
+      videoRegistrator36,
+      videoRegistrator37,
+      videoRegistrator38,
+      videoRegistrator39,
+    ],
+    price: 199000,
+    rating: 4.3,
+    inTheCart: false,
+    countProduct: 1,
+    top: false,
+    saved: false,
+    isItNew: true,
     inAction: false,
     recommend: false,
     viewed: false,

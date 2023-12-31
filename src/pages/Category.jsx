@@ -12,7 +12,7 @@ import {
   RemoveShoppingCartOutlined,
   Star,
 } from "@mui/icons-material";
-import { Button, IconButton, Typography } from "@material-tailwind/react";
+import { Button, Chip, IconButton, Typography } from "@material-tailwind/react";
 import Products from "../components/Products";
 import Questions from "../components/Questions";
 
@@ -99,6 +99,26 @@ const Category = ({ rendered }) => {
                   })}
                 </Swiper>
               </Link>
+              <div className="flex space-x-3 absolute left-3 top-0 z-10">
+                {product.isItNew && (
+                  <Chip
+                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                    value="Yangi"
+                    color="green"
+                    size="sm"
+                    variant="filled"
+                  />
+                )}
+                {product.inAction && (
+                  <Chip
+                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                    value="Aksiya"
+                    size="sm"
+                    variant="filled"
+                    color="red"
+                  />
+                )}
+              </div>
               <button
                 onClick={() => {
                   setRender((prev) => !prev);

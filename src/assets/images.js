@@ -111,6 +111,23 @@ import videoRegistrator2 from "./img/video-registrator-2.jpg";
 import videoRegistrator3 from "./img/video-registrator-3.jpg";
 import videoRegistrator4 from "./img/video-registrator-4.jpg";
 import videoRegistrator5 from "./img/video-registrator-5.jpg";
+import videoRegistrator21 from "./img/video-registrator-2-1.jpg";
+import videoRegistrator22 from "./img/video-registrator-2-2.jpg";
+import videoRegistrator23 from "./img/video-registrator-2-3.jpg";
+import videoRegistrator24 from "./img/video-registrator-2-4.jpg";
+import videoRegistrator25 from "./img/video-registrator-2-5.jpg";
+import videoRegistrator26 from "./img/video-registrator-2-6.jpg";
+import videoRegistrator27 from "./img/video-registrator-2-7.jpg";
+import videoRegistrator28 from "./img/video-registrator-2-8.jpg";
+import videoRegistrator31 from "./img/video-registrator-3-1.jpg";
+import videoRegistrator32 from "./img/video-registrator-3-2.jpg";
+import videoRegistrator33 from "./img/video-registrator-3-3.jpg";
+import videoRegistrator34 from "./img/video-registrator-3-4.jpg";
+import videoRegistrator35 from "./img/video-registrator-3-5.jpg";
+import videoRegistrator36 from "./img/video-registrator-3-6.jpg";
+import videoRegistrator37 from "./img/video-registrator-3-7.jpg";
+import videoRegistrator38 from "./img/video-registrator-3-8.jpg";
+import videoRegistrator39 from "./img/video-registrator-3-9.jpg";
 import monitor1 from "./img/monitor-1.jpg";
 import monitor2 from "./img/monitor-2.jpg";
 import monitor3 from "./img/monitor-3.jpg";
@@ -118,6 +135,20 @@ import monitor4 from "./img/monitor-4.jpg";
 import monitor5 from "./img/monitor-5.jpg";
 import monitor6 from "./img/monitor-6.jpg";
 import monitor7 from "./img/monitor-7.jpg";
+import monitor21 from "./img/monitor-2-1.jpg";
+import monitor22 from "./img/monitor-2-2.jpg";
+import monitor23 from "./img/monitor-2-3.jpg";
+import monitor24 from "./img/monitor-2-4.jpg";
+import monitor31 from "./img/monitor-3-1.jpg";
+import monitor32 from "./img/monitor-3-2.jpg";
+import monitor33 from "./img/monitor-3-3.jpg";
+import monitor41 from "./img/monitor-4-1.jpg";
+import monitor42 from "./img/monitor-4-2.jpg";
+import monitor43 from "./img/monitor-4-3.jpg";
+import antiradar31 from "./img/antiradar-3-1.jpg";
+import antiradar32 from "./img/antiradar-3-2.jpg";
+import antiradar33 from "./img/antiradar-3-3.jpg";
+import antiradar34 from "./img/antiradar-3-4.jpg";
 
 import autoTuning from "./img/auto-tuning.jpg";
 import autoTuning1 from "./img/auto-tuning-1.jpg";
@@ -264,6 +295,23 @@ export {
   videoRegistrator3,
   videoRegistrator4,
   videoRegistrator5,
+  videoRegistrator21,
+  videoRegistrator22,
+  videoRegistrator23,
+  videoRegistrator24,
+  videoRegistrator25,
+  videoRegistrator26,
+  videoRegistrator27,
+  videoRegistrator28,
+  videoRegistrator31,
+  videoRegistrator32,
+  videoRegistrator33,
+  videoRegistrator34,
+  videoRegistrator35,
+  videoRegistrator36,
+  videoRegistrator37,
+  videoRegistrator38,
+  videoRegistrator39,
   monitor1,
   monitor2,
   monitor3,
@@ -271,4 +319,18 @@ export {
   monitor5,
   monitor6,
   monitor7,
+  monitor21,
+  monitor22,
+  monitor23,
+  monitor24,
+  monitor31,
+  monitor32,
+  monitor33,
+  monitor41,
+  monitor42,
+  monitor43,
+  antiradar31,
+  antiradar32,
+  antiradar33,
+  antiradar34,
 };
