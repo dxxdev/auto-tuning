@@ -19,12 +19,12 @@ const Katalog = () => {
           Katalog
         </Typography>
       </div>
-      <ul className="grid py-14 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+      <ul className="grid py-14 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {categoryProduct.map((product) => {
           return (
             <Link onClick={scrollTop} to={`/${product.category}`}>
               <li
-                className="rounded-3xl relative group overflow-hidden"
+                className="rounded-3xl relative group overflow-hidden h-full max-h-96 flex justify-center items-center"
                 key={product.id}
               >
                 <img

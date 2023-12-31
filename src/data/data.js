@@ -153,6 +153,18 @@ import {
   antiradar43,
   antiradar44,
   antiradar45,
+  soat1,
+  soat2,
+  soat3,
+  soat4,
+  ledTasma1,
+  ledTasma2,
+  ledTasma3,
+  ledTasma4,
+  eshikChiroq1,
+  eshikChiroq2,
+  eshikChiroq3,
+  eshikChiroq4,
 } from "../assets/images";
 import { toast } from "react-toastify";
 
@@ -191,6 +203,35 @@ export const products = [
   },
   {
     id: randomId(),
+    productName: "Avtomobil saloniga dumaloq soatlar AMG",
+    description:
+      "Avtomobil saloniga dumaloq soatlar AMG - Soat kvarts, avtomobil logotipi bilan Shisha siferblat Orqa qismi metalldan yasalgan va konus shaklida Tashqi qismning tagida tekislik yuzasi bor, bu soatni tekis yuzaga o'rnatishga imkon beradi. To'plam shtativ bilan birga keladi, uning yordamida soat deflektorga (konditsioner panjarasiga) o'rnatiladi. Korpus chiqariladi. Diametri: 40 mm To'plamda: soat, buragich, shtativ, yopishtiruvchi fiksator, batareya. Batareyalar bilan ishlash.",
+    category: "Salon jihozlari",
+    images: [soat1, soat2, soat3, soat4],
+    shortly: [
+      "Soat kvarts, avtomobil logotipi bilan",
+      "Shisha siferblat",
+      "Orqa qismi metalldan yasalgan va konus shaklida",
+      "Tashqi qismning tagida tekislik yuzasi bor, bu soatni tekis yuzaga o'rnatishga imkon beradi",
+      "To'plam shtativ bilan birga keladi, uning yordamida soat deflektorga (konditsioner panjarasiga) o'rnatiladi",
+      "Korpus chiqariladi",
+      "Diametri: 40 mm",
+      "To'plamda: soat, buragich, shtativ, yopishtiruvchi fiksator, batareya.",
+      "Batareyada ishlaydi.",
+    ],
+    price: 55000,
+    rating: 5,
+    inTheCart: false,
+    countProduct: 1,
+    top: false,
+    saved: false,
+    isItNew: true,
+    inAction: false,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
     productName: `Avtomobil telefon ushlagich`,
     description:
       "Qulay, ixcham telefon ushlagichi, haydovchining ko'rishiga xalaqit bermaydi, har qanday avtomobil interyeriga mos keladi, uyda foydalansa ham buladi. Tezda asboblar paneliga yoki boshqa tekis yuzaga o'rnatiladi va harakatlanayotganda sakrab tushmaydi. O'z o'qi atrofida 360 daraja aylanadi. Juda yuqori sifatli materialdan tayyorlangan, deformatsiyaga, tirnalishga va tirnalishga chidamli. Bundan tashqari, u barmoq izlarini qoldirmaydi va chang cho'kmaydi. Sifatli mustahkam mahkamlash tizimi bilan jihozlangan.",
@@ -210,6 +251,35 @@ export const products = [
     top: false,
     saved: false,
     isItNew: false,
+    inAction: false,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
+    productName:
+      "Avtomobil faralari uchun svetodiodli LED tasma, 60 sm, 1 dona",
+    description:
+      "Avtomobil farasi uchun svetodoidli tasma Ranglari: oq+sariq, qizil+sariq, muzli ko'k+sariq, pushti+sariq, ko'k+sariq rang. Suv o'tkazmaydi.",
+    category: "Avto bezaklar",
+    images: [ledTasma1, ledTasma2, ledTasma3, ledTasma4],
+    shortly: [
+      "Funksiyalar: Boshlash-skanerlash+Oqimli burilish",
+      "Material: PVX + LED",
+      "Mahsulot nomi: Ikki rangli moslashuvchan kunduzi ishlaydigan LED chiroq",
+      "Avtomobil modeli: Barcha mashinalar uchun mos keladi",
+      "Nur manbai: 2835",
+      "Kuchlanishi: 12 V",
+      "Sertifikatlash: Strolet",
+      "Uzunlik: 60 sm (sozlash mumkin)",
+    ],
+    price: 137000,
+    rating: 5,
+    inTheCart: false,
+    countProduct: 1,
+    top: true,
+    saved: false,
+    isItNew: true,
     inAction: false,
     recommend: false,
     viewed: false,
@@ -1031,6 +1101,35 @@ export const products = [
   {
     id: randomId(),
     productName:
+      "Universal avtomobil eshigi Chevrolet logotipli LED lazer proyektori, 2 dona",
+    description:
+      "Yuqori samaradorlik, energiya tejash, ifloslanish, shovqin, elektron shovqin yo'q. Avtomobil yorug'lik manbai, yuqori o'tkazuvchanlik AC linzalari tendentsiyasida etakchi. Eshik ochilganda ko'r-ko'rona imo-ishora chiroqlari va signal chiroqlari, eshik yopilganda ko'r-ko'rona ishora chiroqlari va signal chiroqlari yopiladi. Haydashni yanada qiziqarli qiling. Yorqin belgilar va signal chiroqlari yerga ko'rsatiladi.",
+    category: "Avto bezaklar",
+    images: [eshikChiroq1, eshikChiroq2, eshikChiroq3, eshikChiroq4],
+    shortly: [
+      "turi: chiroq",
+      "Chiroq turi: LED",
+      "Quvvat: 5 Vt",
+      "Voltaj: 4,5V",
+      "Material: plastik",
+      "Quvvat manbai: 3 dona AAA batareyalari (qo'shilmagan)",
+      "Xususiyatlari: Ko'p qirrali, bardoshli, salqin, moda, foydali",
+      "O'lchamlari: 6,5 sm x 6,3 sm",
+    ],
+    price: 68000,
+    rating: 4,
+    inTheCart: false,
+    countProduct: 1,
+    top: false,
+    saved: false,
+    isItNew: false,
+    inAction: false,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
+    productName:
       "Radar detektori Neoline X-COP 8800 Wi-Fi, sovg'a sifatida Avtomobil zaryadlovchi",
     description: `O'ZBEKISTONNING NOYOB GPS RADAR VA KAMERALAR BAZASI<br/>
     An'anaga ko'ra, NEOLINE qurilmalarida Rossiya federatsiyasi+MDH va xalqaro kameralar va radarlar bazalari mavjud. Hammasi bo'lib 120 mingdan ortiq nuqta. Ammo biz bir qadam oldinga bordik va x-COP 8800 Wi-Fi-da biz O'zbekistonning noyob, eng to'liq GPS bazasini taklif etamiz, bu raqobatchilar orasida o'xshash emas.<br/>
@@ -1198,7 +1297,14 @@ function setCategoryToArray(arr) {
   return categoryArr;
 }
 
-const images = [rulQoplamasi1, vertolyotliAtir1, monitor41, antiradar21, videoRegistrator1];
+const images = [
+  rulQoplamasi1,
+  vertolyotliAtir1,
+  ledTasma1,
+  monitor41,
+  antiradar21,
+  videoRegistrator1,
+];
 
 export const category = setCategoryToArray(products);
 

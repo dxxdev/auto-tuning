@@ -154,6 +154,18 @@ import antiradar42 from "./img/antiradar-4-2.jpg";
 import antiradar43 from "./img/antiradar-4-3.jpg";
 import antiradar44 from "./img/antiradar-4-4.jpg";
 import antiradar45 from "./img/antiradar-4-5.jpg";
+import soat1 from "./img/soat-1.jpg";
+import soat2 from "./img/soat-2.jpg";
+import soat3 from "./img/soat-3.jpg";
+import soat4 from "./img/soat-4.jpg";
+import ledTasma1 from "./img/led-tasma-1.jpg";
+import ledTasma2 from "./img/led-tasma-2.jpg";
+import ledTasma3 from "./img/led-tasma-3.jpg";
+import ledTasma4 from "./img/led-tasma-4.jpg";
+import eshikChiroq1 from "./img/eshik-chiroq-1.jpg";
+import eshikChiroq2 from "./img/eshik-chiroq-2.jpg";
+import eshikChiroq3 from "./img/eshik-chiroq-3.jpg";
+import eshikChiroq4 from "./img/eshik-chiroq-4.jpg";
 
 import autoTuning from "./img/auto-tuning.jpg";
 import autoTuning1 from "./img/auto-tuning-1.jpg";
@@ -199,6 +211,14 @@ export {
   antiradar3,
   antiradar4,
   antiradar5,
+  ledTasma1,
+  ledTasma2,
+  ledTasma3,
+  ledTasma4,
+  eshikChiroq1,
+  eshikChiroq2,
+  eshikChiroq3,
+  eshikChiroq4,
   antiradar6,
   antiradar7,
   antiradar21,
@@ -222,6 +242,10 @@ export {
   phoneStend23,
   phoneStend24,
   phoneStend25,
+  soat1,
+  soat2,
+  soat3,
+  soat4,
   phoneStend26,
   phoneStend31,
   phoneStend32,
