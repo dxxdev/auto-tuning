@@ -106,6 +106,19 @@ import vertolyotliAtir25 from "./img/vertolyotli-atir-2-5.jpg";
 import vertolyotliAtir31 from "./img/vertolyotli-atir-3-1.jpg";
 import vertolyotliAtir32 from "./img/vertolyotli-atir-3-2.jpg";
 import vertolyotliAtir33 from "./img/vertolyotli-atir-3-3.jpg";
+import videoRegistrator1 from "./img/video-registrator-1.jpg";
+import videoRegistrator2 from "./img/video-registrator-2.jpg";
+import videoRegistrator3 from "./img/video-registrator-3.jpg";
+import videoRegistrator4 from "./img/video-registrator-4.jpg";
+import videoRegistrator5 from "./img/video-registrator-5.jpg";
+import monitor1 from "./img/monitor-1.jpg";
+import monitor2 from "./img/monitor-2.jpg";
+import monitor3 from "./img/monitor-3.jpg";
+import monitor4 from "./img/monitor-4.jpg";
+import monitor5 from "./img/monitor-5.jpg";
+import monitor6 from "./img/monitor-6.jpg";
+import monitor7 from "./img/monitor-7.jpg";
+
 import autoTuning from "./img/auto-tuning.jpg";
 import autoTuning1 from "./img/auto-tuning-1.jpg";
 
@@ -246,4 +259,16 @@ export {
   vertolyotliAtir31,
   vertolyotliAtir32,
   vertolyotliAtir33,
+  videoRegistrator1,
+  videoRegistrator2,
+  videoRegistrator3,
+  videoRegistrator4,
+  videoRegistrator5,
+  monitor1,
+  monitor2,
+  monitor3,
+  monitor4,
+  monitor5,
+  monitor6,
+  monitor7,
 };

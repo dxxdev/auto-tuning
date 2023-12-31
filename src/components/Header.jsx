@@ -187,6 +187,14 @@ const Header = () => {
                   Aksiya
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  onClick={scrollTop}
+                  to={`/Katalog`}
+                >
+                  Katalog
+                </NavLink>
+              </li>
             </ul>
           </nav>
           <div className="flex md:hidden justify-center items-center space-x-4">
@@ -288,15 +296,6 @@ const Header = () => {
                     </li>
                   );
                 })}
-                <li>
-                  <NavLink
-                    onClick={scrollTop}
-                    to={`/Katalog`}
-                    className="text-shadow"
-                  >
-                    Katalog
-                  </NavLink>
-                </li>
               </ul>
             </nav>
             <div className="flex justify-end space-x-5 ">

@@ -105,6 +105,18 @@ import {
   antiradar23,
   antiradar24,
   antiradar25,
+  videoRegistrator1,
+  videoRegistrator2,
+  videoRegistrator3,
+  videoRegistrator4,
+  videoRegistrator5,
+  monitor1,
+  monitor2,
+  monitor3,
+  monitor4,
+  monitor5,
+  monitor6,
+  monitor7,
 } from "../assets/images";
 import { toast } from "react-toastify";
 
@@ -333,6 +345,51 @@ export const products = [
   },
   {
     id: randomId(),
+    productName: "Orqa ko'rish kamerasi bilan DVR",
+    description: `DVR oyna avtomobil-bu oddiy orqa ko'rinish oynasi va DVR funksiyalarini birlashtirgan mustahkam qurilma. Bu haydash paytida xavfsizlik va qulaylikni ta'minlaydi.
+
+
+
+    Ushbu DVR ikkita linzaga ega va yuqori aniqlikdagi Full HD 1080p videolarni yozib olish imkonini beradi. haydash paytida siz aniq va aniq videoni olishingiz va yo'lda muhim daqiqalarni saqlashingiz mumkin.
+    
+    
+    
+    Orqa ko'zgu tufayli siz mashinangiz orqasida nima bo'layotganini osongina boshqarishingiz mumkin, bu ayniqsa to'xtash yoki teskari manevrlarda foydalidir.
+    
+    
+    
+    Qurilma DVR-ni osongina sozlash va boshqarish imkonini beruvchi qulay interfeysga ega. Katta va yorqin ekran ajoyib ko'rinish va foydalanish qulayligini ta'minlaydi.
+    
+    
+    
+    Ushbu qurilma avtomobilingiz uchun ishonchli va funktsional qo'shimcha bo'lib, yo'lda xavfsiz bo'lishingizga yordam beradi va sayohatingizni yanada qulay qiladi.`,
+    category: "Videoregistratorlar",
+    images: [
+      videoRegistrator1,
+      videoRegistrator2,
+      videoRegistrator3,
+      videoRegistrator4,
+      videoRegistrator5,
+    ],
+    shortly: [
+      "Loop yozish funktsiyasi: ha",
+      "Video o'lchamlari: Full HD (1920 * 1080 piksel)",
+      "Kameraning ko'rish burchagi: 170 daraja",
+      "32 GB gacha bo'lgan xotira kartasini qo'llab-quvvatlash",
+    ],
+    price: 250000,
+    rating: 3,
+    inTheCart: false,
+    countProduct: 1,
+    top: false,
+    saved: false,
+    isItNew: true,
+    inAction: true,
+    recommend: true,
+    viewed: false,
+  },
+  {
+    id: randomId(),
     productName:
       "Avtomobil, uy, ofis uchun o'rnatilgan qayta zaryadlanuvchi batareya va USB bilan namlagich",
     description: `Namlagich kichik xona yoki avtomobil ichki qismi uchun mo'ljallangan;<br/>
@@ -423,6 +480,87 @@ export const products = [
     saved: false,
     isItNew: false,
     inAction: false,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
+    productName:
+      "Avtomobil monitorlari Teyes CC2L Plus 10.2/2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan",
+    description: `Avtomobil monitorlari Teyes CC2L Plus 10.2/2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan fotosurat2 Gb RAM va 32 Gb o'rnatilgan xotira va 1,3 GH 32 bit chastotali 4 yadroli protsessorga ega CC2L Plus bort kompyuteri, mukammal dasturiy ta'minot muvozanatli va muammosiz ishlaydi.
+
+
+
+    Qurilmadagi o'rnatilgan WiFi antennalari tufayli Internetga kirish har doim mumkin.
+    
+    
+    
+    1280x720 o‘lchamli va IPS+2,5D 16:9 matritsasiga ega 9,0 dyuymli ekranda barcha ranglar va bo‘yoqlar har qanday burchakdan mukammal ko‘rinadi. Displey yorqin orqa yorug‘likka ega va hatto quyosh nurida ham barcha boshqaruv elementlari ko‘rinadi.
+    
+    
+    
+    Qurilmada ko'plab ilovalar allaqachon o'rnatilgan (Yandex + Google Play va boshqalar).
+    
+    
+    
+    Shuningdek, flesh-disklar, DVR va shinalar bosimi sensorlarini ulashingiz mumkin bo'lgan ikkita USB chiqishi mavjud.
+    
+    
+    
+    Qurilma NXP6856+RDS radio moduli, TDA7388 ovoz kuchaytirgichi bilan jihozlangan va 16 diapazonli ekvalayzerga ega. Kutish rejimida radio 10 mA quvvat sarflaydi. Bluetooth sinxronizatsiyasi yordamida siz qo'ng'iroqlarni qabul qilishingiz va qurilmaning o'zida musiqa tinglashingiz mumkin.
+    
+    
+    
+    Universal 2DIN (ramka o'lchami 178x102 mm), ko'plab modellarga mos keladi: Kia, Hyundai, Nissan, Honda, Volkswagen, Subaru, Toyota, Lexus, Mitsubishi, Ford, Chevrolet, Citroen, Datsun, Daewoo, Fiat, Opel, Audi, BMW , Mercedes, Peugeot, Mazda, Skoda, Suzuki, Renault, Lifan, SsangYong, Chery, Lada, Lada, VAZ, UAZ, Gazelle, Gaz va boshqalar.`,
+    category: "Monitorlar",
+    images: [
+      monitor1,
+      monitor2,
+      monitor3,
+      monitor4,
+      monitor4,
+      monitor5,
+      monitor6,
+      monitor7,
+    ],
+    shortly: [
+      "Ekran: 9 dyuymli o'lchamlari 1280 * 720 IPS ",
+      "Operatsion tizim: ANDROID 8.1. Yangi funksiyalarni qo'llab-quvvatlaydigan Androidning tez va barqaror versiyasi",
+      "Protsessor (CPU): 4 yadroli 1,3 gigagertsli 32 bit Spreadtrum UIS8141EI ARM Cortex A7TM 28NM",
+      "Video protsessor (GPU): Ha",
+      "Tasodifiy kirish xotirasi (ROM): DDR ? 2 Gb",
+      "O'rnatilgan xotira: 32 GB",
+      "Tashqi diskni qo'llab-quvvatlash: 2 TB gacha",
+      "Navigatsiya dasturi: Yandex-Navigator dasturi, Navitel",
+      "Google Play Ha, u to'liq ishlaydi. Ro'yxatdan o'tish talab qilinadi va avtomobil radiosida to'g'ri sana va vaqt belgilanishi kerak.",
+      "Rulda boshqaruvi: Qo'llab-quvvatlanadi",
+      "Radio tugmasi yoritilishi: standart",
+      "Orqa ko'rinish kamerasini qo'llab-quvvatlash: ixtiyoriy",
+      "Bluetooth - ovozsiz qo'ng'iroq: Ha",
+      "Bluetooth - musiqa uzatish: Ha",
+      "DVD drayveri: Yo'q",
+      "CD/DVDni qo'llab-quvvatlash: Yo'q",
+      "Qo'llab-quvvatlanadigan video formatlari: RMVK, MKV, MOV, WMV, AVI, MpeG, TS va boshqalar.",
+      "Qo'llab-quvvatlanadigan audio formatlari: MP3/WMA/AAC/WAV/FLAC va boshqalar.",
+      "Kuchaytirgich: TDA7388",
+      "Audio DSP protsessori: o'rnatilgan DSP algoritmiga ega protsessor",
+      "Ovoz kuchaytirgichining chiqish quvvati: 4 x 50 Vt ",
+      "Ovoz sifati: zaxiradan yaxshiroq",
+      "GPS antennasi: Chastotasi: 1575,42MHz C/A KODU, sun'iy yo'ldosh qidiruvi uchun 66 kanal, kuzatish uchun 22 kanal",
+      "Internet: 3G/4G modem (alohida sotiladi)",
+      "USB: 3 ta USB 2.0 porti, 2 TB gacha saqlashni qo'llab-quvvatlaydi ",
+      "Wi-Fi: o'rnatilgan Wi-Fi moduli",
+      "FM/AM tyuneri: NXP6856+RDS radiostansiyasi belgisi",
+      "RDS qo'llab-quvvatlash: Ha",
+    ],
+    price: 1240000,
+    rating: 4.5,
+    inTheCart: false,
+    countProduct: 1,
+    top: true,
+    saved: false,
+    isItNew: true,
+    inAction: true,
     recommend: false,
     viewed: false,
   },

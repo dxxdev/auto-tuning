@@ -144,6 +144,17 @@ const Commentaries = () => {
                 setRating(value);
               }}
             />
+            <iframe
+              title="reCAPTCHA"
+              width="304"
+              height="78"
+              role="presentation"
+              name="a-7z2l7vcwjdk9"
+              frameborder="0"
+              scrolling="no"
+              sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+              src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc0Pi0pAAAAAFuRiKfyvf8I7Vtjf88ssRWwnvGH&amp;co=aHR0cHM6Ly9vZmZpY2Utc3R5bGUubmV0bGlmeS5hcHA6NDQz&amp;hl=ru&amp;type=image&amp;v=u-xcq3POCWFlCr3x8_IPxgPu&amp;theme=light&amp;size=normal&amp;badge=bottomright&amp;cb=u60h7xi9a6j"
+            ></iframe>
           </CardBody>
           <CardFooter className="pt-0">
             <Button
