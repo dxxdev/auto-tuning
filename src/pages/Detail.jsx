@@ -233,7 +233,7 @@ const Detail = ({ rendered }) => {
                   <div>
                     <p>Toshkent bo'ylab yetkazib berish</p>
                     <p className="text-gray-700">
-                      Narxi 100.000 so'mdan, ombordada mavjud bo'lgan mebel bir
+                      Narxi 100.000 so'mdan, omborda mavjud bo'lgan tovar bir
                       soat ichida yetkazib beriladi, biz sizga buyurtmani
                       joylashtirishda aniq vaqt haqida xabar beramiz.
                     </p>
@@ -250,7 +250,7 @@ const Detail = ({ rendered }) => {
                     <p>Kompaniyadan olib ketish</p>
                     <p className="text-gray-700">
                       Buyurtmani quyidagi manzildan olishingiz mumkin: <br />{" "}
-                      Toshkent, Olmaliq K: No312
+                      Toshkent, Amir Temur K: 47b
                     </p>
                   </div>
 
