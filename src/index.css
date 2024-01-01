@@ -50,3 +50,12 @@
 html {
   scroll-behavior: smooth;
 }
+
+
+.scroll-none::-webkit-scrollbar{
+  display: none;
+}
+
+.side-bar-links a.active{
+  @apply text-red-600
+}

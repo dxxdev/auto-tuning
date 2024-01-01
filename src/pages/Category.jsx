@@ -61,10 +61,10 @@ const Category = ({ rendered }) => {
           variant="outlined"
         >
           {inOrder
-            ? "Narxlar kamayish tartibida"
+            ? "Narxlar o'sish tartibida"
             : inOrder == null
             ? "Saralash"
-            : "Narxkar o'sish tartibida"}
+            : "Narxkar kamayish tartibida"}
         </Button>
       </div>
       <ul

@@ -19,16 +19,12 @@ import Commentaries from "./pages/Commentaries";
 import Action from "./pages/Action";
 import Policy from "./pages/Policy";
 
-setInterval(() => {
-  console.clear();
-}, 10000);
-
 const App = () => {
   const [render, setRender] = useState(true);
   const rendered = () => setRender((prev) => !prev);
   useEffect(() => {
     rendered();
-  }, [products.map((product) => product)]);
+  }, [products]);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -39,7 +35,7 @@ const App = () => {
         <Route path="/:category" element={<Category rendered={rendered} />} />
         <Route path="/Katalog" element={<Katalog />} />
         <Route path="/Kompaniya haqida" element={<FAQ />} />
-        <Route path="Yetkazib berish va to'lash" element={<Payment />} />
+        <Route path="/Yetkazib berish va to'lash" element={<Payment />} />
         <Route path="/Sharhlar" element={<Commentaries />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/Aksiya" element={<Action />} rendered={rendered} />

@@ -101,13 +101,17 @@ const Home = ({ rendered }) => {
           return (
             <SwiperSlide
               key={item.id}
-              className="max-h-[400px] max-[800px]:max-h-[500px] lg:max-h-[700px] min-h-max h-full w-full"
+              className="flex justify-center items-stretch max-h-[180px] sm:max-h-[280px] md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] h-full w-full overflow-hidden"
             >
-              <img src={item.image} className="h-full w-full" alt="Hero img" />
+              <img
+                src={item.image}
+                className="max-h-[180px] sm:max-h-[280px] w-full md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] object-cover"
+                alt="Hero img"
+              />
             </SwiperSlide>
           );
         })}
-        <div className="z-[999] px-20 absolute left-0 bottom-0 hidden sm:block pb-[52px] lg:pb-[152px]">
+        <div className="z-[999] px-20 absolute left-0 bottom-0 hidden sm:block pb-[52px] md:pb-20 xl:pb-[152px]">
           <div className={`flex justify-between items-end ${styles.container}`}>
             <div className="flex flex-col space-y-5 items-start h-24">
               <Typography
@@ -138,8 +142,8 @@ const Home = ({ rendered }) => {
           <div className="flex w-full justify-center items-center py-5">
             {groupedTopProducts && groupedTopProducts.length > 0 && (
               <Tabs value="allCategories" className={`${styles.container}`}>
-                <div className="flex justify-start items-center sm:justify-center">
-                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center flex-col sm:flex-row">
+                <div className="flex justify-start items-center sm:justify-center scroll-none overflow-auto">
+                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
                     <Tab
                       key="allCategories"
                       value="allCategories"
@@ -164,10 +168,11 @@ const Home = ({ rendered }) => {
                     value="allCategories"
                     className="flex gap-x-5 overflow-auto products-swiper"
                   >
-                    {products.map((product) => {
+                    {products.map((product, index) => {
                       if (product.top) {
                         return (
                           <Products
+                            key={index}
                             rendered={rendered}
                             product={product}
                             productId={product.id}
@@ -195,6 +200,7 @@ const Home = ({ rendered }) => {
                         if (product.category == category && product.top) {
                           return (
                             <Products
+                              key={index}
                               rendered={rendered}
                               product={product}
                               productId={product.id}
@@ -331,8 +337,8 @@ const Home = ({ rendered }) => {
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
               <Tabs value="allCategories" className={`${styles.container}`}>
-                <div className="flex justify-start items-center sm:justify-center">
-                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center flex-col sm:flex-row">
+                <div className="flex justify-start items-center sm:justify-center scroll-none overflow-auto">
+                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
                     <Tab
                       key="allCategories"
                       value="allCategories"
@@ -358,10 +364,11 @@ const Home = ({ rendered }) => {
                     value="allCategories"
                     className="flex gap-x-5 overflow-auto products-swiper"
                   >
-                    {products.map((product) => {
+                    {products.map((product, index) => {
                       if (product.isItNew) {
                         return (
                           <Products
+                            key={index}
                             rendered={rendered}
                             product={product}
                             productId={product.id}
@@ -390,6 +397,7 @@ const Home = ({ rendered }) => {
                         if (product.category == category && product.isItNew) {
                           return (
                             <Products
+                              key={index}
                               rendered={rendered}
                               product={product}
                               productId={product.id}
@@ -441,8 +449,8 @@ const Home = ({ rendered }) => {
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
               <Tabs value="allCategories" className={`${styles.container}`}>
-                <div className="flex justify-start items-center sm:justify-center">
-                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center flex-col sm:flex-row">
+                <div className="flex justify-start items-center sm:justify-center scroll-none overflow-auto">
+                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
                     <Tab
                       key="allCategories"
                       value="allCategories"
@@ -468,10 +476,11 @@ const Home = ({ rendered }) => {
                     value="allCategories"
                     className="flex gap-x-5 overflow-auto products-swiper"
                   >
-                    {products.map((product) => {
+                    {products.map((product, index) => {
                       if (product.inAction) {
                         return (
                           <Products
+                            key={index}
                             rendered={rendered}
                             product={product}
                             productId={product.id}
@@ -500,6 +509,7 @@ const Home = ({ rendered }) => {
                         if (product.category == category && product.inAction) {
                           return (
                             <Products
+                              key={index}
                               rendered={rendered}
                               product={product}
                               productId={product.id}
@@ -541,12 +551,15 @@ const Home = ({ rendered }) => {
         </div>
         {/* Commentaries section */}
         <section>
-          <div className="py-5 flex flex-col sm:flex-row justify-between">
+          <div className="py-5 flex flex-col space-y-4 sm:space-y-0 sm:flex-row justify-between">
             <Typography variant="h4">Izohlar</Typography>
-            <Button onClick={() => {
-              navigate("/Sharhlar");
-              scrollTop();
-            }} variant="outlined">
+            <Button
+              onClick={() => {
+                navigate("/Sharhlar");
+                scrollTop();
+              }}
+              variant="outlined"
+            >
               Barcha sharhlar
             </Button>
           </div>
@@ -560,7 +573,11 @@ const Home = ({ rendered }) => {
                   >
                     <div className="space-y-5">
                       <div>
-                        <Rating ratedColor="white" value={note.rating} readonly />
+                        <Rating
+                          ratedColor="white"
+                          value={note.rating}
+                          readonly
+                        />
                       </div>
                       <p className="tracking-[0.5px]">{note.comment}</p>
                     </div>
@@ -579,10 +596,11 @@ const Home = ({ rendered }) => {
           <ul
             className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
           >
-            {products.map((product) => {
+            {products.map((product, index) => {
               if (product.recommend) {
                 return (
                   <Products
+                    key={index}
                     rendered={rendered}
                     product={product}
                     productId={product.id}

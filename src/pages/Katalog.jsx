@@ -3,6 +3,7 @@ import { styles } from "../styles";
 import { Typography } from "@material-tailwind/react";
 import { categoryProduct, scrollTop } from "../data/data";
 import { Link } from "react-router-dom";
+import Questions from "../components/Questions";
 
 const Katalog = () => {
   useEffect(() => {
@@ -40,6 +41,7 @@ const Katalog = () => {
           );
         })}
       </ul>
+      <Questions />
     </div>
   );
 };
