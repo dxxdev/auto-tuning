@@ -95,7 +95,7 @@ const Detail = ({ rendered }) => {
   return (
     <>
       <div
-        className={`py-2 flex ${styles.container} gap-x-10 flex-col min-[770px]:flex-row`}
+        className={`py-2 flex ${styles.container} gap-x-10 flex-col lg:flex-row`}
       >
         {info && (
           <div className="w-full space-y-3 p-5">
