@@ -370,7 +370,7 @@ const Basket = ({ rendered }) => {
             if (product.recommend) {
               return (
                 <Products
-                  rendered={rendered}
+                  rendered={setRender}
                   product={product}
                   productId={product.id}
                   productName={product.productName}
