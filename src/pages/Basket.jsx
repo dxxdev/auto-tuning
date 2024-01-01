@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { products, scrollTop, viewProduct } from "../data/data";
+import { clearCart, products, scrollTop, viewProduct } from "../data/data";
 import {
   Button,
   Card,
@@ -27,8 +27,9 @@ import {
   Star,
 } from "@mui/icons-material";
 import axios from "axios";
+import Products from "../components/Products";
 
-const Basket = () => {
+const Basket = ({ rendered }) => {
   const [render, setRender] = useState(true);
   const navigate = useNavigate();
   const [inTheCartProduct, setInTheCartProduct] = useState([]);
@@ -61,22 +62,14 @@ const Basket = () => {
             text,
           }
         );
-        toast.success("Adminga yuborildi", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        clearCart();
+        setRender((prev) => !prev);
       }
 
-      // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
       setClientName("");
       setAddress("");
     } catch (error) {
+      console.error("Telegramga xabar yuborishda xatolik:", error);
       toast.error("Yuborishdagi xatolik", {
         position: "bottom-right",
         autoClose: 2000,
@@ -90,12 +83,11 @@ const Basket = () => {
     }
   };
 
-  const filteredProductOnCart = (arr) => {
-    const filteredProduct = arr.filter((product) => {
-      return product.inTheCart;
-    });
+  const filteredProductOnCart = () => {
+    const filteredProduct = products.filter((product) => product.inTheCart);
     setInTheCartProduct(filteredProduct);
   };
+
   let options = {
     style: "decimal",
     useGrouping: true,
@@ -103,12 +95,8 @@ const Basket = () => {
     maximumFractionDigits: 2,
   };
   useEffect(() => {
-    filteredProductOnCart(products);
-  }, [render]);
-
-  const cartItems = products
-    .filter((product) => product.inTheCart)
-    .map(({ price, countProduct }) => ({ price, countProduct }));
+    filteredProductOnCart();
+  }, [render, products]);
 
   function calculateTotal(cartItems) {
     return cartItems.map(({ price, countProduct }) => price * countProduct);
@@ -122,6 +110,10 @@ const Basket = () => {
     return totalPriceArray.reduce((total, current) => total + current, 0);
   }
 
+  const productSaved = (product) => {
+    product.saved = !product.saved;
+  };
+
   const totalSum = calculateTotalSum(totalPriceArray);
 
   return (
@@ -133,7 +125,7 @@ const Basket = () => {
         Savatcha
       </Typography>
       <div
-        className={`${styles.container} flex flex-col lg:flex-row gap-y-5 justify-between items-start py-2`}
+        className={`${styles.container} flex flex-col gap-x-8 lg:flex-row gap-y-5 justify-between items-start py-2`}
       >
         <div className="w-full lg:grow">
           {inTheCartProduct && inTheCartProduct.length > 0 && (
@@ -340,7 +332,9 @@ const Basket = () => {
               </CardBody>
               <CardFooter className="pt-0">
                 <Button
-                  onClick={(e) => handleSubmit(e)}
+                  onClick={(e) => {
+                    handleSubmit(e);
+                  }}
                   variant="gradient"
                   color="red"
                   fullWidth
@@ -364,8 +358,37 @@ const Basket = () => {
             </Card>
           </div>
         )}
-        <ToastContainer />
       </div>
+      <section>
+        <div className="py-5">
+          <Typography variant="h4">Tavsiya qilinadi</Typography>
+        </div>
+        <ul
+          className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+        >
+          {products.map((product) => {
+            if (product.recommend) {
+              return (
+                <Products
+                  rendered={rendered}
+                  product={product}
+                  productId={product.id}
+                  productName={product.productName}
+                  productCategory={product.category}
+                  productImages={product.images}
+                  productSaved={productSaved}
+                  productIsItNew={product.isItNew}
+                  productInAction={product.inAction}
+                  productRating={product.rating}
+                  productPrice={product.price}
+                  productInTheCart={product.inTheCart}
+                />
+              );
+            }
+          })}
+        </ul>
+      </section>
+      <ToastContainer />
     </div>
   );
 };

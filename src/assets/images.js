@@ -128,6 +128,12 @@ import videoRegistrator36 from "./img/video-registrator-3-6.jpg";
 import videoRegistrator37 from "./img/video-registrator-3-7.jpg";
 import videoRegistrator38 from "./img/video-registrator-3-8.jpg";
 import videoRegistrator39 from "./img/video-registrator-3-9.jpg";
+import videoRegistrator41 from "./img/video-registrator-4-1.jpg";
+import videoRegistrator42 from "./img/video-registrator-4-2.jpg";
+import videoRegistrator43 from "./img/video-registrator-4-3.jpg";
+import videoRegistrator44 from "./img/video-registrator-4-4.jpg";
+import videoRegistrator45 from "./img/video-registrator-4-5.jpg";
+import videoRegistrator46 from "./img/video-registrator-4-6.jpg";
 import monitor1 from "./img/monitor-1.jpg";
 import monitor2 from "./img/monitor-2.jpg";
 import monitor3 from "./img/monitor-3.jpg";
@@ -162,10 +168,18 @@ import ledTasma1 from "./img/led-tasma-1.jpg";
 import ledTasma2 from "./img/led-tasma-2.jpg";
 import ledTasma3 from "./img/led-tasma-3.jpg";
 import ledTasma4 from "./img/led-tasma-4.jpg";
+import ledYoritgichRGB1 from "./img/led-yoritgich-rgb-1.jpg";
+import ledYoritgichRGB2 from "./img/led-yoritgich-rgb-2.jpg";
+import ledYoritgichRGB3 from "./img/led-yoritgich-rgb-3.jpg";
+import ledYoritgichRGB4 from "./img/led-yoritgich-rgb-4.jpg";
+import ledYoritgichRGB5 from "./img/led-yoritgich-rgb-5.jpg";
 import eshikChiroq1 from "./img/eshik-chiroq-1.jpg";
 import eshikChiroq2 from "./img/eshik-chiroq-2.jpg";
 import eshikChiroq3 from "./img/eshik-chiroq-3.jpg";
 import eshikChiroq4 from "./img/eshik-chiroq-4.jpg";
+import oqStikeri1 from "./img/oq-stikeri-1.jpg";
+import oqStikeri2 from "./img/oq-stikeri-2.jpg";
+import oqStikeri3 from "./img/oq-stikeri-3.jpg";
 
 import autoTuning from "./img/auto-tuning.jpg";
 import autoTuning1 from "./img/auto-tuning-1.jpg";
@@ -370,4 +384,18 @@ export {
   antiradar32,
   antiradar33,
   antiradar34,
+  ledYoritgichRGB1,
+  ledYoritgichRGB2,
+  ledYoritgichRGB3,
+  ledYoritgichRGB4,
+  ledYoritgichRGB5,
+  videoRegistrator41,
+  videoRegistrator42,
+  videoRegistrator43,
+  videoRegistrator44,
+  videoRegistrator45,
+  videoRegistrator46,
+  oqStikeri1,
+  oqStikeri2,
+  oqStikeri3,
 };

@@ -117,7 +117,7 @@ const Home = ({ rendered }) => {
               >
                 <span>Servis xizmati Toshkentda</span>
               </Typography>
-              <Link onClick={scrollTop} to="/">
+              <Link onClick={scrollTop} to="/Avto bezaklar">
                 <Button variant="filled" color="red" className="text-white">
                   Tuning jihozlariga buyurtma berish
                 </Button>
@@ -308,7 +308,7 @@ const Home = ({ rendered }) => {
                   bering
                 </Typography>
                 <Link
-                  to="/catalog"
+                  to="/Katalog"
                   onClick={scrollTop}
                   className="text-white space-x-3 underline underline-offset-2"
                 >

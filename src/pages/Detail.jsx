@@ -3,15 +3,21 @@ import { useParams } from "react-router-dom";
 import { filteredProductForId, products } from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { styles } from "../styles";
-import { Button, IconButton, Rating, Typography } from "@material-tailwind/react";
 import {
-  Add,
+  Button,
+  Rating,
+  Tab,
+  TabPanel,
+  Tabs,
+  TabsBody,
+  TabsHeader,
+  Typography,
+} from "@material-tailwind/react";
+import {
   AddShoppingCartOutlined,
   Bookmark,
   BookmarkBorderOutlined,
-  Remove,
   RemoveShoppingCartOutlined,
-  Star,
 } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import "swiper/css";
@@ -187,33 +193,74 @@ const Detail = ({ rendered }) => {
             <Typography className="text-2xl py-5 sm:text-3xl lg:text-4xl">
               {info.productName}
             </Typography>
-            <div className="flex items-center space-x-2">
-              <IconButton
-                onClick={() => {
-                  if (info.countProduct > 1) {
-                    info.countProduct--;
-                  }
-                  setRender((prev) => !prev);
-                }}
-                size="sm"
-                variant="filled"
-                color="red"
-              >
-                <Remove />
-              </IconButton>
-              <Typography variant="h5">{info.countProduct}</Typography>
-              <IconButton
-                onClick={() => {
-                  info.countProduct++;
-                  setRender((prev) => !prev);
-                }}
-                size="sm"
-                variant="filled"
-                color="red"
-              >
-                <Add />
-              </IconButton>
-            </div>
+            <Tabs value="info" className="w-full max-w-3xl mx-auto py-5">
+              <TabsHeader>
+                <Tab value={"info"}>Tavsif</Tab>
+                <Tab value={"shortly"}>Qisqacha</Tab>
+                <Tab value={"delivery"}>Yetkazib berish</Tab>
+              </TabsHeader>
+              <TabsBody>
+                <TabPanel className="w-full max-w-3xl mx-auto" value={"info"}>
+                  {Boolean(info.description) ? (
+                    info.description.map((item, index) => {
+                      return <p key={index}>{item}</p>;
+                    })
+                  ) : (
+                    <div>
+                      <Typography>Hech qanday malumot mavjud emas</Typography>
+                    </div>
+                  )}
+                </TabPanel>
+                <TabPanel
+                  className="w-full max-w-3xl mx-auto"
+                  value={"shortly"}
+                >
+                  {info.shortly ? (
+                    info.shortly.map((item, index) => {
+                      return <li key={index}>{item}</li>;
+                    })
+                  ) : (
+                    <div>
+                      <Typography>Hech qanday malumot mavjud emas</Typography>
+                    </div>
+                  )}
+                </TabPanel>
+                <TabPanel
+                  value={"delivery"}
+                  className="w-full max-w-2xl space-y-5 text-black"
+                >
+                  <Typography variant="h5">Yetkazib berish</Typography>
+                  <div>
+                    <p>Toshkent bo'ylab yetkazib berish</p>
+                    <p className="text-gray-700">
+                      Narxi 100.000 so'mdan, ombordada mavjud bo'lgan mebel bir
+                      soat ichida yetkazib beriladi, biz sizga buyurtmani
+                      joylashtirishda aniq vaqt haqida xabar beramiz.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p>Boshqa hududlar</p>
+                    <p className="text-gray-700">
+                      Xarajat va shartlarni alohida hisoblab chiqamiz, batafsil
+                      ma'lumot uchun mutaxassislarimizga murojaat qiling.
+                    </p>
+                  </div>
+                  <div>
+                    <p>Kompaniyadan olib ketish</p>
+                    <p className="text-gray-700">
+                      Buyurtmani quyidagi manzildan olishingiz mumkin: <br />{" "}
+                      Toshkent, Olmaliq K: No312
+                    </p>
+                  </div>
+
+                  <p className="text-gray-700">
+                    Ish vaqti: ish kunlari 09:00 dan 18:00 gacha, yakshanba kuni
+                    10:00 dan 15:00 gacha.
+                  </p>
+                </TabPanel>
+              </TabsBody>
+            </Tabs>
           </div>
         )}
       </div>

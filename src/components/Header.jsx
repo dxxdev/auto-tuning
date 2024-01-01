@@ -159,15 +159,32 @@ const Header = () => {
           onClose={() => setOpenAlert(false)}
           className={`rounded-none ${styles.container} relative flex justify-center items-center overflow-hidden py-2`}
         >
-          <img src={aksiyaImg} className="absolute rotate-180 -top-full left-0" alt="" />
-          <img src={aksiyaImg} className="absolute rotate-90 -top-28 right-32" alt="" />
+          <img
+            src={aksiyaImg}
+            className="absolute rotate-180 -top-full left-0"
+            alt=""
+          />
+          <img
+            src={aksiyaImg}
+            className="absolute rotate-90 -top-28 right-32"
+            alt=""
+          />
           <img src={aksiyaImg} className="absolute rotate-45 " alt="" />
-          <img src={aksiyaImg} className="absolute -rotate-45 right-1/4" alt="" />
+          <img
+            src={aksiyaImg}
+            className="absolute -rotate-45 right-1/4"
+            alt=""
+          />
           <div className="flex justify-center relative z-[999] items-center gap-10">
             <Typography variant="h5" className="tracking-wider">
               02.04.2024 gacha bazi tovarlarga chegirma!
             </Typography>
-            <Button onClick={()=>navigate("/Aksiya")} variant="filled" color="white" size="sm">
+            <Button
+              onClick={() => navigate("/Aksiya")}
+              variant="filled"
+              color="white"
+              size="sm"
+            >
               Aksiyani ko'rish
             </Button>
           </div>

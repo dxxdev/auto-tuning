@@ -165,15 +165,30 @@ import {
   eshikChiroq2,
   eshikChiroq3,
   eshikChiroq4,
+  videoRegistrator41,
+  videoRegistrator42,
+  videoRegistrator43,
+  videoRegistrator44,
+  videoRegistrator45,
+  videoRegistrator46,
+  oqStikeri1,
+  oqStikeri2,
+  oqStikeri3,
+  ledYoritgichRGB1,
+  ledYoritgichRGB2,
+  ledYoritgichRGB3,
+  ledYoritgichRGB4,
+  ledYoritgichRGB5,
 } from "../assets/images";
 import { toast } from "react-toastify";
 
-export const products = [
+export let products = [
   {
     id: randomId(),
     productName: `Avtomobil rul g'ilofi "Uglerod", ramkasiz`,
-    description:
+    description: [
       "O'rnatish oson va eski yoki iflos rulning ko'rinishini bir zumda yaxshilaydi. Klassik ko'rinishga ega, turli uslublar dizayni bilan silliq va bardoshli PU teridan qilingan. Universal qopqoq ko'pchilik avtomobillarga mos keladi. Asl rulni, issiqlikka chidamli va aşınmaya bardoshli himoya qilishda har qanday avtomobilga qulaylik va moda uslubini qo'shadi.",
+    ],
     category: "Salon jihozlari",
     images: [
       rulQoplamasi1,
@@ -204,8 +219,9 @@ export const products = [
   {
     id: randomId(),
     productName: "Avtomobil saloniga dumaloq soatlar AMG",
-    description:
+    description: [
       "Avtomobil saloniga dumaloq soatlar AMG - Soat kvarts, avtomobil logotipi bilan Shisha siferblat Orqa qismi metalldan yasalgan va konus shaklida Tashqi qismning tagida tekislik yuzasi bor, bu soatni tekis yuzaga o'rnatishga imkon beradi. To'plam shtativ bilan birga keladi, uning yordamida soat deflektorga (konditsioner panjarasiga) o'rnatiladi. Korpus chiqariladi. Diametri: 40 mm To'plamda: soat, buragich, shtativ, yopishtiruvchi fiksator, batareya. Batareyalar bilan ishlash.",
+    ],
     category: "Salon jihozlari",
     images: [soat1, soat2, soat3, soat4],
     shortly: [
@@ -226,16 +242,18 @@ export const products = [
     top: false,
     saved: false,
     isItNew: true,
-    inAction: false,
+    inAction: true,
     recommend: false,
     viewed: false,
   },
   {
     id: randomId(),
     productName: `Avtomobil telefon ushlagich`,
-    description:
+    description: [
       "Qulay, ixcham telefon ushlagichi, haydovchining ko'rishiga xalaqit bermaydi, har qanday avtomobil interyeriga mos keladi, uyda foydalansa ham buladi. Tezda asboblar paneliga yoki boshqa tekis yuzaga o'rnatiladi va harakatlanayotganda sakrab tushmaydi. O'z o'qi atrofida 360 daraja aylanadi. Juda yuqori sifatli materialdan tayyorlangan, deformatsiyaga, tirnalishga va tirnalishga chidamli. Bundan tashqari, u barmoq izlarini qoldirmaydi va chang cho'kmaydi. Sifatli mustahkam mahkamlash tizimi bilan jihozlangan.",
+    ],
     category: "Suvenirlar",
+    shortly: undefined,
     images: [
       phoneStend1,
       phoneStend2,
@@ -257,10 +275,10 @@ export const products = [
   },
   {
     id: randomId(),
-    productName:
-      "Avtomobil faralari uchun svetodiodli LED tasma, 60 sm",
-    description:
+    productName: "Avtomobil faralari uchun svetodiodli LED tasma, 60 sm",
+    description: [
       "Avtomobil farasi uchun svetodoidli tasma Ranglari: oq+sariq, qizil+sariq, muzli ko'k+sariq, pushti+sariq, ko'k+sariq rang. Suv o'tkazmaydi.",
+    ],
     category: "Avto bezaklar",
     images: [ledTasma1, ledTasma2, ledTasma3, ledTasma4],
     shortly: [
@@ -288,31 +306,15 @@ export const products = [
     id: randomId(),
     productName:
       "Avtomobil monitori Lenovo 10.2 9, 4+64 2+32 Gentra Lasetti Cobalt Nexia3 Spark +Ramka",
-    description: `Avtomobil monitori Lenovo 10.2 / 9, 4+64/ 2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan fotosurat2 Gb RAM va 32 Gb o'rnatilgan xotira va 1,3 GH 32 bit chastotali 4 yadroli protsessorga ega CC2L Plus bort kompyuteri, mukammal dasturiy ta'minot muvozanatli va muammosiz ishlaydi.
-
-
-
-    Qurilmadagi o'rnatilgan WiFi antennalari tufayli Internetga kirish har doim mumkin.
-    
-    
-    
-    1280x720 o‘lchamli va IPS+2,5D 16:9 matritsasiga ega 9,0 dyuymli ekranda barcha ranglar va bo‘yoqlar har qanday burchakdan mukammal ko‘rinadi. Displey yorqin orqa yorug‘likka ega va hatto quyosh nurida ham barcha boshqaruv elementlari ko‘rinadi.
-    
-    
-    
-    Qurilmada ko'plab ilovalar allaqachon o'rnatilgan (Yandex + Google Play va boshqalar).
-    
-    
-    
-    Shuningdek, flesh-disklar, DVR va shinalar bosimi sensorlarini ulashingiz mumkin bo'lgan ikkita USB chiqishi mavjud.
-    
-    
-    
-    Qurilma NXP6856+RDS radio moduli, TDA7388 ovoz kuchaytirgichi bilan jihozlangan va 16 diapazonli ekvalayzerga ega. Kutish rejimida radio 10 mA quvvat sarflaydi. Bluetooth sinxronizatsiyasi yordamida siz qo'ng'iroqlarni qabul qilishingiz va qurilmaning o'zida musiqa tinglashingiz mumkin.
-    
-    
-    
-    Universal 2DIN (ramka o'lchami 178x102 mm), ko'plab modellarga mos keladi: Kia, Hyundai, Nissan, Honda, Volkswagen, Subaru, Toyota, Lexus, Mitsubishi, Ford, Chevrolet, Citroen, Datsun, Daewoo, Fiat, Opel, Audi, BMW , Mercedes, Peugeot, Mazda, Skoda, Suzuki, Renault, Lifan, SsangYong, Chery, Lada, Lada, VAZ, UAZ, Gazelle, Gaz va boshqalar.`,
+    description: [
+      `Avtomobil monitori Lenovo 10.2 / 9, 4+64/ 2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan fotosurat2 Gb RAM va 32 Gb o'rnatilgan xotira va 1,3 GH 32 bit chastotali 4 yadroli protsessorga ega CC2L Plus bort kompyuteri, mukammal dasturiy ta'minot muvozanatli va muammosiz ishlaydi.`,
+      `Qurilmadagi o'rnatilgan WiFi antennalari tufayli Internetga kirish har doim mumkin.`,
+      `1280x720 o‘lchamli va IPS+2,5D 16:9 matritsasiga ega 9,0 dyuymli ekranda barcha ranglar va bo‘yoqlar har qanday burchakdan mukammal ko‘rinadi. Displey yorqin orqa yorug‘likka ega va hatto quyosh nurida ham barcha boshqaruv elementlari ko‘rinadi.`,
+      `Qurilmada ko'plab ilovalar allaqachon o'rnatilgan (Yandex + Google Play va boshqalar).`,
+      `Shuningdek, flesh-disklar, DVR va shinalar bosimi sensorlarini ulashingiz mumkin bo'lgan ikkita USB chiqishi mavjud.`,
+      `Qurilma NXP6856+RDS radio moduli, TDA7388 ovoz kuchaytirgichi bilan jihozlangan va 16 diapazonli ekvalayzerga ega. Kutish rejimida radio 10 mA quvvat sarflaydi. Bluetooth sinxronizatsiyasi yordamida siz qo'ng'iroqlarni qabul qilishingiz va qurilmaning o'zida musiqa tinglashingiz mumkin.`,
+      `Universal 2DIN (ramka o'lchami 178x102 mm), ko'plab modellarga mos keladi: Kia, Hyundai, Nissan, Honda, Volkswagen, Subaru, Toyota, Lexus, Mitsubishi, Ford, Chevrolet, Citroen, Datsun, Daewoo, Fiat, Opel, Audi, BMW , Mercedes, Peugeot, Mazda, Skoda, Suzuki, Renault, Lifan, SsangYong, Chery, Lada, Lada, VAZ, UAZ, Gazelle, Gaz va boshqalar.`,
+    ],
     category: "Monitorlar",
     shortly: undefined,
     images: [monitor31, monitor32, monitor33],
@@ -330,7 +332,9 @@ export const products = [
   {
     id: randomId(),
     productName: `Avtomashinalar uchun vertalyotli atir avtomobil o'rindig'ining xushbo'y terapiyasi`,
-    description: `Avtomashinalar uchun vertalyotli atir, avtomobil o'rindig'ining xushbo'y terapiyasi, salonga xit beruvchi atir, avtomashina uchun suvener`,
+    description: [
+      `Avtomashinalar uchun vertalyotli atir, avtomobil o'rindig'ining xushbo'y terapiyasi, salonga xit beruvchi atir, avtomashina uchun suvener`,
+    ],
     category: "Suvenirlar",
     images: [
       vertolyotliAtir1,
@@ -353,7 +357,37 @@ export const products = [
   {
     id: randomId(),
     productName: `Radar Neoline X-COP 7500s`,
-    description: `Uzoq masofali o'ta sezgir • radio moduli EXD (X, K, Ka, Laser) • Z signatur filtri • 45 mamlakat politsiya radarlari va kameralarining GPS bazasi • (Rossiya federatsiyasi, Evropa Ittifoqi, Belorusiya, Qozog'iston, O'zbekiston, Ozarbayjon, Armaniston, Gruziya va boshqalar) • Politsiyani aniqlash radiosi • strelka radarlari • Yo'l harakati qoidalarini nazorat qilish kameralari haqida ogohlantirish (ajratilgan chiziq, "orqa tomonga" fotofiksatsiya, yo'l cheti, chorraha, svetofor, piyodalar o'tish joyi) • 45 turdagi statsionar radarlar haqida ovozli ogohlantirish • OLED displey • Displeyda politsiya radariga / tezlik / ruxsat etilgan tezlik / o'rtacha tezlikka joriy masofani ko'rsatish/ • signal kuchi / politsiya radarining nomlari • Shahar / Trek / Turbo Rejimlari / Х-СОР • Xavfli va yolg'on zonalarni qo'shish • Xavfli va yolg'on zonalar radiusini o'rnatish • Sukunat Rejimi • GPS ustuvorligi • Maksimal tezlik • Ruxsat etilgan tezlikni oshirish • Rus tilidagi ovozli maslahatlar • Ovozli ogohlantirish • Ovozni avtomatik o'chirish • Ovoz balandligini sozlash • Yorqinlikni sozlash • Demo rejimi • Aniqlash masofasi 2,5 km gacha • VG-2 aniqlashdan himoya / Spectre 4 • Mini USB port orqali dasturiy ta'minotni yangilash • Kirish kuchlanishi 12V • 2 yillik kafolat • Koreyada ishlab chiqarilgan`,
+    description: [
+      `Uzoq masofali o'ta sezgir `,
+      `radio moduli EXD (X, K, Ka, Laser)`,
+      `Z signatur filtri`,
+      `45 mamlakat politsiya radarlari va kameralarining GPS bazasi`,
+      `(Rossiya federatsiyasi, Evropa Ittifoqi, Belorusiya, Qozog'iston, O'zbekiston, Ozarbayjon, Armaniston, Gruziya va boshqalar)`,
+      `Politsiyani aniqlash radiosi`,
+      `strelka radarlari`,
+      `Yo'l harakati qoidalarini nazorat qilish kameralari haqida ogohlantirish (ajratilgan chiziq, "orqa tomonga" fotofiksatsiya, yo'l cheti, chorraha, svetofor, piyodalar o'tish joyi)`,
+      `45 turdagi statsionar radarlar haqida ovozli ogohlantirish`,
+      `OLED displey`,
+      `Displeyda politsiya radariga / tezlik / ruxsat etilgan tezlik / o'rtacha tezlikka joriy masofani ko'rsatish, signal kuchi / politsiya radarining nomlari`,
+      `Shahar / Trek / Turbo Rejimlari / Х-СОР`,
+      `Xavfli va yolg'on zonalarni qo'shish`,
+      `Xavfli va yolg'on zonalar radiusini o'rnatish`,
+      `Sukunat Rejimi`,
+      `GPS ustuvorligi`,
+      `Maksimal tezlik`,
+      `Ruxsat etilgan tezlikni oshirish`,
+      `Rus tilidagi ovozli maslahatlar`,
+      `Ovozli ogohlantirish`,
+      `Ovozni avtomatik o'chirish`,
+      `Ovoz balandligini sozlash`,
+      `Yorqinlikni sozlash`,
+      `Demo rejimi`,
+      `Aniqlash masofasi 2,5 km gacha`,
+      `VG-2 aniqlashdan himoya / Spectre 4`,
+      `Mini USB port orqali dasturiy ta'minotni yangilash`,
+      `Kirish kuchlanishi 12V`,
+      `2 yillik kafolat • Koreyada ishlab chiqarilgan`,
+    ],
     category: "Antiradarlar",
     images: [
       antiradar1,
@@ -364,6 +398,7 @@ export const products = [
       antiradar6,
       antiradar7,
     ],
+    shortly: undefined,
     price: 920000,
     rating: 5,
     inTheCart: false,
@@ -377,9 +412,28 @@ export const products = [
   },
   {
     id: randomId(),
+    productName: "Avtomabilingizga o'q tekkanday ko'rsatuvchi stiker",
+    description: ["Avtomabilingizga o'q tekkanday ko'rsatuvchi stiker"],
+    category: "Avto bezaklar",
+    images: [oqStikeri1, oqStikeri2, oqStikeri3],
+    shortly: undefined,
+    price: 15000,
+    rating: 5,
+    inTheCart: false,
+    countProduct: 1,
+    top: true,
+    saved: false,
+    isItNew: true,
+    inAction: false,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
     productName: "Avtomobil radiosi DV-Pioneer ok AH-777",
-    description:
+    description: [
       "Avtomobil radiosi DV-Pioneer.ok AH-777 android - da, 2 + 32 Gb, 7 dyuym. Avtomobil radiosi har qanday avtomobil uchun mos keladi, mosligi 99%. Radio sizning haydash vaqtingizni juda yaxshi yoritadi.",
+    ],
     category: "Monitorlar",
     shortly: [
       "Android Tizimi",
@@ -423,8 +477,9 @@ export const products = [
     id: randomId(),
     productName:
       "Radar detektor SilverStone F1 Hybrid S-Bot Pro+Videoregistrator",
-    description:
+    description: [
       "-SilverStone F1 HYBRID S-bot PRO omni Vision 4689 matritsasi Tayvanning taniqli ishlab chiqaruvchisi ait 8339 protsessori bilan birgalikda kunduzi, kechasi, alacakaranlıkta, kam yorug'lik va har qanday ob-havo sharoitida aniq tasvirni taqdim etadi. Olti qavatli shisha linza va 145° ob'ektiv ko'rish burchagi dvrning mukammal kombinatsiyasini to'ldiradi. Superhd 1296p video o'lchamlari avtomobil oldida sodir bo'ladigan barcha voqealarni yozib olishni ta'minlaydi.",
+    ],
     category: "Antiradarlar",
     shortly: [
       "Yengilangan soxta signallarni filtrlash tizimi",
@@ -450,8 +505,9 @@ export const products = [
   {
     id: randomId(),
     productName: `Hidli mashina va quyosh energiyasi bilan ishlaydigan Vertolyot`,
-    description:
+    description: [
       "Avtomobil saloni uchun zamonaviy aksessuar - bu vertolyot shaklidagi havo spreyi. Helicopter avtomobil xushbo'yligi erkaklar va ayollar uchun sovg'a sifatida mos keladi! Avtomobil havo spreyi quyosh nurlari quyosh paneliga tushganda aylanadigan vint bilan jihozlangan. Vertolyot engil, yoqimli hidli aromatik moy va pipetka bilan birga keladi. Vertolyotning orqa qopqog'i olib tashlanadi, uning ichida yog'ni tomizish kerak bo'lgan dumaloq yog'och blok bor. Siz o'zingizning sevimli xushbo'y moyingizdan bir tomchi qo'shib, maxsus moy tugaganidan keyin ham avtomobil hididan foydalanishingiz mumkin. Havo spreyi uy, ofis, avtomobil uchun mos keladi.",
+    ],
     category: "Suvenirlar",
     images: [
       vertolyotliAtir21,
@@ -480,7 +536,9 @@ export const products = [
   {
     id: randomId(),
     productName: "Radar-detektor SilverStone F1 MONACO S (UZ)",
-    description: `SilverStone F1 Monaco S radar detektori eng ilg'or texnologiyalar asosida ishlaydi, u radar qismi, GPS qabul qiluvchisi va maxsus imzo taxtasining funksionalligini birlashtiradi.`,
+    description: [
+      `SilverStone F1 Monaco S radar detektori eng ilg'or texnologiyalar asosida ishlaydi, u radar qismi, GPS qabul qiluvchisi va maxsus imzo taxtasining funksionalligini birlashtiradi.`,
+    ],
     category: "Antiradarlar",
     shortly: [
       "O‘zbekistonda barcha turdagi radarlarni qabul qilishga moslashtirilgan",
@@ -506,6 +564,7 @@ export const products = [
     productName:
       "Avtomobillar uchun atir,globusli atir,quyoshdan quvvat olip aylanadigan globusli atir",
     category: "Suvenirlar",
+    description: undefined,
     images: [globusliAtir1, globusliAtir2, globusliAtir3],
     shortly: [
       "Globusli atir,quyoshdan quvvat olip aylanadi,avtomashina saloniga chiroyli xit beradi",
@@ -528,9 +587,11 @@ export const products = [
     id: randomId(),
     productName:
       "Mobile holder 360*c aylanadigan telefon ushlagich holder barcha telefonga",
-    description:
+    description: [
       "Mobile holder 360*c aylanadigan telefon ushlagich holder barcha telefonga. Asboblar panelidagi avtomobil ushlagichi 360 graduslik sozlanishi egilish burchagiga ega bo‘lib, u g‘ildirak ortidagi haydovchining qulayligi va qulayligini ta’minlaydi. Po‘lat plastinka ushlagichning mahkam joylashishini va strukturasi mustahkam bo‘lishini ta’minlaydi va magnit silkinish vaqtida smartfonning chiqib ketishiga yo‘l qo‘ymaydi.",
+    ],
     category: "Suvenirlar",
+    shortly: undefined,
     images: [
       phoneStend21,
       phoneStend22,
@@ -554,14 +615,16 @@ export const products = [
     id: randomId(),
     productName:
       "Batareya bilan ishlaydigan namlagich, metall korpus, ko'p rangli yorug'lik bilan",
-    description: `Spray hajmi: 25-40ml/soat: <br />
-    Metall korpus <br />
-    Namlagich kichik xona yoki avtomobil ichki qismi uchun mo'ljallangan;<br/>
-    Nominal kuchlanish: DC5V; <br />
-    Nominal oqim: 300mA;<br/>
-    Quvvat USB porti (quvvat kabeli bilan birga) orqali ta'minlanadi, u qurilmaga o'rnatilgan batareya yordamida ham ishlashi mumkin.<br/>
-    Tank hajmi: 300 ml;<br/>
-    Birinchi marta ishlatishdan oldin paxta sumkasini oling, uni 5 daqiqa davomida suvga botiring.`,
+    description: [
+      `Spray hajmi: 25-40ml/soat:`,
+      `Metall korpus`,
+      `Namlagich kichik xona yoki avtomobil ichki qismi uchun mo'ljallangan;`,
+      `Nominal kuchlanish: DC5V;`,
+      `Nominal oqim: 300mA;`,
+      `Quvvat USB porti (quvvat kabeli bilan birga) orqali ta'minlanadi, u qurilmaga o'rnatilgan batareya yordamida ham ishlashi mumkin.`,
+      `Tank hajmi: 300 ml;`,
+      `Birinchi marta ishlatishdan oldin paxta sumkasini oling, uni 5 daqiqa davomida suvga botiring.`,
+    ],
     category: "Suvenirlar",
     images: [
       havoNamlagich1,
@@ -591,23 +654,13 @@ export const products = [
   {
     id: randomId(),
     productName: "Orqa ko'rish kamerasi bilan DVR",
-    description: `DVR oyna avtomobil-bu oddiy orqa ko'rinish oynasi va DVR funksiyalarini birlashtirgan mustahkam qurilma. Bu haydash paytida xavfsizlik va qulaylikni ta'minlaydi.
-
-
-
-    Ushbu DVR ikkita linzaga ega va yuqori aniqlikdagi Full HD 1080p videolarni yozib olish imkonini beradi. haydash paytida siz aniq va aniq videoni olishingiz va yo'lda muhim daqiqalarni saqlashingiz mumkin.
-    
-    
-    
-    Orqa ko'zgu tufayli siz mashinangiz orqasida nima bo'layotganini osongina boshqarishingiz mumkin, bu ayniqsa to'xtash yoki teskari manevrlarda foydalidir.
-    
-    
-    
-    Qurilma DVR-ni osongina sozlash va boshqarish imkonini beruvchi qulay interfeysga ega. Katta va yorqin ekran ajoyib ko'rinish va foydalanish qulayligini ta'minlaydi.
-    
-    
-    
-    Ushbu qurilma avtomobilingiz uchun ishonchli va funktsional qo'shimcha bo'lib, yo'lda xavfsiz bo'lishingizga yordam beradi va sayohatingizni yanada qulay qiladi.`,
+    description: [
+      "DVR oyna avtomobil-bu oddiy orqa ko'rinish oynasi va DVR funksiyalarini birlashtirgan mustahkam qurilma. Bu haydash paytida xavfsizlik va qulaylikni ta'minlaydi.",
+      "Ushbu DVR ikkita linzaga ega va yuqori aniqlikdagi Full HD 1080p videolarni yozib olish imkonini beradi. haydash paytida siz aniq va aniq videoni olishingiz va yo'lda muhim daqiqalarni saqlashingiz mumkin.",
+      "Orqa ko'zgu tufayli siz mashinangiz orqasida nima bo'layotganini osongina boshqarishingiz mumkin, bu ayniqsa to'xtash yoki teskari manevrlarda foydalidir.",
+      "Qurilma DVR-ni osongina sozlash va boshqarish imkonini beruvchi qulay interfeysga ega. Katta va yorqin ekran ajoyib ko'rinish va foydalanish qulayligini ta'minlaydi.",
+      "Ushbu qurilma avtomobilingiz uchun ishonchli va funktsional qo'shimcha bo'lib, yo'lda xavfsiz bo'lishingizga yordam beradi va sayohatingizni yanada qulay qiladi.",
+    ],
     category: "Videoregistratorlar",
     images: [
       videoRegistrator1,
@@ -637,15 +690,17 @@ export const products = [
     id: randomId(),
     productName:
       "Avtomobil, uy, ofis uchun o'rnatilgan qayta zaryadlanuvchi batareya va USB bilan namlagich",
-    description: `Namlagich kichik xona yoki avtomobil ichki qismi uchun mo'ljallangan;<br/>
-    Nominal kuchlanish: DC5V;<br/>
-    Nominal oqim: 300mA;<br/>
-    Quvvat USB porti (quvvat kabeli bilan birga) orqali ta'minlanadi, u qurilmaga o'rnatilgan batareya yordamida ham ishlashi mumkin.<br/>
-    Ish vaqti: taxminan 4 soat (doimiy buzadigan amallar), taxminan 6 soat (intervalli buzadigan amallar);<br/>
-    Tank hajmi: 300 ml;<br/>
-    Atomizatsiya hajmi: 25-40ml/soat;<br/>
-    Materiallar: ABS/PP/silikon; Og'irligi: 150 g.<br/>
-    Hajmi: 69*69*152 mm;`,
+    description: [
+      `Namlagich kichik xona yoki avtomobil ichki qismi uchun mo'ljallangan;`,
+      `Nominal kuchlanish: DC5V;`,
+      `Nominal oqim: 300mA;`,
+      `Quvvat USB porti (quvvat kabeli bilan birga) orqali ta'minlanadi, u qurilmaga o'rnatilgan batareya yordamida ham ishlashi mumkin.`,
+      `Ish vaqti: taxminan 4 soat (doimiy buzadigan amallar), taxminan 6 soat (intervalli buzadigan amallar);`,
+      `Tank hajmi: 300 ml;`,
+      `Atomizatsiya hajmi: 25-40ml/soat;`,
+      `Materiallar: ABS/PP/silikon; Og'irligi: 150 g.`,
+      `Hajmi: 69*69*152 mm;`,
+    ],
     category: "Suvenirlar",
     images: [
       havoNamlagich21,
@@ -674,19 +729,55 @@ export const products = [
   },
   {
     id: randomId(),
+    productName:
+      "Avtomobil ichki qismi uchun LED RGB yoritgichi, ovoz boshqaruvchisi",
+    description: [
+      "Atmosferadagi ko'p rangli LED avtomobil ichki yoritgichi musiqaga ta'sir qiluvchi yorug'lik effektlari, masofadan boshqarish pulti va USB ulanish vilkasi bilan LED RGB. 18 ish rejimi: 8 xil rang, 4 engil musiqa rejimi, 4 rang o'tish rejimi, shuningdek, orqa yorug'lik yorqinligi darajasini sozlash. Masofadan boshqarish pulti yordamida siz rang, yorqinlik va yorug'lik effektlarini boshqarishingiz mumkin. LED boshqaruv bloki o'rnatilgan mikrofon bilan jihozlangan (musiqaga javob beradigan ovoz sensori), audio tizimga ulanishni talab qilmaydi. Siz shunchaki oʻzingiz xohlagan musiqani yoqasiz, oyoq chiroqlari esa musiqa ritmiga mos rang oʻtishlarini yaratadi. Ushbu qurilma yordamida siz o'zingiz xohlagan muhitni yaratishingiz mumkin: kayfiyatingizga qarab romantik, dam oluvchi yoki klub. Ushbu avtomobil yoritgichi sevimli odamingiz, do'stingiz, eringiz, o'g'lingiz yoki otangiz uchun har qanday vaziyatda ajoyib va ​​unutilmas sovg'a bo'ladi!",
+    ],
+    category: "Avto bezaklar",
+    images: [
+      ledYoritgichRGB1,
+      ledYoritgichRGB2,
+      ledYoritgichRGB3,
+      ledYoritgichRGB4,
+      ledYoritgichRGB5,
+    ],
+    shortly: [
+      "48 ta yorqin RGB LED",
+      "Har qanday avtomobilning ichki qismiga osongina o'rnatiladi",
+      "Ta'minot zo'riqishida: USB-5V yoki Sigaret zajigalka-12V",
+      "Audio tizimga ulanmasdan musiqaga moslashadi",
+      "Masofadan boshqarish pulti (shu jumladan)",
+      "8 ta rang: qizil, ko'k, oq, yashil, sariq, to'q sariq, pushti, binafsha",
+    ],
+    price: 99000,
+    rating: 5,
+    inTheCart: false,
+    countProduct: 1,
+    top: false,
+    saved: false,
+    isItNew: false,
+    inAction: false,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
     productName: "Havo namlagich USB Aroma Humidifier",
-    description: `Havo namlagichi avtomobilda, kichik turar-joy yoki ofis maydonida qulay mikroiqlimni ta'minlaydi.<br/>
-    U quvvatni USB porti (quvvat kabeli bilan birga) orqali oladi va qurilmaga o'rnatilgan batareya yordamida ham ishlashi mumkin. Siz uni avtomobilingizning sigaret chiroqiga yoki noutbukingizga ulashingiz mumkin. Mini namlagich ikki rejimda ishlaydi: 4 soat davomida uzluksiz bug' yoki 6 soat davomida qisqa vaqt oralig'ida.<br/>
-    Orqa yorug'lik ikkita rejimda taqdim etiladi: oq yoki ko'p rangli ranglar va uni o'chirish ham mumkin. Hosildorlik 40 ml / soat, tank 300 ml ushlab turadi, bu 6 soat ishlash uchun etarli. Suv bo'lmasa, namlagich avtomatik ravishda o'chadi.<br/>
-    Namlagich o'zgaruvchan ranglarga ega orqa yorug'likka ega va tanada joylashgan tugmani bosish orqali boshqariladi.<br/>
-    Namlagich kichik xona yoki avtomobil ichki qismi uchun mo'ljallangan;<br/>
-    Nominal kuchlanish: DC5v;<br/>
-    Nominal oqim: 300mA;<br/>
-    Ish vaqti: taxminan 4 soat (uzluksiz buzadigan amallar), taxminan 6 soat (intervalli buzadigan amallar);<br/>
-    Tank hajmi: 300 ml;<br/>
-    Spray hajmi: 25-40 ml/soat;<br/>
-    O'lchami: 69 * 69 * 152 mm;<br/>
-    Materiallar: ABS/PP/silikon; Og'irligi: 150gr`,
+    description: [
+      `Havo namlagichi avtomobilda, kichik turar-joy yoki ofis maydonida qulay mikroiqlimni ta'minlaydi.`,
+      `U quvvatni USB porti (quvvat kabeli bilan birga) orqali oladi va qurilmaga o'rnatilgan batareya yordamida ham ishlashi mumkin. Siz uni avtomobilingizning sigaret chiroqiga yoki noutbukingizga ulashingiz mumkin. Mini namlagich ikki rejimda ishlaydi: 4 soat davomida uzluksiz bug' yoki 6 soat davomida qisqa vaqt oralig'ida.`,
+      `Orqa yorug'lik ikkita rejimda taqdim etiladi: oq yoki ko'p rangli ranglar va uni o'chirish ham mumkin. Hosildorlik 40 ml / soat, tank 300 ml ushlab turadi, bu 6 soat ishlash uchun etarli. Suv bo'lmasa, namlagich avtomatik ravishda o'chadi.`,
+      `Namlagich o'zgaruvchan ranglarga ega orqa yorug'likka ega va tanada joylashgan tugmani bosish orqali boshqariladi.`,
+      `Namlagich kichik xona yoki avtomobil ichki qismi uchun mo'ljallangan;`,
+      `Nominal kuchlanish: DC5v;`,
+      `Nominal oqim: 300mA;`,
+      `Ish vaqti: taxminan 4 soat (uzluksiz buzadigan amallar), taxminan 6 soat (intervalli buzadigan amallar);`,
+      `Tank hajmi: 300 ml;`,
+      `Spray hajmi: 25-40 ml/soat;`,
+      `O'lchami: 69 * 69 * 152 mm;`,
+      `Materiallar: ABS/PP/silikon; Og'irligi: 150gr`,
+    ],
     category: "Suvenirlar",
     images: [havoNamlagich31, havoNamlagich32, havoNamlagich33],
     shortly: [
@@ -713,9 +804,11 @@ export const products = [
   {
     id: randomId(),
     productName: `Avtomobil uchun quyosh energiyasida ishlovchi hushbo'y hid taratuvchi atir`,
-    description:
+    description: [
       "Avtomobil uchun quyosh energiyasida ishlaydi. Quyoshda aylanib hushbo'y hid taratadi.",
+    ],
     category: "Suvenirlar",
+    shortly: undefined,
     images: [globusliAtir21, globusliAtir22, globusliAtir23],
     price: 127000,
     rating: 5,
@@ -732,31 +825,15 @@ export const products = [
     id: randomId(),
     productName:
       "Avtomobil monitorlari Teyes CC2L Plus 10.2 2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan",
-    description: `Avtomobil monitorlari Teyes CC2L Plus 10.2/2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan fotosurat2 Gb RAM va 32 Gb o'rnatilgan xotira va 1,3 GH 32 bit chastotali 4 yadroli protsessorga ega CC2L Plus bort kompyuteri, mukammal dasturiy ta'minot muvozanatli va muammosiz ishlaydi.
-
-
-
-    Qurilmadagi o'rnatilgan WiFi antennalari tufayli Internetga kirish har doim mumkin.
-    
-    
-    
-    1280x720 o‘lchamli va IPS+2,5D 16:9 matritsasiga ega 9,0 dyuymli ekranda barcha ranglar va bo‘yoqlar har qanday burchakdan mukammal ko‘rinadi. Displey yorqin orqa yorug‘likka ega va hatto quyosh nurida ham barcha boshqaruv elementlari ko‘rinadi.
-    
-    
-    
-    Qurilmada ko'plab ilovalar allaqachon o'rnatilgan (Yandex + Google Play va boshqalar).
-    
-    
-    
-    Shuningdek, flesh-disklar, DVR va shinalar bosimi sensorlarini ulashingiz mumkin bo'lgan ikkita USB chiqishi mavjud.
-    
-    
-    
-    Qurilma NXP6856+RDS radio moduli, TDA7388 ovoz kuchaytirgichi bilan jihozlangan va 16 diapazonli ekvalayzerga ega. Kutish rejimida radio 10 mA quvvat sarflaydi. Bluetooth sinxronizatsiyasi yordamida siz qo'ng'iroqlarni qabul qilishingiz va qurilmaning o'zida musiqa tinglashingiz mumkin.
-    
-    
-    
-    Universal 2DIN (ramka o'lchami 178x102 mm), ko'plab modellarga mos keladi: Kia, Hyundai, Nissan, Honda, Volkswagen, Subaru, Toyota, Lexus, Mitsubishi, Ford, Chevrolet, Citroen, Datsun, Daewoo, Fiat, Opel, Audi, BMW , Mercedes, Peugeot, Mazda, Skoda, Suzuki, Renault, Lifan, SsangYong, Chery, Lada, Lada, VAZ, UAZ, Gazelle, Gaz va boshqalar.`,
+    description: [
+      `Avtomobil monitorlari Teyes CC2L Plus 10.2/2+32 Gentra, Lasetti Cobalt, Nexia3 ramka bilan fotosurat2 Gb RAM va 32 Gb o'rnatilgan xotira va 1,3 GH 32 bit chastotali 4 yadroli protsessorga ega CC2L Plus bort kompyuteri, mukammal dasturiy ta'minot muvozanatli va muammosiz ishlaydi.`,
+      `Qurilmadagi o'rnatilgan WiFi antennalari tufayli Internetga kirish har doim mumkin.`,
+      `1280x720 o‘lchamli va IPS+2,5D 16:9 matritsasiga ega 9,0 dyuymli ekranda barcha ranglar va bo‘yoqlar har qanday burchakdan mukammal ko‘rinadi. Displey yorqin orqa yorug‘likka ega va hatto quyosh nurida ham barcha boshqaruv elementlari ko‘rinadi.`,
+      `Qurilmada ko'plab ilovalar allaqachon o'rnatilgan (Yandex + Google Play va boshqalar).`,
+      `Shuningdek, flesh-disklar, DVR va shinalar bosimi sensorlarini ulashingiz mumkin bo'lgan ikkita USB chiqishi mavjud.`,
+      `Qurilma NXP6856+RDS radio moduli, TDA7388 ovoz kuchaytirgichi bilan jihozlangan va 16 diapazonli ekvalayzerga ega. Kutish rejimida radio 10 mA quvvat sarflaydi. Bluetooth sinxronizatsiyasi yordamida siz qo'ng'iroqlarni qabul qilishingiz va qurilmaning o'zida musiqa tinglashingiz mumkin.`,
+      `Universal 2DIN (ramka o'lchami 178x102 mm), ko'plab modellarga mos keladi: Kia, Hyundai, Nissan, Honda, Volkswagen, Subaru, Toyota, Lexus, Mitsubishi, Ford, Chevrolet, Citroen, Datsun, Daewoo, Fiat, Opel, Audi, BMW , Mercedes, Peugeot, Mazda, Skoda, Suzuki, Renault, Lifan, SsangYong, Chery, Lada, Lada, VAZ, UAZ, Gazelle, Gaz va boshqalar.`,
+    ],
     category: "Monitorlar",
     images: [
       monitor1,
@@ -812,9 +889,11 @@ export const products = [
   {
     id: randomId(),
     productName: `Avtomobil uchun havo hushbo'ylagich "Samolyot"`,
-    description:
+    description: [
       "Ushbu havo spreyi yuqori qismida quyosh sensori paneli bilan jihozlangan, qiruvchi pichoqlar quyosh porlaganda avtomatik ravishda aylanadi. Quyosh paneli sensori juda sezgir, hatto past nurli qurilma ham ishlashi mumkin va batareyalarni talab qilmaydi, shuning uchun siz uni uyingizga yoki mashinangizga ajoyib qo'shimcha sifatida ishlatishingiz mumkin va u bulutli kunlarda ham tashqarida ishlashi mumkin. . Vertolyot shaklidagi havo spreyi hidni yaxshiroq taqsimlash va bug'lanishni yaxshilash uchun qiruvchi qanotlardan foydalanadi. Agar ishlatilsa, to'plamga kiritilgan efir moyini tomizing. Mahsulot atrof-muhitni ifloslantirmaydi va bolalar va homilador ayollar uchun ishlatilishi mumkin.",
+    ],
     category: "Suvenirlar",
+    shortly: undefined,
     images: [
       samolyotliAtir1,
       samolyotliAtir2,
@@ -838,10 +917,12 @@ export const products = [
     id: randomId(),
     productName:
       "Avtomobil telefon ushlagichi Car Mobile Phone Bracket H-XP329",
-    description: `Bir tugma bilan avtomatik taymer va bir qo'l bilan qisqich! 1 soniya ichida - o'zingiznikini joylashtiring yoki olib tashlang. bilan ishlash juda oson.<br/>
-    Ushbu avtomobil telefon ushlagichi 4 dan 6,8 dyuymgacha bo'lgan barcha turdagi smartfonlar uchun javob beradi.<br/>
-    Ushbu avtomobil o'rnatish moslamasi qalin silikondan tayyorlangan bo'lib, u chaqaloq terisiga o'xshaydi. Yumshoq yuza haydash paytida tirnamasdan telefonga mahkam yopishadi. mobil telefon beshikdagi chaqaloqqa o'xshaydi.<br/>
-    Koptokning boshi kerakli burchak ostida 360 daraja erkin aylanish imkonini beradi. Kengaytiriladigan kronshteyn sizga eng qulay burchakni ta'minlab, avtomobil telefoningiz moslamasini ideal balandlikka moslashtirishga yordam beradi.`,
+    description: [
+      `Bir tugma bilan avtomatik taymer va bir qo'l bilan qisqich! 1 soniya ichida - o'zingiznikini joylashtiring yoki olib tashlang. bilan ishlash juda oson.`,
+      `Ushbu avtomobil telefon ushlagichi 4 dan 6,8 dyuymgacha bo'lgan barcha turdagi smartfonlar uchun javob beradi.`,
+      `Ushbu avtomobil o'rnatish moslamasi qalin silikondan tayyorlangan bo'lib, u chaqaloq terisiga o'xshaydi. Yumshoq yuza haydash paytida tirnamasdan telefonga mahkam yopishadi. mobil telefon beshikdagi chaqaloqqa o'xshaydi.`,
+      `Koptokning boshi kerakli burchak ostida 360 daraja erkin aylanish imkonini beradi. Kengaytiriladigan kronshteyn sizga eng qulay burchakni ta'minlab, avtomobil telefoningiz moslamasini ideal balandlikka moslashtirishga yordam beradi.`,
+    ],
     category: "Suvenirlar",
     images: [
       phoneStend31,
@@ -870,27 +951,15 @@ export const products = [
   {
     id: randomId(),
     productName: "Nakamichi avtomobil monitori",
-    description: `nakamichi sifatli manitor car play bor usb orqali car playni ishlatsa boladi Jentra, Lacetti,Nexia 3, Cobalt,Spark tushadi
-
-    sensor fleshka bor
-    
-     
-    
-    “Elite_tuning” do'koni jamoasi bizning do'konimizni tanlaganingiz uchun sizga minnatdorchilik bildiradi. Biz do'konni yanada qulayroq qilishga harakat qilamiz va har bir mijozni qadrlaymiz. Biz faqat sifatli mahsulotlarni arzon narxlarda olib kelamiz. Mijozlarimizdan fikr-mulohazalarni olish biz uchun juda muhim, agar siz mahsulotni olgan bo'lsangiz va sizga yoqqan bo'lsa, sharhlarda bu haqda bizga yozing.
-    
-    
-    
-    Agar biron sababga ko'ra mahsulot tavsifga mos kelmasa, salbiy sharhlar yozishga shoshilmang, ilova chatida biz bilan bog'laning, biz har qanday muammoga imkon qadar tezroq yechim topamiz.
-    
-    Sotib olish uchun uni savatga qo'shing
-    
-    
-    
-    Bizning do'konimizda siz Turli xil gadjetlarning keng assortimenti topishingiz mumkin!
-    
-    
-    
-    Haridingiz Xayrli va Barakalibulsin`,
+    description: [
+      `nakamichi sifatli manitor car play bor usb orqali car playni ishlatsa boladi Jentra, Lacetti,Nexia 3, Cobalt,Spark tushadi`,
+      `sensor fleshka bor`,
+      `“Elite_tuning” do'koni jamoasi bizning do'konimizni tanlaganingiz uchun sizga minnatdorchilik bildiradi. Biz do'konni yanada qulayroq qilishga harakat qilamiz va har bir mijozni qadrlaymiz. Biz faqat sifatli mahsulotlarni arzon narxlarda olib kelamiz. Mijozlarimizdan fikr-mulohazalarni olish biz uchun juda muhim, agar siz mahsulotni olgan bo'lsangiz va sizga yoqqan bo'lsa, sharhlarda bu haqda bizga yozing.`,
+      `Agar biron sababga ko'ra mahsulot tavsifga mos kelmasa, salbiy sharhlar yozishga shoshilmang, ilova chatida biz bilan bog'laning, biz har qanday muammoga imkon qadar tezroq yechim topamiz.`,
+      `Sotib olish uchun uni savatga qo'shing`,
+      `Bizning do'konimizda siz Turli xil gadjetlarning keng assortimenti topishingiz mumkin!`,
+      `Haridingiz Xayrli va Barakalibulsin`,
+    ],
     category: "Monitorlar",
     images: [monitor21, monitor22, monitor23, monitor24],
     shortly: undefined,
@@ -908,9 +977,11 @@ export const products = [
   {
     id: randomId(),
     productName: "Mobil telefon ushlagich holder 2-xil turdagi mahsulot",
-    description:
+    description: [
       "Mobil avtomobil ushlagich, mobil aloqa vositalarini avtomobilda ishonchli o'rnatishni ta'minlaydi. Funksionalligi tufayli mobil avtomobil ushlagichi turli o'lchamdagi smartfonlar uchun mos keladi.",
+    ],
     category: "Suvenirlar",
+    shortly: undefined,
     images: [
       phoneStend41,
       phoneStend42,
@@ -933,8 +1004,9 @@ export const products = [
   {
     id: randomId(),
     productName: "Orqa ko'rinish kamerasi bilan DVR oynasi 2 tasi 1 da",
-    description:
+    description: [
       "Diktofonning dizayni orqa ko'zgu ko'rinishida yaratilgan, shuning uchun hech kim uni yozib olish moslamasi ekanligiga shubha qilmaydi. Displey o'chirilganda, magnitafon oyna sifatida ishlatilishi mumkin, video yozish esa avtomatik ravishda davom etadi. Rangli LCD displey oynaning o'ng tomonida joylashgan va diagonali 4,3 dyuymga teng.",
+    ],
     category: "Videoregistratorlar",
     images: [
       videoRegistrator21,
@@ -971,8 +1043,10 @@ export const products = [
   {
     id: randomId(),
     productName: `Avtomobil uchun havo xushbo'ylantirgich`,
-    description: `Ushbu havo spreyi tepasida quyosh sensorli panel bilan jihozlangan, quyosh porlayotganida, samolyotning tepasidagi eshkak avtomatik ravishda aylanadi. Quyosh sensori paneli yorug'lik kam bo'lsa, juda sezgir va batareyalarni talab qilmaydi, shuning uchun siz uni uyingiz yoki mashinangizga ajoyib qo'shimcha sifatida ishlatishingiz va bulutli kunlarda ochiq havoda ishlashingiz mumkin. hidni yo'q qiladi va bug'lanishni yaxshilaydi. Foydalanishda kiritilgan efir moyini tushiring. Mahsulot ifloslantiruvchi emas va bolalar va homilador ayollar uchun ishlatilishi mumkin.<br/>
-    Qayta ishlatiladigan avtomobil havo spreyi. Xushbo'y hidli shisha, mashinada xushbo'y hid uchun ichki membrana. To'plamdagi elita avtomobil parfyum o'zingiz va yaqinlaringiz uchun ajoyib sovg'a bo'ladi. Avtomobil havo spreyi avtomobilning gorizontal yuzasiga ishonchli tarzda o'rnatiladi. Vertolyot bilan birga mashinada 5 ml hajmdagi atir shishasi ham bor. Avtomobilda yoqimli aromaterapiya kafolatlanadi. Vertolyotga yonilg'i quyish uchun har qanday xushbo'y moydan foydalanishingiz mumkin. Bu shunchaki avtomobildagi hid emas, balki avtomobil saloni uchun zamonaviy aksessuar, avtomobil havo spreyi, aromatik bezak, avtomobil parfyumeriyasi, avtomobil havo spreyi. Sevimli insoningiz, do'stingiz, dadangiz, hamkasbingiz uchun noyob va original sovg'a.`,
+    description: [
+      `Ushbu havo spreyi tepasida quyosh sensorli panel bilan jihozlangan, quyosh porlayotganida, samolyotning tepasidagi eshkak avtomatik ravishda aylanadi. Quyosh sensori paneli yorug'lik kam bo'lsa, juda sezgir va batareyalarni talab qilmaydi, shuning uchun siz uni uyingiz yoki mashinangizga ajoyib qo'shimcha sifatida ishlatishingiz va bulutli kunlarda ochiq havoda ishlashingiz mumkin. hidni yo'q qiladi va bug'lanishni yaxshilaydi. Foydalanishda kiritilgan efir moyini tushiring. Mahsulot ifloslantiruvchi emas va bolalar va homilador ayollar uchun ishlatilishi mumkin.`,
+      `Qayta ishlatiladigan avtomobil havo spreyi. Xushbo'y hidli shisha, mashinada xushbo'y hid uchun ichki membrana. To'plamdagi elita avtomobil parfyum o'zingiz va yaqinlaringiz uchun ajoyib sovg'a bo'ladi. Avtomobil havo spreyi avtomobilning gorizontal yuzasiga ishonchli tarzda o'rnatiladi. Vertolyot bilan birga mashinada 5 ml hajmdagi atir shishasi ham bor. Avtomobilda yoqimli aromaterapiya kafolatlanadi. Vertolyotga yonilg'i quyish uchun har qanday xushbo'y moydan foydalanishingiz mumkin. Bu shunchaki avtomobildagi hid emas, balki avtomobil saloni uchun zamonaviy aksessuar, avtomobil havo spreyi, aromatik bezak, avtomobil parfyumeriyasi, avtomobil havo spreyi. Sevimli insoningiz, do'stingiz, dadangiz, hamkasbingiz uchun noyob va original sovg'a.`,
+    ],
     category: "Suvenirlar",
     images: [vertolyotliAtir31, vertolyotliAtir32, vertolyotliAtir33],
     shortly: [
@@ -998,17 +1072,19 @@ export const products = [
     id: randomId(),
     productName:
       "Havo namlagichi avtomobil, uy, va ofis uchun, o'rnatilgan akkumulyatorli va USB",
-    description: `Havo namlagichi avtomobilda, kichik turar-joy yoki ofis maydonida qulay mikroiqlimni ta'minlaydi.<br/>
-    Quvvat USB port orqali (quvvat kabeli kiritilgan) ta'minlanadi, u qurilmaga o'rnatilgan batareya yordamida ham ishlashi mumkin. Siz uni avtomobilingizning sigaret chiroqqa yoki noutbukiga ulashingiz mumkin. Mini namlagich ikki rejimda ishlaydi: 4 soat davomida uzluksiz bug 'yoki 6 soat davomida qisqa vaqt oralig'ida.<br/>
-    Orqa yorug'lik ikki rejimda amalga oshiriladi: oq yoki ko'p rangli to'lib-toshgan, u ham o'chirilishi mumkin. Imkoniyati 40 ml/soat, tank 300 ml sig'imga ega, bu 6 soatlik ish uchun etarli. Suv yo'q bo'lganda, namlagich avtomatik o'chirishga o'tadi.<br/>
-    Namlagich ranglarini o'zgartiradigan orqa yorug'likka ega, boshqaruv korpusda joylashgan tugmani bosish orqali amalga oshiriladi.<br/>
-    Namlagichni ishlatish bo'yicha maslahatlar:<br/>
-    1. Namlagichning yuqori qopqog'ini oching.<br/>
-    2. Birinchi marta ishlatishdan oldin paxta sumkasini olib tashlang, 5 daqiqa davomida suvga botiring.<br/>
-    3. Filtrni plastmassaga soling, uni namlagich qopqog'iga mahkam va ehtiyotkorlik bilan burab qo'ying.<br/>
-    3. Namlagich idishining ichiga suv qo'shing.<br/>
-    4. USB quvvat manbaiga ulang.<br/>
-    5. Bundan tashqari, suvga bir-ikki tomchi lazzat qo'shishingiz mumkin.`,
+    description: [
+      `Havo namlagichi avtomobilda, kichik turar-joy yoki ofis maydonida qulay mikroiqlimni ta'minlaydi.`,
+      `Quvvat USB port orqali (quvvat kabeli kiritilgan) ta'minlanadi, u qurilmaga o'rnatilgan batareya yordamida ham ishlashi mumkin. Siz uni avtomobilingizning sigaret chiroqqa yoki noutbukiga ulashingiz mumkin. Mini namlagich ikki rejimda ishlaydi: 4 soat davomida uzluksiz bug 'yoki 6 soat davomida qisqa vaqt oralig'ida.`,
+      `Orqa yorug'lik ikki rejimda amalga oshiriladi: oq yoki ko'p rangli to'lib-toshgan, u ham o'chirilishi mumkin. Imkoniyati 40 ml/soat, tank 300 ml sig'imga ega, bu 6 soatlik ish uchun etarli. Suv yo'q bo'lganda, namlagich avtomatik o'chirishga o'tadi.`,
+      `Namlagich ranglarini o'zgartiradigan orqa yorug'likka ega, boshqaruv korpusda joylashgan tugmani bosish orqali amalga oshiriladi.`,
+      `Namlagichni ishlatish bo'yicha maslahatlar:`,
+      `Namlagichning yuqori qopqog'ini oching.`,
+      `Birinchi marta ishlatishdan oldin paxta sumkasini olib tashlang, 5 daqiqa davomida suvga botiring.`,
+      `Filtrni plastmassaga soling, uni namlagich qopqog'iga mahkam va ehtiyotkorlik bilan burab qo'ying.`,
+      `Namlagich idishining ichiga suv qo'shing.`,
+      `USB quvvat manbaiga ulang.`,
+      `Bundan tashqari, suvga bir-ikki tomchi lazzat qo'shishingiz mumkin.`,
+    ],
     category: "Suvenirlar",
     images: [
       havoNamlagich41,
@@ -1037,7 +1113,9 @@ export const products = [
     id: randomId(),
     productName:
       "Avtomobil ruli uchun issiq mexlik g'ilof, razmeri universal qishki chexol, polik 37-39 sm",
-    description: `Avtomobil ruli uchun g'ilof, puxli chexol, polik, torpeda, glam universal o'lcham 37-39 sm`,
+    description: [
+      `Avtomobil ruli uchun g'ilof, puxli chexol, polik, torpeda, glam universal o'lcham 37-39 sm`,
+    ],
     category: "Salon jihozlari",
     images: [
       rulQoplamasi21,
@@ -1067,7 +1145,7 @@ export const products = [
     id: randomId(),
     productName:
       "Avtomobil ruli uchun g'ilof Kolibri, universal o'lcham, 37-39 sm",
-    description: "Avtomobil ruli uchun chexol, g'ilof",
+    description: ["Avtomobil ruli uchun chexol, g'ilof"],
     category: "Salon jihozlari",
     images: [
       rulQoplamasi31,
@@ -1102,8 +1180,9 @@ export const products = [
     id: randomId(),
     productName:
       "Universal avtomobil eshigi Chevrolet logotipli LED lazer proyektori",
-    description:
+    description: [
       "Yuqori samaradorlik, energiya tejash, ifloslanish, shovqin, elektron shovqin yo'q. Avtomobil yorug'lik manbai, yuqori o'tkazuvchanlik AC linzalari tendentsiyasida etakchi. Eshik ochilganda ko'r-ko'rona imo-ishora chiroqlari va signal chiroqlari, eshik yopilganda ko'r-ko'rona ishora chiroqlari va signal chiroqlari yopiladi. Haydashni yanada qiziqarli qiling. Yorqin belgilar va signal chiroqlari yerga ko'rsatiladi.",
+    ],
     category: "Avto bezaklar",
     images: [eshikChiroq1, eshikChiroq2, eshikChiroq3, eshikChiroq4],
     shortly: [
@@ -1130,10 +1209,40 @@ export const products = [
   {
     id: randomId(),
     productName:
+      "Alpine Avtomobil videoregistrator- oyna orqani korish kamerasi bilan Full HD 1080P",
+    description: [
+      "Alpine Avtomobil videoregistrator- oyna orqani korish kamerasi bilan Full HD 1080P",
+    ],
+    category: "Videoregistratorlar",
+    images: [
+      videoRegistrator41,
+      videoRegistrator42,
+      videoRegistrator43,
+      videoRegistrator44,
+      videoRegistrator45,
+      videoRegistrator46,
+    ],
+    shortly: undefined,
+    price: 1190000,
+    rating: 5,
+    inTheCart: false,
+    countProduct: 1,
+    top: true,
+    saved: false,
+    isItNew: false,
+    inAction: false,
+    recommend: false,
+    viewed: false,
+  },
+  {
+    id: randomId(),
+    productName:
       "Radar detektori Neoline X-COP 8800 Wi-Fi, sovg'a sifatida Avtomobil zaryadlovchi",
-    description: `O'ZBEKISTONNING NOYOB GPS RADAR VA KAMERALAR BAZASI<br/>
-    An'anaga ko'ra, NEOLINE qurilmalarida Rossiya federatsiyasi+MDH va xalqaro kameralar va radarlar bazalari mavjud. Hammasi bo'lib 120 mingdan ortiq nuqta. Ammo biz bir qadam oldinga bordik va x-COP 8800 Wi-Fi-da biz O'zbekistonning noyob, eng to'liq GPS bazasini taklif etamiz, bu raqobatchilar orasida o'xshash emas.<br/>
-    Saytda haftada bir marta GPS bazasini yangilashni unutmang www.neoline.ru va siz O'zbekiston yo'llarida biron bir yangi kamerani Sog'inmaysiz.`,
+    description: [
+      `O'ZBEKISTONNING NOYOB GPS RADAR VA KAMERALAR BAZASI`,
+      `An'anaga ko'ra, NEOLINE qurilmalarida Rossiya federatsiyasi+MDH va xalqaro kameralar va radarlar bazalari mavjud. Hammasi bo'lib 120 mingdan ortiq nuqta. Ammo biz bir qadam oldinga bordik va x-COP 8800 Wi-Fi-da biz O'zbekistonning noyob, eng to'liq GPS bazasini taklif etamiz, bu raqobatchilar orasida o'xshash emas.`,
+      `Saytda haftada bir marta GPS bazasini yangilashni unutmang www.neoline.ru va siz O'zbekiston yo'llarida biron bir yangi kamerani Sog'inmaysiz.`,
+    ],
     category: "Antiradarlar",
     images: [antiradar21, antiradar22, antiradar23, antiradar24, antiradar25],
     shortly: [
@@ -1163,8 +1272,9 @@ export const products = [
     id: randomId(),
     productName:
       "Avtomobil videoregistrator- oyna orqani korish kamerasi bilan Full HD 1080P",
-    description:
+    description: [
       "Oynadagi ikki kamerali videoregistrator. Qurilma orqa ko'zgu ko'rinishida ishlab chiqarilgan, buning natijasida u begonalar uchun deyarli sezilmaydi va ko'rinishga xalaqit bermaydi. Universal o'rnatish moslamalari deyarli har qanday avtomobilning standart orqa ko'zgusiga shikast etkazmasdan o'rnatishga imkon beradi. Ko'rish burchagi 170 ° bo'lgan shisha linzalar qatnov qismining butun kengligi bo'ylab, shu jumladan piyodalar yo'laklari bo'ylab harakatlanish holatini videoga olish imkonini beradi. Ixtiyoriy kamera 90 ° burchakka ega va u avtomobil ichidagi yoki orqasidagi vaziyatni suratga olish uchun ishlatilishi mumkin.",
+    ],
     category: "Videoregistratorlar",
     shortly: [
       "Til: rus tili bor",
@@ -1356,5 +1466,23 @@ export const scrollTop = () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
+  });
+};
+
+export const clearCart = () => {
+  products = products.map((product) => ({
+    ...product,
+    inTheCart: false,
+  }));
+
+  toast.success("Adminga yuborildi", {
+    position: "bottom-right",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: false,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
   });
 };
