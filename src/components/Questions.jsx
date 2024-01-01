@@ -37,7 +37,7 @@ const Questions = () => {
     const text = `Mijozdan savol keldi❕ \n\nTelefon raqami: +${phoneNumber} \n\nSavol: ${message}`;
 
     try {
-      if (message.trim() !== "" || phoneNumber.trim() !== "") {
+      if (message.trim() !== "" && phoneNumber.trim() !== "") {
         await axios.post(
           `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
           {
@@ -55,6 +55,17 @@ const Questions = () => {
           progress: undefined,
           theme: "light",
         });
+      } else {
+        toast.error("Formani to'ldirib qayta urining", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
 
       // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
@@ -62,16 +73,29 @@ const Questions = () => {
       setMessage("");
       handleOpen();
     } catch (error) {
-      toast.error("Yuborishdagi xatolik", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      if (phoneNumber.trim() !== "" && message.trim() !== "") {
+        toast.error("Tarmoqdagi xato", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        toast.error("Formani to'ldiring", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 

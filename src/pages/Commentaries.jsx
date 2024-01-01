@@ -37,23 +37,36 @@ const Commentaries = () => {
     const text = `Mijoz sharh qoldirdi❕ \n\nIsmi: ${userName}\n\n E-pochta: ${email}\n\n Baholash: ${rating}ta yulduzcha\n\n Izoh: ${message}`;
 
     try {
-      await axios.post(
-        `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
-        {
-          chat_id: chatId,
-          text,
-        }
-      );
-      toast.success("Yuborildi", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      if (message != "" && email != "" && userName != "" && rating != 0) {
+        await axios.post(
+          `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
+          {
+            chat_id: chatId,
+            text,
+          }
+        );
+        toast.success("Yuborildi", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        toast.error("Formani to'ldirib qayta urining", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
 
       // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
       setUserName("");
@@ -61,16 +74,29 @@ const Commentaries = () => {
       setEmail("");
       setRating(0);
     } catch (error) {
-      toast.error("Yuborilmadi", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      if (message != "" && email != "" && userName != "" && rating != 0) {
+        toast.error("Tarmoqdagi xato", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        toast.error("Formani to'ldiring", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 

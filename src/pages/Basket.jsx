@@ -54,7 +54,7 @@ const Basket = ({ rendered }) => {
       .replaceAll(",", " ")}so'm`;
 
     try {
-      if (address.trim() !== "" || clientName.trim() !== "") {
+      if (address.trim() !== "" && clientName.trim() !== "") {
         await axios.post(
           `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
           {
@@ -64,22 +64,45 @@ const Basket = ({ rendered }) => {
         );
         clearCart();
         setRender((prev) => !prev);
+      } else {
+        toast.error("Formani to'ldirib qayta urining", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
 
       setClientName("");
       setAddress("");
     } catch (error) {
-      console.error("Telegramga xabar yuborishda xatolik:", error);
-      toast.error("Yuborishdagi xatolik", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      if (address.trim() !== "" && clientName.trim() !== "") {
+        toast.error("Tarmoqdagi xato", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        toast.error("Formani to'ldiring", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 

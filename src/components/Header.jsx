@@ -26,6 +26,7 @@ import {
 } from "@mui/icons-material";
 import { products, scrollTop } from "../data/data";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -117,7 +118,7 @@ const Header = () => {
 
   const [phoneNumber, setphoneNumber] = useState("");
   const [message, setMessage] = useState("");
-  const [userName, setUserName] = useState("unnamed");
+  const [userName, setUserName] = useState("");
 
   const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
   const chatId = 1825061365;
@@ -126,17 +127,46 @@ const Header = () => {
     e.preventDefault();
 
     const text = `Mijozdan murojaat❕\n\n Telegram: ${
-      userName !== "unnamed" ? "@" : ""
+      userName != "" ? "@" : ""
     }${userName}\n\n Telefon raqami: +${phoneNumber}\n\n Xabar: ${message}`;
 
     try {
-      await axios.post(
-        `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
-        {
-          chat_id: chatId,
-          text,
-        }
-      );
+      if (
+        phoneNumber.trim() !== "" &&
+        message.trim() !== "" &&
+        userName.trim() !== ""
+      ) {
+        await axios.post(
+          `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
+          {
+            chat_id: chatId,
+            text,
+          }
+        );
+        handleOpen();
+        toast.success("Yuborildi", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        handleOpen();
+        toast.error("Formani to'ldirib qayta urining", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
 
       // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
       setphoneNumber("");
@@ -144,7 +174,35 @@ const Header = () => {
       setMessage("");
       handleOpen();
     } catch (error) {
-      alert("Habar yuborishda xatolik:", error.message);
+      if (
+        phoneNumber.trim() !== "" &&
+        userName.trim() !== "" &&
+        message.trim() !== ""
+      ) {
+        handleOpen();
+        toast.error("Tarmoqdagi xato", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        handleOpen();
+        toast.error("Formani to'ldiring", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 
@@ -754,8 +812,8 @@ const Header = () => {
                 placeholder="Telegram username"
                 type="text"
                 onChange={(e) => {
-                  if (e.target.value.trim !== "") {
-                    setUserName(e.target.value.trim);
+                  if (e.target.value.trim() !== "") {
+                    setUserName(e.target.value.trim());
                   } else {
                     setUserName("unnamed");
                   }
@@ -784,6 +842,7 @@ const Header = () => {
           </Button>
         </DialogFooter>
       </Dialog>
+      <ToastContainer />
     </>
   );
 };
