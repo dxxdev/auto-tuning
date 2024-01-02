@@ -38,7 +38,7 @@ const Saved = () => {
     <div className={`${styles.container} py-2`}>
       <Typography
         variant="h1"
-        className="py-5 text-6xl font-normal tracking-[5px]"
+        className="py-5 text-4xl sm:text-6xl font-normal tracking-[5px]"
       >
         Saqlanganlar
       </Typography>

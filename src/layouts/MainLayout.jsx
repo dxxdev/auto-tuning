@@ -14,7 +14,9 @@ const MainLayout = ({ rendered }) => {
       <main className="grow">
         {!home && (
           <div className="md:pt-20 hidden md:block">
-            <Breadcrump />
+            <div className="hidden lg:block">
+              <Breadcrump />
+            </div>
           </div>
         )}
         <Outlet />

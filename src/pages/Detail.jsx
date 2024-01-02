@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { styles } from "../styles";
 import {
   Button,
-  Rating,
   Tab,
   TabPanel,
   Tabs,
@@ -17,7 +16,11 @@ import {
   AddShoppingCartOutlined,
   Bookmark,
   BookmarkBorderOutlined,
+  DeliveryDiningOutlined,
+  InfoOutlined,
   RemoveShoppingCartOutlined,
+  ShortTextOutlined,
+  Star,
 } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import "swiper/css";
@@ -187,17 +190,38 @@ const Detail = ({ rendered }) => {
               </Button>
             </div>
             <div className="flex justify-start items-center space-x-2 text-xs">
-              <Rating value={info.rating} readonly />
+              <Star className="text-yellow-800" />
               <Typography variant="lead">{info.rating}</Typography>
             </div>
             <Typography className="text-2xl py-5 sm:text-3xl lg:text-4xl">
               {info.productName}
             </Typography>
             <Tabs value="info" className="w-full max-w-3xl mx-auto py-5">
-              <TabsHeader>
-                <Tab value={"info"}>Tavsif</Tab>
-                <Tab value={"shortly"}>Qisqacha</Tab>
-                <Tab value={"delivery"}>Yetkazib berish</Tab>
+              <TabsHeader className="bg-red-900 bg-opacity-80">
+                <Tab value={"info"}>
+                  <div className="flex justify-center items-center space-x-2 text-white">
+                    <span>
+                      <InfoOutlined />
+                    </span>
+                    <span className="hidden sm:block lg:hidden xl:block">Tavsif</span>
+                  </div>
+                </Tab>
+                <Tab value={"shortly"}>
+                  <div className="flex justify-center items-center space-x-2 text-white">
+                    <span>
+                      <ShortTextOutlined />
+                    </span>
+                    <span className="hidden sm:block lg:hidden xl:block">Qisqacha</span>
+                  </div>
+                </Tab>
+                <Tab value={"delivery"}>
+                  <div className="flex justify-center items-center space-x-2 text-white">
+                    <span>
+                      <DeliveryDiningOutlined />
+                    </span>
+                    <span className="hidden sm:block lg:hidden xl:block">Yetkazib berish</span>
+                  </div>
+                </Tab>
               </TabsHeader>
               <TabsBody>
                 <TabPanel className="w-full max-w-3xl mx-auto" value={"info"}>
@@ -264,16 +288,17 @@ const Detail = ({ rendered }) => {
           </div>
         )}
       </div>
-      {products.find((product) => product.viewed == true) && (
+
+      {products.find((product) => product.recommend == true) && (
         <section className={`${styles.container}`}>
           <div className="py-5">
-            <Typography variant="h4">Ko'rilganlar</Typography>
+            <Typography variant="h4">Sizga yoqishi mumkin</Typography>
           </div>
           <ul
             className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
           >
             {products.map((product) => {
-              if (product.viewed) {
+              if (product.recommend) {
                 return (
                   <Products
                     rendered={rendered}
@@ -296,16 +321,16 @@ const Detail = ({ rendered }) => {
         </section>
       )}
 
-      {products.find((product) => product.recommend == true) && (
+      {products.find((product) => product.viewed == true) && (
         <section className={`${styles.container}`}>
           <div className="py-5">
-            <Typography variant="h4">Sizga yoqishi mumkin</Typography>
+            <Typography variant="h4">Ko'rilganlar</Typography>
           </div>
           <ul
             className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
           >
             {products.map((product) => {
-              if (product.recommend) {
+              if (product.viewed) {
                 return (
                   <Products
                     rendered={rendered}
