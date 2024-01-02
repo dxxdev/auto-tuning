@@ -70,6 +70,10 @@ import rulQoplamasi37 from "./img/rul-qoplamasi-3-7.jpg";
 import rulQoplamasi38 from "./img/rul-qoplamasi-3-8.jpg";
 import rulQoplamasi39 from "./img/rul-qoplamasi-3-9.jpg";
 import rulQoplamasi310 from "./img/rul-qoplamasi-3-10.jpg";
+import rulQoplamasi41 from "./img/rul-qoplamasi-4-1.jpg";
+import rulQoplamasi42 from "./img/rul-qoplamasi-4-2.jpg";
+import rulQoplamasi43 from "./img/rul-qoplamasi-4-3.jpg";
+import rulQoplamasi44 from "./img/rul-qoplamasi-4-4.jpg";
 import globusliAtir21 from "./img/globusli-atir-2-1.jpg";
 import globusliAtir22 from "./img/globusli-atir-2-2.jpg";
 import globusliAtir23 from "./img/globusli-atir-2-3.jpg";
@@ -180,6 +184,20 @@ import eshikChiroq4 from "./img/eshik-chiroq-4.jpg";
 import oqStikeri1 from "./img/oq-stikeri-1.jpg";
 import oqStikeri2 from "./img/oq-stikeri-2.jpg";
 import oqStikeri3 from "./img/oq-stikeri-3.jpg";
+import orindiqUchunChexol1 from "./img/orindiq-uchun-chexol-1.jpg";
+import orindiqUchunChexol2 from "./img/orindiq-uchun-chexol-2.jpg";
+import orindiqUchunChexol3 from "./img/orindiq-uchun-chexol-3.jpg";
+import orindiqUchunChexol4 from "./img/orindiq-uchun-chexol-4.jpg";
+import orindiqUchunChexol5 from "./img/orindiq-uchun-chexol-5.jpg";
+import yostiq1 from "./img/yostiq-1.jpg";
+import yostiq2 from "./img/yostiq-2.jpg";
+import yostiq3 from "./img/yostiq-3.jpg";
+import organayzer1 from "./img/organayzer-1.jpg";
+import organayzer2 from "./img/organayzer-2.jpg";
+import organayzer3 from "./img/organayzer-3.jpg";
+import organayzer4 from "./img/organayzer-4.jpg";
+import organayzer5 from "./img/organayzer-5.jpg";
+import organayzer6 from "./img/organayzer-6.jpg";
 
 import autoTuning from "./img/auto-tuning.jpg";
 import autoTuning1 from "./img/auto-tuning-1.jpg";
@@ -398,4 +416,22 @@ export {
   oqStikeri1,
   oqStikeri2,
   oqStikeri3,
+  orindiqUchunChexol1,
+  orindiqUchunChexol2,
+  orindiqUchunChexol3,
+  orindiqUchunChexol4,
+  orindiqUchunChexol5,
+  rulQoplamasi41,
+  rulQoplamasi42,
+  rulQoplamasi43,
+  rulQoplamasi44,
+  yostiq1,
+  yostiq2,
+  yostiq3,
+  organayzer1,
+  organayzer2,
+  organayzer3,
+  organayzer4,
+  organayzer5,
+  organayzer6,
 };
