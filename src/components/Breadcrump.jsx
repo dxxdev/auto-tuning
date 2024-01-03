@@ -1,7 +1,7 @@
 import { Breadcrumbs } from "@material-tailwind/react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { scrollTop } from "../data/data";
+import { category, products, scrollTop } from "../data/data";
 
 const Breadcrump = () => {
   const location = useLocation();
@@ -14,22 +14,50 @@ const Breadcrump = () => {
     return lastProductName;
   });
 
+  const companyArr = [
+    "Kompaniya haqida",
+    "Savatcha",
+    "Saqlanganlar",
+    "Katalog",
+    "Yetkazib berish va to'lash",
+    "Sharhlar",
+    "policy",
+    "Aksiya",
+  ];
+
   return (
-    <div className={`w-full relative max-w-[1440px] mx-auto`}>
+    <div
+      className={`w-full relative max-w-[1440px] mx-auto ${
+        products.includes(tayyorArr[0])
+          ? "block"
+          : companyArr.includes(tayyorArr[tayyorArr.length - 1])
+          ? "hidden"
+          : "block"
+      }`}
+    >
       <Breadcrumbs className="bg-white">
-        <Link className="text-gray-800" onClick={scrollTop} to="/">
-          Bosh sahifa
-        </Link>
+        {category.includes(tayyorArr[0]) && (
+          <Link className="text-gray-800" onClick={scrollTop} to="/">
+            Bosh sahifa
+          </Link>
+        )}
         {tayyorArr.map((path, index) => {
-          return index !== tayyorArr.length - 1 ? (
-            <Link onClick={scrollTop} key={index} className="text-gray-800" to={path}>
-              {path}
-            </Link>
-          ) : (
-            <p key={index} className="text-gray-600 cursor-not-allowed">
-              {path == "policy" ? "Maxfiylik siyosati" : path}
-            </p>
-          );
+          return index !== tayyorArr.length - 1
+            ? category.includes(path) && (
+                <Link
+                  onClick={scrollTop}
+                  key={index}
+                  className="text-gray-800"
+                  to={path}
+                >
+                  {path}
+                </Link>
+              )
+            : !companyArr.includes(path) && (
+                <p key={index} className="text-gray-600 cursor-not-allowed">
+                  {path}
+                </p>
+              );
         })}
       </Breadcrumbs>
     </div>

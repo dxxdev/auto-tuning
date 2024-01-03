@@ -18,6 +18,7 @@ import Payment from "./pages/Payment";
 import Commentaries from "./pages/Commentaries";
 import Action from "./pages/Action";
 import Policy from "./pages/Policy";
+import PageNotFound from "./pages/PageNotFound";
 
 const App = () => {
   const [render, setRender] = useState(true);
@@ -32,7 +33,11 @@ const App = () => {
         <Route index element={<Home rendered={rendered} />} />
         <Route path="/Savatcha" element={<Basket rendered={rendered} />} />
         <Route path="/Saqlanganlar" element={<Saved />} />
-        <Route path="/:category" element={<Category rendered={rendered} />} />
+        <Route
+          path="/:category"
+          element={<Category rendered={rendered} />}
+          errorElement={<PageNotFound />}
+        />
         <Route path="/Katalog" element={<Katalog />} />
         <Route path="/Kompaniya haqida" element={<FAQ />} />
         <Route path="/Yetkazib berish va to'lash" element={<Payment />} />
@@ -42,6 +47,7 @@ const App = () => {
         <Route
           path="/:category/:productName"
           element={<Detail rendered={rendered} />}
+          errorElement={<PageNotFound />}
         />
       </Route>
     )
