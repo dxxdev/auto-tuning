@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { filteredProductForId, products } from "../data/data";
+import { filteredProductForId, options, products } from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { styles } from "../styles";
 import {
@@ -25,7 +25,6 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Autoplay, Thumbs } from "swiper/modules";
 
@@ -196,6 +195,10 @@ const Detail = ({ rendered }) => {
             <Typography className="text-2xl py-5 sm:text-3xl lg:text-4xl">
               {info.productName}
             </Typography>
+            <Typography className="text-xl py-5 lg:text-4xl">
+              {info.price.toLocaleString("uz-UZ", options).replaceAll(",", " ")}{" "}
+              so'm <span>/</span> <sub>dona</sub>
+            </Typography>
             <Tabs value="info" className="w-full max-w-3xl mx-auto py-5">
               <TabsHeader className="bg-red-900 bg-opacity-80">
                 <Tab value={"info"}>
@@ -203,7 +206,9 @@ const Detail = ({ rendered }) => {
                     <span>
                       <InfoOutlined />
                     </span>
-                    <span className="hidden sm:block lg:hidden xl:block">Tavsif</span>
+                    <span className="hidden sm:block lg:hidden xl:block">
+                      Tavsif
+                    </span>
                   </div>
                 </Tab>
                 <Tab value={"shortly"}>
@@ -211,7 +216,9 @@ const Detail = ({ rendered }) => {
                     <span>
                       <ShortTextOutlined />
                     </span>
-                    <span className="hidden sm:block lg:hidden xl:block">Qisqacha</span>
+                    <span className="hidden sm:block lg:hidden xl:block">
+                      Qisqacha
+                    </span>
                   </div>
                 </Tab>
                 <Tab value={"delivery"}>
@@ -219,7 +226,9 @@ const Detail = ({ rendered }) => {
                     <span>
                       <DeliveryDiningOutlined />
                     </span>
-                    <span className="hidden sm:block lg:hidden xl:block">Yetkazib berish</span>
+                    <span className="hidden sm:block lg:hidden xl:block">
+                      Yetkazib berish
+                    </span>
                   </div>
                 </Tab>
               </TabsHeader>

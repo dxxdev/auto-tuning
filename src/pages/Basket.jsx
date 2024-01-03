@@ -6,17 +6,15 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Checkbox,
   IconButton,
   Input,
-  Radio,
   Typography,
 } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer, toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Pagination } from "swiper/modules";
 import {
   Add,
   AddShoppingCartOutlined,
@@ -169,13 +167,12 @@ const Basket = ({ rendered }) => {
                         to={`/${product.category}/${product.productName}`}
                       >
                         <Swiper
-                          navigation={true}
                           effect="fade"
                           pagination={{
                             clickable: true,
                           }}
                           loop={true}
-                          modules={[Pagination, Navigation, EffectFade]}
+                          modules={[Pagination, EffectFade]}
                           className="mySwiper relative rounded-lg"
                         >
                           {product.images.map((item, index) => {

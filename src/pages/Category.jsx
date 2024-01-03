@@ -4,7 +4,7 @@ import { addCartProduct, options, products, viewProduct } from "../data/data";
 import { styles } from "../styles";
 import { ToastContainer } from "react-toastify";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Pagination } from "swiper/modules";
 import {
   AddShoppingCartOutlined,
   Bookmark,
@@ -81,13 +81,12 @@ const Category = ({ rendered }) => {
                 to={`/${product.category}/${product.productName}`}
               >
                 <Swiper
-                  navigation={true}
                   effect="fade"
                   pagination={{
                     clickable: true,
                   }}
                   loop={true}
-                  modules={[Pagination, Navigation, EffectFade]}
+                  modules={[Pagination, EffectFade]}
                   className="mySwiper relative rounded-lg"
                 >
                   {product.images.map((item, index) => {

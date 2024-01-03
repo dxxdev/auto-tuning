@@ -5,10 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 import "../styles/swiperStyle.css";
 
-import { Pagination, Navigation, EffectFade } from "swiper/modules";
+import { Pagination, EffectFade } from "swiper/modules";
 import {
   AddShoppingCartOutlined,
   Bookmark,
@@ -48,13 +47,12 @@ const Products = ({
         }}
       >
         <Swiper
-          navigation={true}
           effect="fade"
           pagination={{
             clickable: true,
           }}
           loop={true}
-          modules={[Pagination, Navigation, EffectFade]}
+          modules={[Pagination, EffectFade]}
           className="mySwiper relative rounded-lg max-h-[400px]"
         >
           {productImages.map((item, index) => {
