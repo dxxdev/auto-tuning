@@ -45,9 +45,11 @@ const Basket = ({ rendered }) => {
 
     const text = `Mijoz mahsulot xarid qildi❕\n\n Manzil: ${address}\n\n Mijozning ism familiyasi: ${clientName}\n\n Sotib olganlari:\n ${inTheCartProduct.map(
       (product) => {
-        return `${product.productName} - ${product.countProduct}dona summa: ${
+        return `${product.productName} - ${product.countProduct}dona summa: ${(
           product.price * product.countProduct
-        }so'm\n\n`;
+        )
+          .toLocaleString("UZ-uz", options)
+          .replaceAll(",", " ")}so'm\n\n`;
       }
     )}\n\n Jami: ${totalSum
       .toLocaleString("uz-UZ", options)
@@ -119,7 +121,7 @@ const Basket = ({ rendered }) => {
   };
   useEffect(() => {
     filteredProductOnCart();
-  }, [render, products]);
+  }, [render, products, inTheCartProduct]);
 
   function calculateTotal(cartItems) {
     return cartItems.map(({ price, countProduct }) => price * countProduct);
@@ -393,7 +395,7 @@ const Basket = ({ rendered }) => {
             if (product.recommend) {
               return (
                 <Products
-                  rendered={setRender}
+                  rendered={rendered}
                   product={product}
                   productId={product.id}
                   productName={product.productName}
