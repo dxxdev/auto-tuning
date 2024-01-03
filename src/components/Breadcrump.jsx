@@ -32,7 +32,13 @@ const Breadcrump = () => {
           ? "block"
           : companyArr.includes(tayyorArr[tayyorArr.length - 1])
           ? "hidden"
-          : "block"
+          : products
+              .map((product) => product.productName)
+              .includes(tayyorArr[tayyorArr.length - 1])
+          ? "block"
+          : category.includes(tayyorArr[tayyorArr.length - 1])
+          ? "block"
+          : "hidden"
       }`}
     >
       <Breadcrumbs className="bg-white">

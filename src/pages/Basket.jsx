@@ -324,7 +324,7 @@ const Basket = ({ rendered }) => {
                   scrollTop();
                 }}
               >
-                Bosh saxifaga o'tish
+                Bosh sahifaga o'tish
               </Button>
             </div>
           )}

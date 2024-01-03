@@ -35,7 +35,7 @@ const Saved = () => {
   }, [render]);
 
   return (
-    <div className={`${styles.container} py-2`}>
+    <div className={`${styles.container} py-2 pb-5`}>
       <Typography
         variant="h1"
         className="py-5 text-4xl sm:text-6xl font-normal tracking-[5px]"
@@ -146,7 +146,7 @@ const Saved = () => {
               scrollTop();
             }}
           >
-            Bosh saxifaga o'tish
+            Bosh sahifaga o'tish
           </Button>
         </div>
       )}
