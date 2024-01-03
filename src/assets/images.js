@@ -155,6 +155,14 @@ import monitor33 from "./img/monitor-3-3.jpg";
 import monitor41 from "./img/monitor-4-1.jpg";
 import monitor42 from "./img/monitor-4-2.jpg";
 import monitor43 from "./img/monitor-4-3.jpg";
+import monitor51 from "./img/monitor-5-1.jpg";
+import monitor52 from "./img/monitor-5-2.jpg";
+import monitor53 from "./img/monitor-5-3.jpg";
+import monitor54 from "./img/monitor-5-4.jpg";
+import monitor55 from "./img/monitor-5-5.jpg";
+import monitor56 from "./img/monitor-5-6.jpg";
+import monitor61 from "./img/monitor-6-1.jpg";
+import monitor62 from "./img/monitor-6-2.jpg";
 import antiradar31 from "./img/antiradar-3-1.jpg";
 import antiradar32 from "./img/antiradar-3-2.jpg";
 import antiradar33 from "./img/antiradar-3-3.jpg";
@@ -262,6 +270,12 @@ export {
   antiradar22,
   antiradar23,
   antiradar24,
+  monitor51,
+  monitor52,
+  monitor53,
+  monitor54,
+  monitor55,
+  monitor56,
   antiradar25,
   phoneStend1,
   phoneStend2,
@@ -382,6 +396,8 @@ export {
   videoRegistrator38,
   videoRegistrator39,
   monitor1,
+  monitor61,
+  monitor62,
   monitor2,
   monitor3,
   monitor4,
