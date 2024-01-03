@@ -111,9 +111,9 @@ const Home = ({ rendered }) => {
             </SwiperSlide>
           );
         })}
-        <div className="z-[999] px-20 absolute left-0 bottom-0 hidden sm:block pb-[52px] md:pb-20 xl:pb-[152px]">
+        <div className="z-[999] px-20 absolute w-full left-0 bottom-0 hidden sm:block pb-[52px] md:pb-20 xl:pb-[152px]">
           <div className={`flex justify-between items-end ${styles.container}`}>
-            <div className="flex flex-col space-y-5 items-start h-24">
+            <div className="flex flex-col space-y-10 items-start h-24">
               <Typography
                 variant="h1"
                 color="white"
@@ -141,7 +141,7 @@ const Home = ({ rendered }) => {
           </Typography>
           <div className="flex w-full justify-center items-center py-5">
             {groupedTopProducts && groupedTopProducts.length > 0 && (
-              <Tabs value="allCategories" className={`${styles.container}`}>
+              <Tabs value="allCategories" className={`${styles.container} px-0 md:px-5`}>
                 <div className="flex justify-start items-center sm:justify-center scroll-none overflow-auto">
                   <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
                     <Tab

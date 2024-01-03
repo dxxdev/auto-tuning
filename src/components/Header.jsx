@@ -208,43 +208,45 @@ const Header = () => {
 
   return (
     <>
-      <div className="bg-red-500 hidden lg:block flex justify-center items-center">
-        <Alert
-          color="red"
-          open={openAlert}
-          onClose={() => setOpenAlert(false)}
-          className={`rounded-none ${styles.container} relative flex justify-center items-center overflow-hidden py-2`}
-        >
-          <img
-            src={aksiyaImg}
-            className="absolute rotate-180 -top-full left-0"
-            alt=""
-          />
-          <img
-            src={aksiyaImg}
-            className="absolute rotate-90 -top-28 right-32"
-            alt=""
-          />
-          <img src={aksiyaImg} className="absolute rotate-45 " alt="" />
-          <img
-            src={aksiyaImg}
-            className="absolute -rotate-45 right-1/4"
-            alt=""
-          />
-          <div className="flex justify-center relative z-[999] items-center gap-10">
-            <Typography variant="h5" className="tracking-wider">
-              02.04.2024 gacha bazi tovarlarga chegirma!
-            </Typography>
-            <Button
-              onClick={() => navigate("/Aksiya")}
-              variant="filled"
-              color="white"
-              size="sm"
-            >
-              Aksiyani ko'rish
-            </Button>
-          </div>
-        </Alert>
+      <div className="hidden lg:block">
+        <div className="bg-red-500 flex justify-center items-center">
+          <Alert
+            color="red"
+            open={openAlert}
+            onClose={() => setOpenAlert(false)}
+            className={`rounded-none ${styles.container} relative flex justify-center items-center overflow-hidden py-2`}
+          >
+            <img
+              src={aksiyaImg}
+              className="absolute rotate-180 -top-full left-0"
+              alt=""
+            />
+            <img
+              src={aksiyaImg}
+              className="absolute rotate-90 -top-28 right-32"
+              alt=""
+            />
+            <img src={aksiyaImg} className="absolute rotate-45 " alt="" />
+            <img
+              src={aksiyaImg}
+              className="absolute -rotate-45 right-1/4"
+              alt=""
+            />
+            <div className="flex justify-center relative z-[999] items-center gap-10">
+              <Typography variant="h5" className="tracking-wider">
+                02.04.2024 gacha tovarlarga chegirma!
+              </Typography>
+              <Button
+                onClick={() => navigate("/Aksiya")}
+                variant="filled"
+                color="white"
+                size="sm"
+              >
+                Aksiyani ko'rish
+              </Button>
+            </div>
+          </Alert>
+        </div>
       </div>
       <header className="md:bg-[#f5f5f5] bg-white bg-opacity-80 backdrop-blur-[8px] header py-3 md:py-4 z-[999] sticky top-0 md:static">
         <div
