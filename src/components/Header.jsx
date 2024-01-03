@@ -586,7 +586,13 @@ const Header = () => {
               })}
             </ul>
           )}
-          <li onClick={closeDrawer2} className="py-2">
+          <li
+            onClick={() => {
+              closeDrawer2();
+              openCatalog();
+            }}
+            className="py-2"
+          >
             <NavLink
               to={"/"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
@@ -605,7 +611,13 @@ const Header = () => {
               <span>Bosh sahifa</span>
             </NavLink>
           </li>
-          <li onClick={closeDrawer2} className="py-2">
+          <li
+            onClick={() => {
+              closeDrawer2();
+              openCatalog();
+            }}
+            className="py-2"
+          >
             <NavLink
               to={"/Kompaniya haqida"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
@@ -624,7 +636,13 @@ const Header = () => {
               <span>Kompaniya haqida</span>
             </NavLink>
           </li>
-          <li onClick={closeDrawer2} className="py-2">
+          <li
+            onClick={() => {
+              closeDrawer2();
+              openCatalog();
+            }}
+            className="py-2"
+          >
             <NavLink
               to={"/Sharhlar"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-2"
@@ -643,7 +661,13 @@ const Header = () => {
               <span>Sharhlar</span>
             </NavLink>
           </li>
-          <li onClick={closeDrawer2} className="py-2">
+          <li
+            onClick={() => {
+              closeDrawer2();
+              openCatalog();
+            }}
+            className="py-2"
+          >
             <NavLink
               to={"/Yetkazib berish va to'lash"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
@@ -662,7 +686,13 @@ const Header = () => {
               <span>Yetkazib berish va to'lash</span>
             </NavLink>
           </li>
-          <li onClick={closeDrawer2} className="py-2">
+          <li
+            onClick={() => {
+              closeDrawer2();
+              openCatalog();
+            }}
+            className="py-2"
+          >
             <NavLink
               to={"/Aksiya"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
