@@ -11,9 +11,11 @@ const PageNotFound = () => {
   }, []);
   return (
     <div
-      className={`${styles.container} py-10 space-y-5 flex flex-col justify-center items-center`}
+      className={`${styles.container} !px-0 py-10 space-y-5 flex flex-col justify-center items-center`}
     >
-      <img className="w-full max-w-xs" src={productNotFound} />
+      <div className="w-80 h-80">
+        <img src={productNotFound} alt="Not found img" />
+      </div>
       <Typography variant="h3">Sahifa topilmadi</Typography>
       <Button variant="gradient" onClick={() => navigate("/")} color="red">
         Bosh sahifa

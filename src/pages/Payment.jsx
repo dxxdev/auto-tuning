@@ -15,7 +15,7 @@ const Payment = () => {
     <div className={`pb-10 ${styles.container}`}>
       <div className="space-y-8">
         <div>
-          <Typography variant="h1" className="py-5 font-normal tracking-[3px]">
+          <Typography variant="h1" className="py-5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-[3px]">
             Yetkazib berish va to'lash
           </Typography>
         </div>

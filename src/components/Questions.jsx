@@ -100,9 +100,9 @@ const Questions = () => {
   };
 
   return (
-    <div className={`${styles.container} py-10 space-y-5`}>
+    <div className={`${styles.container} py-7 !px-0 space-y-5`}>
       <div>
-        <Typography variant="h2">Savollaringizga javob beramiz</Typography>
+        <Typography variant="h2" className="text-2xl sm:text-3xl md:text-4xl">Savollaringizga javob beramiz</Typography>
       </div>
       <div className="flex flex-col lg:flex-row justify-between gap-8 gap-y-8">
         <div className="flex flex-col space-y-5">
@@ -118,7 +118,7 @@ const Questions = () => {
                     }`}
                   />
                 }
-                className="border border-gray-300 rounded-xl"
+                className="border border-gray-300 bg-white rounded-xl"
                 key={quiz.id}
                 open={open === quiz.id}
               >
@@ -171,7 +171,7 @@ const Questions = () => {
                 <span>Yuborish</span>
                 <Send />
               </Button>
-              <Typography variant="small" className="mt-6">
+              <Typography variant="small" className="mt-6 text-center">
                 Yuborishdan oldin
                 <Link to={`/`} className="ml-1 text-red-700 font-bold">
                   Shaxsiy ma'lumotlarni himoya qilish shartlari

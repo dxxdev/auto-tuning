@@ -7,12 +7,13 @@ import Breadcrump from "../components/Breadcrump";
 
 const MainLayout = ({ rendered }) => {
   const location = useLocation();
-  const home = location.pathname == "/";
+  const isHome = location.pathname === "/";
+
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <Header rendered={rendered} />
-      <main className="grow">
-        {!home && (
+      <main className="grow bg-[#d9d9d9]">
+        {!isHome && (
           <div className="md:pt-20 hidden md:block">
             <div className="hidden lg:block">
               <Breadcrump />

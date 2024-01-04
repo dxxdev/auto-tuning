@@ -51,8 +51,8 @@ const Category = ({ rendered }) => {
 
   return (
     <div className={`${styles.container}`}>
-      <div className="py-10 flex justify-between items-center">
-        <Typography variant="h4">{filteredCategory[0].category}</Typography>
+      <div className="py-6 flex flex-col sm:flex-row space-y-3 sm:space-y-0 justify-between items-center">
+        <Typography variant="h3">{filteredCategory[0].category}</Typography>
         <Button
           onClick={() => {
             setInOrder(inOrder == null ? !inOrder : !inOrder);
@@ -68,35 +68,37 @@ const Category = ({ rendered }) => {
         </Button>
       </div>
       <ul
-        className={`${styles.container} py-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 overflow-auto products-swiper`}
+        className={`${styles.container} !px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5 lg:gap-7 overflow-auto products-swiper`}
       >
         {filterCategory.map((product) => {
           return (
             <li
               key={product.id}
-              className="rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper relative"
+              className="rounded-lg bg-white flex group flex-col shadow-md space-y-4 card-swiper relative"
             >
               <Link
                 onClick={() => viewProduct(product)}
                 to={`/${product.category}/${product.productName}`}
               >
-                <Swiper
-                  effect="fade"
-                  pagination={{
-                    clickable: true,
-                  }}
-                  loop={true}
-                  modules={[Pagination, EffectFade]}
-                  className="mySwiper relative rounded-lg"
-                >
-                  {product.images.map((item, index) => {
-                    return (
-                      <SwiperSlide key={index} className="md:max-h-[470px]">
-                        <img src={item} className="w-full" alt="" />
-                      </SwiperSlide>
-                    );
-                  })}
-                </Swiper>
+                <div className="h-[450px] lg:h-[400px] sceleton-animation rounded-t-lg overflow-hidden">
+                  <Swiper
+                    effect="fade"
+                    pagination={{
+                      clickable: true,
+                    }}
+                    loop={true}
+                    modules={[Pagination, EffectFade]}
+                    className="mySwiper relative rounded-t-lg w-full h-full"
+                  >
+                    {product.images.map((item, index) => {
+                      return (
+                        <SwiperSlide key={index}>
+                          <img src={item} className="w-full h-full" alt={product.productName} />
+                        </SwiperSlide>
+                      );
+                    })}
+                  </Swiper>
+                </div>
               </Link>
               <div className="flex space-x-3 absolute left-3 top-0 z-10">
                 {product.isItNew && (
@@ -136,15 +138,17 @@ const Category = ({ rendered }) => {
                   {product.productName}
                 </Typography>
                 <div>
-                  <Typography variant="small">
-                    Turkum: {product.category}
-                  </Typography>
-                  <Typography variant="small" color="black">
-                    <span className="flex items-end justify-start space-x-1">
-                      <Star className="text-yellow-700" />
-                      <span className="text-gray-700">{product.rating}</span>
-                    </span>
-                  </Typography>
+                  <div className="flex justify-between items-center py-3">
+                    <Typography variant="small">
+                      Turkum: {product.category}
+                    </Typography>
+                    <Typography variant="small" color="black">
+                      <span className="flex items-end justify-start space-x-1">
+                        <Star className="text-yellow-700" />
+                        <span className="text-gray-700">{product.rating}</span>
+                      </span>
+                    </Typography>
+                  </div>
                   <div className="w-full flex justify-between items-end">
                     <Typography variant="h6">
                       {product.price
@@ -175,11 +179,11 @@ const Category = ({ rendered }) => {
         <ToastContainer />
       </ul>
       <section>
-        <div className="py-5">
+        <div className="py-2">
           <Typography variant="h4">Sizga yoqishi mumkin</Typography>
         </div>
         <ul
-          className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+          className={`${styles.container} !px-0 py-3 flex justify-start overflow-auto gap-5 products-swiper`}
         >
           {products.map((product) => {
             if (product.recommend) {

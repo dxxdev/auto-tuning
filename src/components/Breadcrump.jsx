@@ -41,9 +41,9 @@ const Breadcrump = () => {
           : "hidden"
       }`}
     >
-      <Breadcrumbs className="bg-white">
+      <Breadcrumbs className="bg-[#d9d9d9]">
         {category.includes(tayyorArr[0]) && (
-          <Link className="text-gray-800" onClick={scrollTop} to="/">
+          <Link className="text-gray-900" onClick={scrollTop} to="/">
             Bosh sahifa
           </Link>
         )}
@@ -53,14 +53,14 @@ const Breadcrump = () => {
                 <Link
                   onClick={scrollTop}
                   key={index}
-                  className="text-gray-800"
+                  className="text-gray-900"
                   to={path}
                 >
                   {path}
                 </Link>
               )
             : !companyArr.includes(path) && (
-                <p key={index} className="text-gray-600 cursor-not-allowed">
+                <p key={index} className="text-gray-700 cursor-not-allowed">
                   {path}
                 </p>
               );

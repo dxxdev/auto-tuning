@@ -31,19 +31,19 @@
 }
 
 .sceleton-animation {
-  background: #888;
+  background: #ddd;
   animation: sceleton 500ms infinite linear;
 }
 
 @keyframes sceleton {
   0% {
-    background: #bbb;
+    background: #eee;
   }
   50% {
-    background: #aaa;
+    background: #ddd;
   }
   100% {
-    background: #bbb;
+    background: #eee;
   }
 }
 
@@ -51,11 +51,40 @@ html {
   scroll-behavior: smooth;
 }
 
-
-.scroll-none::-webkit-scrollbar{
+.scroll-none::-webkit-scrollbar {
   display: none;
 }
 
-.side-bar-links a.active{
-  @apply text-red-600
+.side-bar-links a.active {
+  @apply text-red-600;
+}
+
+.logo {
+  display: none;
+}
+
+@media only screen and (min-width: 360px) {
+  .logo {
+    display: block;
+  }
+}
+
+.connect {
+  display: none;
+}
+
+@media only screen and (min-width: 1240px) {
+  .connect {
+    display: block;
+  }
+}
+
+.category-links {
+  display: none;
+}
+
+@media only screen and (min-width: 1440px) {
+  .category-links {
+    display: block;
+  }
 }

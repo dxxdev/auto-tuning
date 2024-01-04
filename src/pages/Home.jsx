@@ -27,8 +27,6 @@ import Products from "../components/Products";
 import { companies } from "../assets/images";
 
 const Home = ({ rendered }) => {
-  let [groupedTopProducts, setGroupedTopProducts] = useState([]);
-  const inActionInfo = products.filter((product) => product.inAction);
   const navigate = useNavigate();
 
   const productSaved = (product) => {
@@ -43,40 +41,6 @@ const Home = ({ rendered }) => {
       return 0 + "";
     });
   let lastNumber = lastNumbersArr.join("");
-  useEffect(() => {
-    function saveTopProductsToLocalStorage(topProducts) {
-      localStorage.setItem("topProducts", JSON.stringify(topProducts));
-    }
-
-    const groupTopProductsByCategory = (products) => {
-      const groupedProducts = {};
-
-      products.forEach((product) => {
-        if (product.top) {
-          if (!groupedProducts[product.category]) {
-            groupedProducts[product.category] = {
-              category: product.category,
-              products: [],
-            };
-          }
-
-          groupedProducts[product.category].products.push(product);
-        }
-      });
-
-      return Object.values(groupedProducts);
-    };
-
-    setGroupedTopProducts((prevGroupedTopProducts) => {
-      if (!prevGroupedTopProducts.length) {
-        const newGroupedTopProducts = groupTopProductsByCategory(products);
-        saveTopProductsToLocalStorage(newGroupedTopProducts);
-        return newGroupedTopProducts;
-      }
-
-      return prevGroupedTopProducts;
-    });
-  }, []);
 
   useEffect(() => {
     document.title = "AUTO TUNING";
@@ -84,65 +48,72 @@ const Home = ({ rendered }) => {
 
   return (
     <div>
-      <Swiper
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        loop={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper relative navigation-styled w-full"
-      >
-        {swiperImages.map((item) => {
-          return (
-            <SwiperSlide
-              key={item.id}
-              className="flex justify-center items-stretch max-h-[180px] sm:max-h-[280px] md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] h-full w-full overflow-hidden"
-            >
-              <img
+      <div className="bg-[#a70b0b]">
+        <Swiper
+          navigation={true}
+          pagination={{
+            clickable: true,
+          }}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          modules={[Pagination, Navigation, Autoplay]}
+          className="mySwiper relative navigation-styled h-[180px] sm:h-[280px] md:h-[430px] min-[1000px]:h-[550px] xl:h-[700px] w-full"
+        >
+          {swiperImages.map((item) => {
+            return (
+              <SwiperSlide
+                key={item.id}
+                className="flex justify-center items-stretch max-h-[180px] sm:max-h-[280px] md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] h-full w-full overflow-hidden"
+              >
+                <img
                 src={item.image}
                 className="max-h-[180px] sm:max-h-[280px] w-full md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] object-cover"
                 alt="Hero img"
               />
-            </SwiperSlide>
-          );
-        })}
-        <div className="z-[999] px-20 absolute w-full left-0 bottom-0 hidden sm:block pb-[52px] md:pb-20 xl:pb-[152px]">
-          <div className={`flex justify-between items-end ${styles.container}`}>
-            <div className="flex flex-col space-y-10 items-start h-24">
-              <Typography
-                variant="h1"
-                color="white"
-                className="h-full flex flex-col text-xl md:text-2xl lg:text-4xl xl:text-5xl text-white"
-              >
-                <span>Servis xizmati Toshkentda</span>
-              </Typography>
-              <Link onClick={scrollTop} to="/Avto bezaklar">
-                <Button variant="filled" color="red" className="text-white">
-                  Tuning jihozlariga buyurtma berish
-                </Button>
-              </Link>
+              </SwiperSlide>
+            );
+          })}
+          <div className="z-[999] px-20 absolute w-full left-0 bottom-0 hidden sm:block pb-[52px] md:pb-20 xl:pb-[152px]">
+            <div
+              className={`flex justify-between items-end ${styles.container}`}
+            >
+              <div className="flex flex-col space-y-10 items-start h-24">
+                <Typography
+                  variant="h1"
+                  color="white"
+                  className="h-full flex flex-col text-xl md:text-2xl lg:text-4xl xl:text-5xl text-white"
+                >
+                  <span>Servis xizmati Toshkentda</span>
+                </Typography>
+                <Link onClick={scrollTop} to="/Avto bezaklar">
+                  <Button variant="filled" color="red" className="text-white">
+                    Tuning jihozlariga buyurtma berish
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </Swiper>
-      <div className={`${styles.container} py-20 space-y-20`}>
+        </Swiper>
+      </div>
+      <div className={`${styles.container} py-10 space-y-5`}>
         <div className="space-y-5">
           <Typography
             variant="h2"
             color="black"
-            className={`${styles.container} text-center`}
+            className={`${styles.container} text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-center`}
           >
             Eng yaxshi mahsulotlar
           </Typography>
           <div className="flex w-full justify-center items-center py-5">
-            {groupedTopProducts && groupedTopProducts.length > 0 && (
-              <Tabs value="allCategories" className={`${styles.container} px-0 md:px-5`}>
-                <div className="flex justify-start items-center sm:justify-center scroll-none overflow-auto">
+            {category.length > 0 && (
+              <Tabs
+                value="allCategories"
+                className={`${styles.container} px-0`}
+              >
+                <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
                   <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
                     <Tab
                       key="allCategories"
@@ -155,7 +126,7 @@ const Home = ({ rendered }) => {
                       <Tab
                         key={category}
                         value={category}
-                        className="w-max px-5 text-white"
+                        className="w-max px-3 text-white"
                       >
                         {category}
                       </Tab>
@@ -166,7 +137,7 @@ const Home = ({ rendered }) => {
                   <TabPanel
                     key="allCategories"
                     value="allCategories"
-                    className="flex gap-x-5 overflow-auto products-swiper"
+                    className="flex gap-x-5 overflow-auto products-swiper px-0"
                   >
                     {products.map((product, index) => {
                       if (product.top) {
@@ -194,7 +165,7 @@ const Home = ({ rendered }) => {
                     <TabPanel
                       key={category}
                       value={category}
-                      className="flex gap-x-5 overflow-auto products-swiper"
+                      className="flex gap-x-5 overflow-auto products-swiper px-0"
                     >
                       {products.map((product, index) => {
                         if (product.category == category && product.top) {
@@ -241,7 +212,7 @@ const Home = ({ rendered }) => {
           </div>
         </div>
         <div className="flex justify-between items-center space-y-3 sm:space-y-0 flex-col sm:flex-row">
-          <Typography className="" variant="h2">
+          <Typography className="text-xl md:text-2xl lg:text-3xl" variant="h2">
             {products.length.toString().slice(0, 1) + lastNumber} dan ortiq avto
             tovarlar bir joyda
           </Typography>
@@ -256,7 +227,7 @@ const Home = ({ rendered }) => {
             Katalog
           </Button>
         </div>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 pb-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div
               className={`bg-[url('/src/assets/img/antiradar.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl group transition-opacity`}
@@ -284,11 +255,11 @@ const Home = ({ rendered }) => {
             >
               <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl group-hover:bg-opacity-40">
                 <Typography variant="h3" color="white">
-                  Diffuzor
+                  Suvenirlar
                 </Typography>
                 <Typography color="white" variant="lead">
-                  Mashina uchun aqlli hushbo'ylagich. Havoni namlaydi, o'zida
-                  hushbo'y hid taratadi va vizitka
+                  Mashina uchun hushbo'ylagichlar, havo namlagichlar va telefon
+                  ushlagichlar
                 </Typography>
                 <Link
                   to="/Suvenirlar"
@@ -303,22 +274,21 @@ const Home = ({ rendered }) => {
           </div>
           <div>
             <div
-              className={`bg-[url('/src/assets/img/interyer.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl group transition-opacity`}
+              className={`bg-[url('/src/assets/img/monitor.png')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl group transition-opacity`}
             >
               <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl group-hover:bg-opacity-40">
                 <Typography variant="h3" color="white">
-                  Interyer
+                  Monitorlar
                 </Typography>
                 <Typography color="white" variant="lead">
-                  Mashina salonini bezatish uchun avto tovarlarga buyurtma
-                  bering
+                  Mashina uchun monitorlar
                 </Typography>
                 <Link
-                  to="/Katalog"
+                  to="/Monitorlar"
                   onClick={scrollTop}
                   className="text-white space-x-3 underline underline-offset-2"
                 >
-                  <span>Katalog</span>
+                  <span>Monitorlar</span>
                   <ArrowRightAltOutlined />
                 </Link>
               </div>
@@ -336,8 +306,11 @@ const Home = ({ rendered }) => {
           </Typography>
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
-              <Tabs value="allCategories" className={`${styles.container}`}>
-                <div className="flex justify-start items-center sm:justify-center scroll-none overflow-auto">
+              <Tabs
+                value="allCategories"
+                className={`${styles.container} px-0`}
+              >
+                <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
                   <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
                     <Tab
                       key="allCategories"
@@ -362,7 +335,7 @@ const Home = ({ rendered }) => {
                   <TabPanel
                     key="allCategories"
                     value="allCategories"
-                    className="flex gap-x-5 overflow-auto products-swiper"
+                    className="flex gap-x-5 overflow-auto products-swiper px-0"
                   >
                     {products.map((product, index) => {
                       if (product.isItNew) {
@@ -391,7 +364,7 @@ const Home = ({ rendered }) => {
                     <TabPanel
                       key={category}
                       value={category}
-                      className="flex gap-x-5 overflow-auto products-swiper"
+                      className="flex gap-x-5 overflow-auto products-swiper px-0"
                     >
                       {products.map((product, index) => {
                         if (product.category == category && product.isItNew) {
@@ -448,8 +421,11 @@ const Home = ({ rendered }) => {
           </Typography>
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
-              <Tabs value="allCategories" className={`${styles.container}`}>
-                <div className="flex justify-start items-center sm:justify-center scroll-none overflow-auto">
+              <Tabs
+                value="allCategories"
+                className={`${styles.container} px-0`}
+              >
+                <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
                   <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
                     <Tab
                       key="allCategories"
@@ -474,7 +450,7 @@ const Home = ({ rendered }) => {
                   <TabPanel
                     key="allCategories"
                     value="allCategories"
-                    className="flex gap-x-5 overflow-auto products-swiper"
+                    className="flex gap-x-5 overflow-auto products-swiper px-0"
                   >
                     {products.map((product, index) => {
                       if (product.inAction) {
@@ -503,7 +479,7 @@ const Home = ({ rendered }) => {
                     <TabPanel
                       key={category}
                       value={category}
-                      className="flex gap-x-5 overflow-auto products-swiper"
+                      className="flex gap-x-5 overflow-auto products-swiper px-0"
                     >
                       {products.map((product, index) => {
                         if (product.category == category && product.inAction) {
@@ -551,7 +527,7 @@ const Home = ({ rendered }) => {
         </div>
         {/* Commentaries section */}
         <section>
-          <div className="py-5 flex flex-col space-y-4 sm:space-y-0 sm:flex-row justify-between">
+          <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row justify-between">
             <Typography variant="h4">Izohlar</Typography>
             <Button
               onClick={() => {
@@ -563,7 +539,7 @@ const Home = ({ rendered }) => {
               Barcha sharhlar
             </Button>
           </div>
-          <ul className="py-8 flex justify-start items-center overflow-auto gap-5 products-swiper">
+          <ul className="py-5 flex justify-start items-center overflow-auto gap-5 products-swiper">
             {commentaries.map((note) => {
               if (note.rating == 5) {
                 return (
@@ -589,12 +565,12 @@ const Home = ({ rendered }) => {
           </ul>
         </section>
         {/* Recommended products section */}
-        <section>
-          <div className="py-5">
+        <section className="py-0 lg:py-5">
+          <div>
             <Typography variant="h4">Tavsiya qilinadi</Typography>
           </div>
           <ul
-            className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+            className={`${styles.container} !px-0 py-5 flex justify-start overflow-auto gap-5 products-swiper`}
           >
             {products.map((product, index) => {
               if (product.recommend) {
@@ -622,11 +598,14 @@ const Home = ({ rendered }) => {
 
         <section>
           <div>
-            <Typography variant="h3">
+            <Typography
+              variant="h3"
+              className="text-2xl text-center md:text-left"
+            >
               Biz eng yirik kompaniyalar bilan hamkorlik qilamiz
             </Typography>
           </div>
-          <div className="flex justify-center items-center flex-wrap gap-8 py-14">
+          <div className="flex justify-center items-center flex-wrap gap-8 py-8 pb-0">
             {companies.map((company, index) => {
               return (
                 <div className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">

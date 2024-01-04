@@ -22,11 +22,21 @@ import {
   Phone,
   Search,
   ShoppingBasketOutlined,
-  FolderOpen,
 } from "@mui/icons-material";
 import { products, scrollTop } from "../data/data";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+
+const TOAST_CONFIG = {
+  position: "bottom-right",
+  autoClose: 2000,
+  hideProgressBar: true,
+  closeOnClick: false,
+  pauseOnHover: false,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+};
 
 const Header = () => {
   const navigate = useNavigate();
@@ -77,18 +87,9 @@ const Header = () => {
   const openDrawer2 = () => setOpen2(true);
   const closeDrawer2 = () => setOpen2(false);
 
-  const [open1, setOpen1] = useState(false);
-
-  const openDrawer1 = () => setOpen1(true);
-  const closeDrawer1 = () => setOpen1(false);
-
   const openSearchInput = () => {
     setOpenInput((oldVal) => !oldVal);
     setSearchedProduct("");
-  };
-
-  const openSearchDrawer = () => {
-    openDrawer1();
   };
 
   useEffect(() => {
@@ -144,28 +145,10 @@ const Header = () => {
           }
         );
         handleOpen();
-        toast.success("Yuborildi", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.success("Yuborildi", TOAST_CONFIG);
       } else {
         handleOpen();
-        toast.error("Formani to'ldirib qayta urining", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.error("Formani to'ldirib qayta urining", TOAST_CONFIG);
       }
 
       // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
@@ -180,75 +163,17 @@ const Header = () => {
         message.trim() !== ""
       ) {
         handleOpen();
-        toast.error("Tarmoqdagi xato", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.error("Tarmoqdagi xato", TOAST_CONFIG);
       } else {
         handleOpen();
-        toast.error("Formani to'ldiring", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.error("Formani to'ldiring", TOAST_CONFIG);
       }
     }
   };
 
   return (
     <>
-      <div className="hidden lg:block">
-        <div className="bg-red-500 flex justify-center items-center">
-          <Alert
-            color="red"
-            open={openAlert}
-            onClose={() => setOpenAlert(false)}
-            className={`rounded-none ${styles.container} relative flex justify-center items-center overflow-hidden py-2`}
-          >
-            <img
-              src={aksiyaImg}
-              className="absolute rotate-180 -top-full left-0"
-              alt=""
-            />
-            <img
-              src={aksiyaImg}
-              className="absolute rotate-90 -top-28 right-32"
-              alt=""
-            />
-            <img src={aksiyaImg} className="absolute rotate-45 " alt="" />
-            <img
-              src={aksiyaImg}
-              className="absolute -rotate-45 right-1/4"
-              alt=""
-            />
-            <div className="flex justify-center relative z-[999] items-center gap-10">
-              <Typography variant="h5" className="tracking-wider">
-                02.04.2024 gacha tovarlarga chegirma!
-              </Typography>
-              <Button
-                onClick={() => navigate("/Aksiya")}
-                variant="filled"
-                color="white"
-                size="sm"
-              >
-                Aksiyani ko'rish
-              </Button>
-            </div>
-          </Alert>
-        </div>
-      </div>
-      <header className="md:bg-[#f5f5f5] bg-white bg-opacity-80 backdrop-blur-[8px] header py-3 md:py-4 z-[999] sticky top-0 md:static">
+      <header className="bg-[#d3d3d3] bg-opacity-80 backdrop-blur-[8px] header py-3 md:py-4 z-[9994] sticky top-0 md:static">
         <div
           className={`${styles.container} relative top-0 left-0 flex justify-between items-center`}
         >
@@ -257,8 +182,8 @@ const Header = () => {
               to="/"
               className="flex items-center text-xl md:text-2xl space-x-2 font-bold"
             >
-              <img src={logo} className="h-7 md:h-8" alt="" />
-              <span className="hidden sm:block">
+              <img src={logo} className="h-7 md:h-8 hidden logo" alt="" />
+              <span>
                 AUTO <span className="text-red-500">TUNING</span>
               </span>
             </Link>
@@ -292,42 +217,42 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <div className="flex md:hidden justify-center items-center space-x-4">
-            <Badge
-              color="red"
-              className="w-6 h-6 flex justify-center items-center"
-              content={howSaved}
-            >
-              <IconButton
-                onClick={() => {
-                  navigate("/Saqlanganlar");
-                  scrollTop();
-                }}
-                variant="outlined"
-                color="black"
-              >
-                <BookmarkBorderOutlined />
-              </IconButton>
-            </Badge>
-            <Badge
-              color="red"
-              className="w-6 h-6 flex justify-center items-center"
-              content={howMuch}
-            >
-              <IconButton
-                onClick={() => {
-                  navigate("/Savatcha");
-                  scrollTop();
-                }}
-                variant="outlined"
-                color="black"
-              >
-                <ShoppingBasketOutlined />
-              </IconButton>
-            </Badge>
-          </div>
           <div className="flex items-center space-x-3 md:space-x-6">
-            <div className="hidden xl:block">
+            <div className="flex md:hidden justify-center items-center space-x-3">
+              <Badge
+                color="red"
+                className="w-6 h-6 flex justify-center items-center"
+                content={howSaved}
+              >
+                <IconButton
+                  onClick={() => {
+                    navigate("/Saqlanganlar");
+                    scrollTop();
+                  }}
+                  variant="outlined"
+                  color="black"
+                >
+                  <BookmarkBorderOutlined />
+                </IconButton>
+              </Badge>
+              <Badge
+                color="red"
+                className="w-6 h-6 flex justify-center items-center"
+                content={howMuch}
+              >
+                <IconButton
+                  onClick={() => {
+                    navigate("/Savatcha");
+                    scrollTop();
+                  }}
+                  variant="outlined"
+                  color="black"
+                >
+                  <ShoppingBasketOutlined />
+                </IconButton>
+              </Badge>
+            </div>
+            <div className="connect">
               <h3 className="font-semibold">Tel: +998 (99) 270-10-32</h3>
               <p className="text-xs text-gray-700">
                 Ish vaqti: 9:00 dan 18:00 gacha
@@ -335,7 +260,7 @@ const Header = () => {
             </div>
             <button
               onClick={handleOpen}
-              className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs md:py-3 md:px-6 border border-red-600 md:border-none rounded-lg md:bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring focus:ring-red-200 flex justify-center items-center"
+              className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring hidden focus:ring-red-200 md:flex justify-center items-center"
             >
               <div className="block xl:hidden">
                 <Phone className="text-red-600 md:text-white" />
@@ -346,14 +271,6 @@ const Header = () => {
               </div>
             </button>
             <IconButton
-              className="block md:hidden"
-              variant="outlined"
-              color="red"
-              onClick={openSearchDrawer}
-            >
-              <Search className={`cursor-pointer text-sm`} />
-            </IconButton>
-            <IconButton
               onClick={openDrawer2}
               variant="outlined"
               color="red"
@@ -362,8 +279,10 @@ const Header = () => {
               <Menu />
             </IconButton>
           </div>
+        </div>
+        <div className="absolute w-full top-full left-0 bg-black bg-opacity-50 hidden md:flex">
           <div
-            className={`${styles.container} px-5 xl:px-6 rounded-b-xl xl:rounded-b-3xl justify-between absolute top-full left-0 translate-y-1/4 items-center space-x-3 py-4 bg-black bg-opacity-50 hidden md:flex`}
+            className={`${styles.container} px-5 xl:px-6 justify-between items-center space-x-3 py-4 hidden md:flex`}
           >
             <button
               onClick={openDrawer2}
@@ -376,7 +295,7 @@ const Header = () => {
                 <Typography>Sahifalar</Typography>
               </span>
             </button>
-            <nav className="w-full hidden xl:block">
+            <nav className="w-full category-links">
               <ul className="flex gap-x-10 text-white">
                 {productsCategory.map((category, index) => {
                   return (
@@ -445,14 +364,18 @@ const Header = () => {
                               scrollTop();
                             }}
                             to={`/${product.category}/${product.productName}`}
-                            className="flex justify-start items-center gap-x-3"
+                            className="flex justify-start space-x-4 items-center"
                           >
-                            <img
-                              className="w-10 rounded"
-                              src={product.images[0]}
-                              alt={product.productName}
-                            />
-                            <p className="truncate">{product.productName}</p>
+                            <span className="rounded sceleton-animation w-14 h-16">
+                              <img
+                                className="w-full"
+                                src={product.images[0]}
+                                alt={product.productName}
+                              />
+                            </span>
+                            <p className="truncate w-full">
+                              {product.productName}
+                            </p>
                           </Link>
                         </li>
                       );
@@ -511,30 +434,108 @@ const Header = () => {
               className="flex items-center text-xl md:text-2xl space-x-2 font-bold"
             >
               <img src={logo} className="h-7 md:h-8" alt="" />
-              <span className="hidden sm:block">
+              <span>
                 AUTO <span className="text-red-500">TUNING</span>
               </span>
             </Link>
           </Typography>
-          <IconButton variant="text" color="blue-gray" onClick={closeDrawer2}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="h-5 w-5"
+          <div className="flex justify-center items-center">
+            <button
+              onClick={handleOpen}
+              className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none border border-red-500 text-xs py-2 px-4 rounded-lg bg-white text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring focus:ring-red-200 flex md:hidden justify-center items-center"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </IconButton>
+              <div className="block xl:hidden">
+                <Phone className="text-red-600 md:text-white" />
+              </div>
+              <div className="hidden xl:block space-x-0 xl:space-x-2">
+                <span>Qo'ng'iroq</span>
+                <span>qilish</span>
+              </div>
+            </button>
+            <IconButton variant="text" color="blue-gray" onClick={closeDrawer2}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-5 w-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </IconButton>
+          </div>
         </div>
         <ul className="overflow-auto grow flex flex-col gap-y-3 scroll-none">
-          <li>
+          <li className="block md:hidden">
+            <div className="flex justify-center items-center">
+              <input
+                type="text"
+                ref={input}
+                className={`rounded-lg outline-none px-3 w-full py-1 text-base border border-gray-500`}
+                placeholder="Qidirish..."
+                autoComplete={false}
+                onInput={(e) => {
+                  searchProduct(e);
+                  if (e.target.value.trim() == "") {
+                    setSearched(false);
+                  } else {
+                    setSearched(true);
+                  }
+                }}
+              />
+            </div>
+            <ul
+              className={`box-border w-full flex flex-col gap-y-2 bg-white transition-all h-full max-h-[calc(100vh-30vh)] overflow-auto ${
+                searchedProduct ? "p-1 px-0 w-[310px]" : "p-0"
+              } ${
+                searchFilteredProduct && searchFilteredProduct.length == 0
+                  ? "hidden"
+                  : "p-0"
+              }`}
+            >
+              {searchFilteredProduct &&
+                searchFilteredProduct.length > 0 &&
+                searchFilteredProduct.map((product) => {
+                  return (
+                    <li key={product.id} onClick={openSearchInput}>
+                      <Link
+                        onClick={() => {
+                          input.target.value = "";
+                          scrollTop();
+                        }}
+                        to={`/${product.category}/${product.productName}`}
+                        className="flex justify-start space-x-4 items-center"
+                      >
+                        <span className="rounded sceleton-animation w-14 h-16">
+                          <img
+                            className="w-full"
+                            src={product.images[0]}
+                            alt={product.productName}
+                          />
+                        </span>
+                        <p className="truncate w-full">{product.productName}</p>
+                      </Link>
+                    </li>
+                  );
+                })}
+            </ul>
+            {searched && searchFilteredProduct.length == 0 && (
+              <div className="py-10 flex space-y-4 flex-col justify-center items-center">
+                <div className="w-40 h-40">
+                  <img className="w-40" src={productNotFound} alt="" />
+                </div>
+                <Typography variant="h5" color="gray">
+                  Qidiruv natijasi mavjud emas
+                </Typography>
+              </div>
+            )}
+          </li>
+          <li className={searched ? "hidden" : "block"}>
             <button
               onClick={openCatalog}
               className="flex items-center w-full py-2 text-gray-600 space-x-3 group hover:text-red-600"
@@ -564,12 +565,11 @@ const Header = () => {
                   (product) => product.category === category
                 );
                 return (
-                  <li key={index}>
+                  <li key={index} onClick={closeDrawer2}>
                     <NavLink
                       className="space-x-2 w-full flex group items-center text-gray-700 hover:text-red-600"
                       to={`/${category}`}
                       onClick={() => {
-                        closeDrawer2();
                         scrollTop();
                       }}
                     >
@@ -591,7 +591,7 @@ const Header = () => {
               closeDrawer2();
               openCatalog();
             }}
-            className="py-2"
+            className={`py-2 ${searched ? "hidden" : "block"}`}
           >
             <NavLink
               to={"/"}
@@ -616,7 +616,7 @@ const Header = () => {
               closeDrawer2();
               openCatalog();
             }}
-            className="py-2"
+            className={`py-2 ${searched ? "hidden" : "block"}`}
           >
             <NavLink
               to={"/Kompaniya haqida"}
@@ -641,7 +641,7 @@ const Header = () => {
               closeDrawer2();
               openCatalog();
             }}
-            className="py-2"
+            className={`py-2 ${searched ? "hidden" : "block"}`}
           >
             <NavLink
               to={"/Sharhlar"}
@@ -666,7 +666,7 @@ const Header = () => {
               closeDrawer2();
               openCatalog();
             }}
-            className="py-2"
+            className={`py-2 ${searched ? "hidden" : "block"}`}
           >
             <NavLink
               to={"/Yetkazib berish va to'lash"}
@@ -691,7 +691,7 @@ const Header = () => {
               closeDrawer2();
               openCatalog();
             }}
-            className="py-2"
+            className={`py-2 ${searched ? "hidden" : "block"}`}
           >
             <NavLink
               to={"/Aksiya"}
@@ -714,96 +714,12 @@ const Header = () => {
         </ul>
       </Drawer>
 
-      {/* Search drawer */}
-      <Drawer
-        open={open1}
-        onClose={closeDrawer1}
-        className={`p-4 transition-all ease-linear block md:hidden duration-75 !max-w-full md:!max-w-xs ${
-          open1 ? "" : "!-translate-x-full"
-        }`}
+      <Dialog
+        open={open}
+        size="xs"
+        className="p-2 py-0 m-0 md:h-max !w-screen overflow-auto h-full min-w-full"
+        handler={handleOpen}
       >
-        <div className="mb-6 flex items-center justify-between">
-          <Typography variant="h5" color="blue-gray">
-            Mahsulotni qidirish
-          </Typography>
-          <IconButton variant="text" color="blue-gray" onClick={closeDrawer1}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </IconButton>
-        </div>
-        <div className="flex justify-center items-center py-4">
-          <input
-            type="text"
-            ref={input}
-            className={`rounded-lg outline-none px-3 w-full max-w-sm py-1 text-base border border-gray-500`}
-            placeholder="Qidirish..."
-            autoComplete={false}
-            onInput={(e) => {
-              searchProduct(e);
-              if (searchFilteredProduct.length >= products.length) {
-                setSearched(false);
-              } else {
-                setSearched(true);
-              }
-            }}
-          />
-        </div>
-        <ul
-          className={`box-border w-full flex flex-col gap-y-2 bg-white transition-all h-full max-h-[calc(100vh-30vh)] overflow-auto rounded-b-lg ${
-            searchedProduct ? "p-1 px-3 w-[310px]" : "p-0"
-          } ${
-            searchFilteredProduct && searchFilteredProduct.length == 0
-              ? "hidden"
-              : "p-1"
-          }`}
-        >
-          {searchFilteredProduct &&
-            searchFilteredProduct.length > 0 &&
-            searchFilteredProduct.map((product) => {
-              return (
-                <li key={product.id} onClick={openSearchInput}>
-                  <Link
-                    onClick={() => {
-                      input.target.value = "";
-                      scrollTop();
-                    }}
-                    to={`/${product.category}/${product.productName}`}
-                    className="flex justify-start items-center gap-x-3"
-                  >
-                    <img
-                      className="w-10 rounded"
-                      src={product.images[0]}
-                      alt={product.productName}
-                    />
-                    <p className="truncate">{product.productName}</p>
-                  </Link>
-                </li>
-              );
-            })}
-        </ul>
-        {searched && searchFilteredProduct.length == 0 && (
-          <div className="py-10 flex space-y-4 flex-col justify-center items-center">
-            <img className="w-40" src={productNotFound} alt="" />
-            <Typography variant="h5" color="gray">
-              Qidiruv natijasi mavjud emas
-            </Typography>
-          </div>
-        )}
-      </Drawer>
-
-      <Dialog open={open} size="xs" className="p-2 py-0" handler={handleOpen}>
         <div className="flex items-center justify-between">
           <DialogHeader className="flex flex-col items-start">
             <Typography className="mb-1" variant="h4">

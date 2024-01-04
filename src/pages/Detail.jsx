@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { styles } from "../styles";
 import {
   Button,
+  IconButton,
   Tab,
   TabPanel,
   Tabs,
@@ -32,6 +33,17 @@ import "react-toastify/dist/ReactToastify.css";
 import Questions from "../components/Questions";
 import Products from "../components/Products";
 
+const TOAST_CONFIG = {
+  position: "bottom-right",
+  autoClose: 2000,
+  hideProgressBar: true,
+  closeOnClick: false,
+  pauseOnHover: false,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+};
+
 const Detail = ({ rendered }) => {
   const { productName } = useParams();
   const [info, setInfo] = useState();
@@ -39,18 +51,17 @@ const Detail = ({ rendered }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   useEffect(() => {
-    // localStorage dan productName olish
     const savedProductName = localStorage.getItem("savedProductName");
 
-    if (productName) {
-      // Agar useParams dan productName olinmasa, localStorage dan olinadi
+    if (productName || savedProductName) {
       setRender((prev) => !prev);
-      setInfo(filteredProductForId(productName)[0]);
-      localStorage.setItem("savedProductName", productName);
-    } else if (savedProductName) {
-      // Agar useParams dan productName olinmagan bo'lsa, localStorage dan olinadi
-      setRender((prev) => !prev);
-      setInfo(filteredProductForId(savedProductName)[0]);
+
+      if (productName) {
+        setInfo(filteredProductForId(productName)[0]);
+        localStorage.setItem("savedProductName", productName);
+      } else if (savedProductName) {
+        setInfo(filteredProductForId(savedProductName)[0]);
+      }
     }
   }, [productName]);
 
@@ -70,27 +81,9 @@ const Detail = ({ rendered }) => {
     setRender((prev) => !prev);
     info.inTheCart = !info.inTheCart;
     if (info.inTheCart) {
-      toast.success("Savatga qo'shildi", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      toast.success("Savatga qo'shildi", TOAST_CONFIG);
     } else {
-      toast.error("Savatdan o'chirildi", {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: false,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      toast.error("Savatdan o'chirildi", TOAST_CONFIG);
     }
   };
 
@@ -100,7 +93,7 @@ const Detail = ({ rendered }) => {
         className={`py-2 flex ${styles.container} gap-x-10 flex-col lg:flex-row`}
       >
         {info && (
-          <div className="w-full space-y-3 p-5">
+          <div className="w-full space-y-3">
             <Swiper
               style={{
                 "--swiper-navigation-color": "#fff",
@@ -113,18 +106,18 @@ const Detail = ({ rendered }) => {
               loop={true}
               thumbs={{ swiper: thumbsSwiper }}
               modules={[FreeMode, Thumbs, Autoplay]}
-              className="mySwiper2 relative md:max-w-xl max-h-[600px]"
+              className="mySwiper2 relative md:max-w-xl sceleton-animation bg-gray-400 h-[500px] sm:h-[650px] md:h-[600px]"
             >
               {info &&
                 info.images.map((image, index) => {
                   return (
                     <SwiperSlide
-                      className="flex justify-center items-center h-full w-full"
+                      className="flex justify-center items-center"
                       key={index}
                     >
                       <img
                         src={image}
-                        className="hover:scale-110 transition-all w-full h-full"
+                        className="hover:scale-110 transition-all h-full md:h-max w-full"
                         alt={info.productName}
                       />
                     </SwiperSlide>
@@ -151,13 +144,13 @@ const Detail = ({ rendered }) => {
               freeMode={true}
               watchSlidesProgress={true}
               modules={[FreeMode, Thumbs]}
-              className="mySwiper relative max-w-xl max-h-[150px] flex items-center"
+              className="mySwiper relative max-w-xl max-h-[100px] sm:max-h-[150px] flex items-center"
             >
               {info &&
                 info.images.map((image, index) => {
                   return (
                     <SwiperSlide
-                      className="flex justify-center items-stretch relative h-full"
+                      className="flex justify-center h-[150px] items-stretch relative sceleton-animation"
                       key={index}
                     >
                       <img
@@ -172,8 +165,8 @@ const Detail = ({ rendered }) => {
           </div>
         )}
         {info && (
-          <div className="w-full relative p-5">
-            <div className="absolute right-5 bottom-0">
+          <div className="w-full relative">
+            <div className="absolute hidden lg:block right-5 bottom-0 translate-y-1/2">
               <Button
                 onClick={addToCart}
                 variant={`${info.inTheCart ? "filled" : "outlined"}`}
@@ -188,18 +181,32 @@ const Detail = ({ rendered }) => {
                 <span className="hidden sm:block">sotib olish</span>
               </Button>
             </div>
-            <div className="flex justify-start items-center space-x-2 text-xs">
-              <Star className="text-yellow-800" />
-              <Typography variant="lead">{info.rating}</Typography>
+            <div className="flex justify-between items-center mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full">
+              <div className="flex justify-start items-center space-x-2 text-xs">
+                <Star className="text-yellow-800" />
+                <Typography variant="lead">{info.rating}</Typography>
+              </div>
+              <IconButton
+                onClick={addToCart}
+                variant={`${info.inTheCart ? "filled" : "outlined"}`}
+                color="gray"
+                className="block lg:hidden"
+              >
+                {info.inTheCart ? (
+                  <RemoveShoppingCartOutlined />
+                ) : (
+                  <AddShoppingCartOutlined />
+                )}
+              </IconButton>
             </div>
-            <Typography className="text-2xl py-5 sm:text-3xl lg:text-4xl">
+            <Typography className="text-2xl mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full lg:py-5 sm:text-3xl lg:text-4xl">
               {info.productName}
             </Typography>
-            <Typography className="text-xl py-5 lg:text-4xl">
+            <Typography className="text-xl mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full lg:text-2xl">
               {info.price.toLocaleString("uz-UZ", options).replaceAll(",", " ")}{" "}
               so'm <span>/</span> <sub>dona</sub>
             </Typography>
-            <Tabs value="info" className="w-full max-w-3xl mx-auto py-5">
+            <Tabs value="info" className="w-full max-w-3xl mx-auto py-3">
               <TabsHeader className="bg-red-900 bg-opacity-80">
                 <Tab value={"info"}>
                   <div className="flex justify-center items-center space-x-2 text-white">
@@ -233,7 +240,10 @@ const Detail = ({ rendered }) => {
                 </Tab>
               </TabsHeader>
               <TabsBody>
-                <TabPanel className="w-full max-w-3xl mx-auto" value={"info"}>
+                <TabPanel
+                  className="w-full max-w-3xl mx-auto px-0"
+                  value={"info"}
+                >
                   {Boolean(info.description) ? (
                     info.description.map((item, index) => {
                       return <p key={index}>{item}</p>;
@@ -245,7 +255,7 @@ const Detail = ({ rendered }) => {
                   )}
                 </TabPanel>
                 <TabPanel
-                  className="w-full max-w-3xl mx-auto"
+                  className="w-full max-w-3xl px-0 mx-auto"
                   value={"shortly"}
                 >
                   {info.shortly ? (
@@ -260,7 +270,7 @@ const Detail = ({ rendered }) => {
                 </TabPanel>
                 <TabPanel
                   value={"delivery"}
-                  className="w-full max-w-2xl space-y-5 text-black"
+                  className="w-full max-w-2xl px-0 space-y-5 text-black"
                 >
                   <Typography variant="h5">Yetkazib berish</Typography>
                   <div>

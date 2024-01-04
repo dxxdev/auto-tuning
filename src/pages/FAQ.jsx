@@ -15,9 +15,14 @@ const FAQ = () => {
 
   return (
     <div className={`${styles.container} py-5 space-y-14`}>
-      <div className="flex flex-col lg:flex-row gap-x-12 gap-y-12 lg:justify-between">
-        <div className="flex flex-col gap-y-12">
-          <Typography variant="h1">Kompaniya haqida</Typography>
+      <div className="flex flex-col items-stretch lg:flex-row gap-x-12 gap-y-12 lg:justify-between">
+        <div className="flex flex-col gap-y-4 sm:gap-y-6 lg:gap-y-10">
+          <Typography
+            variant="h1"
+            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl"
+          >
+            Kompaniya haqida
+          </Typography>
           <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-5 lg:space-y-0 lg:justify-between">
             <p class="text-gray-700">
               "AUTO TUNING" - O'zbekistondagi eng yirik avto tovarlar yetkazib
@@ -35,13 +40,13 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div className="rounded-2xl w-full max-w-full lg:max-w-xl overflow-hidden">
-          <img src={autoTuning} className="h-[calc(100%+20px)]" alt="" />
+        <div className="rounded-2xl w-full h-[452px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl bg-red-800 overflow-hidden">
+          {/* <img src={autoTuning} className="h-full w-full" alt="" /> */}
         </div>
       </div>
-      <div className="flex flex-col-reverse lg:flex-row gap-x-12 gap-y-12">
-        <div className="rounded-2xl w-full max-w-full lg:max-w-xl overflow-hidden">
-          <img src={autoTuning1} className="h-[calc(100%+20px)]" alt="" />
+      <div className="flex !mt-8 flex-col-reverse lg:flex-row gap-x-12 gap-y-12">
+        <div className="rounded-2xl w-full h-[452px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl bg-red-800 overflow-hidden">
+          {/* <img src={autoTuning1} className="h-full w-full" alt="" /> */}
         </div>
         <div className="flex flex-col">
           <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-4 md:space-y-0 md:justify-between">
@@ -73,11 +78,14 @@ const FAQ = () => {
       </div>
       <section>
         <div>
-          <Typography variant="h3">
+          <Typography
+            variant="h3"
+            className="text-2xl md:text-3xl text-center md:text-left"
+          >
             Biz eng yirik kompaniyalar bilan hamkorlik qilamiz
           </Typography>
         </div>
-        <div className="flex justify-center items-center flex-wrap gap-8 py-14">
+        <div className="flex justify-center items-center flex-wrap gap-8 py-8">
           {companies.map((company, index) => {
             return (
               <div className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
@@ -87,8 +95,8 @@ const FAQ = () => {
           })}
         </div>
       </section>
-      <section>
-        <div className="py-5 flex flex-col sm:flex-row justify-between">
+      <section className="!mt-2">
+        <div className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row justify-between">
           <Typography variant="h4">Izohlar</Typography>
           <Button onClick={() => navigate("/Sharhlar")} variant="outlined">
             Barcha sharhlar

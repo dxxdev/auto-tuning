@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { clearCart, products, scrollTop, viewProduct } from "../data/data";
+import { products, scrollTop, viewProduct } from "../data/data";
 import {
   Button,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
+  Chip,
   IconButton,
   Input,
   Typography,
@@ -54,7 +55,7 @@ const Basket = ({ rendered }) => {
       .replaceAll(",", " ")}so'm`;
 
     try {
-      if (address.trim() !== "" && clientName.trim() !== "") {
+      if (address.trim() != "" && clientName.trim() != "") {
         await axios.post(
           `https://api.telegram.org/bot${telegramBotId}/sendMessage`,
           {
@@ -62,7 +63,16 @@ const Basket = ({ rendered }) => {
             text,
           }
         );
-        clearCart();
+        toast.success("Adminga yuborildi", {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         setRender((prev) => !prev);
       } else {
         toast.error("Formani to'ldirib qayta urining", {
@@ -143,54 +153,75 @@ const Basket = ({ rendered }) => {
     <div className={`${styles.container} py-2`}>
       <Typography
         variant="h1"
-        className="py-5 text-6xl font-normal tracking-[5px]"
+        className="py-5 text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-normal tracking-[2px] sm:tracking-[3px] md:tracking-[4px]"
       >
         Savatcha
       </Typography>
       <div
-        className={`${styles.container} flex flex-col gap-x-8 lg:flex-row gap-y-5 justify-between items-start py-2`}
+        className={`${styles.container} !px-0 flex flex-col gap-x-8 lg:flex-row gap-y-5 justify-between items-start py-2`}
       >
         <div className="w-full lg:grow">
           {inTheCartProduct && inTheCartProduct.length > 0 && (
             <div>
               <ul
-                className={`${styles.container} py-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8`}
+                className={`${styles.container} !px-0 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8`}
               >
                 {inTheCartProduct.map((product) => {
                   return (
                     <li
                       key={product.id}
-                      className="rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper relative"
+                      className="rounded-lg group bg-white flex flex-col shadow-md space-y-4 card-swiper relative"
                     >
                       <Link
                         onClick={() => viewProduct(product)}
                         to={`/${product.category}/${product.productName}`}
                       >
-                        <Swiper
-                          effect="fade"
-                          pagination={{
-                            clickable: true,
-                          }}
-                          loop={true}
-                          modules={[Pagination, EffectFade]}
-                          className="mySwiper relative rounded-lg"
-                        >
-                          {product.images.map((item, index) => {
-                            return (
-                              <SwiperSlide
-                                key={index}
-                                className="max-h-[470px]"
-                              >
-                                <img
-                                  src={item}
-                                  className="w-full"
-                                  alt={product.productName}
-                                />
-                              </SwiperSlide>
-                            );
-                          })}
-                        </Swiper>
+                        <div className="h-[450px] overflow-hidden bg-gray-200 rounded-t-lg">
+                          <Swiper
+                            effect="fade"
+                            pagination={{
+                              clickable: true,
+                            }}
+                            loop={true}
+                            modules={[Pagination, EffectFade]}
+                            className="mySwiper h-full w-full relative rounded-t-lg"
+                          >
+                            {product.images.map((item, index) => {
+                              return (
+                                <SwiperSlide
+                                  key={index}
+                                  className="h-full w-full flex justify-center items-center"
+                                >
+                                  <img
+                                    src={item}
+                                    alt={product.productName}
+                                  />
+                                </SwiperSlide>
+                              );
+                            })}
+                          </Swiper>
+                        </div>
                       </Link>
+                      <div className="flex space-x-3 absolute left-3 top-0 z-10">
+                        {product.isItNew && (
+                          <Chip
+                            className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                            value="Yangi"
+                            color="green"
+                            size="sm"
+                            variant="filled"
+                          />
+                        )}
+                        {product.inAction && (
+                          <Chip
+                            className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                            value="Aksiya"
+                            size="sm"
+                            variant="filled"
+                            color="red"
+                          />
+                        )}
+                      </div>
                       <div className="flex flex-col h-full">
                         <button
                           onClick={() => {
@@ -298,7 +329,7 @@ const Basket = ({ rendered }) => {
                   );
                 })}
               </ul>
-              <div className={`${styles.container} py-5`}>
+              <div className={`${styles.container} !px-0 py-3 lg:py-5`}>
                 <Typography variant="h5">
                   Jami:{" "}
                   {totalSum
@@ -311,11 +342,15 @@ const Basket = ({ rendered }) => {
           )}
           {inTheCartProduct.length <= 0 && (
             <div className="flex flex-col justify-between items-start space-y-10">
-              <Typography variant="lead" className="w-full max-w-sm">
+              <Typography
+                variant="lead"
+                className="w-full text-sm sm:text-lg md:text-xl max-w-sm"
+              >
                 Savatcha bo'sh. Mahsulotni savatga qo'shish uchun mahsulotning
                 pastki qismidagi savatcha tugmasini bosing
               </Typography>
               <Button
+                className="w-full sm:w-max"
                 onClick={() => {
                   navigate("/");
                   scrollTop();
@@ -369,11 +404,7 @@ const Basket = ({ rendered }) => {
                 >
                   To'lovni mahsulotni olganingizda to'laysiz
                 </Typography>
-                <Typography
-                  variant="small"
-                  color="red"
-                  className="flex justify-center"
-                >
+                <Typography variant="small" className="flex justify-center">
                   To'lov siz xohlagan usulda
                 </Typography>
               </CardFooter>
@@ -382,11 +413,13 @@ const Basket = ({ rendered }) => {
         )}
       </div>
       <section>
-        <div className="py-5">
-          <Typography variant="h4">Tavsiya qilinadi</Typography>
+        <div className="py-3">
+          <Typography variant="h4" className="text-2xl md:text-3xl">
+            Tavsiya qilinadi
+          </Typography>
         </div>
         <ul
-          className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+          className={`${styles.container} !px-0 py-5 flex justify-start overflow-auto gap-5 products-swiper`}
         >
           {products.map((product) => {
             if (product.recommend) {

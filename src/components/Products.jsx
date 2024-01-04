@@ -36,33 +36,34 @@ const Products = ({
 
   return (
     <li
-      key={productId}
+      // key={productId}
       className="rounded-lg bg-white max-w-xs flex flex-col shadow-md space-y-4 card-swiper relative group"
     >
       <Link
-        className="max-h-[400px]"
         to={`/${productCategory}/${productName}`}
         onClick={() => {
           viewProduct(product);
         }}
       >
-        <Swiper
-          effect="fade"
-          pagination={{
-            clickable: true,
-          }}
-          loop={true}
-          modules={[Pagination, EffectFade]}
-          className="mySwiper relative rounded-lg max-h-[400px]"
-        >
-          {productImages.map((item, index) => {
-            return (
-              <SwiperSlide key={index} className="max-h-[400px]">
-                <img src={item} className="w-full" alt={productName} />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+        <div className="bg-gray-200 rounded-t-lg">
+          <Swiper
+            effect="fade"
+            pagination={{
+              clickable: true,
+            }}
+            loop={true}
+            modules={[Pagination, EffectFade]}
+            className="mySwiper relative rounded-t-lg h-[400px]"
+          >
+            {productImages.map((item, index) => {
+              return (
+                <SwiperSlide key={index} className="max-h-[400px]">
+                  <img src={item} className="w-full" alt={productName} />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
       </Link>
       <button
         onClick={() => {

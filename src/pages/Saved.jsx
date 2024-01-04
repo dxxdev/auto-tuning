@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { addCartProduct, products, scrollTop, viewProduct } from "../data/data";
-import { Button, IconButton, Typography } from "@material-tailwind/react";
+import { Button, Chip, IconButton, Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
@@ -50,7 +50,7 @@ const Saved = () => {
             return (
               <li
                 key={product.id}
-                className="relative rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper"
+                className="relative group rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper"
               >
                 <Link
                   onClick={() => viewProduct(product)}
@@ -78,6 +78,26 @@ const Saved = () => {
                     })}
                   </Swiper>
                 </Link>
+                <div className="flex space-x-3 absolute left-3 top-0 z-10">
+                  {product.isItNew && (
+                    <Chip
+                      className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                      value="Yangi"
+                      color="green"
+                      size="sm"
+                      variant="filled"
+                    />
+                  )}
+                  {product.inAction && (
+                    <Chip
+                      className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                      value="Aksiya"
+                      size="sm"
+                      variant="filled"
+                      color="red"
+                    />
+                  )}
+                </div>
                 <button
                   onClick={() => {
                     setRender((prev) => !prev);

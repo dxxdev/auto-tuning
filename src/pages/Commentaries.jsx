@@ -102,14 +102,14 @@ const Commentaries = () => {
 
   return (
     <div className={`${styles.container}`}>
-      <section className="py-3">
+      <section>
         <Typography variant="h3">Izohlar</Typography>
-        <ul className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <ul className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-7">
           {commentaries.map((note) => {
             return (
               <li
                 key={note.id}
-                className="w-full rounded-2xl px-8 py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-2xl"
+                className="w-full rounded-2xl px-5 md:px-7 py-7 md:py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-2xl"
               >
                 <div className="space-y-5">
                   <div>
@@ -123,7 +123,7 @@ const Commentaries = () => {
           })}
         </ul>
       </section>
-      <div className="py-20 flex flex-col items-center gap-y-20">
+      <div className="py-5 lg:py-10 flex flex-col items-center gap-y-10 lg:gap-y-16">
         <div className="flex flex-col items-center gap-y-5">
           <Typography variant="h2">Izoh qoldiring</Typography>
           <Typography variant="h5" className="font-medium max-w-xl text-center">
@@ -131,7 +131,7 @@ const Commentaries = () => {
             maydonlar belgilangan
           </Typography>
         </div>
-        <Card className="w-full max-w-2xl border border-gray-200">
+        <Card className="w-full max-w-3xl border border-gray-200">
           <CardHeader
             variant="gradient"
             color="red"
@@ -177,7 +177,6 @@ const Commentaries = () => {
               role="presentation"
               name="a-7z2l7vcwjdk9"
               frameborder="0"
-              scrolling="no"
               sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
               src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc0Pi0pAAAAAFuRiKfyvf8I7Vtjf88ssRWwnvGH&amp;co=aHR0cHM6Ly9vZmZpY2Utc3R5bGUubmV0bGlmeS5hcHA6NDQz&amp;hl=ru&amp;type=image&amp;v=u-xcq3POCWFlCr3x8_IPxgPu&amp;theme=light&amp;size=normal&amp;badge=bottomright&amp;cb=u60h7xi9a6j"
             ></iframe>
@@ -193,7 +192,7 @@ const Commentaries = () => {
               <span>Yuborish</span>
               <Send />
             </Button>
-            <Typography variant="small" className="mt-6">
+            <Typography variant="small" className="mt-6 text-center">
               Yuborishdan oldin
               <Link to={`/policy`} className="ml-1 text-red-700 font-bold">
                 Shaxsiy ma'lumotlarni himoya qilish shartlari

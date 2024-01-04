@@ -1694,21 +1694,3 @@ export const scrollTop = () => {
     behavior: "smooth",
   });
 };
-
-export const clearCart = () => {
-  products = products.map((product) => ({
-    ...product,
-    inTheCart: false,
-  }));
-
-  toast.success("Adminga yuborildi", {
-    position: "bottom-right",
-    autoClose: 2000,
-    hideProgressBar: true,
-    closeOnClick: false,
-    pauseOnHover: false,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  });
-};
