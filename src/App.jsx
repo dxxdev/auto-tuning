@@ -32,7 +32,7 @@ const App = () => {
       <Route path="/" element={<MainLayout rendered={rendered} />}>
         <Route index element={<Home rendered={rendered} />} />
         <Route path="/Savatcha" element={<Basket rendered={rendered} />} />
-        <Route path="/Saqlanganlar" element={<Saved />} />
+        <Route path="/Saqlanganlar" element={<Saved rendered={rendered} />} />
         <Route
           path="/:category"
           element={<Category rendered={rendered} />}
@@ -43,7 +43,7 @@ const App = () => {
         <Route path="/Yetkazib berish va to'lash" element={<Payment />} />
         <Route path="/Sharhlar" element={<Commentaries />} />
         <Route path="/policy" element={<Policy />} />
-        <Route path="/Aksiya" element={<Action />} rendered={rendered} />
+        <Route path="/Aksiya" element={<Action rendered={rendered} />} />
         <Route
           path="/:category/:productName"
           element={<Detail rendered={rendered} />}

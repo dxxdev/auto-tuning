@@ -69,10 +69,10 @@ const Home = ({ rendered }) => {
                 className="flex justify-center items-stretch max-h-[180px] sm:max-h-[280px] md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] h-full w-full overflow-hidden"
               >
                 <img
-                src={item.image}
-                className="max-h-[180px] sm:max-h-[280px] w-full md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] object-cover"
-                alt="Hero img"
-              />
+                  src={item.image}
+                  className="max-h-[180px] sm:max-h-[280px] w-full md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] object-cover"
+                  alt="Hero img"
+                />
               </SwiperSlide>
             );
           })}
@@ -232,11 +232,15 @@ const Home = ({ rendered }) => {
             <div
               className={`bg-[url('/src/assets/img/antiradar.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl group transition-opacity`}
             >
-              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl group-hover:bg-opacity-40">
+              <div className="flex w-full bg-black bg-opacity-30 p-8  lg:p-14 flex-col justify-end items-start space-y-2 lg:space-y-4 rounded-2xl group-hover:bg-opacity-40">
                 <Typography variant="h3" color="white">
                   Antiradarlar
                 </Typography>
-                <Typography color="white" variant="lead">
+                <Typography
+                  color="white"
+                  variant="paragraph"
+                  className="lg:text-lg"
+                >
                   Politsiya radarlariga qarshi yuqori masofaga va maksimal
                   shovqin immuniteti
                 </Typography>
@@ -253,11 +257,15 @@ const Home = ({ rendered }) => {
             <div
               className={`bg-[url('/src/assets/img/atir+vizitka.jpg')] bg-cover bg-center h-96 flex rounded-2xl group transition-opacity`}
             >
-              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl group-hover:bg-opacity-40">
+              <div className="flex w-full bg-black bg-opacity-30 p-8  lg:p-14 flex-col justify-end items-start space-y-2 lg:space-y-4 rounded-2xl group-hover:bg-opacity-40">
                 <Typography variant="h3" color="white">
                   Suvenirlar
                 </Typography>
-                <Typography color="white" variant="lead">
+                <Typography
+                  color="white"
+                  variant="paragraph"
+                  className="lg:text-lg"
+                >
                   Mashina uchun hushbo'ylagichlar, havo namlagichlar va telefon
                   ushlagichlar
                 </Typography>
@@ -276,11 +284,15 @@ const Home = ({ rendered }) => {
             <div
               className={`bg-[url('/src/assets/img/monitor.png')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl group transition-opacity`}
             >
-              <div className="flex w-full bg-black bg-opacity-30  p-14 flex-col justify-end items-start space-y-4 rounded-2xl group-hover:bg-opacity-40">
+              <div className="flex w-full bg-black bg-opacity-30 p-8  lg:p-14 flex-col justify-end items-start space-y-2 lg:space-y-4 rounded-2xl group-hover:bg-opacity-40">
                 <Typography variant="h3" color="white">
                   Monitorlar
                 </Typography>
-                <Typography color="white" variant="lead">
+                <Typography
+                  color="white"
+                  variant="paragraph"
+                  className="lg:text-lg"
+                >
                   Mashina uchun monitorlar
                 </Typography>
                 <Link
@@ -608,7 +620,7 @@ const Home = ({ rendered }) => {
           <div className="flex justify-center items-center flex-wrap gap-8 py-8 pb-0">
             {companies.map((company, index) => {
               return (
-                <div className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
+                <div key={index} className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
                   <img src={company} alt="Company" />
                 </div>
               );

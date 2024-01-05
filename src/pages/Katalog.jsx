@@ -15,17 +15,17 @@ const Katalog = () => {
       <div>
         <Typography
           variant="h1"
-          className="py-5 text-6xl font-normal tracking-[5px]"
+          className="py-2 lg:py-5 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-normal tracking-[5px]"
         >
           Katalog
         </Typography>
       </div>
-      <ul className="grid py-14 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ul className="grid py-14 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-5 lg:gap-7">
         {categoryProduct.map((product) => {
           return (
-            <Link onClick={scrollTop} to={`/${product.category}`}>
+            <Link key={product.id} onClick={scrollTop} to={`/${product.category}`}>
               <li
-                className="rounded-3xl relative group overflow-hidden h-full max-h-96 flex justify-center items-center"
+                className="rounded-3xl relative group overflow-hidden h-full max-h-56  flex justify-center items-center"
                 key={product.id}
               >
                 <img
@@ -33,7 +33,7 @@ const Katalog = () => {
                   src={product.image}
                   alt=""
                 />
-                <div className="absolute top-0 w-full h-full rounded-3xl flex justify-center items-end bg-black bg-opacity-40 text-xs left-0 px-8 py-5 transition-all opacity-0 group-hover:opacity-100 group-hover:text-2xl group-hover:font-semibold group-hover:text-white">
+                <div className="absolute top-0 w-full h-full rounded-3xl flex justify-center items-end bg-black bg-opacity-40 text-3xl left-0 px-8 py-5 text-white">
                   <p>{product.category}</p>
                 </div>
               </li>

@@ -3,6 +3,7 @@ import { styles } from "../styles";
 import { Button, Typography } from "@material-tailwind/react";
 import { WhatsApp } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { scrollTop } from "../data/data";
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -15,14 +16,17 @@ const Payment = () => {
     <div className={`pb-10 ${styles.container}`}>
       <div className="space-y-8">
         <div>
-          <Typography variant="h1" className="py-5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-[3px]">
+          <Typography
+            variant="h1"
+            className="py-5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-[3px]"
+          >
             Yetkazib berish va to'lash
           </Typography>
         </div>
 
         <div className="flex items-stretch">
           <svg
-            class="mr-8 max-440:hidden"
+            className="mr-8 max-440:hidden"
             xmlns="http://www.w3.org/2000/svg"
             width="62"
             height="62"
@@ -37,14 +41,14 @@ const Payment = () => {
           </svg>
           <Typography
             variant="h3"
-            className="font-medium border-b-2 border-b-red-900 flex items-center box-border"
+            className="font-medium text-xl md:text-3xl border-b-2 border-b-red-900 flex items-center box-border"
           >
             Buyurtma
           </Typography>
         </div>
 
         <div className="space-y-4">
-          <Typography variant="h4" className="font-normal tracking-[1px]">
+          <Typography variant="h4" className="font-normal text-xl md:text-2xl tracking-[1px]">
             Toshkent bo'ylab yetkazib berish
           </Typography>
           <p className="text-gray-700 max-w-screen-md">
@@ -54,7 +58,7 @@ const Payment = () => {
           </p>
         </div>
         <div className="space-y-4">
-          <Typography variant="h4" className="font-normal tracking-[1px]">
+          <Typography variant="h4" className="font-normal text-xl md:text-2xl tracking-[1px]">
             Boshqa hududlar
           </Typography>
           <p className="text-gray-700 max-w-screen-md">
@@ -63,7 +67,7 @@ const Payment = () => {
           </p>
         </div>
         <div className="space-y-4">
-          <Typography variant="h4" className="font-normal tracking-[1px]">
+          <Typography variant="h4" className="font-normal text-xl md:text-2xl tracking-[1px]">
             Kompaniyadan olib ketish
           </Typography>
           <p className="text-gray-700 max-w-screen-md">
@@ -78,7 +82,7 @@ const Payment = () => {
         </div>
         <div className="flex items-stretch">
           <svg
-            class="mr-8 max-440:hidden"
+            className="mr-8 max-440:hidden"
             xmlns="http://www.w3.org/2000/svg"
             width="62"
             height="62"
@@ -109,7 +113,7 @@ const Payment = () => {
           </svg>
           <Typography
             variant="h3"
-            className="font-medium border-b-2 border-b-red-900 flex items-center box-border"
+            className="font-medium text-xl md:text-3xl border-b-2 border-b-red-900 flex items-center box-border"
           >
             To'lov
           </Typography>
@@ -126,17 +130,17 @@ const Payment = () => {
           <div>
             <Typography
               variant="h3"
-              className="py-5 font-normal tracking-[1px]"
+              className="py-5 text-2xl md:text-3xl font-normal tracking-[1px]"
             >
               Bog'lanish
             </Typography>
             <div className="space-y-3">
               <p className="text-gray-700 max-w-screen-md">
                 Manzil:
-                <p className="text-black">
+                <span className="text-black">
                   Toshkent sh, Amir Temur k. 47b. Mo'ljal Chorsu bozori
                   ro'parasida
-                </p>
+                </span>
               </p>
               <p className="text-gray-700 max-w-screen-md">
                 Telefon raqam: <br />
@@ -155,7 +159,7 @@ const Payment = () => {
               </p>
               <p className="text-gray-700 max-w-screen-md">
                 Ish vaqti: <br />
-                <p className="text-black">du - shan: 9:00dan 18:00gacha</p>
+                <span className="text-black">du - shan: 9:00dan 18:00gacha</span>
               </p>
             </div>
           </div>
@@ -181,7 +185,10 @@ const Payment = () => {
               </svg>
             </a>
             <Button
-              onClick={() => navigate("/Katalog")}
+              onClick={() => {
+                navigate("/Katalog");
+                scrollTop();
+              }}
               variant="filled"
               color="red"
             >
@@ -194,10 +201,10 @@ const Payment = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2998.2151898393695!2d69.19256677757666!3d41.282420887019306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b684b728b05%3A0x447c755a6628d746!2sAuto%20Tuning%20Centre%20service!5e0!3m2!1suz!2s!4v1703741135199!5m2!1suz!2s"
             width="100%"
             height="100%"
-            allowfullscreen=""
+            allowFullScreen=""
             className="rounded-2xl"
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>

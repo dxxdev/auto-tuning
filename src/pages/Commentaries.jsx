@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { Send, Star } from "@mui/icons-material";
 import {
@@ -12,7 +12,7 @@ import {
   Textarea,
   Typography,
 } from "@material-tailwind/react";
-import { commentaries } from "../data/data";
+import { TOAST_CONFIG, commentaries, scrollTop } from "../data/data";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -45,27 +45,9 @@ const Commentaries = () => {
             text,
           }
         );
-        toast.success("Yuborildi", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.success("Yuborildi", TOAST_CONFIG);
       } else {
-        toast.error("Formani to'ldirib qayta urining", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.error("Formani to'ldirib qayta urining", TOAST_CONFIG);
       }
 
       // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
@@ -75,27 +57,9 @@ const Commentaries = () => {
       setRating(0);
     } catch (error) {
       if (message != "" && email != "" && userName != "" && rating != 0) {
-        toast.error("Tarmoqdagi xato", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.error("Tarmoqdagi xato", TOAST_CONFIG);
       } else {
-        toast.error("Formani to'ldiring", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.error("Formani to'ldiring", TOAST_CONFIG);
       }
     }
   };
@@ -103,7 +67,9 @@ const Commentaries = () => {
   return (
     <div className={`${styles.container}`}>
       <section>
-        <Typography variant="h3">Izohlar</Typography>
+        <Typography variant="h3" className="text-2xl md:text-3xl">
+          Izohlar
+        </Typography>
         <ul className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-7">
           {commentaries.map((note) => {
             return (
@@ -111,13 +77,15 @@ const Commentaries = () => {
                 key={note.id}
                 className="w-full rounded-2xl px-5 md:px-7 py-7 md:py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-2xl"
               >
-                <div className="space-y-5">
+                <div className="space-y-5 mb-3">
                   <div>
                     <Rating ratedColor="white" value={note.rating} readonly />
                   </div>
                   <p className="tracking-[0.5px]">{note.comment}</p>
                 </div>
-                <p className="tracking-[0.5px] text-sm">{note.from}</p>
+                <p className="tracking-[0.5px] opacity-70 text-sm">
+                  {note.from}
+                </p>
               </li>
             );
           })}
@@ -125,8 +93,13 @@ const Commentaries = () => {
       </section>
       <div className="py-5 lg:py-10 flex flex-col items-center gap-y-10 lg:gap-y-16">
         <div className="flex flex-col items-center gap-y-5">
-          <Typography variant="h2">Izoh qoldiring</Typography>
-          <Typography variant="h5" className="font-medium max-w-xl text-center">
+          <Typography variant="h2" className="text-3xl md:text-4xl">
+            Izoh qoldiring
+          </Typography>
+          <Typography
+            variant="h5"
+            className="font-medium text-lg md:text-xl max-w-xl text-center"
+          >
             Sizning elektron pochtangiz saytda chop etilmaydi. Majburiy
             maydonlar belgilangan
           </Typography>
@@ -137,7 +110,11 @@ const Commentaries = () => {
             color="red"
             className="m-4 grid h-16 place-items-center"
           >
-            <Typography variant="h4" color="white">
+            <Typography
+              variant="h4"
+              color="white"
+              className="text-xl md:text-2xl"
+            >
               Sharh qoldiring!
             </Typography>
           </CardHeader>
@@ -163,23 +140,22 @@ const Commentaries = () => {
             ></Textarea>
             <Typography variant="small">Bizni baholang</Typography>
             <Rating
-              value={rating}
               precision={1}
               max={5}
               onChange={(value) => {
                 setRating(value);
+                console.log(value);
+                console.log(rating);
               }}
             />
-            <iframe
-              title="reCAPTCHA"
-              width="304"
-              height="78"
-              role="presentation"
-              name="a-7z2l7vcwjdk9"
-              frameborder="0"
-              sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-              src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lc0Pi0pAAAAAFuRiKfyvf8I7Vtjf88ssRWwnvGH&amp;co=aHR0cHM6Ly9vZmZpY2Utc3R5bGUubmV0bGlmeS5hcHA6NDQz&amp;hl=ru&amp;type=image&amp;v=u-xcq3POCWFlCr3x8_IPxgPu&amp;theme=light&amp;size=normal&amp;badge=bottomright&amp;cb=u60h7xi9a6j"
-            ></iframe>
+            <div className="h-20">
+              <iframe
+                width="100%"
+                height="100%"
+                css={{ display: "none" }}
+                src="https://shop.examplestore.com/pages/contact-store"
+              />
+            </div>
           </CardBody>
           <CardFooter className="pt-0">
             <Button
@@ -194,7 +170,11 @@ const Commentaries = () => {
             </Button>
             <Typography variant="small" className="mt-6 text-center">
               Yuborishdan oldin
-              <Link to={`/policy`} className="ml-1 text-red-700 font-bold">
+              <Link
+                to={`/policy`}
+                onClick={scrollTop}
+                className="ml-1 text-red-700 font-bold"
+              >
                 Shaxsiy ma'lumotlarni himoya qilish shartlari
               </Link>{" "}
               bilan tanishib chiqing

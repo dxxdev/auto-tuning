@@ -25,12 +25,11 @@ const Category = ({ rendered }) => {
   const filteredCategory = products.filter((product) => {
     return product.category == category;
   });
-  useEffect(() => {
-    document.title = category;
-  }, [category]);
 
   useEffect(() => {
+    document.title = category;
     setFilterCategory(filteredCategory);
+    setInOrder(null);
   }, [category]);
 
   const filteredPrice = () => {
@@ -93,7 +92,11 @@ const Category = ({ rendered }) => {
                     {product.images.map((item, index) => {
                       return (
                         <SwiperSlide key={index}>
-                          <img src={item} className="w-full h-full" alt={product.productName} />
+                          <img
+                            src={item}
+                            className="w-full h-full"
+                            alt={product.productName}
+                          />
                         </SwiperSlide>
                       );
                     })}
@@ -122,7 +125,7 @@ const Category = ({ rendered }) => {
               </div>
               <button
                 onClick={() => {
-                  setRender((prev) => !prev);
+                  rendered();
                   product.saved = !product.saved;
                 }}
                 className="absolute top-0 -translate-y-1/2 right-0 z-[999] text-red-600"
@@ -158,7 +161,7 @@ const Category = ({ rendered }) => {
                     </Typography>
                     <IconButton
                       onClick={() => {
-                        setRender((prev) => !prev);
+                        rendered();
                         addCartProduct(product);
                       }}
                       variant={`${product.inTheCart ? "filled" : "outlined"}`}
@@ -191,7 +194,7 @@ const Category = ({ rendered }) => {
                 <Products
                   rendered={rendered}
                   product={product}
-                  productId={product.id}
+                  key={product.id}
                   productName={product.productName}
                   productCategory={product.category}
                   productImages={product.images}

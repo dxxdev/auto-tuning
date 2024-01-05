@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { addCartProduct, products, scrollTop, viewProduct } from "../data/data";
+import {
+  addCartProduct,
+  options,
+  products,
+  scrollTop,
+  viewProduct,
+} from "../data/data";
 import { Button, Chip, IconButton, Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer } from "react-toastify";
@@ -14,7 +20,7 @@ import {
   Star,
 } from "@mui/icons-material";
 
-const Saved = () => {
+const Saved = ({ rendered }) => {
   const [render, setRender] = useState(true);
   const [inTheCartProduct, setInTheCartProduct] = useState([]);
   const navigate = useNavigate();
@@ -23,13 +29,9 @@ const Saved = () => {
       return product.saved;
     });
     setInTheCartProduct(filteredProduct);
+    rendered();
   };
-  let options = {
-    style: "decimal",
-    useGrouping: true,
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-  };
+
   useEffect(() => {
     filteredProductOnCart(products);
   }, [render]);
@@ -44,7 +46,7 @@ const Saved = () => {
       </Typography>
       {inTheCartProduct && inTheCartProduct.length > 0 && (
         <ul
-          className={`${styles.container} py-5 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-8`}
+          className={`${styles.container} !px-0 py-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3`}
         >
           {inTheCartProduct.map((product) => {
             return (
@@ -78,7 +80,7 @@ const Saved = () => {
                     })}
                   </Swiper>
                 </Link>
-                <div className="flex space-x-3 absolute left-3 top-0 z-10">
+                <div className="space-x-3 absolute hidden sm:flex left-3 top-0 z-10">
                   {product.isItNew && (
                     <Chip
                       className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"

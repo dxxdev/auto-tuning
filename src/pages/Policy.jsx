@@ -6,7 +6,7 @@ const Policy = () => {
   return (
     <div className={`${styles.container}`}>
       <div>
-        <Typography variant="h1" className="py-5 font-normal tracking-[3px]">
+        <Typography variant="h1" className="py-2 md:py-5 text-2xl md:text-3xl lg:text-4xl font-normal tracking-[2px]">
           Shaxsiy ma'lumotlarni himoya qilish siyosati
         </Typography>
       </div>

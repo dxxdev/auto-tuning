@@ -41,7 +41,7 @@ const Breadcrump = () => {
           : "hidden"
       }`}
     >
-      <Breadcrumbs className="bg-[#d9d9d9]">
+      <Breadcrumbs className="bg-[#eaf4f4]">
         {category.includes(tayyorArr[0]) && (
           <Link className="text-gray-900" onClick={scrollTop} to="/">
             Bosh sahifa

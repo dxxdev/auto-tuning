@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { styles } from "../styles";
 import { Button, Rating, Typography } from "@material-tailwind/react";
 import { autoTuning, autoTuning1, companies } from "../assets/images";
-import { commentaries } from "../data/data";
+import { commentaries, scrollTop } from "../data/data";
 import { Star } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
@@ -24,11 +24,11 @@ const FAQ = () => {
             Kompaniya haqida
           </Typography>
           <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-5 lg:space-y-0 lg:justify-between">
-            <p class="text-gray-700">
+            <p className="text-gray-700">
               "AUTO TUNING" - O'zbekistondagi eng yirik avto tovarlar yetkazib
               beruvchilardan biri hisoblanadi.
             </p>
-            <p class="text-gray-700">
+            <p className="text-gray-700">
               "AUTO TUNING" tovarlar va xizmatlarning eng yaxshi tanlovini,
               mijozlarning barcha talablariga javob beradigan tez yetkazib
               berish xizmatini taklif etadi.
@@ -40,17 +40,17 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div className="rounded-2xl w-full h-[452px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl bg-red-800 overflow-hidden">
-          {/* <img src={autoTuning} className="h-full w-full" alt="" /> */}
+        <div className="rounded-2xl w-full h-[262px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
+          <img src={autoTuning} className="h-full rounded-xl" alt="" />
         </div>
       </div>
       <div className="flex !mt-8 flex-col-reverse lg:flex-row gap-x-12 gap-y-12">
-        <div className="rounded-2xl w-full h-[452px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl bg-red-800 overflow-hidden">
-          {/* <img src={autoTuning1} className="h-full w-full" alt="" /> */}
+        <div className="rounded-2xl w-full h-[262px] sm:h-[362px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
+          <img src={autoTuning1} className="h-full rounded-xl" alt="" />
         </div>
         <div className="flex flex-col">
           <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-4 md:space-y-0 md:justify-between">
-            <p class="text-gray-700">
+            <p className="text-gray-700">
               "AUTO TUNING" mahsulotlarini O'zbekistonning 300 dan ortiq
               shaharlarida sotib olish mumkin. Kompaniyaning tovarlar keng
               assortimentdagi (50 000 dan ortiq turdagi) avto tovarlarni taklif
@@ -58,12 +58,12 @@ const FAQ = () => {
               antiradarlar, boshqaruv moslamalari, vizitkalar, registratorlar va
               monitorlar.
             </p>
-            <p class="text-gray-700">
+            <p className="text-gray-700">
               Biz sizga yuqori sifatli avto tovarlarini tezda va xavfsiz
               yetkazib beramiz. O'zingizning avtomobilingiz uchun kerakli barcha
               narsalarni bizdan sotib olishingiz mumkin
             </p>
-            <p class="text-gray-700">
+            <p className="text-gray-700">
               "AUTO TUNING" - avtomobilingizni yangilash va unikal ko'rinishga
               ega qilish uchun sizni taklif etilgan eng yaxshi avto tuning va
               avto tovarlari bilan ta'minlashimizdan xursand bo'ling.
@@ -88,7 +88,7 @@ const FAQ = () => {
         <div className="flex justify-center items-center flex-wrap gap-8 py-8">
           {companies.map((company, index) => {
             return (
-              <div className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
+              <div key={index} className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
                 <img src={company} alt="Company" />
               </div>
             );
@@ -98,7 +98,13 @@ const FAQ = () => {
       <section className="!mt-2">
         <div className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row justify-between">
           <Typography variant="h4">Izohlar</Typography>
-          <Button onClick={() => navigate("/Sharhlar")} variant="outlined">
+          <Button
+            onClick={() => {
+              navigate("/Sharhlar");
+              scrollTop();
+            }}
+            variant="outlined"
+          >
             Barcha sharhlar
           </Button>
         </div>

@@ -1609,6 +1609,10 @@ export const questions = [
   },
 ];
 
+export const headerRender = {
+  condition: true,
+};
+
 export let options = {
   style: "decimal",
   useGrouping: true,
@@ -1642,6 +1646,17 @@ const images = [
   videoRegistrator1,
 ];
 
+export const TOAST_CONFIG = {
+  position: "bottom-right",
+  autoClose: 2000,
+  hideProgressBar: true,
+  closeOnClick: false,
+  pauseOnHover: false,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+};
+
 export const category = setCategoryToArray(products);
 
 export const categoryProduct = category.map((item, index) => {
@@ -1656,27 +1671,9 @@ export const categoryProduct = category.map((item, index) => {
 export const addCartProduct = (product) => {
   product.inTheCart = !product.inTheCart;
   if (product.inTheCart) {
-    toast.success("Savatga qo'shildi", {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    toast.success("Savatga qo'shildi", TOAST_CONFIG);
   } else {
-    toast.error("Savatdan o'chirildi", {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: false,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    toast.error("Savatdan o'chirildi", TOAST_CONFIG);
   }
 };
 

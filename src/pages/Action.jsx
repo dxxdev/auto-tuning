@@ -1,10 +1,9 @@
 import React from "react";
-import { category, products } from "../data/data";
+import { products } from "../data/data";
 import Products from "../components/Products";
 import { Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { productNotFound } from "../assets/images";
-import { NavLink } from "react-router-dom";
 
 const Action = ({ rendered }) => {
   const productSaved = (product) => {
@@ -14,15 +13,16 @@ const Action = ({ rendered }) => {
   return (
     <div className={`${styles.container}`}>
       <ul
-        className={`py-5 grid grid-cols-4 gap-8 overflow-auto products-swiper`}
+        className={`py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 overflow-auto products-swiper`}
       >
-        {products.map((product, index) => {
+        {products.map((product) => {
           if (product.inAction) {
             return (
               <Products
+                key={product.id}
+                actionPage={true}
                 rendered={rendered}
                 product={product}
-                productId={product.id}
                 productName={product.productName}
                 productCategory={product.category}
                 productImages={product.images}

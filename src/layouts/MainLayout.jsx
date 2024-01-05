@@ -1,18 +1,24 @@
-import React from "react";
+// MainLayout.jsx
+import React, { useState } from "react";
 import Header from "../components/Header";
 import { Outlet } from "react-router";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import Breadcrump from "../components/Breadcrump";
 
-const MainLayout = ({ rendered }) => {
+const MainLayout = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const [rendered, setRendered] = useState(true);
+
+  const handleRenderChange = () => {
+    setRendered(!rendered);
+  };
 
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <Header rendered={rendered} />
-      <main className="grow bg-[#d9d9d9]">
+      <main className="grow bg-[#eaf4f4]">
         {!isHome && (
           <div className="md:pt-20 hidden md:block">
             <div className="hidden lg:block">
@@ -20,7 +26,7 @@ const MainLayout = ({ rendered }) => {
             </div>
           </div>
         )}
-        <Outlet />
+        <Outlet rendered={handleRenderChange} />
       </main>
       <Footer />
     </div>

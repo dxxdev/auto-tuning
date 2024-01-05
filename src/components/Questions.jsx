@@ -13,7 +13,7 @@ import {
   Textarea,
   Typography,
 } from "@material-tailwind/react";
-import { questions } from "../data/data";
+import { questions, scrollTop } from "../data/data";
 import { Close, Send } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -100,7 +100,7 @@ const Questions = () => {
   };
 
   return (
-    <div className={`${styles.container} py-7 !px-0 space-y-5`}>
+    <div className={`${styles.container} py-7 space-y-5`}>
       <div>
         <Typography variant="h2" className="text-2xl sm:text-3xl md:text-4xl">Savollaringizga javob beramiz</Typography>
       </div>
@@ -123,7 +123,7 @@ const Questions = () => {
                 open={open === quiz.id}
               >
                 <AccordionHeader
-                  className={`border px-4 border-gray-300 rounded-xl items-start ${
+                  className={`border text-base md:text-xl px-4 border-gray-300 rounded-xl items-start ${
                     open == quiz.id ? "rounded-b-none" : ""
                   }`}
                   onClick={() => handleOpen(quiz.id)}
@@ -173,7 +173,7 @@ const Questions = () => {
               </Button>
               <Typography variant="small" className="mt-6 text-center">
                 Yuborishdan oldin
-                <Link to={`/`} className="ml-1 text-red-700 font-bold">
+                <Link to={`/policy`} onClick={scrollTop} className="ml-1 text-red-700 font-bold">
                   Shaxsiy ma'lumotlarni himoya qilish shartlari
                 </Link>{" "}
                 bilan tanishib chiqing

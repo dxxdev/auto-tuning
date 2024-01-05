@@ -125,6 +125,7 @@ const Detail = ({ rendered }) => {
                 })}
               <button
                 onClick={() => {
+                  rendered();
                   setRender((prev) => !prev);
                   info.saved = !info.saved;
                 }}
@@ -168,7 +169,10 @@ const Detail = ({ rendered }) => {
           <div className="w-full relative">
             <div className="absolute hidden lg:block right-5 bottom-0 translate-y-1/2">
               <Button
-                onClick={addToCart}
+                onClick={() => {
+                  addToCart();
+                  rendered();
+                }}
                 variant={`${info.inTheCart ? "filled" : "outlined"}`}
                 color="gray"
                 className="flex justify-center items-center space-x-2"
@@ -182,12 +186,15 @@ const Detail = ({ rendered }) => {
               </Button>
             </div>
             <div className="flex justify-between items-center mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full">
-              <div className="flex justify-start items-center space-x-2 text-xs">
-                <Star className="text-yellow-800" />
-                <Typography variant="lead">{info.rating}</Typography>
+              <div className="flex justify-start items-center space-x-1 text-sm">
+                <Star fontSize="small" className="text-yellow-800" />
+                <p>{info.rating}</p>
               </div>
               <IconButton
-                onClick={addToCart}
+                onClick={() => {
+                  addToCart();
+                  rendered();
+                }}
                 variant={`${info.inTheCart ? "filled" : "outlined"}`}
                 color="gray"
                 className="block lg:hidden"
@@ -199,7 +206,7 @@ const Detail = ({ rendered }) => {
                 )}
               </IconButton>
             </div>
-            <Typography className="text-2xl mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full lg:py-5 sm:text-3xl lg:text-4xl">
+            <Typography className="text-xl mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full lg:py-5 sm:text-2xl lg:text-3xl">
               {info.productName}
             </Typography>
             <Typography className="text-xl mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full lg:text-2xl">
@@ -310,19 +317,19 @@ const Detail = ({ rendered }) => {
 
       {products.find((product) => product.recommend == true) && (
         <section className={`${styles.container}`}>
-          <div className="py-5">
+          <div className="py-2">
             <Typography variant="h4">Sizga yoqishi mumkin</Typography>
           </div>
           <ul
-            className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+            className={`${styles.container} !px-0 py-8 flex justify-start overflow-auto gap-5 products-swiper`}
           >
             {products.map((product) => {
               if (product.recommend) {
                 return (
                   <Products
+                    key={product.id}
                     rendered={rendered}
                     product={product}
-                    productId={product.id}
                     productName={product.productName}
                     productCategory={product.category}
                     productImages={product.images}
@@ -342,11 +349,11 @@ const Detail = ({ rendered }) => {
 
       {products.find((product) => product.viewed == true) && (
         <section className={`${styles.container}`}>
-          <div className="py-5">
+          <div className="py-3 lg:py-5">
             <Typography variant="h4">Ko'rilganlar</Typography>
           </div>
           <ul
-            className={`${styles.container} py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+            className={`${styles.container} !px-0 py-8 flex justify-start overflow-auto gap-5 products-swiper`}
           >
             {products.map((product) => {
               if (product.viewed) {
@@ -354,7 +361,7 @@ const Detail = ({ rendered }) => {
                   <Products
                     rendered={rendered}
                     product={product}
-                    productId={product.id}
+                    key={product.id}
                     productName={product.productName}
                     productCategory={product.category}
                     productImages={product.images}

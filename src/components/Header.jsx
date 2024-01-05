@@ -23,7 +23,7 @@ import {
   Search,
   ShoppingBasketOutlined,
 } from "@mui/icons-material";
-import { products, scrollTop } from "../data/data";
+import { headerRender, products, scrollTop } from "../data/data";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -38,7 +38,7 @@ const TOAST_CONFIG = {
   theme: "light",
 };
 
-const Header = () => {
+const Header = ({ rendered }) => {
   const navigate = useNavigate();
   const [openInput, setOpenInput] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
@@ -51,7 +51,6 @@ const Header = () => {
   const input = useRef(null);
 
   const [open, setOpen] = useState(false);
-  const [openAlert, setOpenAlert] = useState(true);
 
   const handleOpen = () => setOpen(!open);
 
@@ -95,8 +94,7 @@ const Header = () => {
   useEffect(() => {
     filteredProductOnCart(products);
     setCartProducts(products);
-    setRender((prev) => !prev);
-  }, [render]);
+  }, [products.map((product) => product), headerRender]);
 
   const searchFilteredProduct = products.filter((product) => {
     if (searchedProduct === "") {
@@ -108,7 +106,6 @@ const Header = () => {
 
   const searchProduct = (e) => {
     setSearchedProduct(e.target.value);
-    console.log(searchFilteredProduct);
   };
 
   useEffect(() => {
@@ -173,7 +170,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-[#d3d3d3] bg-opacity-80 backdrop-blur-[8px] header py-3 md:py-4 z-[9994] sticky top-0 md:static">
+      <header className="bg-[#eaf4f4] bg-opacity-80 backdrop-blur-[8px] header py-3 md:py-4 z-[9994] sticky top-0 md:static">
         <div
           className={`${styles.container} relative top-0 left-0 flex justify-between items-center`}
         >
@@ -219,38 +216,38 @@ const Header = () => {
           </nav>
           <div className="flex items-center space-x-3 md:space-x-6">
             <div className="flex md:hidden justify-center items-center space-x-3">
-              <Badge
-                color="red"
-                className="w-6 h-6 flex justify-center items-center"
-                content={howSaved}
+              <div
+                onClick={() => {
+                  navigate("/Saqlanganlar");
+                  scrollTop();
+                }}
               >
-                <IconButton
-                  onClick={() => {
-                    navigate("/Saqlanganlar");
-                    scrollTop();
-                  }}
-                  variant="outlined"
-                  color="black"
+                <Badge
+                  color="red"
+                  className="!w-4 !h-4 flex !top-[20%] !right-[30%] justify-center items-center"
+                  content={howSaved}
                 >
-                  <BookmarkBorderOutlined />
-                </IconButton>
-              </Badge>
-              <Badge
-                color="red"
-                className="w-6 h-6 flex justify-center items-center"
-                content={howMuch}
+                  <button className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]">
+                    <BookmarkBorderOutlined />
+                  </button>
+                </Badge>
+              </div>
+              <div
+                onClick={() => {
+                  navigate("/Savatcha");
+                  scrollTop();
+                }}
               >
-                <IconButton
-                  onClick={() => {
-                    navigate("/Savatcha");
-                    scrollTop();
-                  }}
-                  variant="outlined"
-                  color="black"
+                <Badge
+                  color="red"
+                  className="w-4 h-4 flex !top-[20%] !right-[30%] justify-center items-center"
+                  content={howMuch}
                 >
-                  <ShoppingBasketOutlined />
-                </IconButton>
-              </Badge>
+                  <button className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]">
+                    <ShoppingBasketOutlined />
+                  </button>
+                </Badge>
+              </div>
             </div>
             <div className="connect">
               <h3 className="font-semibold">Tel: +998 (99) 270-10-32</h3>
@@ -333,7 +330,6 @@ const Header = () => {
                         : "close-animation w-0 px-0 py-0"
                     }`}
                     placeholder="Qidirish..."
-                    autoComplete={false}
                     onInput={(e) => searchProduct(e)}
                   />
                   <IconButton variant="text" onClick={openSearchInput}>
@@ -428,9 +424,13 @@ const Header = () => {
         }`}
       >
         <div className="mb-6 flex items-center justify-between">
-          <Typography variant="h5" color="blue-gray" onClick={closeDrawer2}>
+          <Typography variant="h5" color="blue-gray">
             <Link
               to="/"
+              onClick={() => {
+                scrollTop();
+                closeDrawer2();
+              }}
               className="flex items-center text-xl md:text-2xl space-x-2 font-bold"
             >
               <img src={logo} className="h-7 md:h-8" alt="" />
@@ -442,14 +442,10 @@ const Header = () => {
           <div className="flex justify-center items-center">
             <button
               onClick={handleOpen}
-              className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none border border-red-500 text-xs py-2 px-4 rounded-lg bg-white text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring focus:ring-red-200 flex md:hidden justify-center items-center"
+              className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-white text-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring focus:ring-red-200 flex md:hidden justify-center items-center"
             >
               <div className="block xl:hidden">
                 <Phone className="text-red-600 md:text-white" />
-              </div>
-              <div className="hidden xl:block space-x-0 xl:space-x-2">
-                <span>Qo'ng'iroq</span>
-                <span>qilish</span>
               </div>
             </button>
             <IconButton variant="text" color="blue-gray" onClick={closeDrawer2}>
@@ -478,7 +474,6 @@ const Header = () => {
                 ref={input}
                 className={`rounded-lg outline-none px-3 w-full py-1 text-base border border-gray-500`}
                 placeholder="Qidirish..."
-                autoComplete={false}
                 onInput={(e) => {
                   searchProduct(e);
                   if (e.target.value.trim() == "") {
@@ -502,11 +497,12 @@ const Header = () => {
                 searchFilteredProduct.length > 0 &&
                 searchFilteredProduct.map((product) => {
                   return (
-                    <li key={product.id} onClick={openSearchInput}>
+                    <li key={product.id}>
                       <Link
                         onClick={() => {
                           input.target.value = "";
                           scrollTop();
+                          openSearchInput();
                         }}
                         to={`/${product.category}/${product.productName}`}
                         className="flex justify-start space-x-4 items-center"
@@ -559,41 +555,42 @@ const Header = () => {
             </button>
           </li>
           {catalogOpen && (
-            <ul className="flex flex-col gap-y-4 text-black text-xl pl-5">
-              {productsCategory.map((category, index) => {
-                let categoryHowMuchProduct = products.filter(
-                  (product) => product.category === category
-                );
-                return (
-                  <li key={index} onClick={closeDrawer2}>
-                    <NavLink
-                      className="space-x-2 w-full flex group items-center text-gray-700 hover:text-red-600"
-                      to={`/${category}`}
-                      onClick={() => {
-                        scrollTop();
-                      }}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-gray-700 group-hover:bg-red-600"></span>
-                      <span className="w-full flex items-center justify-between">
-                        <span>{category}</span>
-                        <span className="text-gray-600 text-base">
-                          ({categoryHowMuchProduct.length})
+            <li>
+              <ul className="flex flex-col gap-y-4 text-black text-xl pl-5">
+                {productsCategory.map((category, index) => {
+                  let categoryHowMuchProduct = products.filter(
+                    (product) => product.category === category
+                  );
+                  return (
+                    <li key={index}>
+                      <NavLink
+                        className="space-x-2 w-full flex group items-center text-gray-700 hover:text-red-600"
+                        to={`/${category}`}
+                        onClick={() => {
+                          scrollTop();
+                          closeDrawer2();
+                        }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-700 group-hover:bg-red-600"></span>
+                        <span className="w-full flex items-center justify-between">
+                          <span>{category}</span>
+                          <span className="text-gray-600 text-base">
+                            ({categoryHowMuchProduct.length})
+                          </span>
                         </span>
-                      </span>
-                    </NavLink>
-                  </li>
-                );
-              })}
-            </ul>
+                      </NavLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
           )}
-          <li
-            onClick={() => {
-              closeDrawer2();
-              openCatalog();
-            }}
-            className={`py-2 ${searched ? "hidden" : "block"}`}
-          >
+          <li className={`py-2 ${searched ? "hidden" : "block"}`}>
             <NavLink
+              onClick={() => {
+                closeDrawer2();
+                setCatalogOpen(false);
+              }}
               to={"/"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
             >
@@ -611,14 +608,12 @@ const Header = () => {
               <span>Bosh sahifa</span>
             </NavLink>
           </li>
-          <li
-            onClick={() => {
-              closeDrawer2();
-              openCatalog();
-            }}
-            className={`py-2 ${searched ? "hidden" : "block"}`}
-          >
+          <li className={`py-2 ${searched ? "hidden" : "block"}`}>
             <NavLink
+              onClick={() => {
+                closeDrawer2();
+                setCatalogOpen(false);
+              }}
               to={"/Kompaniya haqida"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
             >
@@ -636,14 +631,12 @@ const Header = () => {
               <span>Kompaniya haqida</span>
             </NavLink>
           </li>
-          <li
-            onClick={() => {
-              closeDrawer2();
-              openCatalog();
-            }}
-            className={`py-2 ${searched ? "hidden" : "block"}`}
-          >
+          <li className={`py-2 ${searched ? "hidden" : "block"}`}>
             <NavLink
+              onClick={() => {
+                closeDrawer2();
+                setCatalogOpen(false);
+              }}
               to={"/Sharhlar"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-2"
             >
@@ -661,14 +654,12 @@ const Header = () => {
               <span>Sharhlar</span>
             </NavLink>
           </li>
-          <li
-            onClick={() => {
-              closeDrawer2();
-              openCatalog();
-            }}
-            className={`py-2 ${searched ? "hidden" : "block"}`}
-          >
+          <li className={`py-2 ${searched ? "hidden" : "block"}`}>
             <NavLink
+              onClick={() => {
+                closeDrawer2();
+                setCatalogOpen(false);
+              }}
               to={"/Yetkazib berish va to'lash"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
             >
@@ -686,14 +677,12 @@ const Header = () => {
               <span>Yetkazib berish va to'lash</span>
             </NavLink>
           </li>
-          <li
-            onClick={() => {
-              closeDrawer2();
-              openCatalog();
-            }}
-            className={`py-2 ${searched ? "hidden" : "block"}`}
-          >
+          <li className={`py-2 ${searched ? "hidden" : "block"}`}>
             <NavLink
+              onClick={() => {
+                closeDrawer2();
+                setCatalogOpen(false);
+              }}
               to={"/Aksiya"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
             >
