@@ -42,7 +42,7 @@ const Products = ({
     <li
       className={`rounded-lg bg-white ${
         actionPage ? "w-full" : "max-w-xs"
-      } flex flex-col hover:shadow-md space-y-4 card-swiper w-52 relative group`}
+      } flex flex-col hover:shadow-md space-y-4 card-swiper w-52 md:w-56 relative group`}
     >
       <Link
         to={`/${productCategory}/${productName}`}
@@ -87,7 +87,7 @@ const Products = ({
           <BookmarkBorderOutlined fontSize="large" />
         )}
       </button>
-      <div className="flex space-x-3 absolute left-3 top-0 z-10">
+      <div className="flex space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 -top-1.5 md:top-0 z-10">
         {productIsItNew && (
           <Chip
             className="transition-all duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
@@ -107,23 +107,23 @@ const Products = ({
           />
         )}
       </div>
-      <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
+      <div className="flex flex-col h-full px-1.5 pb-1.5 md:px-3 md:pb-3 space-y-3 relative justify-between">
         <Typography
           variant="h6"
-          className="font-medium max-h-[56px] overflow-hidden"
+          className="font-medium text-black lg:text-black/90 max-h-[56px] overflow-hidden"
         >
           {productName}
         </Typography>
         <div>
           <Typography variant="small">Turkum: {productCategory}</Typography>
           <Typography variant="small" color="black">
-            <span className="flex items-end justify-start space-x-1">
+            <span className="flex items-end justify-start text-black lg:text-black/90 space-x-1">
               <Star className="text-yellow-700" />
-              <span className="text-gray-700">{productRating}</span>
+              <span>{productRating}</span>
             </span>
           </Typography>
           <div className="w-full flex justify-between items-end">
-            <Typography variant="h6">
+            <Typography variant="h6" className="text-black lg:text-black/90">
               {productPrice
                 .toLocaleString("uz-UZ", options)
                 .replaceAll(",", " ")}{" "}
