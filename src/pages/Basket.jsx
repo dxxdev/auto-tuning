@@ -34,6 +34,7 @@ import {
 } from "@mui/icons-material";
 import axios from "axios";
 import Products from "../components/Products";
+import { emptyCart } from "../assets/images";
 
 const Basket = ({ rendered }) => {
   const [render, setRender] = useState(true);
@@ -59,6 +60,10 @@ const Basket = ({ rendered }) => {
       });
     return result * 12000;
   };
+
+  useEffect(() => {
+    document.title = "Savatcha";
+  }, []);
 
   useEffect(() => {
     filteredProductOnCart();
@@ -133,7 +138,7 @@ const Basket = ({ rendered }) => {
     <div className={`${styles.container} !px-0 py-2`}>
       <Typography
         variant="h1"
-        className="py-5 text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-normal tracking-[2px] sm:tracking-[3px] md:tracking-[4px]"
+        className="py-5 px-3 text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-normal tracking-[2px] sm:tracking-[3px] md:tracking-[4px]"
       >
         Savatcha
       </Typography>
@@ -331,13 +336,12 @@ const Basket = ({ rendered }) => {
             </div>
           )}
           {inTheCartProduct.length <= 0 && (
-            <div className="flex flex-col justify-between items-start space-y-10">
-              <Typography
-                variant="lead"
-                className="w-full text-sm sm:text-lg md:text-xl max-w-sm"
-              >
-                Savatcha bo'sh. Mahsulotni savatga qo'shish uchun mahsulotning
-                pastki qismidagi savatcha tugmasini bosing
+            <div className="flex flex-col justify-between items-center space-y-7">
+              <div className="w-56 h-52">
+                <img src={emptyCart} className="w-full h-full" alt="" />
+              </div>
+              <Typography variant="h4">
+                Savat bo'sh
               </Typography>
               <Button
                 className="w-full sm:w-max"

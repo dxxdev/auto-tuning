@@ -42,7 +42,7 @@ const Products = ({
     <li
       className={`rounded-lg bg-white ${
         actionPage ? "w-full" : "max-w-xs"
-      } flex flex-col shadow-md space-y-4 card-swiper relative group`}
+      } flex flex-col hover:shadow-md space-y-4 card-swiper w-52 relative group`}
     >
       <Link
         to={`/${productCategory}/${productName}`}
@@ -58,13 +58,13 @@ const Products = ({
             }}
             loop={true}
             modules={[Pagination, EffectFade]}
-            className="mySwiper relative rounded-t-lg h-[400px]"
+            className="mySwiper relative overflow-hidden rounded-t-lg w-full h-[200px] sm:h-[260px]"
           >
             {productImages.map((item, index) => {
               return (
                 <SwiperSlide
                   key={index}
-                  className="max-h-[400px] flex items-center justify-center"
+                  className="h-full w-full overflow-hidden flex items-center justify-center"
                 >
                   <img src={item} className="w-full" alt={productName} />
                 </SwiperSlide>
@@ -90,7 +90,7 @@ const Products = ({
       <div className="flex space-x-3 absolute left-3 top-0 z-10">
         {productIsItNew && (
           <Chip
-            className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+            className="transition-all duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
             value="Yangi"
             color="green"
             size="sm"
@@ -99,7 +99,7 @@ const Products = ({
         )}
         {productInAction && (
           <Chip
-            className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+            className="transition-all duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
             value="Aksiya"
             size="sm"
             variant="filled"
@@ -108,7 +108,10 @@ const Products = ({
         )}
       </div>
       <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-        <Typography variant="h5" className="font-medium">
+        <Typography
+          variant="h6"
+          className="font-medium max-h-[56px] overflow-hidden"
+        >
           {productName}
         </Typography>
         <div>
@@ -134,11 +137,12 @@ const Products = ({
               }}
               variant={`${productInTheCart ? "filled" : "outlined"}`}
               color="gray"
+              size="sm"
             >
               {productInTheCart ? (
-                <RemoveShoppingCartOutlined />
+                <RemoveShoppingCartOutlined fontSize="small" />
               ) : (
-                <AddShoppingCartOutlined />
+                <AddShoppingCartOutlined fontSize="small" />
               )}
             </IconButton>
           </div>

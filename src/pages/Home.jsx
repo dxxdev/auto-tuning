@@ -48,7 +48,7 @@ const Home = ({ rendered }) => {
 
   return (
     <div>
-      <div className="bg-[#a70b0b]">
+      <div className="bg-[#626262]">
         <Swiper
           navigation={true}
           pagination={{
@@ -60,36 +60,36 @@ const Home = ({ rendered }) => {
             disableOnInteraction: false,
           }}
           modules={[Pagination, Navigation, Autoplay]}
-          className="mySwiper relative navigation-styled h-[180px] sm:h-[280px] md:h-[430px] min-[1000px]:h-[550px] xl:h-[700px] w-full"
+          className="mySwiper relative navigation-styled"
         >
           {swiperImages.map((item) => {
             return (
               <SwiperSlide
                 key={item.id}
-                className="flex justify-center items-stretch max-h-[180px] sm:max-h-[280px] md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] h-full w-full overflow-hidden"
+                className="flex justify-center items-center h-[400px] md:h-[480px] xl:h-[700px] w-full overflow-hidden"
               >
                 <img
                   src={item.image}
-                  className="max-h-[180px] sm:max-h-[280px] w-full md:max-h-[430px] min-[1000px]:max-h-[550px] xl:max-h-[700px] object-cover"
+                  className="h-full lg:h-min min-w-max md:min-w-full"
                   alt="Hero img"
                 />
               </SwiperSlide>
             );
           })}
-          <div className="z-[999] px-20 absolute w-full left-0 bottom-0 hidden sm:block pb-[52px] md:pb-20 xl:pb-[152px]">
+          <div className="z-[999] px-3 md:px-20 absolute w-full left-0 bottom-0 pb-10 md:pb-32 xl:pb-[152px]">
             <div
-              className={`flex justify-between items-end ${styles.container}`}
+              className={`flex items-end !px-0 ${styles.container}`}
             >
-              <div className="flex flex-col space-y-10 items-start h-24">
+              <div className="flex flex-col items-stretch w-full space-y-10 sm:items-start">
                 <Typography
                   variant="h1"
                   color="white"
-                  className="h-full flex flex-col text-xl md:text-2xl lg:text-4xl xl:text-5xl text-white"
+                  className="h-full flex flex-col font-medium tracking-[2px] text-3xl lg:text-4xl xl:text-5xl text-white"
                 >
-                  <span>Servis xizmati Toshkentda</span>
+                  <span>Servis xizmati <br /> Toshkentda</span>
                 </Typography>
                 <Link onClick={scrollTop} to="/Avto bezaklar">
-                  <Button variant="filled" color="red" className="text-white">
+                  <Button variant="filled" color="red" size="sm" className="text-white !w-full">
                     Tuning jihozlariga buyurtma berish
                   </Button>
                 </Link>
@@ -103,7 +103,7 @@ const Home = ({ rendered }) => {
           <Typography
             variant="h2"
             color="black"
-            className={`${styles.container} text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-center`}
+            className={`${styles.container} !px-0 text-2xl lg:text-4xl text-center`}
           >
             Eng yaxshi mahsulotlar
           </Typography>
@@ -222,6 +222,7 @@ const Home = ({ rendered }) => {
               navigate("/Katalog");
               scrollTop();
             }}
+            size="sm"
             variant="outlined"
           >
             Katalog
@@ -312,7 +313,7 @@ const Home = ({ rendered }) => {
           <Typography
             variant="h2"
             color="black"
-            className={`${styles.container} text-center`}
+            className={`${styles.container} !px-0 text-2xl lg:text-4xl text-center`}
           >
             Yangi mahsulotlar
           </Typography>
@@ -427,7 +428,7 @@ const Home = ({ rendered }) => {
           <Typography
             variant="h2"
             color="black"
-            className={`${styles.container} text-center`}
+            className={`${styles.container} !px-0 text-2xl lg:text-4xl text-center`}
           >
             Aksiyadagi mahsulotlar
           </Typography>
@@ -620,7 +621,10 @@ const Home = ({ rendered }) => {
           <div className="flex justify-center items-center flex-wrap gap-8 py-8 pb-0">
             {companies.map((company, index) => {
               return (
-                <div key={index} className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
+                <div
+                  key={index}
+                  className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl"
+                >
                   <img src={company} alt="Company" />
                 </div>
               );

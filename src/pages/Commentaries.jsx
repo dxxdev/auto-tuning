@@ -104,7 +104,7 @@ const Commentaries = () => {
             maydonlar belgilangan
           </Typography>
         </div>
-        <Card className="w-full max-w-3xl border border-gray-200">
+        <Card className="w-full max-w-3xl border bg-gray-200 border-gray-200">
           <CardHeader
             variant="gradient"
             color="red"
@@ -125,6 +125,7 @@ const Commentaries = () => {
               value={userName}
               size="lg"
               type="text"
+              className="bg-white"
             />
             <Input
               onChange={(e) => setEmail(e.target.value)}
@@ -132,9 +133,11 @@ const Commentaries = () => {
               value={email}
               size="lg"
               type="email"
+              className="bg-white"
             />
             <Textarea
               value={message}
+              className="bg-white"
               onChange={(e) => setMessage(e.target.value)}
               label="Fikringizni yozib qoldiring"
             ></Textarea>

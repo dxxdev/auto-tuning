@@ -48,7 +48,10 @@ const Payment = () => {
         </div>
 
         <div className="space-y-4">
-          <Typography variant="h4" className="font-normal text-xl md:text-2xl tracking-[1px]">
+          <Typography
+            variant="h4"
+            className="font-normal text-xl md:text-2xl tracking-[1px]"
+          >
             Toshkent bo'ylab yetkazib berish
           </Typography>
           <p className="text-gray-700 max-w-screen-md">
@@ -58,7 +61,10 @@ const Payment = () => {
           </p>
         </div>
         <div className="space-y-4">
-          <Typography variant="h4" className="font-normal text-xl md:text-2xl tracking-[1px]">
+          <Typography
+            variant="h4"
+            className="font-normal text-xl md:text-2xl tracking-[1px]"
+          >
             Boshqa hududlar
           </Typography>
           <p className="text-gray-700 max-w-screen-md">
@@ -67,7 +73,10 @@ const Payment = () => {
           </p>
         </div>
         <div className="space-y-4">
-          <Typography variant="h4" className="font-normal text-xl md:text-2xl tracking-[1px]">
+          <Typography
+            variant="h4"
+            className="font-normal text-xl md:text-2xl tracking-[1px]"
+          >
             Kompaniyadan olib ketish
           </Typography>
           <p className="text-gray-700 max-w-screen-md">
@@ -159,7 +168,9 @@ const Payment = () => {
               </p>
               <p className="text-gray-700 max-w-screen-md">
                 Ish vaqti: <br />
-                <span className="text-black">du - shan: 9:00dan 18:00gacha</span>
+                <span className="text-black">
+                  du - shan: 9:00dan 18:00gacha
+                </span>
               </p>
             </div>
           </div>

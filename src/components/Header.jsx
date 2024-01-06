@@ -419,7 +419,7 @@ const Header = ({ rendered }) => {
       <Drawer
         open={open2}
         onClose={closeDrawer2}
-        className={`p-4 side-bar-links flex flex-col transition-all ease-linear duration-75 !max-w-full md:!max-w-xs ${
+        className={`p-4 side-bar-links flex flex-col transition-all duration-0 !max-w-full md:!max-w-xs ${
           open2 ? "" : "!-translate-x-full"
         }`}
       >

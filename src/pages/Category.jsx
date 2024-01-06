@@ -58,6 +58,9 @@ const Category = ({ rendered }) => {
             filteredPrice();
           }}
           variant="outlined"
+          color="gray"
+          className="bg-white focus:bg-white/80 hover:bg-white/90"
+          size="sm"
         >
           {inOrder
             ? "Narxlar o'sish tartibida"
@@ -67,7 +70,7 @@ const Category = ({ rendered }) => {
         </Button>
       </div>
       <ul
-        className={`${styles.container} !px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5 lg:gap-7 overflow-auto products-swiper`}
+        className={`${styles.container} !px-0 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 gap-y-4 md:gap-y-6 md:gap-3 lg:gap-y-8 lg:gap-5 overflow-auto products-swiper`}
       >
         {filterCategory.map((product) => {
           return (
@@ -79,7 +82,7 @@ const Category = ({ rendered }) => {
                 onClick={() => viewProduct(product)}
                 to={`/${product.category}/${product.productName}`}
               >
-                <div className="h-[450px] lg:h-[400px] sceleton-animation rounded-t-lg overflow-hidden">
+                <div className="bg-gray-200 rounded-t-lg overflow-hidden">
                   <Swiper
                     effect="fade"
                     pagination={{
@@ -87,14 +90,17 @@ const Category = ({ rendered }) => {
                     }}
                     loop={true}
                     modules={[Pagination, EffectFade]}
-                    className="mySwiper relative rounded-t-lg w-full h-full"
+                    className="mySwiper relative rounded-t-lg"
                   >
                     {product.images.map((item, index) => {
                       return (
-                        <SwiperSlide key={index}>
+                        <SwiperSlide
+                          key={index}
+                          className="flex h-[300px] w-56 justify-center items-center"
+                        >
                           <img
                             src={item}
-                            className="w-full h-full"
+                            className="xl:w-full"
                             alt={product.productName}
                           />
                         </SwiperSlide>
@@ -137,12 +143,15 @@ const Category = ({ rendered }) => {
                 )}
               </button>
               <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
-                <Typography variant="h5" className="font-medium">
+                <Typography
+                  variant="h6"
+                  className="font-medium max-h-[56px] overflow-hidden"
+                >
                   {product.productName}
                 </Typography>
                 <div>
                   <div className="flex justify-between items-center py-3">
-                    <Typography variant="small">
+                    <Typography variant="small" className="text-xs">
                       Turkum: {product.category}
                     </Typography>
                     <Typography variant="small" color="black">
@@ -164,13 +173,14 @@ const Category = ({ rendered }) => {
                         rendered();
                         addCartProduct(product);
                       }}
+                      size="sm"
                       variant={`${product.inTheCart ? "filled" : "outlined"}`}
                       color="gray"
                     >
                       {product.inTheCart ? (
-                        <RemoveShoppingCartOutlined />
+                        <RemoveShoppingCartOutlined fontSize="small" />
                       ) : (
-                        <AddShoppingCartOutlined />
+                        <AddShoppingCartOutlined fontSize="small" />
                       )}
                     </IconButton>
                   </div>

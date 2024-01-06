@@ -18,7 +18,7 @@ const MainLayout = () => {
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <Header rendered={rendered} />
-      <main className="grow bg-[#eaf4f4]">
+      <main className="grow">
         {!isHome && (
           <div className="md:pt-20 hidden md:block">
             <div className="hidden lg:block">

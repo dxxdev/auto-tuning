@@ -13,7 +13,7 @@ const Action = ({ rendered }) => {
   return (
     <div className={`${styles.container}`}>
       <ul
-        className={`py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 overflow-auto products-swiper`}
+        className={`py-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2.5 gap-y-4 md:gap-y-6 md:gap-3 lg:gap-y-8 lg:gap-5`}
       >
         {products.map((product) => {
           if (product.inAction) {

@@ -223,6 +223,7 @@ import uzAutoMotors from "./company/uz-auto-motors.jpg";
 
 // import error images
 import productNotFound from "./error-images/product-not-found.png";
+import emptyCart from "./error-images/empty-cart.png";
 
 // export company images array
 export const companies = [
@@ -236,7 +237,7 @@ export const companies = [
 ];
 
 // export error images
-export { productNotFound };
+export { productNotFound, emptyCart };
 
 // images export
 export {
