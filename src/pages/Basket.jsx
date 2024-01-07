@@ -336,7 +336,7 @@ const Basket = ({ rendered }) => {
             </div>
           )}
           {inTheCartProduct.length <= 0 && (
-            <div className="flex flex-col justify-between items-center space-y-7">
+            <div className="flex flex-col justify-between px-2 items-center space-y-7">
               <div className="w-56 h-52">
                 <img src={emptyCart} className="w-full h-full" alt="" />
               </div>
@@ -349,6 +349,8 @@ const Basket = ({ rendered }) => {
                   navigate("/");
                   scrollTop();
                 }}
+                variant="gradient"
+                color="red"
               >
                 Bosh sahifaga o'tish
               </Button>

@@ -40,7 +40,7 @@ const Saved = ({ rendered }) => {
     <div className={`${styles.container} py-2 pb-5`}>
       <Typography
         variant="h1"
-        className="py-5 text-4xl sm:text-6xl font-normal tracking-[5px]"
+        className="py-5 px-3 text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-normal tracking-[2px] sm:tracking-[3px] md:tracking-[4px]"
       >
         Saqlanganlar
       </Typography>
@@ -114,7 +114,10 @@ const Saved = ({ rendered }) => {
                   )}
                 </button>
                 <div className="flex flex-col h-full px-3 pb-3 space-y-3 justify-between">
-                  <Typography variant="h5" className="font-medium">
+                  <Typography
+                    variant="h5"
+                    className="font-medium text-black lg:text-black/90 max-h-[56px] overflow-hidden"
+                  >
                     {product.productName}
                   </Typography>
                   <div>
@@ -128,7 +131,10 @@ const Saved = ({ rendered }) => {
                       </span>
                     </Typography>
                     <div className="w-full flex justify-between items-end">
-                      <Typography variant="h6">
+                      <Typography
+                        variant="h6"
+                        className="text-black lg:text-black/90"
+                      >
                         {product.price
                           .toLocaleString("uz-UZ", options)
                           .replaceAll(",", " ")}{" "}
@@ -139,13 +145,14 @@ const Saved = ({ rendered }) => {
                           addCartProduct(product);
                           setRender((prev) => !prev);
                         }}
+                        size="sm"
                         variant={product.inTheCart ? "filled" : "outlined"}
                         color="gray"
                       >
                         {product.inTheCart ? (
-                          <RemoveShoppingCartOutlined />
+                          <RemoveShoppingCartOutlined fontSize="small" />
                         ) : (
-                          <AddShoppingCartOutlined />
+                          <AddShoppingCartOutlined fontSize="small" />
                         )}
                       </IconButton>
                     </div>
@@ -157,15 +164,22 @@ const Saved = ({ rendered }) => {
         </ul>
       )}
       {inTheCartProduct.length <= 0 && (
-        <div className="flex flex-col justify-between items-start space-y-10">
-          <Typography variant="lead" className="w-full max-w-sm">
-            Sizda keyinchalik xarid qilish uchun mahsulot mavjud emas
+        <div className="flex flex-col justify-between items-center space-y-10">
+          <Typography
+            variant="lead"
+            className="w-full text-base max-w-sm text-center"
+          >
+            Saqlanganlar yo'q
           </Typography>
           <Button
+            className="w-full sm:w-max"
             onClick={() => {
               navigate("/");
               scrollTop();
             }}
+            size="sm"
+            variant="gradient"
+            color="red"
           >
             Bosh sahifaga o'tish
           </Button>

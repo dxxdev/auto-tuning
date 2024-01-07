@@ -109,7 +109,7 @@ const Category = ({ rendered }) => {
                   </Swiper>
                 </div>
               </Link>
-              <div className="flex space-x-3 absolute left-3 top-0 z-10">
+              <div className="flex space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 -top-1.5 md:top-0  z-10">
                 {product.isItNew && (
                   <Chip
                     className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
@@ -142,7 +142,7 @@ const Category = ({ rendered }) => {
                   <BookmarkBorderOutlined fontSize="large" />
                 )}
               </button>
-              <div className="flex flex-col h-full px-3 pb-3 space-y-3 relative justify-between">
+              <div className="flex flex-col h-full px-1.5 sm:px-3 pb-1.5 sm:pb-3 space-y-3 relative justify-between">
                 <Typography
                   variant="h6"
                   className="font-medium max-h-[56px] overflow-hidden"

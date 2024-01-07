@@ -2,6 +2,7 @@ import { Breadcrumbs } from "@material-tailwind/react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { category, products, scrollTop } from "../data/data";
+import { KeyboardDoubleArrowRight } from "@mui/icons-material";
 
 const Breadcrump = () => {
   const location = useLocation();
@@ -41,7 +42,10 @@ const Breadcrump = () => {
           : "hidden"
       }`}
     >
-      <Breadcrumbs className="bg-transparent">
+      <Breadcrumbs
+        separator={<KeyboardDoubleArrowRight />}
+        className="bg-transparent"
+      >
         {category.includes(tayyorArr[0]) && (
           <Link className="text-gray-900" onClick={scrollTop} to="/">
             Bosh sahifa

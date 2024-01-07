@@ -15,12 +15,12 @@ const Katalog = () => {
       <div>
         <Typography
           variant="h1"
-          className="py-2 lg:py-5 text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-normal tracking-[5px]"
+          className="py-2 lg:py-5 text-3xl md:text-5xl lg:text-6xl font-normal tracking-[5px]"
         >
           Katalog
         </Typography>
       </div>
-      <ul className="grid py-14 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-5 lg:gap-7">
+      <ul className="grid py-4 lg:py-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-5 lg:gap-7">
         {categoryProduct.map((product) => {
           return (
             <Link key={product.id} onClick={scrollTop} to={`/${product.category}`}>

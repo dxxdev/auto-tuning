@@ -15,7 +15,7 @@ const FAQ = () => {
 
   return (
     <div className={`${styles.container} py-5 space-y-14`}>
-      <div className="flex flex-col items-stretch lg:flex-row gap-x-12 gap-y-12 lg:justify-between">
+      <div className="flex flex-col items-stretch lg:flex-row gap-x-12 gap-y-8 lg:justify-between">
         <div className="flex flex-col gap-y-4 sm:gap-y-6 lg:gap-y-10">
           <Typography
             variant="h1"
@@ -40,13 +40,25 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div className="rounded-2xl w-full h-[262px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
-          <img src={autoTuning} className="h-full rounded-xl" alt="" />
+        <div className="rounded-lg sm:rounded-2xl w-full h-[222px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
+          <span className="bg-gray-400">
+            <img
+              src={autoTuning}
+              className="h-full rounded-lg sm:rounded-2xl"
+              alt=""
+            />
+          </span>
         </div>
       </div>
       <div className="flex !mt-8 flex-col-reverse lg:flex-row gap-x-12 gap-y-12">
-        <div className="rounded-2xl w-full h-[262px] sm:h-[362px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
-          <img src={autoTuning1} className="h-full rounded-xl" alt="" />
+        <div className="rounded-lg sm:rounded-2xl w-full h-[222px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
+          <span className="bg-gray-400">
+            <img
+              src={autoTuning1}
+              className="h-full rounded-lg sm:rounded-2xl"
+              alt=""
+            />
+          </span>
         </div>
         <div className="flex flex-col">
           <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-4 md:space-y-0 md:justify-between">
@@ -88,7 +100,10 @@ const FAQ = () => {
         <div className="flex justify-center items-center flex-wrap gap-8 py-8">
           {companies.map((company, index) => {
             return (
-              <div key={index} className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl">
+              <div
+                key={index}
+                className="w-[224px] box-border px-4 flex justify-center items-center h-[105px] filter grayscale bg-gray-300 rounded-2xl"
+              >
                 <img src={company} alt="Company" />
               </div>
             );

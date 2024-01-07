@@ -145,13 +145,13 @@ const Detail = ({ rendered }) => {
               freeMode={true}
               watchSlidesProgress={true}
               modules={[FreeMode, Thumbs]}
-              className="mySwiper relative max-w-xl max-h-[100px] sm:max-h-[150px] flex items-center"
+              className="mySwiper relative max-w-xl max-h-[100px] sm:max-h-[150px] md:max-h-44 flex items-center"
             >
               {info &&
                 info.images.map((image, index) => {
                   return (
                     <SwiperSlide
-                      className="flex justify-center h-[150px] items-stretch relative sceleton-animation"
+                      className="flex justify-center h-[176px] items-stretch relative sceleton-animation"
                       key={index}
                     >
                       <img
@@ -253,7 +253,7 @@ const Detail = ({ rendered }) => {
                 >
                   {Boolean(info.description) ? (
                     info.description.map((item, index) => {
-                      return <p key={index}>{item}</p>;
+                      return <p key={index} className="text-black tracking-widest md:tracking-normal">{item}</p>;
                     })
                   ) : (
                     <div>
@@ -279,7 +279,7 @@ const Detail = ({ rendered }) => {
                   value={"delivery"}
                   className="w-full max-w-2xl px-0 space-y-5 text-black"
                 >
-                  <Typography variant="h5">Yetkazib berish</Typography>
+                  {/* <Typography variant="h5">Yetkazib berish</Typography> */}
                   <div>
                     <p>Toshkent bo'ylab yetkazib berish</p>
                     <p className="text-gray-700">

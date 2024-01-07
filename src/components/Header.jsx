@@ -224,7 +224,7 @@ const Header = ({ rendered }) => {
               >
                 <Badge
                   color="red"
-                  className="!w-4 !h-4 flex !top-[20%] !right-[30%] justify-center items-center"
+                  className="flex !top-[20%] min-w-[20px] min-h-[20px] !right-[30%] justify-center items-center"
                   content={howSaved}
                 >
                   <button className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]">
@@ -240,7 +240,7 @@ const Header = ({ rendered }) => {
               >
                 <Badge
                   color="red"
-                  className="w-4 h-4 flex !top-[20%] !right-[30%] justify-center items-center"
+                  className="flex !top-[20%] !right-[30%] min-w-[20px] min-h-[20px] justify-center items-center"
                   content={howMuch}
                 >
                   <button className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]">
@@ -419,8 +419,8 @@ const Header = ({ rendered }) => {
       <Drawer
         open={open2}
         onClose={closeDrawer2}
-        className={`p-4 side-bar-links flex flex-col transition-all duration-0 !max-w-full md:!max-w-xs ${
-          open2 ? "" : "!-translate-x-full"
+        className={`p-4 side-bar-links flex flex-col transition-all !max-w-full md:!max-w-xs ${
+          open2 ? "duration-0" : "!-translate-x-full duration-300"
         }`}
       >
         <div className="mb-6 flex items-center justify-between">
@@ -444,7 +444,7 @@ const Header = ({ rendered }) => {
               onClick={handleOpen}
               className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-white text-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring focus:ring-red-200 flex md:hidden justify-center items-center"
             >
-              <div className="block xl:hidden">
+              <div>
                 <Phone className="text-red-600 md:text-white" />
               </div>
             </button>
