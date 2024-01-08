@@ -905,7 +905,6 @@ export let products = [
       monitor2,
       monitor3,
       monitor4,
-      monitor4,
       monitor5,
       monitor6,
       monitor7,

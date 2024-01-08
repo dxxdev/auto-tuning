@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { products } from "../data/data";
 import Products from "../components/Products";
 import { Typography } from "@material-tailwind/react";
@@ -10,15 +10,20 @@ const Action = ({ rendered }) => {
     product.saved = !product.saved;
   };
 
+  useEffect(()=>{
+    document.title = "Aksiyalar"
+  })
+
   return (
     <div className={`${styles.container}`}>
       <ul
-        className={`py-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2.5 gap-y-4 md:gap-y-6 md:gap-3 lg:gap-y-8 lg:gap-5`}
+        className={`py-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 gap-y-4 md:gap-y-6 md:gap-3 lg:gap-y-8 lg:gap-5`}
       >
         {products.map((product) => {
           if (product.inAction) {
             return (
               <Products
+                card={true}
                 key={product.id}
                 actionPage={true}
                 rendered={rendered}

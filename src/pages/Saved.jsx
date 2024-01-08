@@ -46,7 +46,7 @@ const Saved = ({ rendered }) => {
       </Typography>
       {inTheCartProduct && inTheCartProduct.length > 0 && (
         <ul
-          className={`${styles.container} !px-0 py-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3`}
+          className={`${styles.container} !px-0 py-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3`}
         >
           {inTheCartProduct.map((product) => {
             return (
@@ -57,6 +57,7 @@ const Saved = ({ rendered }) => {
                 <Link
                   onClick={() => viewProduct(product)}
                   to={`/${product.category}/${product.productName}`}
+                  className="relative sm:static"
                 >
                   <Swiper
                     effect="fade"
@@ -79,33 +80,33 @@ const Saved = ({ rendered }) => {
                       );
                     })}
                   </Swiper>
+                  <div className="space-x-3 absolute left-1.5 sm:left-3 bottom-2 sm:top-3 z-10">
+                    {product.isItNew && (
+                      <Chip
+                        className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        value="Yangi"
+                        color="green"
+                        size="sm"
+                        variant="filled"
+                      />
+                    )}
+                    {product.inAction && (
+                      <Chip
+                        className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        value="Aksiya"
+                        size="sm"
+                        variant="filled"
+                        color="red"
+                      />
+                    )}
+                  </div>
                 </Link>
-                <div className="space-x-3 absolute hidden sm:flex left-3 top-0 z-10">
-                  {product.isItNew && (
-                    <Chip
-                      className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                      value="Yangi"
-                      color="green"
-                      size="sm"
-                      variant="filled"
-                    />
-                  )}
-                  {product.inAction && (
-                    <Chip
-                      className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                      value="Aksiya"
-                      size="sm"
-                      variant="filled"
-                      color="red"
-                    />
-                  )}
-                </div>
                 <button
                   onClick={() => {
                     setRender((prev) => !prev);
                     product.saved = !product.saved;
                   }}
-                  className="absolute top-0 -translate-y-1/2 right-0 z-[999] text-red-600"
+                  className="absolute top-0 -translate-y-1/2 right-0 z-[9999] text-red-600"
                 >
                   {product.saved ? (
                     <Bookmark fontSize="large" />

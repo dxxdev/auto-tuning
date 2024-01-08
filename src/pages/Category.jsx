@@ -7,10 +7,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Pagination } from "swiper/modules";
 import {
   AddShoppingCartOutlined,
+  AttachMoney,
   Bookmark,
   BookmarkBorderOutlined,
+  Download,
   RemoveShoppingCartOutlined,
   Star,
+  Upload,
 } from "@mui/icons-material";
 import { Button, Chip, IconButton, Typography } from "@material-tailwind/react";
 import Products from "../components/Products";
@@ -50,8 +53,10 @@ const Category = ({ rendered }) => {
 
   return (
     <div className={`${styles.container}`}>
-      <div className="py-6 flex flex-col sm:flex-row space-y-3 sm:space-y-0 justify-between items-center">
-        <Typography variant="h3">{filteredCategory[0].category}</Typography>
+      <div className="py-6 flex space-y-0 sm:space-y-0 justify-between items-center">
+        <Typography variant="h3" className="text-2xl sm:text-3xl">
+          {filteredCategory[0].category}
+        </Typography>
         <Button
           onClick={() => {
             setInOrder(inOrder == null ? !inOrder : !inOrder);
@@ -59,14 +64,22 @@ const Category = ({ rendered }) => {
           }}
           variant="outlined"
           color="gray"
-          className="bg-white focus:bg-white/80 hover:bg-white/90"
+          className="bg-white focus:bg-white/80 hover:bg-white/90 text-xs"
           size="sm"
         >
-          {inOrder
-            ? "Narxlar o'sish tartibida"
-            : inOrder == null
-            ? "Saralash"
-            : "Narxkar kamayish tartibida"}
+          {inOrder ? (
+            <div>
+              <Download fontSize="small" />
+              <AttachMoney fontSize="small" />
+            </div>
+          ) : inOrder == null ? (
+            "Saralash"
+          ) : (
+            <div>
+              <Upload fontSize="small" />
+              <AttachMoney fontSize="small" />
+            </div>
+          )}
         </Button>
       </div>
       <ul
@@ -76,11 +89,12 @@ const Category = ({ rendered }) => {
           return (
             <li
               key={product.id}
-              className="rounded-lg bg-white flex group flex-col shadow-md space-y-4 card-swiper relative"
+              className={`rounded-lg bg-white flex flex-col hover:shadow-md space-y-4 card-swiper relative group`}
             >
               <Link
                 onClick={() => viewProduct(product)}
                 to={`/${product.category}/${product.productName}`}
+                className="relative md:static"
               >
                 <div className="bg-gray-200 rounded-t-lg overflow-hidden">
                   <Swiper
@@ -90,7 +104,7 @@ const Category = ({ rendered }) => {
                     }}
                     loop={true}
                     modules={[Pagination, EffectFade]}
-                    className="mySwiper relative rounded-t-lg"
+                    className="mySwiper rounded-t-lg"
                   >
                     {product.images.map((item, index) => {
                       return (
@@ -107,34 +121,35 @@ const Category = ({ rendered }) => {
                       );
                     })}
                   </Swiper>
+                  <div className="flex h-min space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 md:top-0 bottom-3 z-10">
+                    {product.isItNew && (
+                      <Chip
+                        className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        value="Yangi"
+                        color="green"
+                        size="sm"
+                        variant="filled"
+                      />
+                    )}
+                    {product.inAction && (
+                      <Chip
+                        className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        value="Aksiya"
+                        size="sm"
+                        variant="filled"
+                        color="red"
+                      />
+                    )}
+                  </div>
                 </div>
               </Link>
-              <div className="flex space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 -top-1.5 md:top-0  z-10">
-                {product.isItNew && (
-                  <Chip
-                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                    value="Yangi"
-                    color="green"
-                    size="sm"
-                    variant="filled"
-                  />
-                )}
-                {product.inAction && (
-                  <Chip
-                    className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                    value="Aksiya"
-                    size="sm"
-                    variant="filled"
-                    color="red"
-                  />
-                )}
-              </div>
               <button
                 onClick={() => {
+                  setRender((prev) => !prev);
+                  productSaved(product);
                   rendered();
-                  product.saved = !product.saved;
                 }}
-                className="absolute top-0 -translate-y-1/2 right-0 z-[999] text-red-600"
+                className="absolute top-0 -translate-y-1/2 right-0 z-50 text-red-600"
               >
                 {product.saved ? (
                   <Bookmark fontSize="large" />
@@ -202,6 +217,7 @@ const Category = ({ rendered }) => {
             if (product.recommend) {
               return (
                 <Products
+                  card={false}
                   rendered={rendered}
                   product={product}
                   key={product.id}

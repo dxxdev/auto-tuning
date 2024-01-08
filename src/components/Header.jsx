@@ -341,7 +341,7 @@ const Header = ({ rendered }) => {
                   </IconButton>
                 </div>
                 <ul
-                  className={`absolute box-border flex flex-col gap-y-2 bg-white transition-all max-h-[calc(100vh-20vh)] overflow-auto rounded-b-lg top-[calc(100%-16px)] ${
+                  className={`absolute box-border flex flex-col gap-y-2 bg-white transition-all max-h-[calc(100vh-30vh)] overflow-auto rounded-b-lg top-[calc(100%-16px)] search-product-scroll ${
                     openInput ? "" : "hidden"
                   } ${searchedProduct ? "p-1 px-3 w-[310px]" : "p-0"} ${
                     searchFilteredProduct && searchFilteredProduct.length == 0
@@ -557,6 +557,24 @@ const Header = ({ rendered }) => {
           {catalogOpen && (
             <li>
               <ul className="flex flex-col gap-y-4 text-black text-xl pl-5">
+                <li>
+                  <NavLink
+                    className="space-x-2 w-full flex group items-center text-gray-700 hover:text-red-600"
+                    to={`/Katalog`}
+                    onClick={() => {
+                      scrollTop();
+                      closeDrawer2();
+                    }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-700 group-hover:bg-red-600"></span>
+                    <span className="w-full flex items-center justify-between">
+                      <span>Katalog</span>
+                      <span className="text-gray-600 text-base">
+                        ({products.length})
+                      </span>
+                    </span>
+                  </NavLink>
+                </li>
                 {productsCategory.map((category, index) => {
                   let categoryHowMuchProduct = products.filter(
                     (product) => product.category === category
@@ -590,6 +608,7 @@ const Header = ({ rendered }) => {
               onClick={() => {
                 closeDrawer2();
                 setCatalogOpen(false);
+                scrollTop();
               }}
               to={"/"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
@@ -613,6 +632,7 @@ const Header = ({ rendered }) => {
               onClick={() => {
                 closeDrawer2();
                 setCatalogOpen(false);
+                scrollTop();
               }}
               to={"/Kompaniya haqida"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
@@ -636,6 +656,7 @@ const Header = ({ rendered }) => {
               onClick={() => {
                 closeDrawer2();
                 setCatalogOpen(false);
+                scrollTop();
               }}
               to={"/Sharhlar"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-2"
@@ -659,6 +680,7 @@ const Header = ({ rendered }) => {
               onClick={() => {
                 closeDrawer2();
                 setCatalogOpen(false);
+                scrollTop();
               }}
               to={"/Yetkazib berish va to'lash"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
@@ -682,6 +704,7 @@ const Header = ({ rendered }) => {
               onClick={() => {
                 closeDrawer2();
                 setCatalogOpen(false);
+                scrollTop();
               }}
               to={"/Aksiya"}
               className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"

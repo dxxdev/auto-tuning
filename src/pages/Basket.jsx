@@ -82,18 +82,15 @@ const Basket = ({ rendered }) => {
 
     const text = `Mijoz mahsulot xarid qildi❕\n\n Manzil: ${address}\n\n Mijozning ism familiyasi: ${clientName}\n\n Sotib olganlari:\n ${inTheCartProduct.map(
       (product) => {
-        return `${product.productName} - ${product.countProduct}dona summa: ${(
+        return `${product.productName} - ${product.countProduct}dona \nsumma: ${(
           product.price * product.countProduct
         )
           .toLocaleString("UZ-uz", options)
           .replaceAll(",", " ")}so'm\n\n`;
       }
-    )}\n\n Jami: ${(totalSum + countProductArr())
+    )}\n Jami: ${(totalSum + countProductArr())
       .toLocaleString("uz-UZ", options)
-      .replaceAll(
-        ",",
-        " "
-      )}so'm\n\n⚠Har bir mahsulotni yetkazib berish narxi: 12 000 so'm`;
+      .replaceAll(",", " ")}so'm`;
 
     try {
       if (address.trim() != "" && clientName.trim() != "") {
@@ -340,9 +337,7 @@ const Basket = ({ rendered }) => {
               <div className="w-56 h-52">
                 <img src={emptyCart} className="w-full h-full" alt="" />
               </div>
-              <Typography variant="h4">
-                Savat bo'sh
-              </Typography>
+              <Typography variant="h4">Savat bo'sh</Typography>
               <Button
                 className="w-full sm:w-max"
                 onClick={() => {
@@ -441,8 +436,9 @@ const Basket = ({ rendered }) => {
                   >
                     To'lovni mahsulotni olganingizda to'laysiz
                   </Typography>
-                  <Typography variant="small" className="flex justify-center">
-                    To'lov siz xohlagan usulda
+                  <Typography variant="small" color="deep-orange" className="text-center">
+                    &#9888; Har bir
+                    mahsulotni yetkazib berish narxi: 12 000 so'm
                   </Typography>
                 </CardFooter>
               </Card>

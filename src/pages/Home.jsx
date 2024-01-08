@@ -77,19 +77,24 @@ const Home = ({ rendered }) => {
             );
           })}
           <div className="z-[999] px-3 md:px-20 absolute w-full left-0 bottom-0 pb-10 md:pb-32 xl:pb-[152px]">
-            <div
-              className={`flex items-end !px-0 ${styles.container}`}
-            >
+            <div className={`flex items-end !px-0 ${styles.container}`}>
               <div className="flex flex-col items-stretch w-full space-y-10 sm:items-start">
                 <Typography
                   variant="h1"
                   color="white"
                   className="h-full flex flex-col font-medium tracking-[2px] text-3xl lg:text-4xl xl:text-5xl text-white"
                 >
-                  <span>Servis xizmati <br /> Toshkentda</span>
+                  <span>
+                    Servis xizmati <br /> Toshkentda
+                  </span>
                 </Typography>
                 <Link onClick={scrollTop} to="/Avto bezaklar">
-                  <Button variant="filled" color="red" size="sm" className="text-white !w-full">
+                  <Button
+                    variant="filled"
+                    color="red"
+                    size="sm"
+                    className="text-white !w-full"
+                  >
                     Tuning jihozlariga buyurtma berish
                   </Button>
                 </Link>
@@ -137,12 +142,13 @@ const Home = ({ rendered }) => {
                   <TabPanel
                     key="allCategories"
                     value="allCategories"
-                    className="flex gap-x-5 overflow-auto products-swiper px-0"
+                    className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                   >
                     {products.map((product, index) => {
                       if (product.top) {
                         return (
                           <Products
+                            card={false}
                             key={index}
                             rendered={rendered}
                             product={product}
@@ -165,12 +171,13 @@ const Home = ({ rendered }) => {
                     <TabPanel
                       key={category}
                       value={category}
-                      className="flex gap-x-5 overflow-auto products-swiper px-0"
+                      className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                     >
                       {products.map((product, index) => {
                         if (product.category == category && product.top) {
                           return (
                             <Products
+                              card={false}
                               key={index}
                               rendered={rendered}
                               product={product}
@@ -348,12 +355,13 @@ const Home = ({ rendered }) => {
                   <TabPanel
                     key="allCategories"
                     value="allCategories"
-                    className="flex gap-x-5 overflow-auto products-swiper px-0"
+                    className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                   >
                     {products.map((product, index) => {
                       if (product.isItNew) {
                         return (
                           <Products
+                            card={false}
                             key={index}
                             rendered={rendered}
                             product={product}
@@ -377,12 +385,13 @@ const Home = ({ rendered }) => {
                     <TabPanel
                       key={category}
                       value={category}
-                      className="flex gap-x-5 overflow-auto products-swiper px-0"
+                      className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                     >
                       {products.map((product, index) => {
                         if (product.category == category && product.isItNew) {
                           return (
                             <Products
+                              card={false}
                               key={index}
                               rendered={rendered}
                               product={product}
@@ -463,12 +472,13 @@ const Home = ({ rendered }) => {
                   <TabPanel
                     key="allCategories"
                     value="allCategories"
-                    className="flex gap-x-5 overflow-auto products-swiper px-0"
+                    className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                   >
                     {products.map((product, index) => {
                       if (product.inAction) {
                         return (
                           <Products
+                            card={false}
                             key={index}
                             rendered={rendered}
                             product={product}
@@ -492,12 +502,13 @@ const Home = ({ rendered }) => {
                     <TabPanel
                       key={category}
                       value={category}
-                      className="flex gap-x-5 overflow-auto products-swiper px-0"
+                      className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                     >
                       {products.map((product, index) => {
                         if (product.category == category && product.inAction) {
                           return (
                             <Products
+                              card={false}
                               key={index}
                               rendered={rendered}
                               product={product}
@@ -589,6 +600,7 @@ const Home = ({ rendered }) => {
               if (product.recommend) {
                 return (
                   <Products
+                    card={false}
                     key={index}
                     rendered={rendered}
                     product={product}
