@@ -80,15 +80,18 @@ const Basket = ({ rendered }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const text = `Mijoz mahsulot xarid qildi❕\n\n Manzil: ${address}\n\n Mijozning ism familiyasi: ${clientName}\n\n Sotib olganlari:\n ${inTheCartProduct.map(
-      (product) => {
-        return `${product.productName} - ${product.countProduct}dona \nsumma: ${(
-          product.price * product.countProduct
-        )
+    const text = `Mijoz mahsulot xarid qildi❕\n\n Manzil: ${address}\n\n Mijozning ism familiyasi: ${clientName}\n\n Sotib olganlari:\n ${inTheCartProduct
+      .map((product) => {
+        return `• ${product.productName} - ${
+          product.countProduct
+        }dona \nsumma: ${(product.price * product.countProduct)
           .toLocaleString("UZ-uz", options)
           .replaceAll(",", " ")}so'm\n\n`;
-      }
-    )}\n Jami: ${(totalSum + countProductArr())
+      })}\n Jami:  ${totalSum
+      .toLocaleString("uz-UZ", options)
+      .replaceAll(",", " ")}so'm\n\nYetkazib berish narxi bilan: ${(
+      totalSum + countProductArr()
+    )
       .toLocaleString("uz-UZ", options)
       .replaceAll(",", " ")}so'm`;
 
@@ -436,9 +439,13 @@ const Basket = ({ rendered }) => {
                   >
                     To'lovni mahsulotni olganingizda to'laysiz
                   </Typography>
-                  <Typography variant="small" color="deep-orange" className="text-center">
-                    &#9888; Har bir
-                    mahsulotni yetkazib berish narxi: 12 000 so'm
+                  <Typography
+                    variant="small"
+                    color="deep-orange"
+                    className="text-center"
+                  >
+                    &#9888; Har bir mahsulotni yetkazib berish narxi: 12 000
+                    so'm
                   </Typography>
                 </CardFooter>
               </Card>
