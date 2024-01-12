@@ -14,7 +14,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.search-product-scroll::-webkit-scrollbar-thumb{
+.search-product-scroll::-webkit-scrollbar-thumb {
   background-color: rgba(250, 0, 0, 0.7);
 }
 .absolute.inset-0.z-10.h-full.bg-white.rounded-md.shadow {
@@ -93,12 +93,12 @@ html {
   }
 }
 
-.product-category{
+.product-category {
   display: none;
 }
 
-@media only screen and (min-width: 425px){
-  .product-category{
+@media only screen and (min-width: 425px) {
+  .product-category {
     display: block;
   }
 }

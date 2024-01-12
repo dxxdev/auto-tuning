@@ -1636,6 +1636,8 @@ function setCategoryToArray(arr) {
   return categoryArr;
 }
 
+export const category = setCategoryToArray(products);
+
 const images = [
   rulQoplamasi1,
   vertolyotliAtir1,
@@ -1656,7 +1658,6 @@ export const TOAST_CONFIG = {
   theme: "light",
 };
 
-export const category = setCategoryToArray(products);
 
 export const categoryProduct = category.map((item, index) => {
   let product = {

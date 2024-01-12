@@ -43,7 +43,9 @@ const Products = ({
     <li
       className={`rounded-lg bg-white ${
         actionPage ? "w-full" : "max-w-xs"
-      } flex flex-col hover:shadow-md space-y-4 card-swiper w-72 md:${card ? "w-full" : "w-72"} relative group`}
+      } flex flex-col hover:shadow-md space-y-4 card-swiper w-72 md:${
+        card ? "w-full" : "w-72"
+      } relative group`}
     >
       <Link
         to={`/${productCategory}/${productName}`}
@@ -62,7 +64,7 @@ const Products = ({
             modules={[Pagination, EffectFade]}
             className="mySwiper overflow-hidden rounded-t-lg w-full h-[200px] sm:h-[260px]"
           >
-            {productImages.map((item, index) => {
+            {productImages.slice(0, 3).map((item, index) => {
               return (
                 <SwiperSlide
                   key={index}

@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { aksiyaImg, logo, productNotFound } from "../assets/images";
+import { logo, productNotFound } from "../assets/images";
 import {
-  Alert,
   Badge,
   Button,
   Dialog,

@@ -48,7 +48,7 @@ const Home = ({ rendered }) => {
 
   return (
     <div>
-      <div className="bg-[#626262]">
+      <div className="bg-[#aaa]">
         <Swiper
           navigation={true}
           pagination={{

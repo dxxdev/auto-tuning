@@ -3,7 +3,6 @@ import { styles } from "../styles";
 import { Button, Rating, Typography } from "@material-tailwind/react";
 import { autoTuning, autoTuning1, companies } from "../assets/images";
 import { commentaries, scrollTop } from "../data/data";
-import { Star } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
 const FAQ = () => {
@@ -40,25 +39,21 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div className="rounded-lg sm:rounded-2xl w-full h-[222px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
-          <span className="bg-gray-400">
-            <img
-              src={autoTuning}
-              className="h-full rounded-lg sm:rounded-2xl"
-              alt=""
-            />
-          </span>
+        <div className="rounded-lg sm:rounded-2xl w-max mx-auto lg:w-full lg:mx-0 bg-gray-300 h-[222px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
+          <img
+            src={autoTuning}
+            className="h-full xl:w-full rounded-lg sm:rounded-2xl"
+            alt=""
+          />
         </div>
       </div>
       <div className="flex !mt-8 flex-col-reverse lg:flex-row gap-x-12 gap-y-12">
-        <div className="rounded-lg sm:rounded-2xl w-full h-[222px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
-          <span className="bg-gray-400">
-            <img
-              src={autoTuning1}
-              className="h-full rounded-lg sm:rounded-2xl"
-              alt=""
-            />
-          </span>
+        <div className="rounded-lg sm:rounded-2xl w-max mx-auto lg:w-full lg:mx-0 bg-gray-300 h-[222px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
+          <img
+            src={autoTuning1}
+            className="h-full xl:w-full rounded-lg sm:rounded-2xl"
+            alt=""
+          />
         </div>
         <div className="flex flex-col">
           <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-4 md:space-y-0 md:justify-between">

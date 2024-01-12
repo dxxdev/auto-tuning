@@ -10,12 +10,14 @@ import {
   Input,
   Rating,
   Textarea,
+  Tooltip,
   Typography,
 } from "@material-tailwind/react";
 import { TOAST_CONFIG, commentaries, scrollTop } from "../data/data";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Commentaries = () => {
   useEffect(() => {
@@ -142,22 +144,21 @@ const Commentaries = () => {
               label="Fikringizni yozib qoldiring"
             ></Textarea>
             <Typography variant="small">Bizni baholang</Typography>
-            <Rating
-              precision={1}
-              max={5}
-              onChange={(value) => {
-                setRating(value);
-                console.log(value);
-                console.log(rating);
-              }}
-            />
-            <div className="h-20">
-              <iframe
-                width="100%"
-                height="100%"
-                css={{ display: "none" }}
-                src="https://shop.examplestore.com/pages/contact-store"
+            <Tooltip content={rating}>
+              <input
+                type="range"
+                min={0}
+                onChange={(e) => setRating(e.target.value)}
+                value={rating}
+                max={5}
+                step={1}
+                className="w-full sm:w-44"
+                name=""
+                id=""
               />
+            </Tooltip>
+            <div className="h-20">
+              <ReCAPTCHA sitekey="6LdUGUwpAAAAACjaVLjP4wN3FL9eFysDYmE4dQ5Q" />
             </div>
           </CardBody>
           <CardFooter className="pt-0">

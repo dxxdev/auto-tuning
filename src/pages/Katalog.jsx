@@ -25,7 +25,7 @@ const Katalog = () => {
           return (
             <Link key={product.id} onClick={scrollTop} to={`/${product.category}`}>
               <li
-                className="rounded-3xl relative group overflow-hidden h-full max-h-56  flex justify-center items-center"
+                className="rounded-3xl relative group overflow-hidden h-56 w-full flex justify-center items-center sceleton-animation"
                 key={product.id}
               >
                 <img
