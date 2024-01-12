@@ -22,7 +22,13 @@ import {
   Search,
   ShoppingBasketOutlined,
 } from "@mui/icons-material";
-import { TOAST_CONFIG, headerRender, products, scrollTop, setCategoryToArray } from "../data/data";
+import {
+  TOAST_CONFIG,
+  headerRender,
+  products,
+  scrollTop,
+  setCategoryToArray,
+} from "../data/data";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import HeaderDrawer from "./HeaderDrawer";
@@ -194,7 +200,12 @@ const Header = ({ rendered }) => {
                   className="flex !top-[20%] min-w-[20px] min-h-[20px] !right-[30%] justify-center items-center"
                   content={howSaved}
                 >
-                  <button className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]">
+                  <button
+                    ariaLabel="saved button"
+                    ariaLabelledby="saved button"
+                    tabIndex="-1"
+                    className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]"
+                  >
                     <BookmarkBorderOutlined />
                   </button>
                 </Badge>
@@ -210,7 +221,12 @@ const Header = ({ rendered }) => {
                   className="flex !top-[20%] !right-[30%] min-w-[20px] min-h-[20px] justify-center items-center"
                   content={howMuch}
                 >
-                  <button className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]">
+                  <button
+                    ariaLabel="cart button"
+                    ariaLabelledby="cart button"
+                    tabIndex="-1"
+                    className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]"
+                  >
                     <ShoppingBasketOutlined />
                   </button>
                 </Badge>
@@ -223,6 +239,8 @@ const Header = ({ rendered }) => {
               </p>
             </div>
             <button
+              ariaLabel="contact button"
+              ariaLabelledby="contact button"
               onClick={handleOpen}
               className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring hidden focus:ring-red-200 md:flex justify-center items-center"
             >
@@ -235,6 +253,9 @@ const Header = ({ rendered }) => {
               </div>
             </button>
             <IconButton
+              ariaLabel="drawer open button"
+              ariaLabelledby="drawer open button"
+              tabIndex="-1"
               onClick={openDrawer2}
               variant="outlined"
               color="red"
@@ -249,6 +270,9 @@ const Header = ({ rendered }) => {
             className={`${styles.container} px-5 xl:px-6 justify-between items-center space-x-3 py-4 hidden md:flex`}
           >
             <button
+              ariaLabel="drawer open button"
+              ariaLabelledby="drawer open button"
+              tabIndex="-1"
               onClick={openDrawer2}
               className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-red-500 text-white shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex space-x-2 items-center justify-center"
             >
@@ -299,7 +323,13 @@ const Header = ({ rendered }) => {
                     placeholder="Qidirish..."
                     onInput={(e) => searchProduct(e)}
                   />
-                  <IconButton variant="text" onClick={openSearchInput}>
+                  <IconButton
+                    ariaLabel="search box open button"
+                    ariaLabelledby="search box open button"
+                    tabIndex="-1"
+                    variant="text"
+                    onClick={openSearchInput}
+                  >
                     <Search
                       className={`cursor-pointer text-sm ${
                         openInput ? "text-black" : "text-white"
@@ -352,6 +382,9 @@ const Header = ({ rendered }) => {
                 content={howSaved}
               >
                 <IconButton
+                  ariaLabel="saved button"
+                  ariaLabelledby="saved button"
+                  tabIndex="-1"
                   onClick={() => {
                     navigate("/Saqlanganlar");
                     scrollTop();
@@ -368,6 +401,9 @@ const Header = ({ rendered }) => {
                 content={howMuch}
               >
                 <IconButton
+                  ariaLabel="cart button"
+                  ariaLabelledby="cart button"
+                  tabIndex="-1"
                   onClick={() => {
                     navigate("/Savatcha");
                     scrollTop();
@@ -409,7 +445,11 @@ const Header = ({ rendered }) => {
               Biz bilan bog'lanish
             </Typography>
           </DialogHeader>
-          <IconButton>
+          <IconButton
+            ariaLabel="close modal button"
+            ariaLabelledby="close modal button"
+            tabIndex="-1"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -458,10 +498,20 @@ const Header = ({ rendered }) => {
           </form>
         </DialogBody>
         <DialogFooter className="space-x-2">
-          <Button variant="text" color="gray" onClick={handleOpen}>
+          <Button
+            ariaLabel="close modal button"
+            ariaLabelledby="close modal button"
+            tabIndex="-1"
+            variant="text"
+            color="gray"
+            onClick={handleOpen}
+          >
             Bekor qilish
           </Button>
           <Button
+            ariaLabel="send message button"
+            ariaLabelledby="send message button"
+            tabIndex="-1"
             variant="gradient"
             color="gray"
             type="submit"

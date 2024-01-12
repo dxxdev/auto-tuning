@@ -127,12 +127,12 @@ const Products = ({
             </span>
           </Typography>
           <div className="w-full flex justify-between items-end">
-            <Typography variant="h6" className="text-black lg:text-black/90">
+            <b className="text-base text-black font-bold lg:text-black/90">
               {productPrice
                 .toLocaleString("uz-UZ", options)
                 .replaceAll(",", " ")}{" "}
               so'm
-            </Typography>
+            </b>
             <IconButton
               onClick={() => {
                 setRender((prev) => !prev);

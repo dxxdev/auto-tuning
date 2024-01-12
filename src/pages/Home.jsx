@@ -142,79 +142,83 @@ const Home = ({ rendered }) => {
                 </div>
                 <TabsBody>
                   <TabPanel
+                    className="px-0 py-0"
                     key="allCategories"
                     value="allCategories"
-                    className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                   >
-                    {products.map((product, index) => {
-                      if (product.top) {
-                        return (
-                          <Products
-                            card={false}
-                            key={index}
-                            rendered={rendered}
-                            product={product}
-                            productId={product.id}
-                            productName={product.productName}
-                            productCategory={product.category}
-                            productImages={product.images}
-                            productSaved={productSaved}
-                            productIsItNew={product.isItNew}
-                            productInAction={product.inAction}
-                            productRating={product.rating}
-                            productPrice={product.price}
-                            productInTheCart={product.inTheCart}
-                          />
-                        );
-                      }
-                    })}
+                    <ul className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0">
+                      {products.map((product, index) => {
+                        if (product.top) {
+                          return (
+                            <Products
+                              card={false}
+                              key={index}
+                              rendered={rendered}
+                              product={product}
+                              productId={product.id}
+                              productName={product.productName}
+                              productCategory={product.category}
+                              productImages={product.images}
+                              productSaved={productSaved}
+                              productIsItNew={product.isItNew}
+                              productInAction={product.inAction}
+                              productRating={product.rating}
+                              productPrice={product.price}
+                              productInTheCart={product.inTheCart}
+                            />
+                          );
+                        }
+                      })}
+                    </ul>
                   </TabPanel>
                   {category.map(
                     (category) =>
                       topTabValue == category && (
                         <TabPanel
+                          className="px-0 py-0"
                           key={category}
                           value={category}
-                          className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                         >
-                          {products.map((product, index) => {
-                            if (product.category == category && product.top) {
-                              return (
-                                <Products
-                                  card={false}
-                                  key={index}
-                                  rendered={rendered}
-                                  product={product}
-                                  productId={product.id}
-                                  productName={product.productName}
-                                  productCategory={product.category}
-                                  productImages={product.images}
-                                  productSaved={productSaved}
-                                  productIsItNew={product.isItNew}
-                                  productInAction={product.inAction}
-                                  productRating={product.rating}
-                                  productPrice={product.price}
-                                  productInTheCart={product.inTheCart}
-                                />
-                              );
-                            }
-                          })}
-                          {products.filter(
-                            (product) =>
-                              product.category === category && product.top
-                          ).length === 0 && (
-                            <div
-                              key="noProductFound"
-                              className="flex w-full min-h-[200px] justify-center items-center"
-                            >
-                              <Typography
-                                className="text-center w-full"
-                                variant="h5"
+                          <ul className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0">
+                            {products.map((product, index) => {
+                              if (product.category == category && product.top) {
+                                return (
+                                  <Products
+                                    card={false}
+                                    key={index}
+                                    rendered={rendered}
+                                    product={product}
+                                    productId={product.id}
+                                    productName={product.productName}
+                                    productCategory={product.category}
+                                    productImages={product.images}
+                                    productSaved={productSaved}
+                                    productIsItNew={product.isItNew}
+                                    productInAction={product.inAction}
+                                    productRating={product.rating}
+                                    productPrice={product.price}
+                                    productInTheCart={product.inTheCart}
+                                  />
+                                );
+                              }
+                            })}
+                            {products.filter(
+                              (product) =>
+                                product.category === category && product.top
+                            ).length === 0 && (
+                              <li
+                                key="noProductFound"
+                                className="flex w-full min-h-[200px] justify-center items-center"
                               >
-                                Hech narsa topilmadi
-                              </Typography>
-                            </div>
-                          )}
+                                <Typography
+                                  className="text-center w-full"
+                                  variant="h5"
+                                >
+                                  Hech narsa topilmadi
+                                </Typography>
+                              </li>
+                            )}
+                          </ul>
                         </TabPanel>
                       )
                   )}
@@ -357,83 +361,87 @@ const Home = ({ rendered }) => {
                 <TabsBody>
                   {/* All products tab */}
                   <TabPanel
+                    className="py-0 px-0"
                     key="allCategories"
                     value="allCategories"
-                    className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                   >
-                    {products.map((product, index) => {
-                      if (product.isItNew) {
-                        return (
-                          <Products
-                            card={false}
-                            key={index}
-                            rendered={rendered}
-                            product={product}
-                            productId={product.id}
-                            productName={product.productName}
-                            productCategory={product.category}
-                            productImages={product.images}
-                            productSaved={productSaved}
-                            productIsItNew={product.isItNew}
-                            productInAction={product.inAction}
-                            productRating={product.rating}
-                            productPrice={product.price}
-                            productInTheCart={product.inTheCart}
-                          />
-                        );
-                      }
-                    })}
+                    <ul className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0">
+                      {products.map((product, index) => {
+                        if (product.isItNew) {
+                          return (
+                            <Products
+                              card={false}
+                              key={index}
+                              rendered={rendered}
+                              product={product}
+                              productId={product.id}
+                              productName={product.productName}
+                              productCategory={product.category}
+                              productImages={product.images}
+                              productSaved={productSaved}
+                              productIsItNew={product.isItNew}
+                              productInAction={product.inAction}
+                              productRating={product.rating}
+                              productPrice={product.price}
+                              productInTheCart={product.inTheCart}
+                            />
+                          );
+                        }
+                      })}
+                    </ul>
                   </TabPanel>
                   {/* Tab by category */}
                   {category.map(
                     (category) =>
                       newTabValue == category && (
                         <TabPanel
+                          className="px-0 py-0"
                           key={category}
                           value={category}
-                          className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                         >
-                          {products.map((product, index) => {
-                            if (
-                              product.category == category &&
-                              product.isItNew
-                            ) {
-                              return (
-                                <Products
-                                  card={false}
-                                  key={index}
-                                  rendered={rendered}
-                                  product={product}
-                                  productId={product.id}
-                                  productName={product.productName}
-                                  productCategory={product.category}
-                                  productImages={product.images}
-                                  productSaved={productSaved}
-                                  productIsItNew={product.isItNew}
-                                  productInAction={product.inAction}
-                                  productRating={product.rating}
-                                  productPrice={product.price}
-                                  productInTheCart={product.inTheCart}
-                                />
-                              );
-                            }
-                          })}
-                          {products.filter(
-                            (product) =>
-                              product.category === category && product.isItNew
-                          ).length === 0 && (
-                            <div
-                              key="noProductFound"
-                              className="flex w-full min-h-[200px] justify-center items-center"
-                            >
-                              <Typography
-                                className="text-center w-full"
-                                variant="h5"
+                          <ul className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0">
+                            {products.map((product, index) => {
+                              if (
+                                product.category == category &&
+                                product.isItNew
+                              ) {
+                                return (
+                                  <Products
+                                    card={false}
+                                    key={index}
+                                    rendered={rendered}
+                                    product={product}
+                                    productId={product.id}
+                                    productName={product.productName}
+                                    productCategory={product.category}
+                                    productImages={product.images}
+                                    productSaved={productSaved}
+                                    productIsItNew={product.isItNew}
+                                    productInAction={product.inAction}
+                                    productRating={product.rating}
+                                    productPrice={product.price}
+                                    productInTheCart={product.inTheCart}
+                                  />
+                                );
+                              }
+                            })}
+                            {products.filter(
+                              (product) =>
+                                product.category === category && product.isItNew
+                            ).length === 0 && (
+                              <li
+                                key="noProductFound"
+                                className="flex w-full min-h-[200px] justify-center items-center"
                               >
-                                Hech narsa topilmadi
-                              </Typography>
-                            </div>
-                          )}
+                                <Typography
+                                  className="text-center w-full"
+                                  variant="h5"
+                                >
+                                  Hech narsa topilmadi
+                                </Typography>
+                              </li>
+                            )}
+                          </ul>
                         </TabPanel>
                       )
                   )}
@@ -484,81 +492,86 @@ const Home = ({ rendered }) => {
                   <TabPanel
                     key="allCategories"
                     value="allCategories"
-                    className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
+                    className="py-0 px-0"
                   >
-                    {products.map((product, index) => {
-                      if (product.inAction) {
-                        return (
-                          <Products
-                            card={false}
-                            key={index}
-                            rendered={rendered}
-                            product={product}
-                            productId={product.id}
-                            productName={product.productName}
-                            productCategory={product.category}
-                            productImages={product.images}
-                            productSaved={productSaved}
-                            productIsItNew={product.isItNew}
-                            productInAction={product.inAction}
-                            productRating={product.rating}
-                            productPrice={product.price}
-                            productInTheCart={product.inTheCart}
-                          />
-                        );
-                      }
-                    })}
+                    <ul className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0">
+                      {products.map((product, index) => {
+                        if (product.inAction) {
+                          return (
+                            <Products
+                              card={false}
+                              key={index}
+                              rendered={rendered}
+                              product={product}
+                              productId={product.id}
+                              productName={product.productName}
+                              productCategory={product.category}
+                              productImages={product.images}
+                              productSaved={productSaved}
+                              productIsItNew={product.isItNew}
+                              productInAction={product.inAction}
+                              productRating={product.rating}
+                              productPrice={product.price}
+                              productInTheCart={product.inTheCart}
+                            />
+                          );
+                        }
+                      })}
+                    </ul>
                   </TabPanel>
                   {/* Tab by category */}
                   {category.map(
                     (category) =>
                       discountTabValue == category && (
                         <TabPanel
+                          className="px-0 py-0"
                           key={category}
                           value={category}
-                          className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                         >
-                          {products.map((product, index) => {
-                            if (
-                              product.category == category &&
-                              product.inAction
-                            ) {
-                              return (
-                                <Products
-                                  card={false}
-                                  key={index}
-                                  rendered={rendered}
-                                  product={product}
-                                  productId={product.id}
-                                  productName={product.productName}
-                                  productCategory={product.category}
-                                  productImages={product.images}
-                                  productSaved={productSaved}
-                                  productIsItNew={product.isItNew}
-                                  productInAction={product.inAction}
-                                  productRating={product.rating}
-                                  productPrice={product.price}
-                                  productInTheCart={product.inTheCart}
-                                />
-                              );
-                            }
-                          })}
-                          {products.filter(
-                            (product) =>
-                              product.category === category && product.inAction
-                          ).length === 0 && (
-                            <div
-                              key="noProductFound"
-                              className="flex w-full min-h-[200px] justify-center items-center"
-                            >
-                              <Typography
-                                className="text-center w-full"
-                                variant="h5"
+                          <ul className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0">
+                            {products.map((product, index) => {
+                              if (
+                                product.category == category &&
+                                product.inAction
+                              ) {
+                                return (
+                                  <Products
+                                    card={false}
+                                    key={index}
+                                    rendered={rendered}
+                                    product={product}
+                                    productId={product.id}
+                                    productName={product.productName}
+                                    productCategory={product.category}
+                                    productImages={product.images}
+                                    productSaved={productSaved}
+                                    productIsItNew={product.isItNew}
+                                    productInAction={product.inAction}
+                                    productRating={product.rating}
+                                    productPrice={product.price}
+                                    productInTheCart={product.inTheCart}
+                                  />
+                                );
+                              }
+                            })}
+                            {products.filter(
+                              (product) =>
+                                product.category === category &&
+                                product.inAction
+                            ).length === 0 && (
+                              <li
+                                key="noProductFound"
+                                className="flex w-full min-h-[200px] justify-center items-center"
                               >
-                                Hech narsa topilmadi
-                              </Typography>
-                            </div>
-                          )}
+                                <Typography
+                                  className="text-center w-full"
+                                  variant="h5"
+                                >
+                                  Hech narsa topilmadi
+                                </Typography>
+                              </li>
+                            )}
+                          </ul>
                         </TabPanel>
                       )
                   )}
