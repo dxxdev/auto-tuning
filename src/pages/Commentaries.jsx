@@ -143,20 +143,36 @@ const Commentaries = () => {
               onChange={(e) => setMessage(e.target.value)}
               label="Fikringizni yozib qoldiring"
             ></Textarea>
-            <Typography variant="small">Bizni baholang</Typography>
-            <Tooltip content={rating}>
-              <input
-                type="range"
-                min={0}
-                onChange={(e) => setRating(e.target.value)}
-                value={rating}
-                max={5}
-                step={1}
-                className="w-full sm:w-44"
-                name=""
-                id=""
+            <Typography variant="small" className="flex items-center">
+              Bizni baholang
+            </Typography>
+            <div className="flex gap-1 items-center">
+              <Star
+                color={rating > 0 ? "warning" : "disabled"}
+                className="cursor-pointer"
+                onClick={()=>setRating(1)}
               />
-            </Tooltip>
+              <Star
+                color={rating > 1 ? "warning" : "disabled"}
+                className="cursor-pointer"
+                onClick={()=>setRating(2)}
+              />
+              <Star
+                color={rating > 2 ? "warning" : "disabled"}
+                className="cursor-pointer"
+                onClick={()=>setRating(3)}
+              />
+              <Star
+                color={rating > 3 ? "warning" : "disabled"}
+                className="cursor-pointer"
+                onClick={()=>setRating(4)}
+              />
+              <Star
+                color={rating > 4 ? "warning" : "disabled"}
+                className="cursor-pointer"
+                onClick={()=>setRating(5)}
+              />
+            </div>
             <div className="h-20">
               <ReCAPTCHA sitekey="6LdUGUwpAAAAACjaVLjP4wN3FL9eFysDYmE4dQ5Q" />
             </div>

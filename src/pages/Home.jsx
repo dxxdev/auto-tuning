@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../styles/swiperStyle.css";
 
-import { Pagination, Navigation, Autoplay, EffectFade } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { swiperImages } from "../data/hero-swiper";
 import {
   Button,
@@ -27,6 +27,9 @@ import Products from "../components/Products";
 import { companies } from "../assets/images";
 
 const Home = ({ rendered }) => {
+  const [topTabValue, setTopTabValue] = useState("allCategories");
+  const [newTabValue, setNewTabValue] = useState("allCategories");
+  const [discountTabValue, setDiscountTabValue] = useState("allCategories");
   const navigate = useNavigate();
 
   const productSaved = (product) => {
@@ -114,16 +117,14 @@ const Home = ({ rendered }) => {
           </Typography>
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
-              <Tabs
-                value="allCategories"
-                className={`${styles.container} px-0`}
-              >
+              <Tabs value={topTabValue} className={`${styles.container} px-0`}>
                 <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
                   <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
                     <Tab
                       key="allCategories"
                       value="allCategories"
                       className="w-min px-5 text-white"
+                      onClick={() => setTopTabValue("allCategories")}
                     >
                       Hammasi
                     </Tab>
@@ -132,6 +133,7 @@ const Home = ({ rendered }) => {
                         key={category}
                         value={category}
                         className="w-max px-3 text-white"
+                        onClick={() => setTopTabValue(category)}
                       >
                         {category}
                       </Tab>
@@ -167,52 +169,55 @@ const Home = ({ rendered }) => {
                       }
                     })}
                   </TabPanel>
-                  {category.map((category) => (
-                    <TabPanel
-                      key={category}
-                      value={category}
-                      className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
-                    >
-                      {products.map((product, index) => {
-                        if (product.category == category && product.top) {
-                          return (
-                            <Products
-                              card={false}
-                              key={index}
-                              rendered={rendered}
-                              product={product}
-                              productId={product.id}
-                              productName={product.productName}
-                              productCategory={product.category}
-                              productImages={product.images}
-                              productSaved={productSaved}
-                              productIsItNew={product.isItNew}
-                              productInAction={product.inAction}
-                              productRating={product.rating}
-                              productPrice={product.price}
-                              productInTheCart={product.inTheCart}
-                            />
-                          );
-                        }
-                      })}
-                      {products.filter(
-                        (product) =>
-                          product.category === category && product.top
-                      ).length === 0 && (
-                        <div
-                          key="noProductFound"
-                          className="flex w-full min-h-[200px] justify-center items-center"
+                  {category.map(
+                    (category) =>
+                      topTabValue == category && (
+                        <TabPanel
+                          key={category}
+                          value={category}
+                          className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                         >
-                          <Typography
-                            className="text-center w-full"
-                            variant="h5"
-                          >
-                            Hech narsa topilmadi
-                          </Typography>
-                        </div>
-                      )}
-                    </TabPanel>
-                  ))}
+                          {products.map((product, index) => {
+                            if (product.category == category && product.top) {
+                              return (
+                                <Products
+                                  card={false}
+                                  key={index}
+                                  rendered={rendered}
+                                  product={product}
+                                  productId={product.id}
+                                  productName={product.productName}
+                                  productCategory={product.category}
+                                  productImages={product.images}
+                                  productSaved={productSaved}
+                                  productIsItNew={product.isItNew}
+                                  productInAction={product.inAction}
+                                  productRating={product.rating}
+                                  productPrice={product.price}
+                                  productInTheCart={product.inTheCart}
+                                />
+                              );
+                            }
+                          })}
+                          {products.filter(
+                            (product) =>
+                              product.category === category && product.top
+                          ).length === 0 && (
+                            <div
+                              key="noProductFound"
+                              className="flex w-full min-h-[200px] justify-center items-center"
+                            >
+                              <Typography
+                                className="text-center w-full"
+                                variant="h5"
+                              >
+                                Hech narsa topilmadi
+                              </Typography>
+                            </div>
+                          )}
+                        </TabPanel>
+                      )
+                  )}
                 </TabsBody>
               </Tabs>
             )}
@@ -326,15 +331,13 @@ const Home = ({ rendered }) => {
           </Typography>
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
-              <Tabs
-                value="allCategories"
-                className={`${styles.container} px-0`}
-              >
+              <Tabs value={newTabValue} className={`${styles.container} px-0`}>
                 <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
                   <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
                     <Tab
                       key="allCategories"
                       value="allCategories"
+                      onClick={() => setNewTabValue("allCategories")}
                       className="w-min px-5 text-white"
                     >
                       Hammasi
@@ -344,6 +347,7 @@ const Home = ({ rendered }) => {
                         key={category}
                         value={category}
                         className="w-max px-5 text-white"
+                        onClick={() => setNewTabValue(category)}
                       >
                         {category}
                       </Tab>
@@ -381,52 +385,58 @@ const Home = ({ rendered }) => {
                     })}
                   </TabPanel>
                   {/* Tab by category */}
-                  {category.map((category) => (
-                    <TabPanel
-                      key={category}
-                      value={category}
-                      className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
-                    >
-                      {products.map((product, index) => {
-                        if (product.category == category && product.isItNew) {
-                          return (
-                            <Products
-                              card={false}
-                              key={index}
-                              rendered={rendered}
-                              product={product}
-                              productId={product.id}
-                              productName={product.productName}
-                              productCategory={product.category}
-                              productImages={product.images}
-                              productSaved={productSaved}
-                              productIsItNew={product.isItNew}
-                              productInAction={product.inAction}
-                              productRating={product.rating}
-                              productPrice={product.price}
-                              productInTheCart={product.inTheCart}
-                            />
-                          );
-                        }
-                      })}
-                      {products.filter(
-                        (product) =>
-                          product.category === category && product.isItNew
-                      ).length === 0 && (
-                        <div
-                          key="noProductFound"
-                          className="flex w-full min-h-[200px] justify-center items-center"
+                  {category.map(
+                    (category) =>
+                      newTabValue == category && (
+                        <TabPanel
+                          key={category}
+                          value={category}
+                          className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                         >
-                          <Typography
-                            className="text-center w-full"
-                            variant="h5"
-                          >
-                            Hech narsa topilmadi
-                          </Typography>
-                        </div>
-                      )}
-                    </TabPanel>
-                  ))}
+                          {products.map((product, index) => {
+                            if (
+                              product.category == category &&
+                              product.isItNew
+                            ) {
+                              return (
+                                <Products
+                                  card={false}
+                                  key={index}
+                                  rendered={rendered}
+                                  product={product}
+                                  productId={product.id}
+                                  productName={product.productName}
+                                  productCategory={product.category}
+                                  productImages={product.images}
+                                  productSaved={productSaved}
+                                  productIsItNew={product.isItNew}
+                                  productInAction={product.inAction}
+                                  productRating={product.rating}
+                                  productPrice={product.price}
+                                  productInTheCart={product.inTheCart}
+                                />
+                              );
+                            }
+                          })}
+                          {products.filter(
+                            (product) =>
+                              product.category === category && product.isItNew
+                          ).length === 0 && (
+                            <div
+                              key="noProductFound"
+                              className="flex w-full min-h-[200px] justify-center items-center"
+                            >
+                              <Typography
+                                className="text-center w-full"
+                                variant="h5"
+                              >
+                                Hech narsa topilmadi
+                              </Typography>
+                            </div>
+                          )}
+                        </TabPanel>
+                      )
+                  )}
                 </TabsBody>
               </Tabs>
             )}
@@ -444,7 +454,7 @@ const Home = ({ rendered }) => {
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
               <Tabs
-                value="allCategories"
+                value={discountTabValue}
                 className={`${styles.container} px-0`}
               >
                 <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
@@ -452,6 +462,7 @@ const Home = ({ rendered }) => {
                     <Tab
                       key="allCategories"
                       value="allCategories"
+                      onClick={() => setDiscountTabValue("allCategories")}
                       className="w-min px-5 text-white"
                     >
                       Hammasi
@@ -461,6 +472,7 @@ const Home = ({ rendered }) => {
                         key={category}
                         value={category}
                         className="w-max px-5 text-white"
+                        onClick={() => setDiscountTabValue(category)}
                       >
                         {category}
                       </Tab>
@@ -498,52 +510,58 @@ const Home = ({ rendered }) => {
                     })}
                   </TabPanel>
                   {/* Tab by category */}
-                  {category.map((category) => (
-                    <TabPanel
-                      key={category}
-                      value={category}
-                      className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
-                    >
-                      {products.map((product, index) => {
-                        if (product.category == category && product.inAction) {
-                          return (
-                            <Products
-                              card={false}
-                              key={index}
-                              rendered={rendered}
-                              product={product}
-                              productId={product.id}
-                              productName={product.productName}
-                              productCategory={product.category}
-                              productImages={product.images}
-                              productSaved={productSaved}
-                              productIsItNew={product.isItNew}
-                              productInAction={product.inAction}
-                              productRating={product.rating}
-                              productPrice={product.price}
-                              productInTheCart={product.inTheCart}
-                            />
-                          );
-                        }
-                      })}
-                      {products.filter(
-                        (product) =>
-                          product.category === category && product.inAction
-                      ).length === 0 && (
-                        <div
-                          key="noProductFound"
-                          className="flex w-full min-h-[200px] justify-center items-center"
+                  {category.map(
+                    (category) =>
+                      discountTabValue == category && (
+                        <TabPanel
+                          key={category}
+                          value={category}
+                          className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0"
                         >
-                          <Typography
-                            className="text-center w-full"
-                            variant="h5"
-                          >
-                            Hech narsa topilmadi
-                          </Typography>
-                        </div>
-                      )}
-                    </TabPanel>
-                  ))}
+                          {products.map((product, index) => {
+                            if (
+                              product.category == category &&
+                              product.inAction
+                            ) {
+                              return (
+                                <Products
+                                  card={false}
+                                  key={index}
+                                  rendered={rendered}
+                                  product={product}
+                                  productId={product.id}
+                                  productName={product.productName}
+                                  productCategory={product.category}
+                                  productImages={product.images}
+                                  productSaved={productSaved}
+                                  productIsItNew={product.isItNew}
+                                  productInAction={product.inAction}
+                                  productRating={product.rating}
+                                  productPrice={product.price}
+                                  productInTheCart={product.inTheCart}
+                                />
+                              );
+                            }
+                          })}
+                          {products.filter(
+                            (product) =>
+                              product.category === category && product.inAction
+                          ).length === 0 && (
+                            <div
+                              key="noProductFound"
+                              className="flex w-full min-h-[200px] justify-center items-center"
+                            >
+                              <Typography
+                                className="text-center w-full"
+                                variant="h5"
+                              >
+                                Hech narsa topilmadi
+                              </Typography>
+                            </div>
+                          )}
+                        </TabPanel>
+                      )
+                  )}
                 </TabsBody>
               </Tabs>
             )}

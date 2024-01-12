@@ -1626,7 +1626,7 @@ export const filteredProductForId = (productName) => {
   return infoProductArr[0];
 };
 
-function setCategoryToArray(arr) {
+export function setCategoryToArray(arr) {
   let categoryes = new Set();
   arr.forEach(function (item) {
     let category = item.category;

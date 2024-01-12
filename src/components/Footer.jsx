@@ -112,7 +112,7 @@ const Footer = () => {
               <div className="flex gap-x-4">
                 <a
                   className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-green-500 text-white shadow-md shadow-green-500/20 hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex justify-center items-center"
-                  href="https://whatsapp.com"
+                  href="https://www.whatsapp.com"
                 >
                   <WhatsApp />
                 </a>

@@ -43,7 +43,7 @@ const Breadcrump = () => {
       }`}
     >
       <Breadcrumbs
-        separator={<KeyboardDoubleArrowRight />}
+        separator={<KeyboardDoubleArrowRight className="!cursor-default" />}
         className="bg-transparent"
       >
         {category.includes(tayyorArr[0]) && (
