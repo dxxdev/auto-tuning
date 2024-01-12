@@ -94,7 +94,7 @@ const Footer = () => {
               <div className="flex justify-start items-center gap-x-4">
                 <a
                   href="tel:+998992701032"
-                  ariaLabel="contact admin"
+                  aria-label="contact admin"
                   className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-8 max-w-[32px] h-8 max-h-[32px] text-xs border border-white text-white hover:opacity-75 focus:ring focus:ring-white/50 active:opacity-[0.85] rounded-full flex justify-center items-center"
                 >
                   <Phone fontSize="small" />
@@ -114,14 +114,14 @@ const Footer = () => {
                 <a
                   className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-green-500 text-white shadow-md shadow-green-500/20 hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex justify-center items-center"
                   href="https://www.whatsapp.com"
-                  ariaLabel="contact whatsapp"
+                  aria-label="contact whatsapp"
                 >
                   <WhatsApp />
                 </a>
                 <a
                   href="https://vk.com"
                   className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-2xl text-xs bg-white text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex justify-center items-center"
-                  ariaLabel="contact vkontakte"
+                  aria-label="contact vkontakte"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -134,6 +134,9 @@ const Products = ({
               so'm
             </b>
             <IconButton
+              aria-label="buying button"
+              aria-labelledby="buying button"
+              tabIndex="-1"
               onClick={() => {
                 setRender((prev) => !prev);
                 addCartProduct(product);

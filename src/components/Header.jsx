@@ -201,8 +201,8 @@ const Header = ({ rendered }) => {
                   content={howSaved}
                 >
                   <button
-                    ariaLabel="saved button"
-                    ariaLabelledby="saved button"
+                    aria-label="saved button"
+                    aria-labelledby="saved button"
                     tabIndex="-1"
                     className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]"
                   >
@@ -222,8 +222,8 @@ const Header = ({ rendered }) => {
                   content={howMuch}
                 >
                   <button
-                    ariaLabel="cart button"
-                    ariaLabelledby="cart button"
+                    aria-label="cart button"
+                    aria-labelledby="cart button"
                     tabIndex="-1"
                     className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]"
                   >
@@ -239,8 +239,8 @@ const Header = ({ rendered }) => {
               </p>
             </div>
             <button
-              ariaLabel="contact button"
-              ariaLabelledby="contact button"
+              aria-label="contact button"
+              aria-labelledby="contact button"
               onClick={handleOpen}
               className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring hidden focus:ring-red-200 md:flex justify-center items-center"
             >
@@ -253,8 +253,8 @@ const Header = ({ rendered }) => {
               </div>
             </button>
             <IconButton
-              ariaLabel="drawer open button"
-              ariaLabelledby="drawer open button"
+              aria-label="drawer open button"
+              aria-labelledby="drawer open button"
               tabIndex="-1"
               onClick={openDrawer2}
               variant="outlined"
@@ -270,8 +270,8 @@ const Header = ({ rendered }) => {
             className={`${styles.container} px-5 xl:px-6 justify-between items-center space-x-3 py-4 hidden md:flex`}
           >
             <button
-              ariaLabel="drawer open button"
-              ariaLabelledby="drawer open button"
+              aria-label="drawer open button"
+              aria-labelledby="drawer open button"
               tabIndex="-1"
               onClick={openDrawer2}
               className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-red-500 text-white shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex space-x-2 items-center justify-center"
@@ -324,8 +324,8 @@ const Header = ({ rendered }) => {
                     onInput={(e) => searchProduct(e)}
                   />
                   <IconButton
-                    ariaLabel="search box open button"
-                    ariaLabelledby="search box open button"
+                    aria-label="search box open button"
+                    aria-labelledby="search box open button"
                     tabIndex="-1"
                     variant="text"
                     onClick={openSearchInput}
@@ -382,8 +382,8 @@ const Header = ({ rendered }) => {
                 content={howSaved}
               >
                 <IconButton
-                  ariaLabel="saved button"
-                  ariaLabelledby="saved button"
+                  aria-label="saved button"
+                  aria-labelledby="saved button"
                   tabIndex="-1"
                   onClick={() => {
                     navigate("/Saqlanganlar");
@@ -401,8 +401,8 @@ const Header = ({ rendered }) => {
                 content={howMuch}
               >
                 <IconButton
-                  ariaLabel="cart button"
-                  ariaLabelledby="cart button"
+                  aria-label="cart button"
+                  aria-labelledby="cart button"
                   tabIndex="-1"
                   onClick={() => {
                     navigate("/Savatcha");
@@ -446,8 +446,8 @@ const Header = ({ rendered }) => {
             </Typography>
           </DialogHeader>
           <IconButton
-            ariaLabel="close modal button"
-            ariaLabelledby="close modal button"
+            aria-label="close modal button"
+            aria-labelledby="close modal button"
             tabIndex="-1"
           >
             <svg
@@ -499,8 +499,8 @@ const Header = ({ rendered }) => {
         </DialogBody>
         <DialogFooter className="space-x-2">
           <Button
-            ariaLabel="close modal button"
-            ariaLabelledby="close modal button"
+            aria-label="close modal button"
+            aria-labelledby="close modal button"
             tabIndex="-1"
             variant="text"
             color="gray"
@@ -509,8 +509,8 @@ const Header = ({ rendered }) => {
             Bekor qilish
           </Button>
           <Button
-            ariaLabel="send message button"
-            ariaLabelledby="send message button"
+            aria-label="send message button"
+            aria-labelledby="send message button"
             tabIndex="-1"
             variant="gradient"
             color="gray"
