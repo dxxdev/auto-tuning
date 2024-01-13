@@ -175,7 +175,7 @@ const Header = ({ rendered }) => {
                 alt=""
               />
               <span>
-                AUTO <span className="text-red-500">TUNING</span>
+                AUTO <span className="text-[#B30000]">TUNING</span>
               </span>
             </Link>
           </h1>
@@ -279,7 +279,7 @@ const Header = ({ rendered }) => {
               aria-labelledby="drawer open button"
               tabIndex="-1"
               onClick={openDrawer2}
-              className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-red-500 text-white shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex space-x-2 items-center justify-center"
+              className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-[#B30000] text-white shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex space-x-2 items-center justify-center"
             >
               <span>
                 <Menu />

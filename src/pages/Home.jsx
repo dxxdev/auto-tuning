@@ -97,7 +97,7 @@ const Home = ({ rendered }) => {
                     variant="filled"
                     color="red"
                     size="sm"
-                    className="text-white !w-full"
+                    className="text-white bg-[#AD110B] !w-full"
                   >
                     Tuning jihozlariga buyurtma berish
                   </Button>
@@ -120,7 +120,7 @@ const Home = ({ rendered }) => {
             {category.length > 0 && (
               <Tabs value={topTabValue} className={`${styles.container} px-0`}>
                 <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
-                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
+                  <TabsHeader className="w-min bg-[#AD110B] flex justify-center items-center">
                     <Tab
                       key="allCategories"
                       value="allCategories"
@@ -601,7 +601,7 @@ const Home = ({ rendered }) => {
                 return (
                   <li
                     key={note.id}
-                    className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
+                    className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-[#B30000] font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
                   >
                     <div className="space-y-5">
                       <div>
