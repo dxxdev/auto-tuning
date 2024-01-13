@@ -238,7 +238,7 @@ const Header = ({ rendered }) => {
               </div>
             </div>
             <div className="connect">
-              <h3 className="font-semibold">Tel: +998 (99) 270-10-32</h3>
+              <b className="font-semibold">Tel: +998 (99) 270-10-32</b>
               <p className="text-xs text-gray-700">
                 Ish vaqti: 9:00 dan 18:00 gacha
               </p>

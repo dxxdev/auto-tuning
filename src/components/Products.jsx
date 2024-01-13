@@ -121,7 +121,7 @@ const Products = ({
       </button>
       <div className="flex flex-col h-full px-1.5 pb-1.5 md:px-3 md:pb-3 space-y-3 relative justify-between">
         <Typography
-          variant="h6"
+          variant="paragraph"
           className="font-medium text-black lg:text-black/90 max-h-[56px] overflow-hidden"
         >
           {productName}
