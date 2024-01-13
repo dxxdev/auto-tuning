@@ -215,7 +215,7 @@ const Home = ({ rendered }) => {
                               >
                                 <Typography
                                   className="text-center w-full"
-                                  variant="h5"
+                                  variant="h3"
                                 >
                                   Hech narsa topilmadi
                                 </Typography>
@@ -440,7 +440,7 @@ const Home = ({ rendered }) => {
                               >
                                 <Typography
                                   className="text-center w-full"
-                                  variant="h5"
+                                  variant="h3"
                                 >
                                   Hech narsa topilmadi
                                 </Typography>
@@ -570,7 +570,7 @@ const Home = ({ rendered }) => {
                               >
                                 <Typography
                                   className="text-center w-full"
-                                  variant="h5"
+                                  variant="h3"
                                 >
                                   Hech narsa topilmadi
                                 </Typography>

@@ -293,7 +293,6 @@ const Detail = ({ rendered }) => {
                   value={"delivery"}
                   className="w-full max-w-2xl px-0 space-y-5 text-black"
                 >
-                  {/* <Typography variant="h5">Yetkazib berish</Typography> */}
                   <div>
                     <p>Toshkent bo'ylab yetkazib berish</p>
                     <p className="text-gray-700">

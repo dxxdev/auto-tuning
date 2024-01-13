@@ -31,7 +31,7 @@ const HeaderDrawer = ({
       }`}
     >
       <div className="mb-6 flex items-center justify-between">
-        <Typography variant="h5" color="blue-gray">
+        <Typography variant="h1" color="blue-gray">
           <Link
             to="/"
             onClick={() => {
@@ -141,7 +141,7 @@ const HeaderDrawer = ({
                   alt=""
                 />
               </div>
-              <Typography variant="h5" color="gray">
+              <Typography variant="h2" color="gray">
                 Qidiruv natijasi mavjud emas
               </Typography>
             </div>

@@ -118,7 +118,7 @@ const Saved = ({ rendered }) => {
                 </button>
                 <div className="flex flex-col h-full px-3 pb-3 space-y-3 justify-between">
                   <Typography
-                    variant="h5"
+                    variant="paragraph"
                     className="font-medium text-black lg:text-black/90 max-h-[56px] overflow-hidden"
                   >
                     {product.productName}

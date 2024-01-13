@@ -99,7 +99,7 @@ const Commentaries = () => {
             Izoh qoldiring
           </Typography>
           <Typography
-            variant="h5"
+            variant="paragraph"
             className="font-medium text-lg md:text-xl max-w-xl text-center"
           >
             Sizning elektron pochtangiz saytda chop etilmaydi. Majburiy
