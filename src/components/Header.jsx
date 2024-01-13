@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { styles } from "../styles";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { logo, productNotFound } from "../assets/images";
+import { logo } from "../assets/images";
 import {
   Badge,
   Button,
@@ -9,7 +9,6 @@ import {
   DialogBody,
   DialogFooter,
   DialogHeader,
-  Drawer,
   IconButton,
   Input,
   Textarea,
@@ -207,7 +206,6 @@ const Header = ({ rendered }) => {
                 >
                   <button
                     aria-label="saved button"
-                    aria-labelledby="saved button"
                     tabIndex="-1"
                     className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]"
                   >
@@ -228,7 +226,6 @@ const Header = ({ rendered }) => {
                 >
                   <button
                     aria-label="cart button"
-                    aria-labelledby="cart button"
                     tabIndex="-1"
                     className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-900 hover:opacity-75 active:opacity-[0.85]"
                   >
@@ -245,7 +242,6 @@ const Header = ({ rendered }) => {
             </div>
             <button
               aria-label="contact button"
-              aria-labelledby="contact button"
               onClick={handleOpen}
               className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring hidden focus:ring-red-200 md:flex justify-center items-center"
             >
@@ -259,7 +255,6 @@ const Header = ({ rendered }) => {
             </button>
             <IconButton
               aria-label="drawer open button"
-              aria-labelledby="drawer open button"
               tabIndex="-1"
               onClick={openDrawer2}
               variant="outlined"
@@ -276,7 +271,6 @@ const Header = ({ rendered }) => {
           >
             <button
               aria-label="drawer open button"
-              aria-labelledby="drawer open button"
               tabIndex="-1"
               onClick={openDrawer2}
               className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-[#B30000] text-white shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex space-x-2 items-center justify-center"
@@ -330,7 +324,6 @@ const Header = ({ rendered }) => {
                   />
                   <IconButton
                     aria-label="search box open button"
-                    aria-labelledby="search box open button"
                     tabIndex="-1"
                     variant="text"
                     onClick={openSearchInput}
@@ -390,7 +383,6 @@ const Header = ({ rendered }) => {
               >
                 <IconButton
                   aria-label="saved button"
-                  aria-labelledby="saved button"
                   tabIndex="-1"
                   onClick={() => {
                     navigate("/Saqlanganlar");
@@ -409,7 +401,6 @@ const Header = ({ rendered }) => {
               >
                 <IconButton
                   aria-label="cart button"
-                  aria-labelledby="cart button"
                   tabIndex="-1"
                   onClick={() => {
                     navigate("/Savatcha");
@@ -454,7 +445,6 @@ const Header = ({ rendered }) => {
           </DialogHeader>
           <IconButton
             aria-label="close modal button"
-            aria-labelledby="close modal button"
             tabIndex="-1"
           >
             <svg
@@ -507,7 +497,6 @@ const Header = ({ rendered }) => {
         <DialogFooter className="space-x-2">
           <Button
             aria-label="close modal button"
-            aria-labelledby="close modal button"
             tabIndex="-1"
             variant="text"
             color="gray"
@@ -517,7 +506,6 @@ const Header = ({ rendered }) => {
           </Button>
           <Button
             aria-label="send message button"
-            aria-labelledby="send message button"
             tabIndex="-1"
             variant="gradient"
             color="gray"

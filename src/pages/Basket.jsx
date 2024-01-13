@@ -187,6 +187,7 @@ const Basket = ({ rendered }) => {
                                     product.countProduct = product.countProduct;
                                   }
                                 }}
+                                aria-label="remove count"
                                 variant="text"
                                 size="sm"
                                 color="red"
@@ -201,6 +202,7 @@ const Basket = ({ rendered }) => {
                                   product.countProduct++;
                                   rendered();
                                 }}
+                                aria-label="add count"
                                 variant="text"
                                 size="sm"
                                 color="red"
@@ -223,6 +225,7 @@ const Basket = ({ rendered }) => {
                                 rendered();
                                 product.saved = !product.saved;
                               }}
+                              aria-label="saved button"
                               className="static md:absolute top-0 left-0 z-[999] text-red-600"
                             >
                               {product.saved ? (
@@ -241,6 +244,7 @@ const Basket = ({ rendered }) => {
                                     product.countProduct = product.countProduct;
                                   }
                                 }}
+                                aria-label="remove count"
                                 variant="text"
                                 size="sm"
                                 color="red"
@@ -251,6 +255,7 @@ const Basket = ({ rendered }) => {
                                 {product.countProduct}
                               </Typography>
                               <IconButton
+                              aria-label="add count"
                                 onClick={() => {
                                   product.countProduct++;
                                   rendered();
@@ -268,6 +273,7 @@ const Basket = ({ rendered }) => {
                                 product.inTheCart = false;
                                 rendered();
                               }}
+                              aria-label="buying button"
                               variant={`${
                                 product.inTheCart ? "filled" : "outlined"
                               }`}
@@ -293,6 +299,7 @@ const Basket = ({ rendered }) => {
                                 product.countProduct = product.countProduct;
                               }
                             }}
+                            aria-label="remove count"
                             variant="text"
                             size="sm"
                             color="red"
@@ -307,6 +314,7 @@ const Basket = ({ rendered }) => {
                               product.countProduct++;
                               rendered();
                             }}
+                            aria-label="add count"
                             variant="text"
                             size="sm"
                             color="red"
@@ -320,6 +328,7 @@ const Basket = ({ rendered }) => {
                             product.inTheCart = false;
                             rendered();
                           }}
+                          aria-label="buying button"
                           variant={`${
                             product.inTheCart ? "filled" : "outlined"
                           }`}
@@ -358,6 +367,7 @@ const Basket = ({ rendered }) => {
                 }}
                 variant="gradient"
                 color="red"
+                aria-label="back to home"
               >
                 Bosh sahifaga o'tish
               </Button>
@@ -439,6 +449,7 @@ const Basket = ({ rendered }) => {
                     variant="gradient"
                     color="red"
                     fullWidth
+                    aria-label="send message to telegram"
                   >
                     Sotib olish
                   </Button>

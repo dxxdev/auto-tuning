@@ -139,6 +139,7 @@ const Footer = () => {
                     scrollTop();
                   }}
                   variant="filled"
+                  aria-label="catalog page button"
                   color="red"
                 >
                   Sotib olish

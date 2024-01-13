@@ -62,6 +62,7 @@ const Category = ({ rendered }) => {
             setInOrder(inOrder == null ? !inOrder : !inOrder);
             filteredPrice();
           }}
+          aria-label="filtered by price"
           variant="outlined"
           color="gray"
           className="bg-white focus:bg-white/80 hover:bg-white/90 text-xs"
@@ -150,6 +151,7 @@ const Category = ({ rendered }) => {
                   productSaved(product);
                   rendered();
                 }}
+                aria-label="saved button"
                 className="absolute top-0 -translate-y-1/2 right-0 z-50 text-red-600"
               >
                 {product.saved ? (
@@ -189,6 +191,7 @@ const Category = ({ rendered }) => {
                         rendered();
                         addCartProduct(product);
                       }}
+                      aria-label="buying button"
                       size="sm"
                       variant={`${product.inTheCart ? "filled" : "outlined"}`}
                       color="gray"

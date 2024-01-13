@@ -162,6 +162,7 @@ const Questions = () => {
             </CardBody>
             <CardFooter className="pt-0">
               <Button
+              aria-label="send message to telegram button"
                 variant="gradient"
                 color="red"
                 className="flex justify-center items-center gap-x-5"

@@ -109,7 +109,6 @@ const Products = ({
           rendered();
         }}
         aria-label="saved button"
-        aria-labelledby="saved button"
         tabIndex="-1"
         className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
       >
@@ -143,7 +142,6 @@ const Products = ({
             </b>
             <IconButton
               aria-label="buying button"
-              aria-labelledby="buying button"
               tabIndex="-1"
               onClick={() => {
                 setRender((prev) => !prev);

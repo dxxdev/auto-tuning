@@ -183,6 +183,7 @@ const Commentaries = () => {
               color="red"
               className="flex justify-center items-center gap-x-5"
               fullWidth
+              aria-label="send message to telegram"
               onClick={(e) => handleSubmit(e)}
             >
               <span>Yuborish</span>

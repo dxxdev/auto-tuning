@@ -22,7 +22,7 @@ const PageNotFound = () => {
         />
       </div>
       <Typography variant="h3">Sahifa topilmadi</Typography>
-      <Button variant="gradient" onClick={() => navigate("/")} color="red">
+      <Button aria-label="back to home" variant="gradient" onClick={() => navigate("/")} color="red">
         Bosh sahifa
       </Button>
     </div>

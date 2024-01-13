@@ -115,6 +115,7 @@ const FAQ = () => {
               navigate("/Sharhlar");
               scrollTop();
             }}
+            aria-label="commentaries page button"
             variant="outlined"
           >
             Barcha sharhlar

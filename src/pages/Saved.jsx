@@ -103,6 +103,7 @@ const Saved = ({ rendered }) => {
                   </div>
                 </Link>
                 <button
+                  aria-label="saved button"
                   onClick={() => {
                     setRender((prev) => !prev);
                     product.saved = !product.saved;
@@ -143,6 +144,7 @@ const Saved = ({ rendered }) => {
                         so'm
                       </Typography>
                       <IconButton
+                        aria-label="buying button"
                         onClick={() => {
                           addCartProduct(product);
                           setRender((prev) => !prev);
@@ -174,6 +176,7 @@ const Saved = ({ rendered }) => {
             Saqlanganlar yo'q
           </Typography>
           <Button
+            aria-label="back to home"
             className="w-full sm:w-max"
             onClick={() => {
               navigate("/");

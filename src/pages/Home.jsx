@@ -94,6 +94,8 @@ const Home = ({ rendered }) => {
                 </Typography>
                 <Link onClick={scrollTop} to="/Avto bezaklar">
                   <Button
+                    aria-label="page link button"
+                    tabIndex="-1"
                     variant="filled"
                     color="red"
                     size="sm"
@@ -239,6 +241,8 @@ const Home = ({ rendered }) => {
               navigate("/Katalog");
               scrollTop();
             }}
+            aria-label="catalog page button"
+            tabIndex="-1"
             size="sm"
             variant="outlined"
           >
@@ -590,6 +594,8 @@ const Home = ({ rendered }) => {
                 navigate("/Sharhlar");
                 scrollTop();
               }}
+              aria-label="commentaries page button"
+              tabIndex="-1"
               variant="outlined"
             >
               Barcha sharhlar

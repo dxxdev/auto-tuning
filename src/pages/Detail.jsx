@@ -131,6 +131,7 @@ const Detail = ({ rendered }) => {
                   setRender((prev) => !prev);
                   info.saved = !info.saved;
                 }}
+                aria-label="saved button"
                 className="absolute top-0 right-0 z-[999] text-red-600"
               >
                 {info.saved ? (
@@ -177,6 +178,7 @@ const Detail = ({ rendered }) => {
                   addToCart();
                   rendered();
                 }}
+                aria-label="buying button"
                 variant={`${info.inTheCart ? "filled" : "outlined"}`}
                 color="gray"
                 className="flex justify-center items-center space-x-2"
@@ -199,6 +201,7 @@ const Detail = ({ rendered }) => {
                   addToCart();
                   rendered();
                 }}
+                aria-label="buying button"
                 variant={`${info.inTheCart ? "filled" : "outlined"}`}
                 color="gray"
                 className="block lg:hidden"

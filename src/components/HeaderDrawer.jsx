@@ -48,6 +48,7 @@ const HeaderDrawer = ({
         </Typography>
         <div className="flex justify-center items-center">
           <button
+          aria-label="contact button"
             onClick={handleOpen}
             className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-white text-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring focus:ring-red-200 flex md:hidden justify-center items-center"
           >
@@ -55,7 +56,7 @@ const HeaderDrawer = ({
               <Phone className="text-red-600 md:text-white" />
             </div>
           </button>
-          <IconButton variant="text" color="blue-gray" onClick={closeDrawer2}>
+          <IconButton aria-label="close drawer button" variant="text" color="blue-gray" onClick={closeDrawer2}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -152,6 +153,7 @@ const HeaderDrawer = ({
               rendered((prev) => !prev);
               openCatalog();
             }}
+            aria-label="all category button"
             className="flex items-center w-full py-2 text-gray-600 space-x-3 group hover:text-red-600"
           >
             <svg
