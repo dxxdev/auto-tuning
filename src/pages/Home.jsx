@@ -300,7 +300,7 @@ const Home = ({ rendered }) => {
           </div>
           <div>
             <div
-              className={`bg-[url('/src/assets/img/monitor.png')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl group transition-opacity`}
+              className={`bg-[url('/src/assets/img/monitor.jpg')] bg-cover bg-left sm:bg-center lg:bg-left h-96 flex rounded-2xl group transition-opacity`}
             >
               <div className="flex w-full bg-black bg-opacity-30 p-8  lg:p-14 flex-col justify-end items-start space-y-2 lg:space-y-4 rounded-2xl group-hover:bg-opacity-40">
                 <Typography variant="h3" color="white">
