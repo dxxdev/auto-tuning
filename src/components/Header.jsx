@@ -168,7 +168,12 @@ const Header = ({ rendered }) => {
               to="/"
               className="flex items-center text-xl md:text-2xl space-x-2 font-bold"
             >
-              <img src={logo} className="h-7 md:h-8 hidden logo" alt="" />
+              <img
+                height="100%"
+                src={logo}
+                className="h-7 md:h-8 hidden logo"
+                alt=""
+              />
               <span>
                 AUTO <span className="text-red-500">TUNING</span>
               </span>
@@ -362,6 +367,8 @@ const Header = ({ rendered }) => {
                             <span className="rounded sceleton-animation w-14 h-16">
                               <img
                                 className="w-full"
+                                width="100%"
+                                height="100%"
                                 src={product.images[0]}
                                 alt={product.productName}
                               />

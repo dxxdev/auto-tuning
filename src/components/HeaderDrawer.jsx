@@ -40,7 +40,7 @@ const HeaderDrawer = ({
             }}
             className="flex items-center text-xl md:text-2xl space-x-2 font-bold"
           >
-            <img src={logo} className="h-7 md:h-8" alt="" />
+            <img height="100%" src={logo} className="h-7 md:h-8" alt="" />
             <span>
               AUTO <span className="text-red-500">TUNING</span>
             </span>
@@ -116,6 +116,8 @@ const HeaderDrawer = ({
                     >
                       <span className="rounded sceleton-animation w-14 h-16">
                         <img
+                          width="100%"
+                          height="100%"
                           className="w-full"
                           src={product.images[0]}
                           alt={product.productName}
@@ -130,7 +132,13 @@ const HeaderDrawer = ({
           {searched && searchFilteredProduct.length == 0 && (
             <div className="py-10 flex space-y-4 flex-col justify-center items-center">
               <div className="w-40 h-40">
-                <img className="w-40" src={productNotFound} alt="" />
+                <img
+                  width="100%"
+                  height="100%"
+                  className="w-40"
+                  src={productNotFound}
+                  alt=""
+                />
               </div>
               <Typography variant="h5" color="gray">
                 Qidiruv natijasi mavjud emas

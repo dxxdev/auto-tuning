@@ -72,6 +72,7 @@ const Saved = ({ rendered }) => {
                       return (
                         <SwiperSlide key={index} className="max-h-[470px]">
                           <img
+                            width="100%"
                             src={item}
                             className="w-full"
                             alt={product.productName}

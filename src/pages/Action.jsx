@@ -47,7 +47,7 @@ const Action = ({ rendered }) => {
           key="noProductFound"
           className="flex py-20 flex-col gap-y-5 w-full min-h-[200px] justify-center items-center"
         >
-          <img src={productNotFound} className="w-32" alt="" />
+          <img width="100%" src={productNotFound} className="w-32" alt="" />
           <Typography className="text-center w-full" variant="h4" color="gray">
             Hech narsa topilmadi
           </Typography>

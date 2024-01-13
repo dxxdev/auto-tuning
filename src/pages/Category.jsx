@@ -113,6 +113,7 @@ const Category = ({ rendered }) => {
                           className="flex h-[300px] w-56 justify-center items-center"
                         >
                           <img
+                            width="100%"
                             src={item}
                             className="xl:w-full"
                             alt={product.productName}

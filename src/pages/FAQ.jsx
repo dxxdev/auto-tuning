@@ -42,6 +42,7 @@ const FAQ = () => {
         <div className="rounded-lg sm:rounded-2xl w-max mx-auto lg:w-full lg:mx-0 bg-gray-300 h-[222px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
           <img
             src={autoTuning}
+            height="100%"
             className="h-full xl:w-full rounded-lg sm:rounded-2xl"
             alt=""
           />
@@ -50,6 +51,7 @@ const FAQ = () => {
       <div className="flex !mt-8 flex-col-reverse lg:flex-row gap-x-12 gap-y-12">
         <div className="rounded-lg sm:rounded-2xl w-max mx-auto lg:w-full lg:mx-0 bg-gray-300 h-[222px] sm:h-[362px] lg:h-[302px] max-w-full flex justify-center items-center lg:max-w-xl overflow-hidden">
           <img
+            height="100%"
             src={autoTuning1}
             className="h-full xl:w-full rounded-lg sm:rounded-2xl"
             alt=""

@@ -116,6 +116,8 @@ const Detail = ({ rendered }) => {
                       key={index}
                     >
                       <img
+                        width="100%"
+                        height="100%"
                         src={image}
                         className="hover:scale-110 transition-all h-full md:h-max w-full"
                         alt={info.productName}
@@ -155,6 +157,8 @@ const Detail = ({ rendered }) => {
                       key={index}
                     >
                       <img
+                        width="100%"
+                        height="100%"
                         src={image}
                         alt={info.productName}
                         className="w-full h-full"
@@ -253,7 +257,14 @@ const Detail = ({ rendered }) => {
                 >
                   {Boolean(info.description) ? (
                     info.description.map((item, index) => {
-                      return <p key={index} className="text-black tracking-widest md:tracking-normal">{item}</p>;
+                      return (
+                        <p
+                          key={index}
+                          className="text-black tracking-widest md:tracking-normal"
+                        >
+                          {item}
+                        </p>
+                      );
                     })
                   ) : (
                     <div>

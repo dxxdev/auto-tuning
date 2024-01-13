@@ -80,14 +80,15 @@ const Basket = ({ rendered }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const text = `Mijoz mahsulot xarid qildi❕\n\n Manzil: ${address}\n\n Mijozning ism familiyasi: ${clientName}\n\n Sotib olganlari:\n ${inTheCartProduct
-      .map((product) => {
+    const text = `Mijoz mahsulot xarid qildi❕\n\n Manzil: ${address}\n\n Mijozning ism familiyasi: ${clientName}\n\n Sotib olganlari:\n ${inTheCartProduct.map(
+      (product) => {
         return `• ${product.productName} - ${
           product.countProduct
         }dona \nsumma: ${(product.price * product.countProduct)
           .toLocaleString("UZ-uz", options)
           .replaceAll(",", " ")}so'm\n\n`;
-      })}\n Jami:  ${totalSum
+      }
+    )}\n Jami:  ${totalSum
       .toLocaleString("uz-UZ", options)
       .replaceAll(",", " ")}so'm\n\nYetkazib berish narxi bilan: ${(
       totalSum + countProductArr()
@@ -158,6 +159,8 @@ const Basket = ({ rendered }) => {
                       <div className="flex space-x-2 lg:space-x-4">
                         <div className="h-28 shrink-0 w-24 sm:h-52 sm:w-44 overflow-hidden bg-gray-200 flex justify-center items-center rounded-t-lg">
                           <img
+                            width="100%"
+                            height="100%"
                             src={product.images[0]}
                             alt={product.productName}
                           />
@@ -338,7 +341,13 @@ const Basket = ({ rendered }) => {
           {inTheCartProduct.length <= 0 && (
             <div className="flex flex-col justify-between px-2 items-center space-y-7">
               <div className="w-56 h-52">
-                <img src={emptyCart} className="w-full h-full" alt="" />
+                <img
+                  width="100%"
+                  height="100%"
+                  src={emptyCart}
+                  className="w-full h-full"
+                  alt=""
+                />
               </div>
               <Typography variant="h4">Savat bo'sh</Typography>
               <Button

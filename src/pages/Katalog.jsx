@@ -23,12 +23,17 @@ const Katalog = () => {
       <ul className="grid py-4 lg:py-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-5 lg:gap-7">
         {categoryProduct.map((product) => {
           return (
-            <Link key={product.id} onClick={scrollTop} to={`/${product.category}`}>
+            <Link
+              key={product.id}
+              onClick={scrollTop}
+              to={`/${product.category}`}
+            >
               <li
                 className="rounded-3xl relative group overflow-hidden h-56 w-full flex justify-center items-center sceleton-animation"
                 key={product.id}
               >
                 <img
+                  width="100%"
                   className="rounded-3xl transition-all group-hover:scale-110"
                   src={product.image}
                   alt=""

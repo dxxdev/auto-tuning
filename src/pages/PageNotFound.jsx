@@ -14,7 +14,12 @@ const PageNotFound = () => {
       className={`${styles.container} !px-0 py-10 space-y-5 flex flex-col justify-center items-center`}
     >
       <div className="w-80 h-80">
-        <img src={productNotFound} alt="Not found img" />
+        <img
+          width="100%"
+          height="100%"
+          src={productNotFound}
+          alt="Not found img"
+        />
       </div>
       <Typography variant="h3">Sahifa topilmadi</Typography>
       <Button variant="gradient" onClick={() => navigate("/")} color="red">

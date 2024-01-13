@@ -72,6 +72,7 @@ const Home = ({ rendered }) => {
                 className="flex justify-center items-center h-[400px] md:h-[480px] xl:h-[700px] w-full overflow-hidden"
               >
                 <img
+                  height="100%"
                   src={item.image}
                   className="h-full lg:h-min min-w-max md:min-w-full"
                   alt="Hero img"

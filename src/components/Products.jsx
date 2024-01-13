@@ -70,7 +70,7 @@ const Products = ({
                   key={index}
                   className="h-full w-full overflow-hidden flex items-center justify-center"
                 >
-                  <img src={item} className="w-full" alt={productName} />
+                  <img width="100%" src={item} className="w-full" alt={productName} />
                 </SwiperSlide>
               );
             })}
