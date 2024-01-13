@@ -588,7 +588,7 @@ const Home = ({ rendered }) => {
         {/* Commentaries section */}
         <section>
           <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row justify-between">
-            <Typography variant="h4">Izohlar</Typography>
+            <Typography variant="h3">Izohlar</Typography>
             <Button
               onClick={() => {
                 navigate("/Sharhlar");
