@@ -70,7 +70,12 @@ const Products = ({
                   key={index}
                   className="h-full w-full overflow-hidden flex items-center justify-center"
                 >
-                  <img width="100%" src={item} className="w-full" alt={productName} />
+                  <img
+                    width="100%"
+                    src={item}
+                    className="w-full"
+                    alt={productName}
+                  />
                 </SwiperSlide>
               );
             })}
@@ -103,6 +108,9 @@ const Products = ({
           productSaves(product);
           rendered();
         }}
+        aria-label="saved button"
+        aria-labelledby="saved button"
+        tabIndex="-1"
         className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
       >
         {product.saved ? (
