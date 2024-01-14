@@ -18,7 +18,7 @@
   background-color: rgba(250, 0, 0, 0.7);
 }
 .absolute.inset-0.z-10.h-full.bg-white.rounded-md.shadow {
-  background-color: rgb(255, 4, 0);
+  background-color: #800000;
 }
 
 @media only screen and (min-width: 720px) {
@@ -60,7 +60,7 @@ html {
 }
 
 .side-bar-links a.active {
-  @apply text-red-600;
+  @apply text-[#b30000];
 }
 
 .logo {
@@ -105,4 +105,8 @@ html {
 
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+
+.badge-color {
+  background-color: #b30000 !important;
 }

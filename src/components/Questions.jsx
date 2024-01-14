@@ -102,7 +102,9 @@ const Questions = () => {
   return (
     <div className={`${styles.container} py-7 space-y-5`}>
       <div>
-        <Typography variant="h2" className="text-2xl sm:text-3xl md:text-4xl">Savollaringizga javob beramiz</Typography>
+        <Typography variant="h2" className="text-2xl sm:text-3xl md:text-4xl">
+          Savollaringizga javob beramiz
+        </Typography>
       </div>
       <div className="flex flex-col lg:flex-row justify-between gap-8 gap-y-8">
         <div className="flex flex-col space-y-5">
@@ -140,7 +142,7 @@ const Questions = () => {
             <CardHeader
               variant="gradient"
               color="red"
-              className="m-4 grid h-16 place-items-center"
+              className="m-4 grid from-[#b30000] to-[#a00] h-16 place-items-center"
             >
               <Typography variant="h4" color="white">
                 Savolingiz bormi?
@@ -162,10 +164,10 @@ const Questions = () => {
             </CardBody>
             <CardFooter className="pt-0">
               <Button
-              aria-label="send message to telegram button"
+                aria-label="send message to telegram button"
                 variant="gradient"
                 color="red"
-                className="flex justify-center items-center gap-x-5"
+                className="flex justify-center from-[#b30000] to-[#a00] items-center gap-x-5"
                 fullWidth
                 onClick={(e) => handleSubmit(e)}
               >
@@ -174,7 +176,11 @@ const Questions = () => {
               </Button>
               <Typography variant="small" className="mt-6 text-center">
                 Yuborishdan oldin
-                <Link to={`/policy`} onClick={scrollTop} className="ml-1 text-red-700 font-bold">
+                <Link
+                  to={`/policy`}
+                  onClick={scrollTop}
+                  className="ml-1 text-[#b30000] font-bold"
+                >
                   Shaxsiy ma'lumotlarni himoya qilish shartlari
                 </Link>{" "}
                 bilan tanishib chiqing

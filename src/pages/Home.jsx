@@ -122,7 +122,7 @@ const Home = ({ rendered }) => {
             {category.length > 0 && (
               <Tabs value={topTabValue} className={`${styles.container} px-0`}>
                 <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
-                  <TabsHeader className="w-min bg-[#AD110B] flex justify-center items-center">
+                  <TabsHeader className="w-min bg-red-800 !bg-opacity-100 flex justify-center items-center">
                     <Tab
                       key="allCategories"
                       value="allCategories"
@@ -342,7 +342,7 @@ const Home = ({ rendered }) => {
             {category.length > 0 && (
               <Tabs value={newTabValue} className={`${styles.container} px-0`}>
                 <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
-                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
+                  <TabsHeader className="w-min bg-red-800 !bg-opacity-100 flex justify-center items-center">
                     <Tab
                       key="allCategories"
                       value="allCategories"
@@ -471,7 +471,7 @@ const Home = ({ rendered }) => {
                 className={`${styles.container} px-0`}
               >
                 <div className="flex justify-start w-full items-center lg:justify-center scroll-none overflow-auto">
-                  <TabsHeader className="w-min bg-red-900 flex justify-center items-center">
+                  <TabsHeader className="w-min bg-red-800 !bg-opacity-100 flex justify-center items-center">
                     <Tab
                       key="allCategories"
                       value="allCategories"

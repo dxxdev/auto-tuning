@@ -123,10 +123,10 @@ const Category = ({ rendered }) => {
                       );
                     })}
                   </Swiper>
-                  <div className="flex h-min space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 md:top-0 bottom-3 z-10">
+                  <div className="flex h-min space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 md:top-3 bottom-3 z-10">
                     {product.isItNew && (
                       <Chip
-                        className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        className="transition-all bg-[#00b300] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                         value="Yangi"
                         color="green"
                         size="sm"
@@ -135,7 +135,7 @@ const Category = ({ rendered }) => {
                     )}
                     {product.inAction && (
                       <Chip
-                        className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        className="transition-all bg-[#b30000] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                         value="Aksiya"
                         size="sm"
                         variant="filled"
@@ -152,7 +152,7 @@ const Category = ({ rendered }) => {
                   rendered();
                 }}
                 aria-label="saved button"
-                className="absolute top-0 -translate-y-1/2 right-0 z-50 text-red-600"
+                className="absolute top-0 -translate-y-1/2 right-0 z-50 text-[#b30000]"
               >
                 {product.saved ? (
                   <Bookmark fontSize="large" />

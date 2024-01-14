@@ -42,21 +42,26 @@ const HeaderDrawer = ({
           >
             <img height="100%" src={logo} className="h-7 md:h-8" alt="" />
             <span>
-              AUTO <span className="text-red-500">TUNING</span>
+              AUTO <span className="text-[#b30000]">TUNING</span>
             </span>
           </Link>
         </Typography>
         <div className="flex justify-center items-center">
           <button
-          aria-label="contact button"
+            aria-label="contact button"
             onClick={handleOpen}
             className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-4 rounded-lg bg-white text-white focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none relative w-10 md:w-full max-w-[40px] md:max-w-min h-10 max-h-[40px] md:max-h-min hover:opacity-75 focus:ring focus:ring-red-200 flex md:hidden justify-center items-center"
           >
             <div>
-              <Phone className="text-red-600 md:text-white" />
+              <Phone className="text-[#b30000] md:text-white" />
             </div>
           </button>
-          <IconButton aria-label="close drawer button" variant="text" color="blue-gray" onClick={closeDrawer2}>
+          <IconButton
+            aria-label="close drawer button"
+            variant="text"
+            color="blue-gray"
+            onClick={closeDrawer2}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -154,14 +159,14 @@ const HeaderDrawer = ({
               openCatalog();
             }}
             aria-label="all category button"
-            className="flex items-center w-full py-2 text-gray-600 space-x-3 group hover:text-red-600"
+            className="flex items-center w-full py-2 text-gray-600 space-x-3 group hover:text-[#b30000]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24"
               width="27"
               viewBox="0 0 576 512"
-              className="group-hover:text-red-600"
+              className="group-hover:text-[#b30000]"
               fill="currentColor"
             >
               <path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z" />
@@ -177,7 +182,7 @@ const HeaderDrawer = ({
             <ul className="flex flex-col gap-y-4 text-black text-xl pl-5">
               <li>
                 <NavLink
-                  className="space-x-2 w-full flex group items-center text-gray-700 hover:text-red-600"
+                  className="space-x-2 w-full flex group items-center text-gray-700 hover:text-[#b30000]"
                   to={`/Katalog`}
                   onClick={() => {
                     scrollTop();
@@ -200,7 +205,7 @@ const HeaderDrawer = ({
                 return (
                   <li key={index}>
                     <NavLink
-                      className="space-x-2 w-full flex group items-center text-gray-700 hover:text-red-600"
+                      className="space-x-2 w-full flex group items-center text-gray-700 hover:text-[#b30000]"
                       to={`/${category}`}
                       onClick={() => {
                         scrollTop();
@@ -229,7 +234,7 @@ const HeaderDrawer = ({
               scrollTop();
             }}
             to={"/"}
-            className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
+            className="text-xl text-gray-600 leading-none flex items-center hover:text-[#b30000] space-x-3"
           >
             <span>
               <svg
@@ -253,7 +258,7 @@ const HeaderDrawer = ({
               scrollTop();
             }}
             to={"/Kompaniya haqida"}
-            className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
+            className="text-xl text-gray-600 leading-none flex items-center hover:text-[#b30000] space-x-3"
           >
             <span>
               <svg
@@ -277,7 +282,7 @@ const HeaderDrawer = ({
               scrollTop();
             }}
             to={"/Sharhlar"}
-            className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-2"
+            className="text-xl text-gray-600 leading-none flex items-center hover:text-[#b30000] space-x-2"
           >
             <span className="px-1">
               <svg
@@ -301,7 +306,7 @@ const HeaderDrawer = ({
               scrollTop();
             }}
             to={"/Yetkazib berish va to'lash"}
-            className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
+            className="text-xl text-gray-600 leading-none flex items-center hover:text-[#b30000] space-x-3"
           >
             <span>
               <svg
@@ -325,7 +330,7 @@ const HeaderDrawer = ({
               scrollTop();
             }}
             to={"/Aksiya"}
-            className="text-xl text-gray-600 leading-none flex items-center hover:text-red-600 space-x-3"
+            className="text-xl text-gray-600 leading-none flex items-center hover:text-[#b30000] space-x-3"
           >
             <span className="px-0.5">
               <svg

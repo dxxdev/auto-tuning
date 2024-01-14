@@ -20,7 +20,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 font-bold text-white"
               >
                 <span>
-                  AUTO <span className="text-red-500">TUNING</span>
+                  AUTO <span className="text-[#b30000]">TUNING</span>
                 </span>
               </Link>
             </h1>
@@ -139,6 +139,7 @@ const Footer = () => {
                     scrollTop();
                   }}
                   variant="filled"
+                  className="bg-[#b30000]"
                   aria-label="catalog page button"
                   color="red"
                 >

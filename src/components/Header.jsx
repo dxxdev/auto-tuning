@@ -201,7 +201,7 @@ const Header = ({ rendered }) => {
               >
                 <Badge
                   color="red"
-                  className="flex !top-[20%] min-w-[20px] min-h-[20px] !right-[30%] justify-center items-center"
+                  className="flex badge-color !top-[20%] min-w-[20px] min-h-[20px] !right-[30%] justify-center items-center"
                   content={howSaved}
                 >
                   <button
@@ -221,7 +221,7 @@ const Header = ({ rendered }) => {
               >
                 <Badge
                   color="red"
-                  className="flex !top-[20%] !right-[30%] min-w-[20px] min-h-[20px] justify-center items-center"
+                  className="flex badge-color !top-[20%] !right-[30%] min-w-[20px] min-h-[20px] justify-center items-center"
                   content={howMuch}
                 >
                   <button
@@ -377,8 +377,7 @@ const Header = ({ rendered }) => {
               </div>
 
               <Badge
-                color="red"
-                className="w-6 h-6 flex justify-center items-center"
+                className="w-6 h-6 flex badge-color justify-center items-center"
                 content={howSaved}
               >
                 <IconButton
@@ -395,8 +394,7 @@ const Header = ({ rendered }) => {
                 </IconButton>
               </Badge>
               <Badge
-                color="red"
-                className="w-6 h-6 flex justify-center items-center"
+                className="w-6 h-6 flex badge-color justify-center items-center"
                 content={howMuch}
               >
                 <IconButton
@@ -443,10 +441,7 @@ const Header = ({ rendered }) => {
               Biz bilan bog'lanish
             </Typography>
           </DialogHeader>
-          <IconButton
-            aria-label="close modal button"
-            tabIndex="-1"
-          >
+          <IconButton aria-label="close modal button" tabIndex="-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

@@ -127,7 +127,7 @@ const FAQ = () => {
               return (
                 <li
                   key={note.id}
-                  className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
+                  className="w-full min-w-[320px] min-h-[320px] px-8 py-10 bg-[#b30000] font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-xl"
                 >
                   <div className="space-y-5">
                     <div>

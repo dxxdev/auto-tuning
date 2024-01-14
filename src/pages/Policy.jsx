@@ -6,14 +6,17 @@ const Policy = () => {
   return (
     <div className={`${styles.container}`}>
       <div>
-        <Typography variant="h1" className="py-2 md:py-5 text-2xl md:text-3xl lg:text-4xl font-normal tracking-[2px]">
+        <Typography
+          variant="h1"
+          className="py-2 md:py-5 text-2xl md:text-3xl lg:text-4xl font-normal tracking-[2px]"
+        >
           Shaxsiy ma'lumotlarni himoya qilish siyosati
         </Typography>
       </div>
       <p className="max-w-5xl text-[17px]">
         Ushbu Shaxsiy ma'lumotlarning maxfiylik siyosati MS-Group MChJ (keyingi
         o'rinlarda Kompaniya deb yuritiladi) -{" "}
-        <a href="https://auto-tuning.netlify.app" className="text-red-800">
+        <a href="https://auto-tuning.netlify.app" className="text-[#b30000]">
           auto-tuning.uz
         </a>{" "}
         veb-saytidan foydalanganda mijoz yoki hamkor haqida olishi mumkin
@@ -26,13 +29,11 @@ const Policy = () => {
           </p>
           <ul className="space-y-6 max-w-5xl">
             <li className="text-gray-700">
-              <b className="font-medium text-black">
-                "SHAXSIY MA'LUMOTLAR"
-              </b>{" "}
-              - foydalanuvchi/mijoz oldidagi shartnoma majburiyatlarini
-              bajarishi munosabati bilan Kompaniya uchun zarur bo'lgan bunday
-              ma'lumotlar asosida aniqlangan yoki aniqlangan jismoniy/yuridik
-              shaxsga tegishli har qanday ma'lumot. <br /> <br />
+              <b className="font-medium text-black">"SHAXSIY MA'LUMOTLAR"</b> -
+              foydalanuvchi/mijoz oldidagi shartnoma majburiyatlarini bajarishi
+              munosabati bilan Kompaniya uchun zarur bo'lgan bunday ma'lumotlar
+              asosida aniqlangan yoki aniqlangan jismoniy/yuridik shaxsga
+              tegishli har qanday ma'lumot. <br /> <br />
               Bundan tashqari, shaxsiy ma'lumotlarga Foydalanuvchi qurilmasida
               o'rnatilgan dasturiy ta'minot yordamida xizmatlardan foydalanish
               paytida avtomatik ravishda uzatiladigan ma'lumotlar, shu jumladan
@@ -50,10 +51,8 @@ const Policy = () => {
               bloklash, yo'q qilish.
             </li>
             <li className="text-gray-700">
-              <b className="font-medium text-black">
-                “FOYDALANUVCHI/MIJOZ”
-              </b>
-              – sayt ma’muriyati tomonidan tartibga solingan tartibda saytdan
+              <b className="font-medium text-black">“FOYDALANUVCHI/MIJOZ”</b>–
+              sayt ma’muriyati tomonidan tartibga solingan tartibda saytdan
               foydalanadigan shaxs.
             </li>
             <li className="text-gray-700">
@@ -76,7 +75,7 @@ const Policy = () => {
               1. Foydalanuvchi/mijoz tomonidan{" "}
               <a
                 href="https://auto-tuning.netlify.app"
-                className="text-red-800"
+                className="text-[#b30000]"
               >
                 auto-tuning.uz
               </a>{" "}
@@ -89,7 +88,7 @@ const Policy = () => {
               foydalanuvchi/mijoz{" "}
               <a
                 href="https://auto-tuning.netlify.app"
-                className="text-red-800"
+                className="text-[#b30000]"
               >
                 auto-tuning.uz
               </a>{" "}
@@ -99,7 +98,7 @@ const Policy = () => {
               3.{" "}
               <a
                 href="https://auto-tuning.netlify.app"
-                className="text-red-800"
+                className="text-[#b30000]"
               >
                 auto-tuning.uz
               </a>{" "}
@@ -120,7 +119,7 @@ const Policy = () => {
               1. Ushbu Maxfiylik siyosati Sayt ma'muriyatining{" "}
               <a
                 href="https://auto-tuning.netlify.app"
-                className="text-red-800"
+                className="text-[#b30000]"
               >
                 auto-tuning.uz
               </a>{" "}
@@ -131,10 +130,10 @@ const Policy = () => {
             </li>
             <li>
               2. Ushbu Maxfiylik siyosati bo'yicha qayta ishlashga ruxsat
-              berilgan shaxsiy ma'lumotlar foydalanuvchi/mijoz tomonidan
+              berilgan shaxsiy ma'lumotlar foydalanuvchi/mijoz tomonidan{" "}
               <a
                 href="https://auto-tuning.netlify.app"
-                className="text-red-800"
+                className="text-[#b30000]"
               >
                 auto-tuning.uz
               </a>{" "}

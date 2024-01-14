@@ -177,7 +177,7 @@ const Basket = ({ rendered }) => {
                               <span>Turkum:</span>
                               <span>{product.category}</span>
                             </Typography>
-                            <div className="hidden md:flex items-center rounded-lg border border-red-600 gap-2">
+                            <div className="hidden md:flex items-center rounded-lg border border-[#b30000] gap-2">
                               <IconButton
                                 onClick={() => {
                                   rendered();
@@ -188,6 +188,7 @@ const Basket = ({ rendered }) => {
                                   }
                                 }}
                                 aria-label="remove count"
+                                className="text-[#b30000]"
                                 variant="text"
                                 size="sm"
                                 color="red"
@@ -203,6 +204,7 @@ const Basket = ({ rendered }) => {
                                   rendered();
                                 }}
                                 aria-label="add count"
+                                className="text-[#b30000]"
                                 variant="text"
                                 size="sm"
                                 color="red"
@@ -226,7 +228,7 @@ const Basket = ({ rendered }) => {
                                 product.saved = !product.saved;
                               }}
                               aria-label="saved button"
-                              className="static md:absolute top-0 left-0 z-[999] text-red-600"
+                              className="static md:absolute top-0 left-0 z-[999] text-[#b30000]"
                             >
                               {product.saved ? (
                                 <Bookmark fontSize="large" />
@@ -234,7 +236,7 @@ const Basket = ({ rendered }) => {
                                 <BookmarkBorderOutlined fontSize="large" />
                               )}
                             </button>
-                            <div className="flex md:hidden items-center rounded-lg border border-red-600 gap-2">
+                            <div className="flex md:hidden items-center rounded-lg border border-[#b30000] gap-2">
                               <IconButton
                                 onClick={() => {
                                   rendered();
@@ -246,6 +248,7 @@ const Basket = ({ rendered }) => {
                                 }}
                                 aria-label="remove count"
                                 variant="text"
+                                className="text-[#b30000]"
                                 size="sm"
                                 color="red"
                               >
@@ -255,11 +258,12 @@ const Basket = ({ rendered }) => {
                                 {product.countProduct}
                               </Typography>
                               <IconButton
-                              aria-label="add count"
+                                aria-label="add count"
                                 onClick={() => {
                                   product.countProduct++;
                                   rendered();
                                 }}
+                                className="text-[#b30000]"
                                 variant="text"
                                 size="sm"
                                 color="red"
@@ -289,7 +293,7 @@ const Basket = ({ rendered }) => {
                         </div>
                       </div>
                       <div className="flex sm:hidden justify-between md:justify-end items-end">
-                        <div className="flex md:hidden items-center rounded-lg border border-red-600 gap-2">
+                        <div className="flex md:hidden items-center rounded-lg border border-[#b30000] gap-2">
                           <IconButton
                             onClick={() => {
                               rendered();
@@ -299,6 +303,7 @@ const Basket = ({ rendered }) => {
                                 product.countProduct = product.countProduct;
                               }
                             }}
+                            className="text-[#b30000]"
                             aria-label="remove count"
                             variant="text"
                             size="sm"
@@ -314,6 +319,7 @@ const Basket = ({ rendered }) => {
                               product.countProduct++;
                               rendered();
                             }}
+                            className="text-[#b30000]"
                             aria-label="add count"
                             variant="text"
                             size="sm"
@@ -381,7 +387,7 @@ const Basket = ({ rendered }) => {
                 <CardHeader
                   variant="gradient"
                   color="red"
-                  className="grid m-0 md:m-5 h-20 place-items-center"
+                  className="grid from-[#aa0000] to-[#b30000] m-0 md:m-5 h-20 place-items-center"
                 >
                   <Typography variant="h4" color="white">
                     Sotib olmoqchimisiz?
@@ -416,7 +422,7 @@ const Basket = ({ rendered }) => {
                       <Typography
                         variant="small"
                         color="green"
-                        className="space-x-2"
+                        className="space-x-2 text-[#070]"
                       >
                         <span>To'lovingiz:</span>
                         <span>
@@ -448,6 +454,7 @@ const Basket = ({ rendered }) => {
                     }}
                     variant="gradient"
                     color="red"
+                    className="from-[#a00] to-[#b00]"
                     fullWidth
                     aria-label="send message to telegram"
                   >
@@ -461,8 +468,7 @@ const Basket = ({ rendered }) => {
                   </Typography>
                   <Typography
                     variant="small"
-                    color="deep-orange"
-                    className="text-center"
+                    className="text-center text-[#b30]"
                   >
                     &#9888; Har bir mahsulotni yetkazib berish narxi: 12 000
                     so'm

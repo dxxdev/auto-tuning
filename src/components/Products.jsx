@@ -83,7 +83,7 @@ const Products = ({
           <div className="flex h-min space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 bottom-3 md:top-3 z-10">
             {productIsItNew && (
               <Chip
-                className="transition-all duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                className="transition-all bg-[#00b300] duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                 value="Yangi"
                 color="green"
                 size="sm"
@@ -92,7 +92,7 @@ const Products = ({
             )}
             {productInAction && (
               <Chip
-                className="transition-all duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                className="transition-all bg-[#b30000] duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                 value="Aksiya"
                 size="sm"
                 variant="filled"
@@ -110,7 +110,7 @@ const Products = ({
         }}
         aria-label="saved button"
         tabIndex="-1"
-        className="absolute top-0 -translate-y-1/2 right-0 z-10 text-red-600"
+        className="absolute top-0 -translate-y-1/2 right-0 z-10 text-[#b30000]"
       >
         {product.saved ? (
           <Bookmark fontSize="large" />

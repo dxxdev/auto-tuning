@@ -81,10 +81,10 @@ const Saved = ({ rendered }) => {
                       );
                     })}
                   </Swiper>
-                  <div className="space-x-3 absolute left-1.5 sm:left-3 bottom-2 sm:top-3 z-10">
+                  <div className="space-x-3 flex items-center h-min absolute left-1.5 sm:left-3 bottom-2 sm:top-3 z-10">
                     {product.isItNew && (
                       <Chip
-                        className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        className="transition-all bg-[#00b300] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                         value="Yangi"
                         color="green"
                         size="sm"
@@ -93,7 +93,7 @@ const Saved = ({ rendered }) => {
                     )}
                     {product.inAction && (
                       <Chip
-                        className="transition-all duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        className="transition-all bg-[#b30000] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                         value="Aksiya"
                         size="sm"
                         variant="filled"
@@ -108,7 +108,7 @@ const Saved = ({ rendered }) => {
                     setRender((prev) => !prev);
                     product.saved = !product.saved;
                   }}
-                  className="absolute top-0 -translate-y-1/2 right-0 z-[9999] text-red-600"
+                  className="absolute top-0 -translate-y-1/2 right-0 z-[9999] text-[#b30000]"
                 >
                   {product.saved ? (
                     <Bookmark fontSize="large" />
@@ -177,7 +177,7 @@ const Saved = ({ rendered }) => {
           </Typography>
           <Button
             aria-label="back to home"
-            className="w-full sm:w-max"
+            className="w-full sm:w-max from-[#b30000] to-[#b00]"
             onClick={() => {
               navigate("/");
               scrollTop();

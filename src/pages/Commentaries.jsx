@@ -77,7 +77,7 @@ const Commentaries = () => {
             return (
               <li
                 key={note.id}
-                className="w-full rounded-2xl px-5 md:px-7 py-7 md:py-10 bg-red-800 font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-2xl"
+                className="w-full rounded-2xl px-5 md:px-7 py-7 md:py-10 bg-[#b30000] font-normal text-base flex flex-col justify-between text-white transition-all duration-300 hover:-translate-y-5 shadow-2xl"
               >
                 <div className="space-y-5 mb-3">
                   <div>
@@ -110,7 +110,7 @@ const Commentaries = () => {
           <CardHeader
             variant="gradient"
             color="red"
-            className="m-4 grid h-16 place-items-center"
+            className="m-4 grid from-[#b30000] to-[#a00] h-16 place-items-center"
           >
             <Typography
               variant="h4"
@@ -150,27 +150,27 @@ const Commentaries = () => {
               <Star
                 color={rating > 0 ? "warning" : "disabled"}
                 className="cursor-pointer"
-                onClick={()=>setRating(1)}
+                onClick={() => setRating(1)}
               />
               <Star
                 color={rating > 1 ? "warning" : "disabled"}
                 className="cursor-pointer"
-                onClick={()=>setRating(2)}
+                onClick={() => setRating(2)}
               />
               <Star
                 color={rating > 2 ? "warning" : "disabled"}
                 className="cursor-pointer"
-                onClick={()=>setRating(3)}
+                onClick={() => setRating(3)}
               />
               <Star
                 color={rating > 3 ? "warning" : "disabled"}
                 className="cursor-pointer"
-                onClick={()=>setRating(4)}
+                onClick={() => setRating(4)}
               />
               <Star
                 color={rating > 4 ? "warning" : "disabled"}
                 className="cursor-pointer"
-                onClick={()=>setRating(5)}
+                onClick={() => setRating(5)}
               />
             </div>
             <div className="h-20">
@@ -181,7 +181,7 @@ const Commentaries = () => {
             <Button
               variant="gradient"
               color="red"
-              className="flex justify-center items-center gap-x-5"
+              className="flex from-[#b30000] to-[#a00] justify-center items-center gap-x-5"
               fullWidth
               aria-label="send message to telegram"
               onClick={(e) => handleSubmit(e)}
@@ -194,7 +194,7 @@ const Commentaries = () => {
               <Link
                 to={`/policy`}
                 onClick={scrollTop}
-                className="ml-1 text-red-700 font-bold"
+                className="ml-1 text-[#b30000] font-bold"
               >
                 Shaxsiy ma'lumotlarni himoya qilish shartlari
               </Link>{" "}
