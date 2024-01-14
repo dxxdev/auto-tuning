@@ -84,7 +84,7 @@ const Saved = ({ rendered }) => {
                   <div className="space-x-3 flex items-center h-min absolute left-1.5 sm:left-3 bottom-2 sm:top-3 z-10">
                     {product.isItNew && (
                       <Chip
-                        className="transition-all bg-[#00b300] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        className="transition-all bg-[#060] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                         value="Yangi"
                         color="green"
                         size="sm"

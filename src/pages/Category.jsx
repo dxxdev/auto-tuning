@@ -126,7 +126,7 @@ const Category = ({ rendered }) => {
                   <div className="flex h-min space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 md:top-3 bottom-3 z-10">
                     {product.isItNew && (
                       <Chip
-                        className="transition-all bg-[#00b300] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                        className="transition-all bg-[#060] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                         value="Yangi"
                         color="green"
                         size="sm"
