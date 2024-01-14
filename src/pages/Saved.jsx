@@ -70,7 +70,10 @@ const Saved = ({ rendered }) => {
                   >
                     {product.images.map((item, index) => {
                       return (
-                        <SwiperSlide key={index} className="max-h-[470px]">
+                        <SwiperSlide
+                          key={index}
+                          className="h-[200px] flex justify-center items-center overflow-hidden sm:h-[260px] bg-[#555]"
+                        >
                           <img
                             width="100%"
                             src={item}

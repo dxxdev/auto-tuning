@@ -111,7 +111,7 @@ const Category = ({ rendered }) => {
                       return (
                         <SwiperSlide
                           key={index}
-                          className="flex h-[300px] w-56 justify-center items-center"
+                          className="flex h-[300px] bg-[#555] w-56 justify-center items-center"
                         >
                           <img
                             width="100%"

@@ -120,11 +120,11 @@ const HeaderDrawer = ({
                       to={`/${product.category}/${product.productName}`}
                       className="flex justify-start space-x-4 items-center"
                     >
-                      <span className="rounded sceleton-animation w-14 h-16">
+                      <span className="rounded flex justify-center items-center bg-[#555] w-14 h-16">
                         <img
                           width="100%"
                           height="100%"
-                          className="w-full"
+                          className="h-full"
                           src={product.images[0]}
                           alt={product.productName}
                         />

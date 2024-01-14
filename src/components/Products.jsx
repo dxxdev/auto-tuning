@@ -54,7 +54,7 @@ const Products = ({
         }}
         className="relative"
       >
-        <div className="bg-gray-200 rounded-t-lg">
+        <div className="bg-[#555] rounded-t-lg">
           <Swiper
             loop={true}
             effect="fade"

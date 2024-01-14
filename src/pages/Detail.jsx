@@ -112,7 +112,7 @@ const Detail = ({ rendered }) => {
                 info.images.map((image, index) => {
                   return (
                     <SwiperSlide
-                      className="flex justify-center items-center"
+                      className="flex justify-center sceleton-animation items-center"
                       key={index}
                     >
                       <img

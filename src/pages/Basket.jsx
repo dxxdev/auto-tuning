@@ -157,7 +157,7 @@ const Basket = ({ rendered }) => {
                       className="rounded-lg p-2 bg-white shadow-md relative"
                     >
                       <div className="flex space-x-2 lg:space-x-4">
-                        <div className="h-28 shrink-0 w-24 sm:h-52 sm:w-44 overflow-hidden bg-gray-200 flex justify-center items-center rounded-t-lg">
+                        <div className="h-28 shrink-0 w-24 sm:h-52 sm:w-44 overflow-hidden bg-[#555] flex justify-center items-center rounded-tl-lg">
                           <img
                             width="100%"
                             height="100%"
