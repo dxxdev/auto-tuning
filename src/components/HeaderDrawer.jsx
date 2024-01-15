@@ -26,7 +26,7 @@ const HeaderDrawer = ({
     <Drawer
       open={open2}
       onClose={closeDrawer2}
-      className={`p-4 side-bar-links flex flex-col transition-all !max-w-full md:!max-w-xs ${
+      className={`p-4 side-bar-links flex flex-col transition-all z-[99999] !max-w-full md:!max-w-xs ${
         open2 ? "duration-0" : "!-translate-x-full duration-300"
       }`}
     >

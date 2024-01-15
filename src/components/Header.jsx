@@ -23,10 +23,12 @@ import {
 } from "@mui/icons-material";
 import {
   TOAST_CONFIG,
+  chatId,
   headerRender,
   products,
   scrollTop,
   setCategoryToArray,
+  telegramBotId,
 } from "../data/data";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -90,7 +92,7 @@ const Header = ({ rendered }) => {
     if (searchedProduct === "") {
       return undefined;
     } else {
-      return product.productName.toLocaleLowerCase().includes(searchedProduct);
+      return product.productName.toLowerCase().includes(searchedProduct);
     }
   });
 
@@ -107,9 +109,6 @@ const Header = ({ rendered }) => {
   const [phoneNumber, setphoneNumber] = useState("");
   const [message, setMessage] = useState("");
   const [userName, setUserName] = useState("");
-
-  const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
-  const chatId = 1825061365;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -134,13 +133,11 @@ const Header = ({ rendered }) => {
         handleOpen();
         toast.success("Yuborildi", TOAST_CONFIG);
       } else {
-        handleOpen();
         toast.error("Formani to'ldirib qayta urining", TOAST_CONFIG);
       }
       setphoneNumber("");
-      setUserName("unnamed");
+      setUserName("");
       setMessage("");
-      handleOpen();
     } catch (error) {
       if (
         phoneNumber.trim() !== "" &&
@@ -259,7 +256,7 @@ const Header = ({ rendered }) => {
               onClick={openDrawer2}
               variant="outlined"
               color="red"
-              className="block md:hidden"
+              className="block md:hidden border-[#b30000] border-2 text-[#b30000]"
             >
               <Menu />
             </IconButton>
@@ -469,6 +466,9 @@ const Header = ({ rendered }) => {
               <Input
                 placeholder="+998992701032"
                 type="number"
+                labelProps={{
+                  className: "bg-transparent",
+                }}
                 onChange={(e) => setphoneNumber(e.target.value)}
               />
               <Input

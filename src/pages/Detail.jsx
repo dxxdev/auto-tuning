@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { filteredProductForId, options, products } from "../data/data";
+import {
+  TOAST_CONFIG,
+  filteredProductForId,
+  options,
+  products,
+} from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { styles } from "../styles";
 import {
@@ -33,17 +38,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Questions from "../components/Questions";
 import Products from "../components/Products";
 
-const TOAST_CONFIG = {
-  position: "bottom-right",
-  autoClose: 2000,
-  hideProgressBar: true,
-  closeOnClick: false,
-  pauseOnHover: false,
-  draggable: true,
-  progress: undefined,
-  theme: "light",
-};
-
 const Detail = ({ rendered }) => {
   const { productName } = useParams();
   const [info, setInfo] = useState();
@@ -51,25 +45,7 @@ const Detail = ({ rendered }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   useEffect(() => {
-    const savedProductName = localStorage.getItem("savedProductName");
-
-    if (productName || savedProductName) {
-      setRender((prev) => !prev);
-
-      if (productName) {
-        setInfo(filteredProductForId(productName)[0]);
-        localStorage.setItem("savedProductName", productName);
-      } else if (savedProductName) {
-        setInfo(filteredProductForId(savedProductName)[0]);
-      }
-    }
-  }, [productName]);
-
-  useEffect(() => {
     document.title = productName;
-  }, [productName]);
-
-  useEffect(() => {
     setInfo(filteredProductForId(productName));
   }, [productName]);
 

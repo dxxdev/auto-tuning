@@ -1608,6 +1608,9 @@ export const questions = [
   },
 ];
 
+export const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
+export const chatId = 1825061365;
+
 export const headerRender = {
   condition: true,
 };

@@ -13,7 +13,7 @@ import {
   Textarea,
   Typography,
 } from "@material-tailwind/react";
-import { questions, scrollTop } from "../data/data";
+import { TOAST_CONFIG, chatId, questions, scrollTop, telegramBotId } from "../data/data";
 import { Close, Send } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -24,13 +24,8 @@ const Questions = () => {
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
-  //   Send question Telegram bot
   const [message, setMessage] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-
-  const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
-  const chatId = 1825061365;
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -45,56 +40,18 @@ const Questions = () => {
             text,
           }
         );
-        toast.success("Yuborildi", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.success("Yuborildi", TOAST_CONFIG);
       } else {
-        toast.error("Formani to'ldirib qayta urining", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.error("Formani to'ldirib qayta urining", TOAST_CONFIG);
       }
-
-      // Qo'shimcha logika (masalan, formani tozalash yoki foydalanuvchiga xabar berish)
       setPhoneNumber("");
       setMessage("");
       handleOpen();
     } catch (error) {
       if (phoneNumber.trim() !== "" && message.trim() !== "") {
-        toast.error("Tarmoqdagi xato", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.error("Tarmoqdagi xato", TOAST_CONFIG);
       } else {
-        toast.error("Formani to'ldiring", {
-          position: "bottom-right",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.error("Formani to'ldiring", TOAST_CONFIG);
       }
     }
   };

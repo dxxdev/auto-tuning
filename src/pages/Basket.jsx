@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import {
   TOAST_CONFIG,
+  chatId,
   headerRender,
   options,
   products,
   scrollTop,
+  telegramBotId,
   viewProduct,
 } from "../data/data";
 import {
@@ -73,9 +75,6 @@ const Basket = ({ rendered }) => {
     filteredProductOnCart();
     headerRender.condition = !headerRender.condition;
   }, [products, render, productChanges]);
-
-  const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
-  const chatId = 1825061365;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
