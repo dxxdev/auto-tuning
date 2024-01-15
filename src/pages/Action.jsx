@@ -28,15 +28,7 @@ const Action = ({ rendered }) => {
                 actionPage={true}
                 rendered={rendered}
                 product={product}
-                productName={product.productName}
-                productCategory={product.category}
-                productImages={product.images}
                 productSaved={productSaved}
-                productIsItNew={product.isItNew}
-                productInAction={product.inAction}
-                productRating={product.rating}
-                productPrice={product.price}
-                productInTheCart={product.inTheCart}
               />
             );
           }

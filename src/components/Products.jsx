@@ -21,17 +21,8 @@ import { addCartProduct, options, viewProduct } from "../data/data";
 const Products = ({
   rendered,
   product,
-  productCategory,
   actionPage,
-  productName,
-  productImages,
   card,
-  productSaved,
-  productIsItNew,
-  productInAction,
-  productRating,
-  productPrice,
-  productInTheCart,
 }) => {
   const [render, setRender] = useState(true);
 
@@ -48,7 +39,7 @@ const Products = ({
       } relative group`}
     >
       <Link
-        to={`/${productCategory}/${productName}`}
+        to={`/${product.category}/${product.productName}`}
         onClick={() => {
           viewProduct(product);
         }}
@@ -64,7 +55,7 @@ const Products = ({
             modules={[Pagination, EffectFade]}
             className="mySwiper overflow-hidden rounded-t-lg w-full h-[200px] sm:h-[260px]"
           >
-            {productImages.slice(0, 3).map((item, index) => {
+            {product.images.slice(0, 3).map((item, index) => {
               return (
                 <SwiperSlide
                   key={index}
@@ -74,14 +65,14 @@ const Products = ({
                     width="100%"
                     src={item}
                     className="w-full"
-                    alt={productName}
+                    alt={product.productName}
                   />
                 </SwiperSlide>
               );
             })}
           </Swiper>
           <div className="flex h-min space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 bottom-3 md:top-3 z-10">
-            {productIsItNew && (
+            {product.isItNew && (
               <Chip
                 className="transition-all bg-[#060] duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                 value="Yangi"
@@ -90,7 +81,7 @@ const Products = ({
                 variant="filled"
               />
             )}
-            {productInAction && (
+            {product.inAction && (
               <Chip
                 className="transition-all bg-[#b30000] duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                 value="Aksiya"
@@ -123,19 +114,19 @@ const Products = ({
           variant="paragraph"
           className="font-medium text-black lg:text-black/90 max-h-[56px] overflow-hidden"
         >
-          {productName}
+          {product.productName}
         </Typography>
         <div>
-          <Typography variant="small">Turkum: {productCategory}</Typography>
+          <Typography variant="small">Turkum: {product.category}</Typography>
           <Typography variant="small" color="black">
             <span className="flex items-end justify-start text-black lg:text-black/90 space-x-1">
               <Star className="text-yellow-700" />
-              <span>{productRating}</span>
+              <span>{product.rating}</span>
             </span>
           </Typography>
           <div className="w-full flex justify-between items-end">
             <b className="text-base text-black font-bold lg:text-black/90">
-              {productPrice
+              {product.price
                 .toLocaleString("uz-UZ", options)
                 .replaceAll(",", " ")}{" "}
               so'm
@@ -148,11 +139,11 @@ const Products = ({
                 addCartProduct(product);
                 rendered();
               }}
-              variant={`${productInTheCart ? "filled" : "outlined"}`}
+              variant={`${product.inTheCart ? "filled" : "outlined"}`}
               color="gray"
               size="sm"
             >
-              {productInTheCart ? (
+              {product.inTheCart ? (
                 <RemoveShoppingCartOutlined fontSize="small" />
               ) : (
                 <AddShoppingCartOutlined fontSize="small" />

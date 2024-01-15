@@ -319,15 +319,7 @@ const Detail = ({ rendered }) => {
                     key={product.id}
                     rendered={rendered}
                     product={product}
-                    productName={product.productName}
-                    productCategory={product.category}
-                    productImages={product.images}
                     productSaved={productSaved}
-                    productIsItNew={product.isItNew}
-                    productInAction={product.inAction}
-                    productRating={product.rating}
-                    productPrice={product.price}
-                    productInTheCart={product.inTheCart}
                   />
                 );
               }
@@ -351,15 +343,7 @@ const Detail = ({ rendered }) => {
                     rendered={rendered}
                     product={product}
                     key={product.id}
-                    productName={product.productName}
-                    productCategory={product.category}
-                    productImages={product.images}
                     productSaved={productSaved}
-                    productIsItNew={product.isItNew}
-                    productInAction={product.inAction}
-                    productRating={product.rating}
-                    productPrice={product.price}
-                    productInTheCart={product.inTheCart}
                   />
                 );
               }

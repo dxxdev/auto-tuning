@@ -19,6 +19,7 @@ import {
   RemoveShoppingCartOutlined,
   Star,
 } from "@mui/icons-material";
+import Products from "../components/Products";
 
 const Saved = ({ rendered }) => {
   const [render, setRender] = useState(true);
@@ -29,7 +30,6 @@ const Saved = ({ rendered }) => {
       return product.saved;
     });
     setInTheCartProduct(filteredProduct);
-    rendered();
   };
 
   useEffect(() => {
@@ -49,124 +49,9 @@ const Saved = ({ rendered }) => {
           className={`${styles.container} !px-0 py-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3`}
         >
           {inTheCartProduct.map((product) => {
-            return (
-              <li
-                key={product.id}
-                className="relative group rounded-lg bg-white flex flex-col shadow-md space-y-4 card-swiper"
-              >
-                <Link
-                  onClick={() => viewProduct(product)}
-                  to={`/${product.category}/${product.productName}`}
-                  className="relative sm:static"
-                >
-                  <Swiper
-                    effect="fade"
-                    pagination={{
-                      clickable: true,
-                    }}
-                    loop={true}
-                    modules={[Pagination, EffectFade]}
-                    className="mySwiper relative rounded-lg"
-                  >
-                    {product.images.map((item, index) => {
-                      return (
-                        <SwiperSlide
-                          key={index}
-                          className="h-[200px] flex justify-center items-center overflow-hidden sm:h-[260px] bg-[#555]"
-                        >
-                          <img
-                            width="100%"
-                            src={item}
-                            className="w-full"
-                            alt={product.productName}
-                          />
-                        </SwiperSlide>
-                      );
-                    })}
-                  </Swiper>
-                  <div className="space-x-3 flex items-center h-min absolute left-1.5 sm:left-3 bottom-2 sm:top-3 z-10">
-                    {product.isItNew && (
-                      <Chip
-                        className="transition-all bg-[#060] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                        value="Yangi"
-                        color="green"
-                        size="sm"
-                        variant="filled"
-                      />
-                    )}
-                    {product.inAction && (
-                      <Chip
-                        className="transition-all bg-[#b30000] duration-200 group-hover:bg-opacity-0 group-hover:text-opacity-0"
-                        value="Aksiya"
-                        size="sm"
-                        variant="filled"
-                        color="red"
-                      />
-                    )}
-                  </div>
-                </Link>
-                <button
-                  aria-label="saved button"
-                  onClick={() => {
-                    setRender((prev) => !prev);
-                    product.saved = !product.saved;
-                  }}
-                  className="absolute top-0 -translate-y-1/2 right-0 z-[9999] text-[#b30000]"
-                >
-                  {product.saved ? (
-                    <Bookmark fontSize="large" />
-                  ) : (
-                    <BookmarkBorderOutlined fontSize="large" />
-                  )}
-                </button>
-                <div className="flex flex-col h-full px-3 pb-3 space-y-3 justify-between">
-                  <Typography
-                    variant="paragraph"
-                    className="font-medium text-black lg:text-black/90 max-h-[56px] overflow-hidden"
-                  >
-                    {product.productName}
-                  </Typography>
-                  <div>
-                    <Typography variant="small">
-                      Turkum: {product.category}
-                    </Typography>
-                    <Typography variant="small" color="black">
-                      <span className="flex items-end justify-start space-x-1">
-                        <Star className="text-yellow-700" />
-                        <span className="text-gray-700">{product.rating}</span>
-                      </span>
-                    </Typography>
-                    <div className="w-full flex justify-between items-end">
-                      <Typography
-                        variant="h6"
-                        className="text-black lg:text-black/90"
-                      >
-                        {product.price
-                          .toLocaleString("uz-UZ", options)
-                          .replaceAll(",", " ")}{" "}
-                        so'm
-                      </Typography>
-                      <IconButton
-                        aria-label="buying button"
-                        onClick={() => {
-                          addCartProduct(product);
-                          setRender((prev) => !prev);
-                        }}
-                        size="sm"
-                        variant={product.inTheCart ? "filled" : "outlined"}
-                        color="gray"
-                      >
-                        {product.inTheCart ? (
-                          <RemoveShoppingCartOutlined fontSize="small" />
-                        ) : (
-                          <AddShoppingCartOutlined fontSize="small" />
-                        )}
-                      </IconButton>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            );
+            if (product.saved) {
+              return <Products rendered={setRender} product={product} />;
+            }
           })}
         </ul>
       )}

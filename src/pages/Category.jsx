@@ -225,15 +225,7 @@ const Category = ({ rendered }) => {
                   rendered={rendered}
                   product={product}
                   key={product.id}
-                  productName={product.productName}
-                  productCategory={product.category}
-                  productImages={product.images}
                   productSaved={productSaved}
-                  productIsItNew={product.isItNew}
-                  productInAction={product.inAction}
-                  productRating={product.rating}
-                  productPrice={product.price}
-                  productInTheCart={product.inTheCart}
                 />
               );
             }
