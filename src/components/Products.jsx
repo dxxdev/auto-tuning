@@ -45,7 +45,7 @@ const Products = ({
         }}
         className="relative"
       >
-        <div className="bg-[#555] rounded-t-lg">
+        <div className="bg-gray-200 rounded-t-lg">
           <Swiper
             loop={true}
             effect="fade"
@@ -53,7 +53,7 @@ const Products = ({
               clickable: true,
             }}
             modules={[Pagination, EffectFade]}
-            className="mySwiper overflow-hidden rounded-t-lg w-full h-[200px] sm:h-[260px]"
+            className="mySwiper overflow-hidden rounded-t-lg w-full h-[240px] sm:h-[300px]"
           >
             {product.images.slice(0, 3).map((item, index) => {
               return (
