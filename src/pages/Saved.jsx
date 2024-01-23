@@ -1,24 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  addCartProduct,
-  options,
-  products,
-  scrollTop,
-  viewProduct,
-} from "../data/data";
-import { Button, Chip, IconButton, Typography } from "@material-tailwind/react";
+import { products, scrollTop } from "../data/data";
+import { Button, Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
-import { SwiperSlide, Swiper } from "swiper/react";
-import { EffectFade, Pagination } from "swiper/modules";
-import {
-  AddShoppingCartOutlined,
-  Bookmark,
-  BookmarkBorderOutlined,
-  RemoveShoppingCartOutlined,
-  Star,
-} from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 import Products from "../components/Products";
 
 const Saved = ({ rendered }) => {
@@ -34,6 +19,8 @@ const Saved = ({ rendered }) => {
 
   useEffect(() => {
     filteredProductOnCart(products);
+    rendered((prev) => !prev);
+    setRender((prev) => !prev);
   }, [render]);
 
   return (
@@ -50,7 +37,9 @@ const Saved = ({ rendered }) => {
         >
           {inTheCartProduct.map((product) => {
             if (product.saved) {
-              return <Products rendered={setRender} product={product} />;
+              return (
+                <Products rendered={setRender} card={true} product={product} />
+              );
             }
           })}
         </ul>

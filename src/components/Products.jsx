@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,19 +16,18 @@ import {
   Star,
 } from "@mui/icons-material";
 import { Chip, IconButton, Typography } from "@material-tailwind/react";
-import { addCartProduct, options, viewProduct } from "../data/data";
+import { addCartProduct, options, products, viewProduct } from "../data/data";
 
-const Products = ({
-  rendered,
-  product,
-  actionPage,
-  card,
-}) => {
+const Products = ({ rendered, product, actionPage, card }) => {
   const [render, setRender] = useState(true);
 
   const productSaves = (product) => {
     product.saved = !product.saved;
   };
+
+  useEffect(() => {
+    setRender((prev) => !prev);
+  }, [products.map((product) => product.saved)]);
 
   return (
     <li

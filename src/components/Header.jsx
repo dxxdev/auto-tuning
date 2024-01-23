@@ -86,7 +86,10 @@ const Header = ({ rendered }) => {
   useEffect(() => {
     filteredProductOnCart(products);
     setCartProducts(products);
-  }, [products.map((product) => product), headerRender]);
+  }, [
+    products.map((product) => product),
+    headerRender,
+  ]);
 
   const searchFilteredProduct = products.filter((product) => {
     if (searchedProduct === "") {

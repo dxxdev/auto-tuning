@@ -122,12 +122,12 @@ const Home = ({ rendered }) => {
             {category.length > 0 && (
               <div className={`${styles.container}`}>
                 <div className="flex justify-start w-full items-center lg:justify-center">
-                  <div className="overflow-x-auto overflow-y-visible scroll-none rounded-t-xl">
-                    <div className="w-max relative border-t-8 border-t-[#003a44] bg-[#003a44]">
+                  <div className="overflow-x-auto overflow-y-visible scroll-none rounded-md">
+                    <div className="w-max relative">
                       <button
                         className={`px-3 py-2 transition-all duration-300 font-semibold ${
                           topTabValue == "allCategories"
-                            ? "bg-white text-black rounded-t-xl"
+                            ? "bg-opacity-5 text-black bg-[#003a44]"
                             : "text-white bg-[#003a44]"
                         }`}
                         onClick={() => setTopTabValue("allCategories")}
@@ -142,7 +142,7 @@ const Home = ({ rendered }) => {
                               onClick={() => setTopTabValue(item)}
                               className={`px-3 py-2 transition-all duration-300 font-semibold ${
                                 topTabValue == item
-                                  ? "bg-white text-black rounded-t-xl"
+                                  ? "bg-opacity-5 text-black bg-[#003a44]"
                                   : "text-white bg-[#003a44]"
                               }`}
                             >
@@ -309,12 +309,12 @@ const Home = ({ rendered }) => {
             {category.length > 0 && (
               <div className={`${styles.container}`}>
                 <div className="flex justify-start w-full items-center lg:justify-center">
-                  <div className="overflow-x-auto overflow-y-visible scroll-none rounded-t-xl">
-                    <div className="w-max relative border-t-8 border-t-[#003a44] bg-[#003a44]">
+                  <div className="overflow-x-auto overflow-y-visible scroll-none rounded-md">
+                    <div className="w-max relative  bg-[#003a44">
                       <button
                         className={`px-3 py-2 transition-all duration-300 font-semibold ${
                           newTabValue == "allCategories"
-                            ? "bg-white text-black rounded-t-xl"
+                            ? "bg-opacity-5 text-black bg-[#003a44]"
                             : "text-white bg-[#003a44]"
                         }`}
                         onClick={() => setNewTabValue("allCategories")}
@@ -329,7 +329,7 @@ const Home = ({ rendered }) => {
                               onClick={() => setNewTabValue(item)}
                               className={`px-3 py-2 transition-all duration-300 font-semibold ${
                                 newTabValue == item
-                                  ? "bg-white text-black rounded-t-xl"
+                                  ? "bg-opacity-5 text-black bg-[#003a44]"
                                   : "text-white bg-[#003a44]"
                               }`}
                             >
@@ -403,12 +403,12 @@ const Home = ({ rendered }) => {
             {category.length > 0 && (
               <div className={`${styles.container}`}>
                 <div className="flex justify-start w-full items-center lg:justify-center">
-                  <div className="overflow-x-auto overflow-y-visible scroll-none rounded-t-xl">
-                    <div className="w-max relative border-t-8 border-t-[#003a44] bg-[#003a44]">
+                  <div className="overflow-x-auto overflow-y-visible scroll-none rounded-md">
+                    <div className="w-max relative">
                       <button
                         className={`px-3 py-2 transition-all duration-300 font-semibold ${
                           discountTabValue == "allCategories"
-                            ? "bg-white text-black rounded-t-xl"
+                            ? "bg-opacity-5 text-black bg-[#003a44]"
                             : "text-white bg-[#003a44]"
                         }`}
                         onClick={() => setDiscountTabValue("allCategories")}
@@ -423,7 +423,7 @@ const Home = ({ rendered }) => {
                               onClick={() => setDiscountTabValue(item)}
                               className={`px-3 py-2 transition-all duration-300 font-semibold ${
                                 discountTabValue == item
-                                  ? "bg-white text-black rounded-t-xl"
+                                  ? "bg-opacity-5 text-black bg-[#003a44]"
                                   : "text-white bg-[#003a44]"
                               }`}
                             >
