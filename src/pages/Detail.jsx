@@ -197,7 +197,7 @@ const Detail = ({ rendered }) => {
               so'm <span>/</span> <sub>dona</sub>
             </Typography>
             <Tabs value="info" className="w-full max-w-3xl mx-auto py-3">
-              <TabsHeader className="bg-[#aa0000] !bg-opacity-100">
+              <TabsHeader className="bg-teal-900 !bg-opacity-100">
                 <Tab value={"info"}>
                   <div className="flex justify-center items-center space-x-2 text-white">
                     <span>
