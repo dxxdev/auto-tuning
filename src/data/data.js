@@ -1611,7 +1611,7 @@ export const questions = [
 export const telegramBotId = "6453255281:AAGlCVfHi4F4v3TzqvazMPAiex_3bSrvk10";
 export const chatId = 1825061365;
 
-export const headerRender = {
+export let headerRender = {
   condition: true,
 };
 
@@ -1669,6 +1669,15 @@ export const categoryProduct = category.map((item, index) => {
   };
   return product;
 });
+
+export const productSaves = (product) => {
+  product.saved = !product.saved;
+  if (headerRender.condition) {
+    headerRender.condition = false;
+  } else {
+    headerRender.condition = true;
+  }
+};
 
 export const addCartProduct = (product) => {
   product.inTheCart = !product.inTheCart;

@@ -22,9 +22,7 @@ import {
 } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer, toast } from "react-toastify";
-import { Link, useNavigate } from "react-router-dom";
-import { SwiperSlide, Swiper } from "swiper/react";
-import { EffectFade, Pagination } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
 import {
   Add,
   AddShoppingCartOutlined,
@@ -32,7 +30,6 @@ import {
   BookmarkBorderOutlined,
   Remove,
   RemoveShoppingCartOutlined,
-  Star,
 } from "@mui/icons-material";
 import axios from "axios";
 import Products from "../components/Products";
@@ -74,7 +71,7 @@ const Basket = ({ rendered }) => {
   useEffect(() => {
     filteredProductOnCart();
     headerRender.condition = !headerRender.condition;
-  }, [products, render, productChanges]);
+  }, [productChanges]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

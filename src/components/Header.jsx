@@ -47,7 +47,11 @@ const Header = ({ rendered }) => {
   const [openInput, setOpenInput] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [howMuch, setHowMuch] = useState(0);
-  const [howSaved, setHowSaved] = useState(0);
+  const [howSaved, setHowSaved] = useState(
+    products.filter((product) => {
+      return product.saved;
+    }).length
+  );
   const [render, setRender] = useState(false);
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [searchedProduct, setSearchedProduct] = useState("");
@@ -84,12 +88,13 @@ const Header = ({ rendered }) => {
   };
 
   useEffect(() => {
+    setRender((prev) => !prev);
+  }, [headerRender]);
+
+  useEffect(() => {
     filteredProductOnCart(products);
     setCartProducts(products);
-  }, [
-    products.map((product) => product),
-    headerRender,
-  ]);
+  }, [headerRender.condition, products.map((product) => product.saved)]);
 
   const searchFilteredProduct = products.filter((product) => {
     if (searchedProduct === "") {
@@ -305,7 +310,7 @@ const Header = ({ rendered }) => {
                 <div
                   className={`border max-w-xs relative w-full flex justify-between rounded-lg border-white ${
                     openInput
-                      ? `bg-white open-animation pl-3 ${
+                      ? `bg-white open-animation pl-3 ${  
                           searchedProduct == "" ? "" : "rounded-b-none"
                         }`
                       : "bg-transparent close-animation cursor-pointer"

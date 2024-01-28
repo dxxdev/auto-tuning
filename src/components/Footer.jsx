@@ -106,7 +106,10 @@ const Footer = () => {
               <div className="flex flex-col gap-y-2 text-gray-400">
                 <p>Manzil: Toshkent sh, Amir Temur k. 47b</p>
                 <p>Ish vaqti: 9:00 dan 18:00 gacha</p>
-                <a href="mailto:diyorbekxojamberdiyevn1@gmail.com">
+                <a
+                  href="mailto:diyorbekxojamberdiyevn1@gmail.com"
+                  target="_blank"
+                >
                   diyorbekxojamberdiyevn1@gmail.com
                 </a>
               </div>
@@ -115,6 +118,7 @@ const Footer = () => {
                   className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs bg-green-500 text-white shadow-md shadow-green-500/20 hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex justify-center items-center"
                   href="https://www.whatsapp.com"
                   aria-label="contact whatsapp"
+                  target="_blank"
                 >
                   <WhatsApp />
                 </a>
@@ -122,6 +126,7 @@ const Footer = () => {
                   href="https://vk.com"
                   className="relative align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-2xl text-xs bg-white text-blue-gray-900 shadow-md shadow-blue-gray-500/10 hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none flex justify-center items-center"
                   aria-label="contact vkontakte"
+                  target="_blank"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +161,9 @@ const Footer = () => {
             <Link onClick={scrollTop} to="/policy">
               Maxfiylik siyosati
             </Link>
-            <a href="https://t.me/dxxdev">Mas'ul shaxs Diyorbek</a>
+            <a href="https://t.me/dxxdev" target="_blank">
+              Mas'ul shaxs Diyorbek
+            </a>
           </div>
         </div>
       </div>

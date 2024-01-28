@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { products, scrollTop } from "../data/data";
+import { headerRender, products, scrollTop } from "../data/data";
 import { Button, Typography } from "@material-tailwind/react";
 import { styles } from "../styles";
 import { ToastContainer } from "react-toastify";
@@ -19,9 +19,8 @@ const Saved = ({ rendered }) => {
 
   useEffect(() => {
     filteredProductOnCart(products);
-    rendered((prev) => !prev);
     setRender((prev) => !prev);
-  }, [render]);
+  }, [rendered]);
 
   return (
     <div className={`${styles.container} py-2 pb-5`}>
@@ -38,7 +37,12 @@ const Saved = ({ rendered }) => {
           {inTheCartProduct.map((product) => {
             if (product.saved) {
               return (
-                <Products rendered={setRender} card={true} product={product} />
+                <Products
+                  key={product.id}
+                  rendered={rendered}
+                  card={true}
+                  product={product}
+                />
               );
             }
           })}
