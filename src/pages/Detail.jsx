@@ -148,7 +148,7 @@ const Detail = ({ rendered }) => {
         )}
         {info && (
           <div className="w-full relative">
-            <div className="absolute hidden lg:block right-5 bottom-0 translate-y-1/2">
+            <div className="absolute hidden lg:block right-0 bottom-6 translate-y-1/2">
               <Button
                 onClick={() => {
                   addToCart();
@@ -164,7 +164,7 @@ const Detail = ({ rendered }) => {
                 ) : (
                   <AddShoppingCartOutlined />
                 )}
-                <span className="hidden sm:block">sotib olish</span>
+                <span className="hidden sm:block">{info.inTheCart ? "sotib olingan" : "sotib olish"}</span>
               </Button>
             </div>
             <div className="flex justify-between items-center mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full">

@@ -99,13 +99,13 @@ const Questions = () => {
             <CardHeader
               variant="gradient"
               color="red"
-              className="m-4 grid from-[#b30000] to-[#a00] h-16 place-items-center"
+              className="m-3 md:m-4 grid from-[#b30000] to-[#a00] h-16 place-items-center"
             >
               <Typography variant="h4" color="white">
                 Savolingiz bormi?
               </Typography>
             </CardHeader>
-            <CardBody className="flex flex-col gap-4">
+            <CardBody className="flex flex-col p-3 md:p-6 gap-4">
               <Input
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 label="Telefon raqamingiz"
@@ -119,7 +119,7 @@ const Questions = () => {
                 label="Savol"
               ></Textarea>
             </CardBody>
-            <CardFooter className="pt-0">
+            <CardFooter className="p-3 md:p-6 !pt-0">
               <Button
                 aria-label="send message to telegram button"
                 variant="gradient"

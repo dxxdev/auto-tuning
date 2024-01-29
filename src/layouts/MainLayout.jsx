@@ -1,5 +1,5 @@
 // MainLayout.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { Outlet } from "react-router";
 import Footer from "../components/Footer";
@@ -10,6 +10,10 @@ const MainLayout = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   const [rendered, setRendered] = useState(true);
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
 
   const handleRenderChange = () => {
     setRendered(!rendered);

@@ -170,6 +170,7 @@ const Header = ({ rendered }) => {
         >
           <h1>
             <Link
+              onClick={() => scrollTop()}
               to="/"
               className="flex items-center text-xl md:text-2xl space-x-2 font-bold"
             >
