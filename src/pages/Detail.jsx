@@ -32,7 +32,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/thumbs";
-import { FreeMode, Autoplay, Thumbs } from "swiper/modules";
+import "swiper/css/navigation";
+import "../styles/swiperStyle.css";
+import { FreeMode, Autoplay, Thumbs, Navigation } from "swiper/modules";
 
 import "react-toastify/dist/ReactToastify.css";
 import Questions from "../components/Questions";
@@ -43,6 +45,7 @@ const Detail = ({ rendered }) => {
   const [info, setInfo] = useState();
   const [render, setRender] = useState(true);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [tabValue, setTabValue] = useState("description");
 
   useEffect(() => {
     document.title = productName;
@@ -65,243 +68,210 @@ const Detail = ({ rendered }) => {
 
   return (
     <>
+      {info && (
+        <h3
+          className={`text-2xl font-semibold leading-normal w-full max-w-xl mx-auto lg:max-w-7xl px-0 lg:px-3`}
+        >
+          {info.productName}
+        </h3>
+      )}
       <div
-        className={`py-2 flex ${styles.container} gap-x-10 flex-col lg:flex-row`}
+        className={`py-2 flex ${styles.container} gap-x-5 gap-y-3 xl:gap-x-10 justify-start items-start flex-col lg:flex-row`}
       >
         {info && (
-          <div className="w-full space-y-3">
-            <Swiper
-              style={{
-                "--swiper-navigation-color": "#fff",
-                "--swiper-pagination-color": "#fff",
-              }}
-              spaceBetween={10}
-              autoplay={{
-                delay: 2000,
-              }}
-              loop={true}
-              thumbs={{ swiper: thumbsSwiper }}
-              modules={[FreeMode, Thumbs, Autoplay]}
-              className="mySwiper2 relative md:max-w-xl sceleton-animation bg-gray-400 h-[500px] sm:h-[650px] md:h-[600px]"
-            >
-              {info &&
-                info.images.map((image, index) => {
-                  return (
-                    <SwiperSlide
-                      className="flex justify-center sceleton-animation items-center"
-                      key={index}
-                    >
-                      <img
-                        width="100%"
-                        height="100%"
-                        src={image}
-                        className="hover:scale-110 transition-all h-full md:h-max w-full"
-                        alt={info.productName}
-                      />
-                    </SwiperSlide>
-                  );
-                })}
-              <button
-                onClick={() => {
-                  rendered();
-                  setRender((prev) => !prev);
-                  info.saved = !info.saved;
+          <div className="w-full border lg:sticky lg:top-0 border-gray-200 p-2 md:p-5 rounded-3xl shadow space-y-3">
+            <div className="space-y-3">
+              <Swiper
+                navigation={true}
+                style={{
+                  "--swiper-navigation-color": "#fff",
+                  "--swiper-pagination-color": "#fff",
                 }}
-                aria-label="saved button"
-                className="absolute top-0 right-0 z-[999] text-[#b30000]"
+                spaceBetween={10}
+                autoplay={{
+                  delay: 2000,
+                }}
+                loop={true}
+                thumbs={{ swiper: thumbsSwiper }}
+                modules={[FreeMode, Thumbs, Autoplay, Navigation]}
+                className="mySwiper2 relative md:max-w-xl sceleton-animation detail bg-gray-400 h-[500px] sm:h-[650px] md:h-[600px]"
               >
-                {info.saved ? (
-                  <Bookmark fontSize="large" />
-                ) : (
-                  <BookmarkBorderOutlined fontSize="large" />
-                )}
-              </button>
-            </Swiper>
-            <Swiper
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView={4}
-              freeMode={true}
-              watchSlidesProgress={true}
-              modules={[FreeMode, Thumbs]}
-              className="mySwiper relative max-w-xl max-h-[100px] sm:max-h-[150px] md:max-h-44 flex items-center"
-            >
-              {info &&
-                info.images.map((image, index) => {
-                  return (
-                    <SwiperSlide
-                      className="flex justify-center h-[176px] items-stretch relative sceleton-animation"
-                      key={index}
-                    >
-                      <img
-                        width="100%"
-                        height="100%"
-                        src={image}
-                        alt={info.productName}
-                        className="w-full h-full"
-                      />
-                    </SwiperSlide>
-                  );
-                })}
-            </Swiper>
+                {info &&
+                  info.images.map((image, index) => {
+                    return (
+                      <SwiperSlide
+                        className="flex justify-center cursor-grab sceleton-animation items-center"
+                        key={index}
+                      >
+                        <img
+                          width="100%"
+                          height="100%"
+                          src={image}
+                          className="hover:scale-110 transition-all h-full md:h-max w-full"
+                          alt={info.productName}
+                        />
+                      </SwiperSlide>
+                    );
+                  })}
+                <button
+                  onClick={() => {
+                    rendered();
+                    setRender((prev) => !prev);
+                    info.saved = !info.saved;
+                  }}
+                  aria-label="saved button"
+                  className="absolute top-0 right-0 z-[999] text-[#b30000]"
+                >
+                  {info.saved ? (
+                    <Bookmark fontSize="large" />
+                  ) : (
+                    <BookmarkBorderOutlined fontSize="large" />
+                  )}
+                </button>
+              </Swiper>
+              <Swiper
+                onSwiper={setThumbsSwiper}
+                spaceBetween={10}
+                slidesPerView={4}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[FreeMode, Thumbs]}
+                className="mySwiper relative max-w-xl max-h-[100px] sm:max-h-[150px] md:max-h-44 flex items-center"
+              >
+                {info &&
+                  info.images.map((image, index) => {
+                    return (
+                      <SwiperSlide
+                        className="flex justify-center h-[176px] items-stretch relative sceleton-animation"
+                        key={index}
+                      >
+                        <img
+                          width="100%"
+                          height="100%"
+                          src={image}
+                          alt={info.productName}
+                          className="w-full h-full"
+                        />
+                      </SwiperSlide>
+                    );
+                  })}
+              </Swiper>
+            </div>
           </div>
         )}
         {info && (
-          <div className="w-full relative">
-            <div className="absolute hidden lg:block right-0 bottom-6 translate-y-1/2">
-              <Button
+          <div className="w-full sticky border border-gray-200 top-5 rounded-3xl shadow px-5 py-6 flex flex-col justify-start items-start gap-8">
+            <div className="flex justify-between w-full">
+              <p className="flex gap-2.5">
+                <span className="text-base md:text-xl leading-[152%] font-medium">
+                  Narxi:
+                </span>
+                <span className="text-xl md:text-2xl leading-normal font-bold">
+                  {info.price
+                    .toLocaleString("UZ-uz", options)
+                    .replaceAll(",", " ")}{" "}
+                  so'm
+                </span>
+              </p>
+              <button
+                className="p-1 rounded-lg hover:bg-black/20"
                 onClick={() => {
-                  addToCart();
-                  rendered();
+                  info.inTheCart = !info.inTheCart;
+                  setRender((prev) => !prev);
+                  if (info.inTheCart) {
+                    toast.success("Savatga qo'shildi", TOAST_CONFIG);
+                  } else {
+                    toast.error("Savatdan o'chirildi", TOAST_CONFIG);
+                  }
                 }}
-                aria-label="buying button"
-                variant={`${info.inTheCart ? "filled" : "outlined"}`}
-                color="gray"
-                className="flex justify-center items-center space-x-2"
               >
                 {info.inTheCart ? (
                   <RemoveShoppingCartOutlined />
                 ) : (
                   <AddShoppingCartOutlined />
                 )}
-                <span className="hidden sm:block">{info.inTheCart ? "sotib olingan" : "sotib olish"}</span>
-              </Button>
+              </button>
             </div>
-            <div className="flex justify-between items-center mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full">
-              <div className="flex justify-start items-center space-x-1 text-sm">
-                <Star fontSize="small" className="text-yellow-800" />
-                <p>{info.rating}</p>
-              </div>
-              <IconButton
-                onClick={() => {
-                  addToCart();
-                  rendered();
-                }}
-                aria-label="buying button"
-                variant={`${info.inTheCart ? "filled" : "outlined"}`}
-                color="gray"
-                className="block lg:hidden"
-              >
-                {info.inTheCart ? (
-                  <RemoveShoppingCartOutlined />
-                ) : (
-                  <AddShoppingCartOutlined />
-                )}
-              </IconButton>
+            <div className="flex flex-col w-full gap-2">
+              <p className="text-lg">Mahsulot haqida qisqacha:</p>
+              <ul className="list-disc grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 list-inside space-y-1">
+                {info &&
+                  info.shortly &&
+                  info.shortly.map((short, index) => {
+                    return <li key={index}>{short}</li>;
+                  })}
+              </ul>
             </div>
-            <Typography className="text-xl mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full lg:py-5 sm:text-2xl lg:text-3xl">
-              {info.productName}
-            </Typography>
-            <Typography className="text-xl mx-auto lg:m-0 py-1 max-w-3xl lg:max-w-full lg:text-2xl">
-              {info.price.toLocaleString("uz-UZ", options).replaceAll(",", " ")}{" "}
-              so'm <span>/</span> <sub>dona</sub>
-            </Typography>
-            <Tabs value="info" className="w-full max-w-3xl mx-auto py-3">
-              <TabsHeader className="bg-teal-900 !bg-opacity-100">
-                <Tab value={"info"}>
-                  <div className="flex justify-center items-center space-x-2 text-white">
-                    <span>
-                      <InfoOutlined />
-                    </span>
-                    <span className="hidden sm:block lg:hidden xl:block">
-                      Tavsif
-                    </span>
-                  </div>
-                </Tab>
-                <Tab value={"shortly"}>
-                  <div className="flex justify-center items-center space-x-2 text-white">
-                    <span>
-                      <ShortTextOutlined />
-                    </span>
-                    <span className="hidden sm:block lg:hidden xl:block">
-                      Qisqacha
-                    </span>
-                  </div>
-                </Tab>
-                <Tab value={"delivery"}>
-                  <div className="flex justify-center items-center space-x-2 text-white">
-                    <span>
-                      <DeliveryDiningOutlined />
-                    </span>
-                    <span className="hidden sm:block lg:hidden xl:block">
-                      Yetkazib berish
-                    </span>
-                  </div>
-                </Tab>
-              </TabsHeader>
-              <TabsBody>
-                <TabPanel
-                  className="w-full max-w-3xl mx-auto px-0"
-                  value={"info"}
-                >
-                  {Boolean(info.description) ? (
-                    info.description.map((item, index) => {
-                      return (
-                        <p
-                          key={index}
-                          className="text-black tracking-widest md:tracking-normal"
-                        >
-                          {item}
-                        </p>
-                      );
-                    })
-                  ) : (
-                    <div>
-                      <Typography>Hech qanday malumot mavjud emas</Typography>
-                    </div>
-                  )}
-                </TabPanel>
-                <TabPanel
-                  className="w-full max-w-3xl px-0 mx-auto"
-                  value={"shortly"}
-                >
-                  {info.shortly ? (
-                    info.shortly.map((item, index) => {
-                      return <li key={index}>{item}</li>;
-                    })
-                  ) : (
-                    <div>
-                      <Typography>Hech qanday malumot mavjud emas</Typography>
-                    </div>
-                  )}
-                </TabPanel>
-                <TabPanel
-                  value={"delivery"}
-                  className="w-full max-w-2xl px-0 space-y-5 text-black"
-                >
-                  <div>
-                    <p>Toshkent bo'ylab yetkazib berish</p>
-                    <p className="text-gray-700">
-                      Narxi 100.000 so'mdan, omborda mavjud bo'lgan tovar bir
-                      soat ichida yetkazib beriladi, biz sizga buyurtmani
-                      joylashtirishda aniq vaqt haqida xabar beramiz.
-                    </p>
-                  </div>
-
-                  <div>
-                    <p>Boshqa hududlar</p>
-                    <p className="text-gray-700">
-                      Xarajat va shartlarni alohida hisoblab chiqamiz, batafsil
-                      ma'lumot uchun mutaxassislarimizga murojaat qiling.
-                    </p>
-                  </div>
-                  <div>
-                    <p>Kompaniyadan olib ketish</p>
-                    <p className="text-gray-700">
-                      Buyurtmani quyidagi manzildan olishingiz mumkin: <br />{" "}
-                      Toshkent, Amir Temur K: 47b
-                    </p>
-                  </div>
-
-                  <p className="text-gray-700">
-                    Ish vaqti: ish kunlari 09:00 dan 18:00 gacha, yakshanba kuni
-                    10:00 dan 15:00 gacha.
-                  </p>
-                </TabPanel>
-              </TabsBody>
-            </Tabs>
           </div>
         )}
+      </div>
+
+      <div className="my-3 flex flex-col gap-3">
+        <div className="flex justify-between shadow-md w-full max-w-7xl mx-auto rounded-xl">
+          <div
+            onClick={() => setTabValue("description")}
+            className={`py-3 w-full flex justify-center items-center ${
+              tabValue == "description"
+                ? "bg-teal-900 text-white"
+                : "bg-transparent text-black"
+            } text-base cursor-pointer rounded-s-xl`}
+          >
+            Maxsulot tavsifi
+          </div>
+          <div
+            onClick={() => setTabValue("delivery")}
+            className={`py-3 w-full flex justify-center items-center ${
+              tabValue == "delivery"
+                ? "bg-teal-900 text-white"
+                : "bg-transparent text-black"
+            } text-base cursor-pointer rounded-e-xl`}
+          >
+            Yetkazib berish
+          </div>
+        </div>
+        <div className="w-full max-w-7xl mx-auto px-1.5 md:px-3 rounded-xl shadow-md py-3">
+          {info && info.description && tabValue == "description" && (
+            <div>
+              <ul className="">
+                {info.description.map((desc, index) => {
+                  return <li key={index}>{desc}</li>;
+                })}
+              </ul>
+            </div>
+          )}
+          {info && tabValue == "delivery" && (
+            <div className="w-full max-w-2xl px-0 space-y-5 text-black">
+              <div>
+                <p>Toshkent bo'ylab yetkazib berish</p>
+                <p className="text-gray-700">
+                  Narxi 100.000 so'mdan, omborda mavjud bo'lgan tovar bir soat
+                  ichida yetkazib beriladi, biz sizga buyurtmani joylashtirishda
+                  aniq vaqt haqida xabar beramiz.
+                </p>
+              </div>
+
+              <div>
+                <p>Boshqa hududlar</p>
+                <p className="text-gray-700">
+                  Xarajat va shartlarni alohida hisoblab chiqamiz, batafsil
+                  ma'lumot uchun mutaxassislarimizga murojaat qiling.
+                </p>
+              </div>
+              <div>
+                <p>Kompaniyadan olib ketish</p>
+                <p className="text-gray-700">
+                  Buyurtmani quyidagi manzildan olishingiz mumkin: <br />{" "}
+                  Toshkent, Amir Temur K: 47b
+                </p>
+              </div>
+
+              <p className="text-gray-700">
+                Ish vaqti: ish kunlari 09:00 dan 18:00 gacha, yakshanba kuni
+                10:00 dan 15:00 gacha.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
       {products.find((product) => product.recommend == true) && (
