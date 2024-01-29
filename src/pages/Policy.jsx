@@ -16,7 +16,7 @@ const Policy = () => {
       <p className="max-w-5xl text-[17px]">
         Ushbu Shaxsiy ma'lumotlarning maxfiylik siyosati MS-Group MChJ (keyingi
         o'rinlarda Kompaniya deb yuritiladi) -{" "}
-        <a href="https://auto-tuning.netlify.app" className="text-[#b30000]">
+        <a href="https://auto-tuning.netlify.app" target="_blank" className="text-[#b30000]">
           auto-tuning.uz
         </a>{" "}
         veb-saytidan foydalanganda mijoz yoki hamkor haqida olishi mumkin
@@ -74,7 +74,7 @@ const Policy = () => {
             <li>
               1. Foydalanuvchi/mijoz tomonidan{" "}
               <a
-                href="https://auto-tuning.netlify.app"
+                href="https://auto-tuning.netlify.app" target="_blank"
                 className="text-[#b30000]"
               >
                 auto-tuning.uz
@@ -87,7 +87,7 @@ const Policy = () => {
               2. Maxfiylik siyosati shartlariga rozi bo'lmagan taqdirda,
               foydalanuvchi/mijoz{" "}
               <a
-                href="https://auto-tuning.netlify.app"
+                href="https://auto-tuning.netlify.app" target="_blank"
                 className="text-[#b30000]"
               >
                 auto-tuning.uz
@@ -97,7 +97,7 @@ const Policy = () => {
             <li>
               3.{" "}
               <a
-                href="https://auto-tuning.netlify.app"
+                href="https://auto-tuning.netlify.app" target="_blank"
                 className="text-[#b30000]"
               >
                 auto-tuning.uz
@@ -118,7 +118,7 @@ const Policy = () => {
             <li>
               1. Ushbu Maxfiylik siyosati Sayt ma'muriyatining{" "}
               <a
-                href="https://auto-tuning.netlify.app"
+                href="https://auto-tuning.netlify.app" target="_blank"
                 className="text-[#b30000]"
               >
                 auto-tuning.uz
@@ -132,7 +132,7 @@ const Policy = () => {
               2. Ushbu Maxfiylik siyosati bo'yicha qayta ishlashga ruxsat
               berilgan shaxsiy ma'lumotlar foydalanuvchi/mijoz tomonidan{" "}
               <a
-                href="https://auto-tuning.netlify.app"
+                href="https://auto-tuning.netlify.app" target="_blank"
                 className="text-[#b30000]"
               >
                 auto-tuning.uz
