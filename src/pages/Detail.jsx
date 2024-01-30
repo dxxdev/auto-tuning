@@ -42,6 +42,7 @@ import Products from "../components/Products";
 
 const Detail = ({ rendered }) => {
   const { productName } = useParams();
+  const [viewIndex, setViewIndex] = useState(4);
   const [info, setInfo] = useState();
   const [render, setRender] = useState(true);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -79,7 +80,7 @@ const Detail = ({ rendered }) => {
         className={`py-2 flex ${styles.container} gap-x-5 gap-y-3 xl:gap-x-10 justify-start items-start flex-col lg:flex-row`}
       >
         {info && (
-          <div className="w-full border lg:sticky lg:top-0 border-gray-200 p-2 md:p-5 rounded-3xl shadow space-y-3">
+          <div className="w-full lg:sticky lg:top-0 p-2 md:p-5 rounded-3xl space-y-3">
             <div className="space-y-3">
               <Swiper
                 navigation={true}
@@ -188,13 +189,41 @@ const Detail = ({ rendered }) => {
               </button>
             </div>
             <div className="flex flex-col w-full gap-2">
-              <p className="text-lg">Mahsulot haqida qisqacha:</p>
+              {info && info.description && (
+                <h6 className="text-xl">Mahsulot tavsifi</h6>
+              )}
+              <ul>
+                {info &&
+                  info.description &&
+                  info.description.slice(0, 2).map((desc, index) => {
+                    return <li key={index}>{desc}</li>;
+                  })}
+              </ul>
+              {info && info.description && (
+                <p className="text-lg">Mahsulot haqida qisqacha:</p>
+              )}
               <ul className="list-disc grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 list-inside space-y-1">
                 {info &&
                   info.shortly &&
-                  info.shortly.map((short, index) => {
+                  info.shortly.slice(0, viewIndex).map((short, index) => {
                     return <li key={index}>{short}</li>;
                   })}
+                {viewIndex == 4 && (
+                  <li
+                    onClick={() => setViewIndex(-1)}
+                    className="list-none px-5 cursor-pointer"
+                  >
+                    barchasini ko'rish
+                  </li>
+                )}
+                {viewIndex == -1 && (
+                  <li
+                    onClick={() => setViewIndex(4)}
+                    className="list-none px-5 cursor-pointer"
+                  >
+                    yopish
+                  </li>
+                )}
               </ul>
             </div>
           </div>
@@ -202,40 +231,12 @@ const Detail = ({ rendered }) => {
       </div>
 
       <div className="my-3 flex flex-col gap-3">
-        <div className="flex justify-between shadow-md w-full max-w-7xl mx-auto rounded-xl">
-          <div
-            onClick={() => setTabValue("description")}
-            className={`py-3 w-full flex justify-center items-center ${
-              tabValue == "description"
-                ? "bg-teal-900 text-white"
-                : "bg-transparent text-black"
-            } text-base cursor-pointer rounded-s-xl`}
-          >
-            Maxsulot tavsifi
-          </div>
-          <div
-            onClick={() => setTabValue("delivery")}
-            className={`py-3 w-full flex justify-center items-center ${
-              tabValue == "delivery"
-                ? "bg-teal-900 text-white"
-                : "bg-transparent text-black"
-            } text-base cursor-pointer rounded-e-xl`}
-          >
-            Yetkazib berish
-          </div>
-        </div>
-        <div className="w-full max-w-7xl mx-auto px-1.5 md:px-3 rounded-xl shadow-md py-3">
-          {info && info.description && tabValue == "description" && (
-            <div>
-              <ul className="">
-                {info.description.map((desc, index) => {
-                  return <li key={index}>{desc}</li>;
-                })}
-              </ul>
-            </div>
-          )}
-          {info && tabValue == "delivery" && (
-            <div className="w-full max-w-2xl px-0 space-y-5 text-black">
+        <div className="w-full max-w-[1440px] mx-auto px-1.5 md:px-3 rounded-xl shadow-md py-5">
+          {info && (
+            <div className="w-full space-y-5 text-black">
+              <div>
+                <h5 className="text-2xl">Yetkazib berish</h5>
+              </div>
               <div>
                 <p>Toshkent bo'ylab yetkazib berish</p>
                 <p className="text-gray-700">

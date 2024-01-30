@@ -13,7 +13,13 @@ import {
   Textarea,
   Typography,
 } from "@material-tailwind/react";
-import { TOAST_CONFIG, chatId, questions, scrollTop, telegramBotId } from "../data/data";
+import {
+  TOAST_CONFIG,
+  chatId,
+  questions,
+  scrollTop,
+  telegramBotId,
+} from "../data/data";
 import { Close, Send } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -99,10 +105,10 @@ const Questions = () => {
             <CardHeader
               variant="gradient"
               color="red"
-              className="m-3 md:m-4 grid from-[#b30000] to-[#a00] h-16 place-items-center"
+              className="m-3 md:m-4 grid shadow-none from-[#b30000] to-[#a00] h-16 place-items-center"
             >
               <Typography variant="h4" color="white">
-                Savolingiz bormi?
+                Savolingizni yuboring
               </Typography>
             </CardHeader>
             <CardBody className="flex flex-col p-3 md:p-6 gap-4">
