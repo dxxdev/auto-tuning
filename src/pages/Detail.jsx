@@ -156,7 +156,7 @@ const Detail = ({ rendered }) => {
           </div>
         )}
         {info && (
-          <div className="w-full sticky border border-gray-200 top-5 rounded-3xl shadow-sm px-1.5 md:px-3 lg:px-5 py-6 flex flex-col justify-start items-start gap-8">
+          <div className="w-full sticky top-0 rounded-3xl px-1.5 md:px-3 lg:px-5 py-5 flex flex-col justify-start items-start gap-8">
             <h3 className="text-xl lg:text-2xl font-semibold text-clip">
               {info.productName}
             </h3>
@@ -206,28 +206,34 @@ const Detail = ({ rendered }) => {
                   info.shortly.slice(0, viewIndex).map((short, index) => {
                     return <li key={index}>{short}</li>;
                   })}
-                {info && info.shortly && viewIndex == 4 && (
-                  <li
-                    onClick={() => setViewIndex(8)}
-                    className="list-none px-5 cursor-pointer flex items-center gap-2"
-                  >
-                    <span>Ko'proq ko'rish</span>
-                    <span>
-                      <ArrowDownwardOutlined fontSize="12px" />
-                    </span>
-                  </li>
-                )}
-                {info && info.shortly && viewIndex == 8 && (
-                  <li
-                    onClick={() => setViewIndex(4)}
-                    className="list-none px-5 cursor-pointer flex items-center gap-2"
-                  >
-                    <span>Yopish</span>
-                    <span>
-                      <ArrowUpwardOutlined fontSize="12px" />
-                    </span>
-                  </li>
-                )}
+                {info &&
+                  info.shortly &&
+                  info.shortly.length > 4 &&
+                  viewIndex == 4 && (
+                    <li
+                      onClick={() => setViewIndex(8)}
+                      className="list-none px-5 cursor-pointer flex items-center gap-2"
+                    >
+                      <span>Ko'proq ko'rish</span>
+                      <span>
+                        <ArrowDownwardOutlined fontSize="12px" />
+                      </span>
+                    </li>
+                  )}
+                {info &&
+                  info.shortly &&
+                  info.shortly.length > 4 &&
+                  viewIndex == 8 && (
+                    <li
+                      onClick={() => setViewIndex(4)}
+                      className="list-none px-5 cursor-pointer flex items-center gap-2"
+                    >
+                      <span>Yopish</span>
+                      <span>
+                        <ArrowUpwardOutlined fontSize="12px" />
+                      </span>
+                    </li>
+                  )}
               </ul>
             </div>
           </div>
@@ -235,7 +241,7 @@ const Detail = ({ rendered }) => {
       </div>
 
       <div className="my-3 flex flex-col gap-3">
-        <div className="w-full max-w-[1440px] mx-auto px-1.5 md:px-3 rounded-xl shadow-md py-5">
+        <div className="w-full max-w-[1440px] mx-auto px-1.5 md:px-3 rounded-xl py-5">
           {info && (
             <div className="w-full space-y-5 text-black">
               <div>
