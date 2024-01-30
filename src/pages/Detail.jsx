@@ -20,6 +20,8 @@ import {
 } from "@material-tailwind/react";
 import {
   AddShoppingCartOutlined,
+  ArrowDownwardOutlined,
+  ArrowUpwardOutlined,
   Bookmark,
   BookmarkBorderOutlined,
   DeliveryDiningOutlined,
@@ -69,18 +71,11 @@ const Detail = ({ rendered }) => {
 
   return (
     <>
-      {info && (
-        <h3
-          className={`text-2xl font-semibold leading-normal w-full max-w-xl mx-auto lg:max-w-7xl px-0 lg:px-3`}
-        >
-          {info.productName}
-        </h3>
-      )}
       <div
-        className={`py-2 flex ${styles.container} gap-x-5 gap-y-3 xl:gap-x-10 justify-start items-start flex-col lg:flex-row`}
+        className={`py-2 flex ${styles.container} gap-x-5 gap-y-3 xl:gap-x-10 justify-start items-start flex-col lg:flex-row !px-0`}
       >
         {info && (
-          <div className="w-full lg:sticky lg:top-0 p-2 md:p-5 rounded-3xl space-y-3">
+          <div className="w-full p-2 md:p-5 space-y-3">
             <div className="space-y-3">
               <Swiper
                 navigation={true}
@@ -161,13 +156,16 @@ const Detail = ({ rendered }) => {
           </div>
         )}
         {info && (
-          <div className="w-full sticky border border-gray-200 top-5 rounded-3xl shadow px-5 py-6 flex flex-col justify-start items-start gap-8">
+          <div className="w-full sticky border border-gray-200 top-5 rounded-3xl shadow-sm px-1.5 md:px-3 lg:px-5 py-6 flex flex-col justify-start items-start gap-8">
+            <h3 className="text-xl lg:text-2xl font-semibold text-clip">
+              {info.productName}
+            </h3>
             <div className="flex justify-between w-full">
               <p className="flex gap-2.5">
-                <span className="text-base md:text-xl leading-[152%] font-medium">
+                <span className="text-base md:text-lg leading-[152%] font-medium">
                   Narxi:
                 </span>
-                <span className="text-xl md:text-2xl leading-normal font-bold">
+                <span className="text-lg md:text-xl leading-normal font-bold">
                   {info.price
                     .toLocaleString("UZ-uz", options)
                     .replaceAll(",", " ")}{" "}
@@ -199,29 +197,35 @@ const Detail = ({ rendered }) => {
                     return <li key={index}>{desc}</li>;
                   })}
               </ul>
-              {info && info.description && (
+              {info && info.shortly && (
                 <p className="text-lg">Mahsulot haqida qisqacha:</p>
               )}
-              <ul className="list-disc grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 list-inside space-y-1">
+              <ul className="list-decimal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 list-inside space-y-1">
                 {info &&
                   info.shortly &&
                   info.shortly.slice(0, viewIndex).map((short, index) => {
                     return <li key={index}>{short}</li>;
                   })}
-                {viewIndex == 4 && (
+                {info && info.shortly && viewIndex == 4 && (
                   <li
-                    onClick={() => setViewIndex(-1)}
-                    className="list-none px-5 cursor-pointer"
+                    onClick={() => setViewIndex(8)}
+                    className="list-none px-5 cursor-pointer flex items-center gap-2"
                   >
-                    barchasini ko'rish
+                    <span>Ko'proq ko'rish</span>
+                    <span>
+                      <ArrowDownwardOutlined fontSize="12px" />
+                    </span>
                   </li>
                 )}
-                {viewIndex == -1 && (
+                {info && info.shortly && viewIndex == 8 && (
                   <li
                     onClick={() => setViewIndex(4)}
-                    className="list-none px-5 cursor-pointer"
+                    className="list-none px-5 cursor-pointer flex items-center gap-2"
                   >
-                    yopish
+                    <span>Yopish</span>
+                    <span>
+                      <ArrowUpwardOutlined fontSize="12px" />
+                    </span>
                   </li>
                 )}
               </ul>

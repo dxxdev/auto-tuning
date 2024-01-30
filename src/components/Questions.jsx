@@ -130,7 +130,7 @@ const Questions = () => {
                 aria-label="send message to telegram button"
                 variant="gradient"
                 color="red"
-                className="flex justify-center from-[#b30000] to-[#a00] items-center gap-x-5"
+                className="flex justify-center !shadow-none from-[#b30000] to-[#a00] items-center gap-x-5"
                 fullWidth
                 onClick={(e) => handleSubmit(e)}
               >
