@@ -176,13 +176,8 @@ const Detail = ({ rendered }) => {
               <button
                 className="p-1 rounded-lg hover:bg-black/20"
                 onClick={() => {
-                  info.inTheCart = !info.inTheCart;
-                  setRender((prev) => !prev);
-                  if (info.inTheCart) {
-                    toast.success("Savatga qo'shildi", TOAST_CONFIG);
-                  } else {
-                    toast.error("Savatdan o'chirildi", TOAST_CONFIG);
-                  }
+                  rendered((prev) => !prev);
+                  addToCart(info);
                 }}
               >
                 {info.inTheCart ? (
