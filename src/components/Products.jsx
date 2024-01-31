@@ -49,7 +49,7 @@ const Products = ({ rendered, product, actionPage, card }) => {
               clickable: true,
             }}
             modules={[Pagination, EffectFade]}
-            className="mySwiper overflow-hidden flex justify-center items-center rounded-t-lg w-full h-full max-h-72"
+            className="mySwiper overflow-hidden flex justify-center items-center rounded-t-lg w-full h-72"
           >
             {product.images.slice(0, 3).map((item, index) => {
               return (
