@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   TOAST_CONFIG,
   chatId,
@@ -26,6 +26,8 @@ import { useNavigate } from "react-router-dom";
 import {
   Add,
   AddShoppingCartOutlined,
+  ArrowBackOutlined,
+  ArrowForwardOutlined,
   Bookmark,
   BookmarkBorderOutlined,
   Remove,
@@ -39,6 +41,7 @@ const Basket = ({ rendered }) => {
   const [render, setRender] = useState(true);
   const navigate = useNavigate();
   const [inTheCartProduct, setInTheCartProduct] = useState([]);
+  const recommendProductList = useRef(null);
   //   Send question Telegram bot
   const [address, setAddress] = useState("");
   const [clientName, setClientName] = useState("");
@@ -48,6 +51,10 @@ const Basket = ({ rendered }) => {
     const filteredProduct = products.filter((product) => product.inTheCart);
     setInTheCartProduct(filteredProduct);
     rendered();
+  };
+
+  const productSaved = (product) => {
+    product.saved = !product.saved;
   };
 
   const countProductArr = () => {
@@ -475,22 +482,46 @@ const Basket = ({ rendered }) => {
           )}
         </div>
       </div>
-      <section>
-        <div className="py-3">
-          <Typography variant="h4" className="text-2xl md:text-3xl">
-            Tavsiya qilinadi
-          </Typography>
+      <section className="py-3 lg:py-5">
+        <div className="flex justify-between">
+          <Typography variant="h4">Tavsiya qilinadi</Typography>
+          <div className="flex gap-2 items-center">
+            <IconButton
+              variant="outlined"
+              size="sm"
+              className="rounded-full"
+              onClick={() => {
+                recommendProductList.current.scrollLeft -= 200;
+              }}
+            >
+              <ArrowBackOutlined />
+            </IconButton>
+            <IconButton
+              variant="outlined"
+              size="sm"
+              className="rounded-full"
+              onClick={() => {
+                recommendProductList.current.scrollLeft += 200;
+              }}
+            >
+              <ArrowForwardOutlined />
+            </IconButton>
+          </div>
         </div>
         <ul
-          className={`${styles.container} !px-0 py-5 flex justify-start overflow-auto gap-5 products-swiper`}
+          ref={recommendProductList}
+          className={`${styles.container} scroll-smooth !px-0 py-5 flex justify-start overflow-hidden gap-5`}
         >
           {products.map((product, index) => {
             if (product.recommend) {
               return (
                 <Products
+                  card={false}
                   key={index}
-                  rendered={filteredProductOnCart}
+                  rendered={rendered}
                   product={product}
+                  productId={product.id}
+                  productSaved={productSaved}
                 />
               );
             }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { addCartProduct, options, products, viewProduct } from "../data/data";
 import { styles } from "../styles";
@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Pagination } from "swiper/modules";
 import {
   AddShoppingCartOutlined,
+  ArrowBackOutlined,
+  ArrowForwardOutlined,
   AttachMoney,
   Bookmark,
   BookmarkBorderOutlined,
@@ -24,6 +26,7 @@ const Category = ({ rendered }) => {
   const [render, setRender] = useState(true);
   const [filterCategory, setFilterCategory] = useState([]);
   const [inOrder, setInOrder] = useState(null);
+  const recommendProductList = useRef(null);
 
   const filteredCategory = products.filter((product) => {
     return product.category == category;
@@ -209,21 +212,45 @@ const Category = ({ rendered }) => {
         })}
         <ToastContainer />
       </ul>
-      <section>
-        <div className="py-2">
+      <section className="py-0 lg:py-5">
+        <div className="flex justify-between">
           <Typography variant="h4">Sizga yoqishi mumkin</Typography>
+          <div className="flex gap-2 items-center">
+            <IconButton
+              variant="outlined"
+              size="sm"
+              className="rounded-full"
+              onClick={() => {
+                recommendProductList.current.scrollLeft -= 200;
+              }}
+            >
+              <ArrowBackOutlined />
+            </IconButton>
+            <IconButton
+              variant="outlined"
+              size="sm"
+              className="rounded-full"
+              onClick={() => {
+                recommendProductList.current.scrollLeft += 200;
+              }}
+            >
+              <ArrowForwardOutlined />
+            </IconButton>
+          </div>
         </div>
         <ul
-          className={`${styles.container} !px-0 py-3 flex justify-start overflow-auto gap-5 products-swiper`}
+          ref={recommendProductList}
+          className={`${styles.container} scroll-smooth !px-0 py-5 flex justify-start overflow-hidden gap-5`}
         >
-          {products.map((product) => {
+          {products.map((product, index) => {
             if (product.recommend) {
               return (
                 <Products
                   card={false}
+                  key={index}
                   rendered={rendered}
                   product={product}
-                  key={product.id}
+                  productId={product.id}
                   productSaved={productSaved}
                 />
               );

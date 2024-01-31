@@ -72,7 +72,7 @@ const Commentaries = () => {
         <Typography variant="h3" className="text-2xl md:text-3xl">
           Izohlar
         </Typography>
-        <ul className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-7">
+        <ul className="py-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-7">
           {commentaries.map((note) => {
             return (
               <li

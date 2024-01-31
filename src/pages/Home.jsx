@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -10,7 +10,10 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { swiperImages } from "../data/hero-swiper";
 import {
   Button,
+  IconButton,
+  Option,
   Rating,
+  Select,
   Tab,
   TabPanel,
   Tabs,
@@ -21,15 +24,24 @@ import {
 import { styles } from "../styles";
 import { Link, useNavigate } from "react-router-dom";
 import { category, commentaries, products, scrollTop } from "../data/data";
-import { ArrowRightAltOutlined } from "@mui/icons-material";
+import {
+  ArrowBackOutlined,
+  ArrowForwardOutlined,
+  ArrowRightAltOutlined,
+} from "@mui/icons-material";
 import { ToastContainer } from "react-toastify";
 import Products from "../components/Products";
 import { companies } from "../assets/images";
 
 const Home = ({ rendered }) => {
-  const [topTabValue, setTopTabValue] = useState("allCategories");
-  const [newTabValue, setNewTabValue] = useState("allCategories");
-  const [discountTabValue, setDiscountTabValue] = useState("allCategories");
+  const [topTabValue, setTopTabValue] = useState("all");
+  const [newTabValue, setNewTabValue] = useState("all");
+  const [discountTabValue, setDiscountTabValue] = useState("all");
+  const [topProductListScroll, setTopProductListScroll] = useState(0);
+  const topProductList = useRef(null);
+  const newProductList = useRef(null);
+  const recommendProductList = useRef(null);
+  const discountProductList = useRef(null);
   const navigate = useNavigate();
 
   const productSaved = (product) => {
@@ -111,49 +123,70 @@ const Home = ({ rendered }) => {
       </div>
       <div className={`${styles.container} py-10 space-y-5`}>
         <div className="space-y-5">
-          <Typography
-            variant="h2"
-            color="black"
-            className={`${styles.container} !px-0 text-2xl lg:text-4xl text-center`}
-          >
-            Eng yaxshi mahsulotlar
-          </Typography>
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
               <div className={`${styles.container}`}>
-                <div className="flex justify-start w-full items-center lg:justify-center">
-                  <div className="overflow-x-auto overflow-y-visible scroll-none rounded-md">
-                    <div className="w-max relative">
-                      <button
-                        className={`px-3 py-2 transition-all duration-300 font-semibold ${
-                          topTabValue == "allCategories"
-                            ? "bg-opacity-5 text-black bg-[#003a44]"
-                            : "text-white bg-[#003a44]"
-                        }`}
-                        onClick={() => setTopTabValue("allCategories")}
+                <div className="flex space-y-10 md:space-y-0 flex-col md:flex-row justify-between items-center">
+                  <Typography
+                    variant="h2"
+                    color="black"
+                    className={`!px-0 text-2xl lg:text-4xl text-center`}
+                  >
+                    Eng yaxshi mahsulotlar
+                  </Typography>
+                  <div className="flex gap-2 justify-between w-full md:w-min">
+                    <div>
+                      <Select
+                        onChange={(value) => {
+                          setTopTabValue(value);
+                        }}
+                        size="md"
+                        label="Filtr"
+                        animate={{
+                          mount: { y: 0, scale: 1 },
+                          unmount: { y: 25, scale: 0.5 },
+                        }}
+                        defaultValue="all"
                       >
-                        Hammasi
-                      </button>
-                      {category &&
-                        category.map((item, index) => {
-                          return (
-                            <button
-                              key={index}
-                              onClick={() => setTopTabValue(item)}
-                              className={`px-3 py-2 transition-all duration-300 font-semibold ${
-                                topTabValue == item
-                                  ? "bg-opacity-5 text-black bg-[#003a44]"
-                                  : "text-white bg-[#003a44]"
-                              }`}
-                            >
-                              {item}
-                            </button>
-                          );
-                        })}
+                        <Option value="all">Hammasi</Option>
+                        {category.length > 0 &&
+                          category.map((item, index) => {
+                            return (
+                              <Option key={index} value={item}>
+                                {item}
+                              </Option>
+                            );
+                          })}
+                      </Select>
+                    </div>
+                    <div className="flex gap-2 items-center">
+                      <IconButton
+                        variant="outlined"
+                        size="sm"
+                        className="rounded-full"
+                        onClick={() => {
+                          topProductList.current.scrollLeft -= 200;
+                        }}
+                      >
+                        <ArrowBackOutlined />
+                      </IconButton>
+                      <IconButton
+                        variant="outlined"
+                        size="sm"
+                        className="rounded-full"
+                        onClick={() => {
+                          topProductList.current.scrollLeft += 200;
+                        }}
+                      >
+                        <ArrowForwardOutlined />
+                      </IconButton>
                     </div>
                   </div>
                 </div>
-                <ul className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0">
+                <ul
+                  ref={topProductList}
+                  className="flex gap-x-5 scroll-smooth py-5 lg:py-8 overflow-hidden px-0"
+                >
                   {products.map((product, index) => {
                     if (topTabValue == product.category && product.top) {
                       return (
@@ -166,7 +199,7 @@ const Home = ({ rendered }) => {
                           productSaved={productSaved}
                         />
                       );
-                    } else if (topTabValue == "allCategories" && product.top) {
+                    } else if (topTabValue == "all" && product.top) {
                       return (
                         <Products
                           card={false}
@@ -180,7 +213,7 @@ const Home = ({ rendered }) => {
                     }
                   })}
                   {products.filter((product) => {
-                    if (topTabValue == "allCategories" && product.top) {
+                    if (topTabValue == "all" && product.top) {
                       return product;
                     } else if (topTabValue == product.category && product.top) {
                       return product;
@@ -298,49 +331,70 @@ const Home = ({ rendered }) => {
         </div>
         {/* New products */}
         <div className="space-y-5">
-          <Typography
-            variant="h2"
-            color="black"
-            className={`${styles.container} !px-0 text-2xl lg:text-4xl text-center`}
-          >
-            Yangi mahsulotlar
-          </Typography>
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
               <div className={`${styles.container}`}>
-                <div className="flex justify-start w-full items-center lg:justify-center">
-                  <div className="overflow-x-auto overflow-y-visible scroll-none rounded-md">
-                    <div className="w-max relative  bg-[#003a44">
-                      <button
-                        className={`px-3 py-2 transition-all duration-300 font-semibold ${
-                          newTabValue == "allCategories"
-                            ? "bg-opacity-5 text-black bg-[#003a44]"
-                            : "text-white bg-[#003a44]"
-                        }`}
-                        onClick={() => setNewTabValue("allCategories")}
+                <div className="flex space-y-10 md:space-y-0 flex-col md:flex-row justify-between items-center">
+                  <Typography
+                    variant="h2"
+                    color="black"
+                    className={`!px-0 text-2xl lg:text-4xl text-center`}
+                  >
+                    Yangi kelgan mahsulotlar
+                  </Typography>
+                  <div className="flex gap-2 justify-between w-full md:w-min">
+                    <div>
+                      <Select
+                        onChange={(value) => {
+                          setNewTabValue(value);
+                        }}
+                        size="md"
+                        label="Filtr"
+                        animate={{
+                          mount: { y: 0, scale: 1 },
+                          unmount: { y: 25, scale: 0.5 },
+                        }}
+                        defaultValue="all"
                       >
-                        Hammasi
-                      </button>
-                      {category &&
-                        category.map((item, index) => {
-                          return (
-                            <button
-                              key={index}
-                              onClick={() => setNewTabValue(item)}
-                              className={`px-3 py-2 transition-all duration-300 font-semibold ${
-                                newTabValue == item
-                                  ? "bg-opacity-5 text-black bg-[#003a44]"
-                                  : "text-white bg-[#003a44]"
-                              }`}
-                            >
-                              {item}
-                            </button>
-                          );
-                        })}
+                        <Option value="all">Hammasi</Option>
+                        {category.length > 0 &&
+                          category.map((item, index) => {
+                            return (
+                              <Option key={index} value={item}>
+                                {item}
+                              </Option>
+                            );
+                          })}
+                      </Select>
+                    </div>
+                    <div className="flex gap-2 items-center">
+                      <IconButton
+                        variant="outlined"
+                        size="sm"
+                        className="rounded-full"
+                        onClick={() => {
+                          newProductList.current.scrollLeft -= 200;
+                        }}
+                      >
+                        <ArrowBackOutlined />
+                      </IconButton>
+                      <IconButton
+                        variant="outlined"
+                        size="sm"
+                        className="rounded-full"
+                        onClick={() => {
+                          newProductList.current.scrollLeft += 200;
+                        }}
+                      >
+                        <ArrowForwardOutlined />
+                      </IconButton>
                     </div>
                   </div>
                 </div>
-                <ul className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0">
+                <ul
+                  ref={newProductList}
+                  className="flex gap-x-5 scroll-smooth py-5 lg:py-8 overflow-hidden px-0"
+                >
                   {products.map((product, index) => {
                     if (newTabValue == product.category && product.isItNew) {
                       return (
@@ -353,10 +407,7 @@ const Home = ({ rendered }) => {
                           productSaved={productSaved}
                         />
                       );
-                    } else if (
-                      newTabValue == "allCategories" &&
-                      product.isItNew
-                    ) {
+                    } else if (newTabValue == "all" && product.isItNew) {
                       return (
                         <Products
                           card={false}
@@ -370,7 +421,7 @@ const Home = ({ rendered }) => {
                     }
                   })}
                   {products.filter((product) => {
-                    if (newTabValue == "allCategories" && product.isItNew) {
+                    if (newTabValue == "all" && product.isItNew) {
                       return product;
                     } else if (
                       newTabValue == product.category &&
@@ -402,39 +453,67 @@ const Home = ({ rendered }) => {
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
               <div className={`${styles.container}`}>
-                <div className="flex justify-start w-full items-center lg:justify-center">
-                  <div className="overflow-x-auto overflow-y-visible scroll-none rounded-md">
-                    <div className="w-max relative">
-                      <button
-                        className={`px-3 py-2 transition-all duration-300 font-semibold ${
-                          discountTabValue == "allCategories"
-                            ? "bg-opacity-5 text-black bg-[#003a44]"
-                            : "text-white bg-[#003a44]"
-                        }`}
-                        onClick={() => setDiscountTabValue("allCategories")}
+                <div className="flex space-y-10 md:space-y-0 flex-col md:flex-row justify-between items-center">
+                  <Typography
+                    variant="h2"
+                    color="black"
+                    className={`!px-0 text-2xl lg:text-4xl text-center`}
+                  >
+                    Yangi kelgan mahsulotlar
+                  </Typography>
+                  <div className="flex gap-2 justify-between w-full md:w-min">
+                    <div>
+                      <Select
+                        onChange={(value) => {
+                          setDiscountTabValue(value);
+                        }}
+                        size="md"
+                        label="Filtr"
+                        animate={{
+                          mount: { y: 0, scale: 1 },
+                          unmount: { y: 25, scale: 0.5 },
+                        }}
+                        defaultValue="all"
                       >
-                        Hammasi
-                      </button>
-                      {category &&
-                        category.map((item, index) => {
-                          return (
-                            <button
-                              key={index}
-                              onClick={() => setDiscountTabValue(item)}
-                              className={`px-3 py-2 transition-all duration-300 font-semibold ${
-                                discountTabValue == item
-                                  ? "bg-opacity-5 text-black bg-[#003a44]"
-                                  : "text-white bg-[#003a44]"
-                              }`}
-                            >
-                              {item}
-                            </button>
-                          );
-                        })}
+                        <Option value="all">Hammasi</Option>
+                        {category.length > 0 &&
+                          category.map((item, index) => {
+                            return (
+                              <Option key={index} value={item}>
+                                {item}
+                              </Option>
+                            );
+                          })}
+                      </Select>
+                    </div>
+                    <div className="flex gap-2 items-center">
+                      <IconButton
+                        variant="outlined"
+                        size="sm"
+                        className="rounded-full"
+                        onClick={() => {
+                          discountProductList.current.scrollLeft -= 200;
+                        }}
+                      >
+                        <ArrowBackOutlined />
+                      </IconButton>
+                      <IconButton
+                        variant="outlined"
+                        size="sm"
+                        className="rounded-full"
+                        onClick={() => {
+                          discountProductList.current.scrollLeft += 200;
+                        }}
+                      >
+                        <ArrowForwardOutlined />
+                      </IconButton>
                     </div>
                   </div>
                 </div>
-                <ul className="flex gap-x-5 py-5 lg:py-8 overflow-auto products-swiper px-0">
+                <ul
+                  ref={discountProductList}
+                  className="flex gap-x-5 scroll-smooth py-5 lg:py-8 overflow-hidden px-0"
+                >
                   {products.map((product, index) => {
                     if (
                       discountTabValue == product.category &&
@@ -450,10 +529,7 @@ const Home = ({ rendered }) => {
                           productSaved={productSaved}
                         />
                       );
-                    } else if (
-                      discountTabValue == "allCategories" &&
-                      product.inAction
-                    ) {
+                    } else if (discountTabValue == "all" && product.inAction) {
                       return (
                         <Products
                           card={false}
@@ -467,10 +543,7 @@ const Home = ({ rendered }) => {
                     }
                   })}
                   {products.filter((product) => {
-                    if (
-                      discountTabValue == "allCategories" &&
-                      product.inAction
-                    ) {
+                    if (discountTabValue == "all" && product.inAction) {
                       return product;
                     } else if (
                       discountTabValue == product.category &&
@@ -533,11 +606,34 @@ const Home = ({ rendered }) => {
         </section>
         {/* Recommended products section */}
         <section className="py-0 lg:py-5">
-          <div>
+          <div className="flex justify-between">
             <Typography variant="h4">Tavsiya qilinadi</Typography>
+            <div className="flex gap-2 items-center">
+              <IconButton
+                variant="outlined"
+                size="sm"
+                className="rounded-full"
+                onClick={() => {
+                  recommendProductList.current.scrollLeft -= 200;
+                }}
+              >
+                <ArrowBackOutlined />
+              </IconButton>
+              <IconButton
+                variant="outlined"
+                size="sm"
+                className="rounded-full"
+                onClick={() => {
+                  recommendProductList.current.scrollLeft += 200;
+                }}
+              >
+                <ArrowForwardOutlined />
+              </IconButton>
+            </div>
           </div>
           <ul
-            className={`${styles.container} !px-0 py-5 flex justify-start overflow-auto gap-5 products-swiper`}
+            ref={recommendProductList}
+            className={`${styles.container} scroll-smooth !px-0 py-5 flex justify-start overflow-hidden gap-5`}
           >
             {products.map((product, index) => {
               if (product.recommend) {

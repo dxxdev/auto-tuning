@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   TOAST_CONFIG,
@@ -20,7 +20,9 @@ import {
 } from "@material-tailwind/react";
 import {
   AddShoppingCartOutlined,
+  ArrowBackOutlined,
   ArrowDownwardOutlined,
+  ArrowForwardOutlined,
   ArrowUpwardOutlined,
   Bookmark,
   BookmarkBorderOutlined,
@@ -49,6 +51,7 @@ const Detail = ({ rendered }) => {
   const [render, setRender] = useState(true);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [tabValue, setTabValue] = useState("description");
+  const recommendProductList = useRef(null);
 
   useEffect(() => {
     document.title = productName;
@@ -281,44 +284,45 @@ const Detail = ({ rendered }) => {
       </div>
 
       {products.find((product) => product.recommend == true) && (
-        <section className={`${styles.container}`}>
-          <div className="py-2">
+        <section className="py-0 lg:py-5">
+          <div className={`${styles.container} flex justify-between`}>
             <Typography variant="h4">Sizga yoqishi mumkin</Typography>
+            <div className="flex gap-2 items-center">
+              <IconButton
+                variant="outlined"
+                size="sm"
+                className="rounded-full"
+                onClick={() => {
+                  recommendProductList.current.scrollLeft -= 200;
+                }}
+              >
+                <ArrowBackOutlined />
+              </IconButton>
+              <IconButton
+                variant="outlined"
+                size="sm"
+                className="rounded-full"
+                onClick={() => {
+                  recommendProductList.current.scrollLeft += 200;
+                }}
+              >
+                <ArrowForwardOutlined />
+              </IconButton>
+            </div>
           </div>
           <ul
-            className={`${styles.container} !px-0 py-8 flex justify-start overflow-auto gap-5 products-swiper`}
+            ref={recommendProductList}
+            className={`${styles.container} scroll-smooth !px-0 py-5 flex justify-start overflow-hidden gap-5`}
           >
-            {products.map((product) => {
+            {products.map((product, index) => {
               if (product.recommend) {
                 return (
                   <Products
-                    key={product.id}
+                    card={false}
+                    key={index}
                     rendered={rendered}
                     product={product}
-                    productSaved={productSaved}
-                  />
-                );
-              }
-            })}
-          </ul>
-        </section>
-      )}
-
-      {products.find((product) => product.viewed == true) && (
-        <section className={`${styles.container}`}>
-          <div className="py-3 lg:py-5">
-            <Typography variant="h4">Ko'rilganlar</Typography>
-          </div>
-          <ul
-            className={`${styles.container} !px-0 py-8 flex justify-start overflow-auto gap-5 products-swiper`}
-          >
-            {products.map((product) => {
-              if (product.viewed) {
-                return (
-                  <Products
-                    rendered={rendered}
-                    product={product}
-                    key={product.id}
+                    productId={product.id}
                     productSaved={productSaved}
                   />
                 );

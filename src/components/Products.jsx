@@ -30,7 +30,7 @@ const Products = ({ rendered, product, actionPage, card }) => {
     <li
       className={`rounded-lg bg-white ${
         actionPage ? "w-full" : "max-w-xs"
-      } flex flex-col hover:shadow-md space-y-4 card-swiper w-72 md:${
+      } flex flex-col hover:shadow-md space-y-4 card-swiper w-64 md:${
         card ? "w-full" : "w-72"
       } relative group`}
     >
@@ -49,7 +49,7 @@ const Products = ({ rendered, product, actionPage, card }) => {
               clickable: true,
             }}
             modules={[Pagination, EffectFade]}
-            className="mySwiper overflow-hidden rounded-t-lg w-full h-[240px] sm:h-[300px]"
+            className="mySwiper overflow-hidden flex justify-center items-center rounded-t-lg w-full h-full max-h-72"
           >
             {product.images.slice(0, 3).map((item, index) => {
               return (
@@ -67,21 +67,19 @@ const Products = ({ rendered, product, actionPage, card }) => {
               );
             })}
           </Swiper>
-          <div className="flex h-min space-x-1.5 md:space-x-3 absolute left-1.5 md:left-3 bottom-3 md:top-3 z-10">
+          <div className="flex h-min space-x-1.5 md:space-x-2 absolute left-1 md:left-1.5 bottom-2 md:top-2 z-10">
             {product.isItNew && (
               <Chip
-                className="transition-all bg-[#060] duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                className="transition-all !text-[10px] !px-2 bg-[#060] duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                 value="Yangi"
                 color="green"
-                size="sm"
                 variant="filled"
               />
             )}
             {product.inAction && (
               <Chip
-                className="transition-all bg-[#b30000] duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
+                className="transition-all !text-[10px] !px-2 bg-[#b30000] duration-200 !py-0.5 group-hover:bg-opacity-0 group-hover:text-opacity-0"
                 value="Aksiya"
-                size="sm"
                 variant="filled"
                 color="red"
               />
@@ -113,13 +111,6 @@ const Products = ({ rendered, product, actionPage, card }) => {
           {product.productName}
         </Typography>
         <div>
-          <Typography variant="small">Turkum: {product.category}</Typography>
-          <Typography variant="small" color="black">
-            <span className="flex items-end justify-start text-black lg:text-black/90 space-x-1">
-              <Star className="text-yellow-700" />
-              <span>{product.rating}</span>
-            </span>
-          </Typography>
           <div className="w-full flex justify-between items-end">
             <b className="text-base text-black font-bold lg:text-black/90">
               {product.price
