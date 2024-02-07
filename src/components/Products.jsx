@@ -123,8 +123,8 @@ const Products = ({ rendered, product, actionPage, card }) => {
               tabIndex="-1"
               onClick={() => {
                 setRender((prev) => !prev);
+                rendered((prev) => !prev);
                 addCartProduct(product);
-                rendered();
               }}
               variant={`${product.inTheCart ? "filled" : "outlined"}`}
               color="gray"

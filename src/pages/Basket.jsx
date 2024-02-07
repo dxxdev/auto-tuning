@@ -518,7 +518,7 @@ const Basket = ({ rendered }) => {
                 <Products
                   card={false}
                   key={index}
-                  rendered={rendered}
+                  rendered={setRender}
                   product={product}
                   productId={product.id}
                   productSaved={productSaved}
