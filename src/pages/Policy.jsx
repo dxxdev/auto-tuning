@@ -4,7 +4,7 @@ import { Typography } from "@material-tailwind/react";
 
 const Policy = () => {
   return (
-    <div className={`${styles.container}`}>
+    <div className={`${styles.container} px-2.5`}>
       <div>
         <Typography
           variant="h1"
@@ -22,7 +22,7 @@ const Policy = () => {
         veb-saytidan foydalanganda mijoz yoki hamkor haqida olishi mumkin
         bo'lgan barcha ma'lumotlarga nisbatan qo'llaniladi .
       </p>
-      <ol className="space-y-6 py-14">
+      <ol className="space-y-6 py-8 lg:py-14">
         <li className="space-y-4">
           <p className="text-xl text-black">
             1. <strong className="font-medium">ASOSIY TUSHUNCHALAR</strong>

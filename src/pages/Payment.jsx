@@ -13,7 +13,7 @@ const Payment = () => {
   });
 
   return (
-    <div className={`pb-10 ${styles.container}`}>
+    <div className={`pb-10 ${styles.container} px-3`}>
       <div className="space-y-8">
         <div>
           <Typography

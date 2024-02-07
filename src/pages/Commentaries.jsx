@@ -69,10 +69,10 @@ const Commentaries = () => {
   return (
     <div className={`${styles.container}`}>
       <section>
-        <Typography variant="h3" className="text-2xl md:text-3xl">
+        <Typography variant="h3" className="text-2xl md:text-3xl px-2 pt-3">
           Izohlar
         </Typography>
-        <ul className="py-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-7">
+        <ul className="py-4 sm:py-6 lg:py-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-7">
           {commentaries.map((note) => {
             return (
               <li
@@ -120,7 +120,7 @@ const Commentaries = () => {
               Sharh qoldiring!
             </Typography>
           </CardHeader>
-          <CardBody className="flex flex-col gap-4">
+          <CardBody className="flex flex-col gap-4 p-3 md:p-6">
             <Input
               onChange={(e) => setUserName(e.target.value)}
               label="Ism yoki familiya"
@@ -177,7 +177,7 @@ const Commentaries = () => {
               <ReCAPTCHA sitekey="6LdUGUwpAAAAACjaVLjP4wN3FL9eFysDYmE4dQ5Q" />
             </div>
           </CardBody>
-          <CardFooter className="pt-0">
+          <CardFooter className="!pt-0 p-3 md:p-6">
             <Button
               variant="gradient"
               color="red"

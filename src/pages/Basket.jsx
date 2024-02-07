@@ -149,7 +149,7 @@ const Basket = ({ rendered }) => {
       <div
         className={`${styles.container} !px-0 flex flex-col gap-x-8 lg:flex-row gap-y-5 justify-between md:py-2`}
       >
-        <div className="w-full grow flex flex-col h-full">
+        <div className="w-full grow flex flex-col px-2.5 h-full">
           {inTheCartProduct && inTheCartProduct.length > 0 && (
             <div className="h-full flex flex-col items-start justify-between">
               <ul className={`${styles.container} grow !px-0 space-y-5`}>
@@ -383,7 +383,7 @@ const Basket = ({ rendered }) => {
             </div>
           )}
         </div>
-        <div>
+        <div className="px-2.5">
           {inTheCartProduct.length > 0 && (
             <div className="w-full lg:w-min sticky top-0">
               <Card className="w-full lg:w-96">
@@ -483,7 +483,7 @@ const Basket = ({ rendered }) => {
         </div>
       </div>
       <section className="py-3 lg:py-5">
-        <div className="flex justify-between">
+        <div className="flex justify-between px-2.5">
           <Typography variant="h4">Tavsiya qilinadi</Typography>
           <div className="flex gap-2 items-center">
             <IconButton
@@ -510,7 +510,7 @@ const Basket = ({ rendered }) => {
         </div>
         <ul
           ref={recommendProductList}
-          className={`${styles.container} scroll-smooth !px-0 py-5 flex justify-start overflow-hidden gap-5`}
+          className={`${styles.container} scroll-smooth px-2.5 py-5 flex justify-start overflow-hidden gap-5`}
         >
           {products.map((product, index) => {
             if (product.recommend) {

@@ -18,11 +18,11 @@ const FAQ = () => {
         <div className="flex flex-col gap-y-4 sm:gap-y-6 lg:gap-y-10">
           <Typography
             variant="h1"
-            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl"
+            className="text-2xl sm:text-3xl px-2 sm:px-0 lg:text-4xl xl:text-5xl"
           >
             Kompaniya haqida
           </Typography>
-          <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-5 lg:space-y-0 lg:justify-between">
+          <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-5 lg:space-y-0 lg:justify-between px-2 sm:px-0">
             <p className="text-gray-700">
               "AUTO TUNING" - O'zbekistondagi eng yirik avto tovarlar yetkazib
               beruvchilardan biri hisoblanadi.
@@ -58,7 +58,7 @@ const FAQ = () => {
           />
         </div>
         <div className="flex flex-col">
-          <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-4 md:space-y-0 md:justify-between">
+          <div className="w-full h-full flex flex-col max-w-full lg:max-w-3xl space-y-4 md:space-y-0 md:justify-between px-2 sm:px-0">
             <p className="text-gray-700">
               "AUTO TUNING" mahsulotlarini O'zbekistonning 300 dan ortiq
               shaharlarida sotib olish mumkin. Kompaniyaning tovarlar keng
@@ -109,7 +109,7 @@ const FAQ = () => {
       </section>
       <section className="!mt-2">
         <div className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row justify-between">
-          <Typography variant="h4">Izohlar</Typography>
+          <Typography variant="h4" className="px-2 sm:px-0">Izohlar</Typography>
           <Button
             onClick={() => {
               navigate("/Sharhlar");

@@ -9,9 +9,9 @@ import "../styles/footerStyle.css";
 const Footer = () => {
   const navigate = useNavigate();
   return (
-    <footer className={`bg-gray-900 pt-20 pb-8`}>
+    <footer className={`bg-gray-900 pt-10 lg:pt-20 pb-8`}>
       <div className={`${styles.container} flex flex-col gap-y-10`}>
-        <div className="footer gap-8 px-5">
+        <div className="footer gap-8 px-2.5 lg:px-5">
           <div className="pr-20 hidden md:flex flex-col gap-y-8 items-start w-full max-w-[416px]">
             <h1 className="inline-block text-3xl">
               <Link

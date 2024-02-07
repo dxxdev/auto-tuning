@@ -159,7 +159,7 @@ const Detail = ({ rendered }) => {
           </div>
         )}
         {info && (
-          <div className="w-full sticky top-0 rounded-3xl px-1.5 md:px-3 lg:px-5 py-5 flex flex-col justify-start items-start gap-8">
+          <div className="w-full sticky top-0 rounded-3xl px-2.5 md:px-3 lg:px-5 py-5 flex flex-col justify-start items-start gap-8">
             <h3 className="text-xl lg:text-2xl font-semibold text-clip">
               {info.productName}
             </h3>
@@ -244,7 +244,7 @@ const Detail = ({ rendered }) => {
       </div>
 
       <div className="my-3 flex flex-col gap-3">
-        <div className="w-full max-w-[1440px] mx-auto px-1.5 md:px-3 rounded-xl py-5">
+        <div className="w-full max-w-[1440px] mx-auto px-2.5 md:px-3 rounded-xl py-5">
           {info && (
             <div className="w-full space-y-5 text-black">
               <div>
@@ -285,7 +285,7 @@ const Detail = ({ rendered }) => {
 
       {products.find((product) => product.recommend == true) && (
         <section className="py-0 lg:py-5">
-          <div className={`${styles.container} flex justify-between`}>
+          <div className={`${styles.container} flex px-2.5 justify-between`}>
             <Typography variant="h4">Sizga yoqishi mumkin</Typography>
             <div className="flex gap-2 items-center">
               <IconButton
@@ -312,7 +312,7 @@ const Detail = ({ rendered }) => {
           </div>
           <ul
             ref={recommendProductList}
-            className={`${styles.container} scroll-smooth !px-0 py-5 flex justify-start overflow-hidden gap-5`}
+            className={`${styles.container} scroll-smooth py-5 flex justify-start overflow-hidden gap-5`}
           >
             {products.map((product, index) => {
               if (product.recommend) {

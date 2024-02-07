@@ -15,7 +15,7 @@ const Action = ({ rendered }) => {
   })
 
   return (
-    <div className={`${styles.container}`}>
+    <div className={`${styles.container} px-2.5`}>
       <ul
         className={`py-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 gap-y-4 md:gap-y-6 md:gap-3 lg:gap-y-8 lg:gap-5`}
       >

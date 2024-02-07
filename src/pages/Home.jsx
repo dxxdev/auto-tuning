@@ -443,13 +443,6 @@ const Home = ({ rendered }) => {
         </div>
         {/* Discounted products */}
         <div className="space-y-5">
-          <Typography
-            variant="h2"
-            color="black"
-            className={`${styles.container} !px-0 text-2xl lg:text-4xl text-center`}
-          >
-            Aksiyadagi mahsulotlar
-          </Typography>
           <div className="flex w-full justify-center items-center py-5">
             {category.length > 0 && (
               <div className={`${styles.container}`}>
@@ -459,7 +452,7 @@ const Home = ({ rendered }) => {
                     color="black"
                     className={`!px-0 text-2xl lg:text-4xl text-center`}
                   >
-                    Yangi kelgan mahsulotlar
+                    Aksiyadagi mahsulotlar
                   </Typography>
                   <div className="flex gap-2 justify-between w-full md:w-min">
                     <div>
@@ -566,7 +559,7 @@ const Home = ({ rendered }) => {
         {/* Commentaries section */}
         <section>
           <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row justify-between">
-            <Typography variant="h3">Izohlar</Typography>
+            <Typography variant="h3" className="px-2">Izohlar</Typography>
             <Button
               onClick={() => {
                 navigate("/Sharhlar");
@@ -607,7 +600,7 @@ const Home = ({ rendered }) => {
         {/* Recommended products section */}
         <section className="py-0 lg:py-5">
           <div className="flex justify-between">
-            <Typography variant="h4">Tavsiya qilinadi</Typography>
+            <Typography variant="h4" className="px-2">Tavsiya qilinadi</Typography>
             <div className="flex gap-2 items-center">
               <IconButton
                 variant="outlined"
