@@ -270,7 +270,7 @@ const Detail = ({ rendered }) => {
                 <p>Kompaniyadan olib ketish</p>
                 <p className="text-gray-700">
                   Buyurtmani quyidagi manzildan olishingiz mumkin: <br />{" "}
-                  Toshkent, Amir Temur K: 47b
+                  Toshkent sh
                 </p>
               </div>
 

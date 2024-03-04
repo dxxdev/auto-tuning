@@ -81,7 +81,7 @@ const Payment = () => {
           </Typography>
           <p className="text-gray-700 max-w-screen-md">
             Buyurtmani quyidagi manzildan olishingiz mumkin: <br />
-            Toshkent sh, Amir Temur k. 47b
+            Toshkent sh
           </p>
           <p className="text-gray-700 max-w-screen-md">
             Ish vaqti: <br />

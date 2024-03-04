@@ -104,7 +104,7 @@ const Footer = () => {
                 </h2>
               </div>
               <div className="flex flex-col gap-y-2 text-gray-400">
-                <p>Manzil: Toshkent sh, Amir Temur k. 47b</p>
+                <p>Manzil: Toshkent sh</p>
                 <p>Ish vaqti: 9:00 dan 18:00 gacha</p>
                 <a
                   href="mailto:diyorbekxojamberdiyevn1@gmail.com"
